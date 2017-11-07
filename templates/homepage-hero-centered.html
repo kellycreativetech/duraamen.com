@@ -1,0 +1,183 @@
+{% extends "base.html" %}
+
+
+
+{% block body %}
+
+
+
+{% block hero %}
+
+<div class="carousel-wrap">
+
+  {% page "masthead_image" type=img %}
+
+  <img src="{% imgix_url page.content.masthead_image %}?w=1168&amp;h=414" width="100%" alt="{{ page.content.Masthead_Title|striptags }}" />
+
+    <div class="masthead-caption installers-edge-home-masthead">
+
+        <h1>{% page "Masthead_Title" type="text" %}</h1>
+
+        <h3>{% page "Masthead_Subtitle" type="text" %}</h3>
+
+        {% page 'Masthead Description' type='wysiwyg' placeholder="Masthead Description" %}
+
+    </div>
+
+</div>
+
+{% endblock hero %}
+
+    <div class="hero-subhead">
+
+        <h1>{% page "Subhead" type="text" placeholder="Subhead" %}</h1>
+
+    </div>
+
+        <div class="row">
+
+            <div class="span4">
+
+                <h2 class="bg-head center gray">{% page "Subhead_2" type="text" placeholder="Subhead" %}</a></h2>
+
+                <div class="home-content-area">
+
+                    {% page "Content" type="wysiwyg" placeholder="Insert Content here" %}
+
+                </div>
+
+            </div>
+
+            <div class="span4">
+
+                {% block content %}
+
+                    {% block main-title %}
+
+                    <h2 class="bg-head center gray">{% page "Subhead_3" type="text" placeholder="Subhead" %}</h2>
+
+                    {% endblock %}
+
+                    <div class="standardContent home-content-area">
+
+                        {% page "Content_2" type="wysiwyg" placeholder="Insert Content here" %}
+
+                    </div>
+
+                {% endblock content %}
+
+
+
+            </div>
+
+            <div class="span4">
+
+                <h2 class="bg-head center gray">{% page "Subhead_4" type="text" placeholder="Subhead" %}</h2>
+
+                <div class="home-content-area">
+
+                    {% page "Content_3" type="wysiwyg" placeholder="Insert Content here" %}
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <h2 class="bg-head center gray">{% page "Subhead_5" type="text" placeholder="Subhead" %}</h2>
+
+        
+
+        
+
+        <div class="row">
+
+            <div class="span6"> {% page "landing-page-1" type="wysiwyg" %}</div>
+
+            <div class="span6"> {% page "landing-page-2" type="wysiwyg" %}</div>
+
+        </div>
+
+        
+
+        
+
+        
+
+        {% comment %}
+
+        <ul class="featured-list thumbnails clearfix">
+
+        {% children as featured_products parent='p' limit=4 order_by='?' %}
+
+         {% for product in featured_products %}
+
+            <li class="span3">
+
+                <h3><a href="/p/{{ product.content.category|slugify }}#{{ product.content.slug }}">{{ product.content.title }}</a></h3>
+
+                <a href="/p/{{ product.content.category }}#{{ product.content.slug }}"><img src="{% imgix_url product.content.image %}?w=330&amp;h=110&amp;fit=max" alt="{{ product.content.title }}"></a>
+
+
+
+                <h5>{{ product.content.subtitle }}</small></h5>
+
+                <a href="/p/{{ product.content.category }}#{{ product.content.slug }}" class="btn btn-primary btn-block">view product details ▸</a>
+
+            </li>
+
+         {% endfor %}
+
+         </ul>
+
+         {% endcomment %}
+
+        <h2 class="bg-head center beige">{% page "Subhead_6" type="text" placeholder="Subhead" %}</h2>
+
+        <ul class="thumbnails foot-thumbs">
+
+            <li class="span1-5">
+
+                <div><a href="/forms/locate-a-contractor/"><img src="/static/img/foot-contractor.png" alt="Locate a Contractor" /></a>
+
+
+
+                </div>
+
+            </li>
+
+            <li class="span1-5">
+
+                <div><a href="http://www.installersedgeworkshop.co"><img src="/static/img/foot-installers.png" alt="Installers Edge" /></a>
+
+                </div>
+
+            </li>
+
+            <li class="span1-5">
+
+                <div><a href="/architects-corner/"><img src="/static/img/foot-architects.png" alt="Architects Corner" /></a>
+
+                </div>
+
+            </li>
+
+            <li class="span1-5">
+
+                <div><a href="/blog/"><img src="/static/img/foot-blog.png" alt="Duraamen Blog" /></a>
+
+                </div>
+
+            </li>
+
+            <li class="span1-5">
+
+                <div><a href="/photo-gallery/"><img src="/static/img/foot-gallery.png" alt="Duraamen Photo Gallery" /></a>
+
+                </div>
+
+            </li>
+
+        </ul>
+
+{% endblock body %}

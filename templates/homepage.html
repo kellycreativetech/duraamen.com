@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+
+ {% block body %}
+    {% block hero %}
+<div class="carousel-wrap">
+
+        {% page "masthead_img" type=img %}
+          <img src="{{ page.content.masthead_img.url }}?width=1168&height=414"  alt="{{ page.content.Masthead_Title }}" />
+
+            <div class="masthead-caption installers-edge-home-masthead">
+                {% page 'Masthead Description' type='wysiwyg' placeholder="Masthead Description" %}
+            </div>
+
+</div>
+
+{% endblock hero %}
+
+<div class="hero-subhead">
+    <h1>{% page "Subhead" type="text" placeholder="Subhead" %}</h1>
+</div>
+
+        <div class="row">
+            <div class="span4">
+                <h2 class="bg-head center gray">{% page "Subhead_2" type="text" placeholder="Subhead" %}</a></h2>
+                <div class="home-content-area">
+                    {% page "Content" type="wysiwyg" placeholder="Insert Content here" %}
+                </div>
+            </div>
+            <div class="span4">
+                {% block content %}
+                    {% block main-title %}
+                    <h2 class="bg-head center gray">{% page "Subhead_3" type="text" placeholder="Subhead" %}</h2>
+                    {% endblock %}
+                    <div class="standardContent home-content-area">
+                        {% page "Content_2" type="wysiwyg" placeholder="Insert Content here" %}
+                    </div>
+                {% endblock content %}
+
+            </div>
+            <div class="span4">
+                <h2 class="bg-head center gray">{% page "Subhead_4" type="text" placeholder="Subhead" %}</h2>
+                <div class="home-content-area">
+                    {% page "Content_3" type="wysiwyg" placeholder="Insert Content here" %}
+                </div>
+            </div>
+        </div>
+        <h2 class="bg-head center gray">{% page "Subhead_5" type="text" placeholder="Subhead" %}</h2>
+        <p><i>This one needs work</i></p>
+        {% comment %}
+        <ul class="featured-list thumbnails clearfix">
+         {% for product in featured_products %}
+            <li class="span3">
+                <h3><a href="http://duraamen.com/products/{{ product.category.slug }}#{{ product.slug }}">{{ product.title }}</a></h3>
+                {% thumbnail product.image "110x300" as featuredimg %}
+                <a href="http://duraamen.com/products/{{ product.category.slug }}#{{ product.slug }}"><img src="{{ featuredimg.url }}" alt="{{ product.title }}"></a>
+                {% endthumbnail %}
+
+                <h5>{{ product.subtitle }}</small></h5>
+                <a href="http://duraamen.com/products/{{ product.category.slug }}#{{ product.slug }}" class="btn btn-primary btn-block">view product details ▸</a>
+            </li>
+         {% endfor %}
+         </ul>
+         {% endcomment %}
+        <h2 class="bg-head center beige">{% page "Subhead_6" type="text" placeholder="Subhead" %}</h2>
+        <ul class="thumbnails foot-thumbs">
+            <li class="span1-5">
+                <div><a href="/forms/locate-a-contractor/"><img src="/static/img/foot-contractor.png" alt="Locate a Contractor" /></a>
+
+                </div>
+            </li>
+            <li class="span1-5">
+                <div><a href="http://www.installersedgeworkshop.co"><img src="/static/img/foot-installers.png" alt="Installers Edge" /></a>
+                </div>
+            </li>
+            <li class="span1-5">
+                <div><a href="/architects-corner/"><img src="/static/img/foot-architects.png" alt="Architects Corner" /></a>
+                </div>
+            </li>
+            <li class="span1-5">
+                <div><a href="/blog/"><img src="/static/img/foot-blog.png" alt="Duraamen Blog" /></a>
+                </div>
+            </li>
+            <li class="span1-5">
+                <div><a href="/photo-gallery/"><img src="/static/img/foot-gallery.png" alt="Duraamen Photo Gallery" /></a>
+                </div>
+            </li>
+        </ul>
+{% endblock body %}

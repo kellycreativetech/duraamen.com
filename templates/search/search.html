@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load highlight %}
+
+{% block body %}
+<style>
+  .highlighted{
+    font-weight:bold;
+  }
+</style>
+<div class="beige-bg">
+    <div class="big-pad">
+      <h1>Search Results</h1>
+    </div>
+    <div class="row">
+        <div class="span12">
+            <form method="get" action=".">
+{% comment %}                <table>
+                    {{ form.as_table }}
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>
+                            <input type="submit" value="Search">
+                        </td>
+                    </tr>
+                </table>
+{% endcomment %}
+
+                {% if query %}
+                <div class="row">
+                <div class="span8">
+                <div class="big-pad">
+                    {% for result in page.object_list %}
+                        <h3><b><a href="{{ result.object.get_absolute_url }}">{{ result.object.title|safe }}</a></b></h3>
+                        {% if result.object.description %}
+                          <p>{% highlight result.object.description with query max_length 140 %}<br></p>
+                        {% else %}
+                          {% if result.object.content %}
+                          <p>{% highlight result.object.content with query max_length 140 %}<br></p>
+
+                          {% else %}
+                          {% if result.object.content_html %}
+                          <p>{% highlight result.object.content_html with query max_length 140 %}<br></p>
+                          {% endif %}
+                        {% endif %}
+                        {% endif %}
+
+                    {% empty %}
+                        <p><br>No results found.</p>
+                    {% endfor %}
+
+                    {% if page.has_previous or page.has_next %}
+                        <div class="pagination">
+                        <ul>
+                            {% if page.has_previous %}<li><a href="?q={{ query }}&amp;page={{ page.previous_page_number }}">◀</a></li>
+                            {% else %}<li class="disabled"><a>◀</a></li>
+                            {% endif %}
+
+                            {% if page.has_next %}<li><a href="?q={{ query }}&amp;page={{ page.next_page_number }}">▶</a></li>
+                            {% else %}<li class="disabled"><a>▶</a></li>
+                            {% endif %}
+                        </ul>
+                        </div>
+                    {% endif %}
+                {% else %}
+                    {# Show some example queries to run, maybe query syntax, something else? #}
+                {% endif %}
+            </form>
+        </div>
+        </div>
+        </div>
+    </div>
+    </div>
+{% endblock %}

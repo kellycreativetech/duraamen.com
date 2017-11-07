@@ -1,0 +1,92 @@
+{% extends "biblion/blog_base.html" %}
+{% load seo %}
+{% load inlines frontendadmin_tags thumbnail chunks forms_builder_tags %}
+
+{% block head_title %}{% get_metadata as my_meta %}{{ my_meta.title.value|default:post.title|safe }}{% endblock %}
+
+{% block seo_head %}
+    {% get_metadata as my_meta %}
+    {{ my_meta.description }}
+    {{ my_meta.keywords }}
+{% endblock %}
+
+
+    {% block meta %}
+    <meta name="description" content="{{ post.teaser_html|striptags|truncatewords:60 }}">
+    <!-- Facebook, LinkedIn, and Google Plus meta tags -->
+
+    <meta property="og:image" content="{% if post.images.count > 0 %}{% for im in post.images.all %}{% if forloop.first %}{% thumbnail im.image_path "200x200" crop="center" as thumbsmallone %}{{ thumbsmallone.url }}{% endthumbnail %}{% endif %}{% endfor %}{% else %}/static/icons/apple-touch-icon-144-precomposed.png{% endif %}"/>
+
+    <meta property="og:title" content="{{ post.title }}"/>
+    <meta property="og:description" content="{{ post.teaser_html|striptags|truncatewords:60 }}"/>
+    <meta property="og:url" content="http://www.duraamen.com{{ post.get_absolute_url }}"/>
+    <meta property="og:site_name" content="Duraamen decorative concrete and resinous flooring systems"/>
+    <meta property="og:type" content="article"/>
+
+    <!-- Twitter meta tags -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:url" content="http://www.duraamen.com{{ post.get_absolute_url }}">
+    <meta name="twitter:title" content="{{ post.title }}">
+    <meta name="twitter:description" content="{{ post.teaser_html|striptags|truncatechars:200 }}">
+
+    <meta name="twitter:image:src" content="{% if post.images.count > 0 %}{% for im in post.images.all %}{% if forloop.first %}{% thumbnail im.image_path "200x200" crop="center" as thumbsmalltwo %}{{ thumbsmalltwo.url }}{% endthumbnail %}{% endif %}{% endfor %}{% else %}/static/icons/apple-touch-icon-144-precomposed.png{% endif %}">
+
+    <meta name="twitter:site" content="http://www.duraamen.com">
+    <meta name="twitter:creator" content="@duraamen">
+
+    <!--canonical URLs -->
+    <link rel="canonical" href="http://www.duraamen.com{{ post.get_absolute_url }}" />
+    {% endblock %}
+
+
+{% block primary %}
+
+
+    <div class="row">
+        <div class="span8" itemscope itemtype="http://schema.org/Article">
+            <div class="big-pad-left pad-top">
+                {% frontendadmin_change post %}
+                <h1 itemprop="headline">{{ post.title|safe }}</h1>
+                <div itemprop="articleBody">
+                {{ post.content_html|safe }}
+                </div>
+
+                    <!-- AddThis Button BEGIN -->
+                    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+                    <div class="addthis_sharing_toolbox"></div>
+                    <script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+                    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-520d221765704fe3" async="async"></script>
+                    <!-- AddThis Button END -->
+
+            </div>
+        </div>
+        <div class="span4">
+        	<div class="big-pad-right pad-top blog-sidebar">
+        	   <div class="well beige">
+            	   {% chunk "blog-sidebar" %}
+
+                	{% if post.images.count > 0 %}
+                	{% for im in post.images.all %}
+                	    {% thumbnail im.image_path "340x700" as thumb %}
+                	    <img itemprop="image" class="side-photo" src="{{ thumb.url }}" alt="{{ post.title }}">
+                	    {% endthumbnail %}
+                    {% endfor %}
+                	{% endif %}
+
+                    {% block under-sidebar %}
+                        <h3><br><em>Contact us to learn more</em></h3>
+                        {% render_built_form id=15 %}
+                    {% endblock %}
+
+
+        	   </div>
+        	</div>
+        </div>
+    </div>
+{% endblock %}
+
+
+
+
+
+

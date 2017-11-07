@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block head_title %}{% endblock %}
+
+
+{% block body %}
+    {% block hero %}{% endblock hero %}
+    <h1 class="no-border">Edit Gallery Image</h1>
+    <div class="row">
+        <div class="span12">
+        </div>
+    </div>
+    <div class="row">
+        <div class="span12">
+                <div class="row">
+                    <div class="span8">
+                        <div class="row full-height-wrap">
+                            <div class="span8">
+                                <h3><small>Title:</small><br>
+                                    {% page "title" type="text" %}
+                                </h3>
+                                <h3><small>Description:</small><br>
+                                    {% page "description" type="text" %}
+                                </h3>
+                                <h3>{% page "image_category" type="select" %}</h3>
+                                
+                                <h3>{% page "image_subcategory" type="select" %}</h3>
+                                
+                                <h3>{% page "tags" type="select" multiple="True" %}</h3>
+                                
+                                <div style="margin:1em 0;max-width:270px">
+                                    {% page "image" type="img" %}
+                                    {% if page.content.image %}
+                                        <img src="{% imgix_url page.content.image %}?w=270" data-srv-name="image">
+                                    {% else %}
+                                        <img src="http://placehold.it/800x200&text=no+image" data-srv-name="image">
+                                    {% endif %}
+                                </div>
+                                
+                                    
+       {% if editing %}
+
+                <p><br></p>
+                <div class="well">
+                <h2>Admin tools</h2>
+                {% include "_meta-admin-tools.html" %}
+                </div>
+                
+                {% endif %}
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="span4">
+                        <div class="big-pad-right">
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

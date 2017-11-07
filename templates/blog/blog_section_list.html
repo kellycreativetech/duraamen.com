@@ -1,0 +1,36 @@
+{% extends "biblion/blog_base.html" %}
+{% load inlines frontendadmin_tags pagination_tags chunks %}
+{% load seo %}
+
+{% block head_title %}({% get_metadata as my_meta %}{{ my_meta.title.value|default:section }}){% endblock %}
+
+{% block primary %}
+    <div class="row">
+        <div class="span8">
+            <div class="big-pad-left pad-top">
+            {% frontendadmin_add posts "Add New Post" %}
+            {% if posts %}
+                {% autopaginate posts 8 %}
+                {% for post in posts %}
+                    <h1><a href="{{ post.get_absolute_url }}" class="post-link">{{ post.title|safe }}</a></h1>
+                    <p class="teaser">{{ post.teaser_html|safe }}</p>
+                    <p class="more"><a href="{{ post.get_absolute_url }}" class="post-link">read more...</a></p>
+                    <hr>
+                {% endfor %}
+                {% paginate %}
+
+            {% else %}
+                <p>No blog posts have been published in this section.</p>
+            {% endif %}
+            </div>
+        </div>
+        <div class="span4">
+            <div class="big-pad-right pad-top">
+        	   <div class="well beige">
+                {% chunk "blog-sidebar" %}
+        	   </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

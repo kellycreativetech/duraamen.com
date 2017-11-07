@@ -1,0 +1,24 @@
+{% extends "flatpages/default.html" %}
+{% load frontendadmin_tags forms_builder_tags inlines %}
+
+
+
+{% block hero %}
+{% endblock %}
+
+{% block nav-wrap %}
+{% endblock nav-wrap %}
+
+{% block body %}
+<p><br></p>
+
+            <h1 class="visible-phone cms-head">{{ flatpage.title }}</h1>
+            <div class="short-form well float-right">
+			    <h2>Get a FREE Consultation</h2>
+			    {% render_built_form id=9 %}
+			</div>
+            {{ flatpage.content|render_inlines|safe }}
+            {% frontendadmin_change flatpage "Edit This Flatpage" %}
+
+
+{% endblock body %}

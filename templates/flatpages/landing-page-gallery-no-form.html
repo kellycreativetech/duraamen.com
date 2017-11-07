@@ -1,0 +1,17 @@
+{% extends "flatpages/landing-page.html" %}
+{% load inlines forms_builder_tags %}
+
+{% block gallery %}
+{% with '<img class="inline_replace" data-inline-type="servee_gallery.gallery" data-inline-id="8">' as gallery %}
+{{ gallery|render_inlines }}
+{% endwith %}
+{% endblock gallery %}
+
+
+
+{% block landing-bg-color %}transparent{% endblock landing-bg-color %}
+{% block title-override %}{% endblock title-override %}
+
+{% block select-field-override %}{% endblock select-field-override %}
+
+{% block formwrap %}{% endblock formwrap %}

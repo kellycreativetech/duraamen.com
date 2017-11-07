@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block hero %}
+{% endblock %}
+
+{% block body %}
+<div class="subpage-body">
+    <div class="big-pad">
+        <h1>{% page "Headline" type="text" %}</h1>
+    </div>
+    <div class="products">
+        <div class="row">
+            <div class="span8">
+                <div class="big-pad-left">
+                    <form class="form-inline forced" action="/products/browse/">
+                        <h3>Filter by:</h3>
+                        <input type="submit" class="btn btn-primary" value="Go">
+                    </form>
+                    {% block product-content %}
+                    {% endblock product-content %}
+                </div>
+            </div>
+            <div class="span4">
+                <div class="big-pad-right">
+                    <div class="well beige">
+                        {% chunk "product_sidebar" %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock body %}

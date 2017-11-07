@@ -1,0 +1,84 @@
+{% extends "flatpages/default.html" %}
+
+{% block map-wrap %}
+<div id="map_canvas" style="width:100%;height:500px"></div>
+{% endblock %}
+
+
+{% block extra-scripts %}
+ <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBnsPTf7qtD5srY6h0966WiQdaKT969Xiw&sensor=false"></script>
+
+
+<script>
+    function initialize() {
+// Create an array of styles.
+  var styles = [
+    {
+      stylers: [
+        { saturation: -60 }
+      ]
+    }
+  ];
+   var styledMap = new google.maps.StyledMapType(styles,
+    {name: "Styled Map"});
+   var mapOptions = {
+    mapTypeControlOptions: {
+      mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
+    }
+  };
+
+
+    // center the map between these three locations
+    var locations = [
+        ['<p><b>New York<br>Duraamen Engineered Products Inc.</b><br>116 West 23rd Street<br>New York, NY 10011<br>T: 212.657.5565</p>', 40.752392, -73.9744139, 1],
+        ['<p><b>Warehouse: New Jersey</b><br>457 Frelinghuysen Avenue<br>Newark, NJ 07114<br>T: 973.230.1301<br>F: 973.241.7830</p>', 40.7053081, -74.1939044, 2],
+        ['<p><b>Boston<br>Düraamen Engineered Products Inc.</b><br>398 Columbus Avenue<br>Boston, MA 02116<br>T: 617.564.0650</p>', 42.344574, -71.0763658, 3],
+        ['<p><b>Washington D.C. / Baltimore<br>Düraamen Engineered Products Inc.</b><br>455 Massachusetts Avenue NW<br>Washington, DC 20001<br>T: 202.657.5565</p>', 38.8867819, -76.9808443, 4],
+        ['<p><b>United Arab Emirates (UAE), Dubai<br>Düraamen International</b><br>Dubai Airport Freezone<br>P.O. Box 54620<br>Dubai, UAE<br>T: +971 4 214 9049<br>F: +971 4 214 9501</p>', 25.2650838, 55.3695, 5],
+        ['<p><b>India<br><br>Duraamen Engineered Products Pvt. Ltd.</b><br>Level 3, The Belvedere, Opp HSBC Bank<br>Raj Bhavan Road, Somajiguda,<br>Hyderabad, AP, 500 082<br>INDIA<br>T: +91 40 6717 2721</p>', 17.4216072, 78.4625513, 6],
+        ];
+
+    window.map = new google.maps.Map(document.getElementById('map_canvas'), {
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+    }, mapOptions);
+    map.mapTypes.set('map_style', styledMap);
+    map.setMapTypeId('map_style');
+
+    var infowindow = new google.maps.InfoWindow();
+
+    var bounds = new google.maps.LatLngBounds();
+    var MarkerImage = '/static/img/duraamen-pin.png';
+    for (i = 0; i < locations.length; i++) {
+        marker = new google.maps.Marker({
+            position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+            map: map,
+            icon: MarkerImage,
+            title: "Duraamen",
+            animation: google.maps.Animation.DROP,
+        });
+
+        bounds.extend(marker.position);
+
+        google.maps.event.addListener(marker, 'click', (function (marker, i) {
+            return function () {
+                infowindow.setContent(locations[i][0]);
+                infowindow.open(map, marker);
+            };
+        })(marker, i));
+    };
+
+    map.fitBounds(bounds);
+    map.setOptions({'scrollwheel': false});
+
+    var listener = google.maps.event.addListener(map, "idle", function () {
+        map.setZoom(3);
+        google.maps.event.removeListener(listener);
+    });
+
+
+
+}
+document.body.onload = initialize;
+
+    </script>
+{% endblock %}

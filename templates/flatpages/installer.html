@@ -1,0 +1,64 @@
+{% extends "site_base.html" %}
+{% load seo %}
+{% load frontendadmin_tags inlines chunks thumbnail %}
+
+
+{% block seo_head %}
+    {% get_metadata as my_meta %}
+    {{ my_meta.description }}
+    {{ my_meta.keywords }}
+{% endblock %}
+
+{% block meta %}
+{{ block.super }}
+<!--canonical URLs -->
+<link rel="canonical" href="http://www.duraamen.com{{ flatpage.url }}" />
+{% endblock %}
+
+{% block head_title %}{% get_metadata as my_meta %}{{ my_meta.title.value|default:flatpage.title }}{{ block.super }}{% endblock %}
+
+
+
+{% block hero %}
+{% endblock %}
+
+{% block body %}
+    <div class="subpage-body installer">
+    <div class="big-pad">
+        <img class="subpage-logo-head" src="/static/img/installer-logo.png">
+    </div>
+    <div class="subpage-hero">
+        <div class="row">
+        <div class="span8">
+                {% chunk "installer-hero" %}
+        </div>
+        <div class="span4">
+            <div class="pad">
+                {% chunk "installer-hero-info" %}
+            </div>
+        </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="span8">
+            <div class="big-pad-left">
+                {% block content %}
+                {{ flatpage.content|render_inlines|safe }}
+                {% frontendadmin_change flatpage "Edit This Flatpage" %}
+                {% endblock content %}
+            </div>
+        </div>
+        <div class="span4">
+            <div class="big-pad-right">
+                <div class="well">
+                    <div class="register-wrap">
+                        {% chunk "installer-sidebar-top" %}
+                    </div>
+                    {% chunk "installer-sidebar" %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+{% endblock body %}

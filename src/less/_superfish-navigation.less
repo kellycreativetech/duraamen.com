@@ -1,0 +1,225 @@
+/*** ESSENTIAL STYLES ***/
+.sf-menu, .sf-menu * {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.sf-menu li {
+    position: relative;
+}
+.sf-menu ul {
+    position: absolute;
+    display: none;
+    top: 100%;
+    left: 0;
+    z-index: 99;
+}
+.sf-menu > li {
+    float: left;
+}
+.sf-menu li:hover > ul,
+.sf-menu li.sfHover > ul {
+    display: block;
+}
+
+.sf-menu a {
+    display: block;
+    position: relative;
+}
+.sf-menu ul ul {
+    top: 0;
+    left: 100%;
+}
+.sf-menu li {
+    -webkit-transition: background .2s;
+    transition: background .2s;
+}
+.sf-menu li:hover,
+.sf-menu li.sfHover {
+    /* only transition out, not in */
+    -webkit-transition: none;
+    transition: none;
+}
+
+/*** --------- SKIN -------------***/
+.nav a {/* first-level list links */
+font: 500 14px/18px @baseFontFamily;
+color: @navbarLinkColor;
+text-decoration: none;
+display:block;
+}
+ul.nav ul a {/* second-level list links */
+color: @navbarLinkColor;
+font: 13px/14px @baseFontFamily;
+}
+ul.nav li{/* first-level list items */
+}
+ul.nav ul { /* second-level lists */
+border: 1px solid darken(@navbarBackground, 20%);
+background-color:@navbarBackground;
+padding:0;
+width:200px;
+}
+ul.nav li li { /* second-level list items */
+padding:0;
+width:auto;
+display: block;
+}
+ul.nav li li a:hover{/* second level link hovers */
+background-color:darken(@navbarBackground, 20%);
+}
+
+
+/*---- main nav. complicated. ----*/
+
+nav{
+    .inline-block();
+    margin-bottom:@baseLineHeight / 2;
+    .nav{
+        .inline-block();
+        > li {
+            margin: 11px 0 6px -4px;
+
+
+            &.has-child:hover{
+                background:#fff;
+            }
+            &.has-child > a:hover{
+                background:#fff;
+            }
+            > a{
+                height:30px;
+                display:block;
+                padding:8px 10px;
+                font-size:13px;
+                color:@grayDark;
+                font-weight: bold;
+                border-right:1px solid #b7b2a6;
+                margin:0;
+                position: relative;
+                text-align: center;
+                @media (min-width: 1200px) {
+                    padding:8px 27px;
+                }
+                @media (min-width: 768px) and (max-width: 979px) {
+                    padding:8px 8px;
+                    font-size:11px;
+                }
+                &:hover, &.trail, &.current{
+                    color:@red;
+                    background-color:transparent;
+                    &:before{
+                        //content:"❋";
+                        color:@red;
+                        position: absolute;
+                        font-size:11px;
+                        left:6px;
+                    }
+                }
+                &.last{border-right:0 none; padding-right:0;}
+            }
+            &:last-child > a{
+                border-right:0 none;
+            }
+        }
+        ul{
+            border:0 none;
+            background-color:#fff;
+            padding:0;
+            .box-shadow(0 3px 4px rgba(0,0,0,.4));
+            border-bottom:4px solid @yellow;
+            li{
+                margin:0 10px;
+                font-size:12px;
+                font-family:sans-serif;
+                a{
+                    padding:6px 6px 6px 26px;
+                    margin:0 -10px 0 -10px;
+                    width:auto;
+                    font-size:12px;
+                    position: relative;
+                    &:hover{
+                        color:#fff;
+                        background-color:@grayDark;
+                        &:before{
+                            content:"▶";
+                            color:@yellow;
+                            position: absolute;
+                            font-size:10px;
+                            left:10px;
+                        }
+                    }
+                    &.trail, &.current{
+                        background-color:@grayLighter;
+                        color:@grayDark;
+                    }
+                }
+            }
+            ul{
+                border-bottom:4px solid @yellow;
+                padding:0;
+                background: #fff;
+                li{
+                    margin:0 10px;
+                }
+            }
+        }
+    }
+}
+.product-nav{
+    -webkit-column-count: 3;
+    -moz-column-count: 3;
+    column-count: 3;
+    @media (max-width: 979px) {
+        -webkit-column-count: 1;
+    -moz-column-count: 1;
+    column-count: 1;
+    }
+
+}
+#mobile-nav{display:none;}
+@media (max-width: 767px) {
+#foot-nav{display:none;}
+/*---- nav ----*/
+	#mobile-nav{
+        display:block;
+        background:none transparent;
+        font-family: @baseFontFamily;
+        font-size:18px;
+        font-weight:normal;
+        border-top:5px solid @red;
+        border-bottom:5px solid @red;
+        margin:@baseLineHeight 0;
+        ul{display:none;}
+        li{
+            display:block;
+            float:none;
+            a{
+                display:block;
+                color:@red;
+                padding:6px;
+                text-decoration: none;
+            }
+            li{
+                a{
+                    font-family:sans-serif;
+                    font-size:14px;
+                }
+            }
+            &.has-child{
+              > a:after{
+                    content:"▶";
+                    display:block;
+                    float:right;
+                    color:lighten(@beige, 10%);
+                    font-size:12px;
+                    font-family:sans-serif;
+                }
+                &.down > a:after{
+                    content:"▼";
+                }
+            }
+        }
+    }
+}
+

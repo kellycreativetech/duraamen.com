@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block hero %}
+{% endblock %}
+
+{% block body %}
+    <div class="product beige-bg" itemscope itemtype="http://schema.org/CreativeWork">
+        <div class="big-pad">
+            <ul class="breadcrumb" itemprop="breadcrumb">
+                <li><a href="/video-gallery/">Video Gallery</a> <span class="divider">/</span></li>
+                <li><a href="#">{{ page.content.name }}</a> <span class="divider">/</span></li>
+            </ul>
+
+            <h1 class="border video-headline">
+                <a href="/video-gallery/">Video Gallery</a>
+                <img src="{{ STATIC_URL }}img/red-video-play.png">
+                {% page "name" type="text" %}
+            </h1>
+            {% page "content" type="wysiwyg" %}
+            
+            {% if editing %}
+                <div style="max-width:342px">
+                    {% page "image" type="img" %}
+                    <img src="{% if page.content.image %}{% imgix_url page.content.image %}{% else %}https://placem.at/places{% endif %}?w=400&txt=Category+Image" data-srv-name="image" />
+                </div>
+            {% endif %}
+                
+        </div>
+
+        <ul class="thumbnails video-gallery" itemscope itemtype="http://schema.org/VideoObject">
+        {% page_list "videos" %}
+            {% list_item "youtube_id" type="text" noprint="true" %}
+            {% list_item "image" type="img" noprint="true" %}
+            {% list_item "title" type="text" noprint="true" %}
+            {% list_item "length" type="text" noprint="true" %}
+            <li class="span4" id="{{ list_item.youtube_id }}" itemprop="video">
+                <div class="vid-pad">
+                    <a class="thumbnail" rel="video" href="https://www.youtube-nocookie.com/embed/{{ list_item.youtube_id }}?rel=0" title="{{ list_item.title|default:"" }}"><img itemprop="thumbnail" class="bordered" src="{% imgix_url list_item.image %}?w=370&amp;h=205&amp;crop=fit" alt="{{ list_item.title|default:"" }}"></a>
+                    <p class="caption video"><a rel="video" href="https://www.youtube-nocookie.com/embed/{{ list_item.youtube_id }}?rel=0"><span itemprop="name">{{ list_item.title }}</span> | <b>PLAY NOW</b></a></p>
+                    
+                </div>
+            </li>
+
+        {% end_list %}
+        </ul>
+    </div>
+    
+    {% if editing %}
+
+                <p><br></p>
+                <div class="well">
+                <h2>Admin tools</h2>
+                {% include "_meta-admin-tools.html" %}
+                </div>
+                
+                {% endif %}
+{% endblock body %}

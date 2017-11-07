@@ -1,0 +1,32 @@
+{% extends "products/category_list.html" %}
+{% load seo %}
+{% load frontendadmin_tags inlines chunks thumbnail bootstrap_tags %}
+
+{% block seo_head %}
+    {% get_metadata as my_meta %}
+    {{ my_meta.description }}
+    {{ my_meta.keywords }}
+{% endblock %}
+
+{% block head_title %}{% get_metadata as my_meta %}{{ my_meta.title.value|default:"Browse Products" }}{% endblock %}
+
+{% block page-title %}Products filtered by {% if industry %}{{ industry }}{% endif %}{% if industry and application %},{% endif %} {% if application %}{{ application }}{% endif %}{% endblock %}
+
+
+{% block product-content %}
+    {% for c in found_categories %}
+        <h1 class="no-border" style="margin-top:36px;"><a href="{% url category_detail c.category.slug %}">{{ c.category.name }}</a></h1>
+        {% for product in c.products %}
+        <div class="product-tease clearfix" style="margin-top:9px;">
+            {% thumbnail product.image "160x500" as bigimg %}
+            <img class="bordered float-left" src="{{ bigimg.url }}">
+            {% endthumbnail %}
+
+            <h2 style="margin:0"><a href="{% url category_detail c.category.slug %}#{{ product.slug }}">{{ product.title }}</a> | <small>{{ product.subtitle }}</small></h2>
+            <p>{{ product.content|striptags|truncatewords:65 }}</p>
+
+            <p><a href="{% url category_detail c.category.slug %}#{{ product.slug }}" class="to-top">View details</a></p>
+        </div>
+        {% endfor %}
+    {% endfor %}
+{% endblock product-content %}

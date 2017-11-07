@@ -1,0 +1,10 @@
+site_media/
+blog/
+wp-content/
+uploads/
+static/
+src/
+gulpfile.js
+package.json
+.gitignore
+node_modules/

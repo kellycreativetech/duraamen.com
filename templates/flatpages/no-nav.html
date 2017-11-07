@@ -1,0 +1,32 @@
+{% extends "flatpages/default.html" %}
+{% load seo %}
+{% load frontendadmin_tags inlines chunks thumbnail %}
+
+
+
+{% block hero %}
+{% endblock %}
+
+{% block nav-wrap %}
+{% endblock nav-wrap %}
+
+{% block body %}
+<p><br></p>
+
+            <h1 class="visible-phone cms-head">{{ flatpage.title }}</h1>
+
+            {% if flatpage.ext and flatpage.ext.image %}
+            <div class="well beige float-right">
+                {% thumbnail flatpage.ext.image "300x700" as bigimg %}
+                    <img src="{{ bigimg.url }}">
+                {% endthumbnail %}
+            </div>
+            {% endif %}
+
+
+
+            {{ flatpage.content|render_inlines|safe }}
+            {% frontendadmin_change flatpage "Edit This Flatpage" %}
+
+
+{% endblock body %}

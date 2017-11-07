@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{# {% block bodyclass %}body-{{ page.path }}{% endblock %} #}
+
+{% block hero %}
+{% endblock %}
+
+{% block body %}
+    <div class="subpage-body">
+    <div class="big-pad">
+        <h1>{% page "Headline" type="text" %}</h1>
+
+        {% block map-wrap %}{% endblock %}
+    </div>
+    <div class="row">
+        <div class="span8">
+            <div class="big-pad-left">
+                {% block content %}
+                {% page "Content" type="wysiwyg" placeholder="Insert Content here" %}
+                {% endblock content %}
+            </div>
+        </div>
+        <div class="span4">
+            <div class="big-pad-right">
+                <div class="well beige">
+                    {% page "main_content_img" type=img %}
+                    {% if page.content.main_content_img %}
+                        <img src="{{ page.content.main_content_img.url }}?width=300" />
+                    {% else %}
+                        <img src="/static/img/sub-placeholder.jpg">
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+{% endblock body %}

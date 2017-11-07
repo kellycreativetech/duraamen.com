@@ -1,0 +1,138 @@
+{% extends "site_base.html" %}
+{% load seo %}
+{% load frontendadmin_tags inlines chunks thumbnail %}
+
+{% block seo_head %}
+    {% get_metadata as my_meta %}
+    {{ my_meta.description }}
+    {{ my_meta.keywords }}
+{% endblock %}
+
+{% block meta %}
+{{ block.super }}
+<!--canonical URLs -->
+<link rel="canonical" href="http://www.duraamen.com{{ flatpage.url }}" />
+{% endblock %}
+
+{% block bodyclass %}{{ flatpage.url|slugify }}{% endblock %}
+
+{% block head_title %}{% get_metadata as my_meta %}{{ my_meta.title.value|default:flatpage.title }}{% endblock %}
+
+{% block hero %}
+{% endblock %}
+
+{% block body %}
+
+{% block gallery %}{% endblock gallery %}
+
+
+    <div class="{% block landing-class %}landing-page{% endblock landing-class %}"
+        {% if flatpage.ext and flatpage.ext.image %}
+        {% thumbnail flatpage.ext.image "1200x600" crop="center" as bigimg %}
+        style="background:url({{ bigimg.url }}) top right no-repeat #fcc113"
+        {% endthumbnail %}
+        {% else %}
+        style="background: {% block landing-bg-color %}#fcc113{% endblock landing-bg-color %}"
+        {% endif %}
+    >
+        <div class="landing-hero">
+            {% block title-override %}<h1>{{ flatpage.title }}</h1>{% endblock title-override %}
+            {% block content %}
+            {{ flatpage.content|render_inlines|safe }}
+            {% frontendadmin_change flatpage "Edit This Flatpage" %}
+            {% endblock content %}
+            {% block formwrap %}
+            <div class="well">
+                {% block landing-form %}
+                <form actn="/forms/landing-page/" class="form-horizontal" method="post">
+                    {% csrf_token %}
+                    <input id="id_origin" type="hidden" class="charfield" name="origin" value="{{ flatpage.url|slugify }}">
+                    <div class="row">
+                        <div class="span5">
+                            <div id="div_id_name" class="control-group  ">
+                                <label for="id_name" class="control-label required-field">First Name</label>
+                                <div class="controls">
+                                    <input name="name" maxlength="2000" required="" type="text" class="charfield required" id="id_name" />
+                                </div>
+                            </div>
+                            <div id="div_id_last_name_surname" class="control-group  ">
+                                <label for="id_last_name_surname" class="control-label required-field">Last Name / Surname</label>
+                                <div class="controls">
+                                    <input name="last_name_surname" maxlength="2000" required="" type="text" class="charfield required" id="id_last_name_surname" />
+                                </div>
+                            </div>
+
+
+                            <div id="div_id_company" class="control-group  ">
+                                    <label for="id_company" class="control-label required-field">Company</label>
+                                <div class="controls">
+                                    <input name="company" maxlength="2000" required="" type="text" class="charfield required" id="id_company" />
+                                </div>
+                            </div>
+                            <div id="div_id_street_address_suite" class="control-group  ">
+                                    <label for="id_street_address_suite" class="control-label required-field">Street Address, Suite</label>
+                                <div class="controls">
+                                    <input name="street_address_suite" maxlength="2000" required="" type="text" class="charfield required" id="id_street_address_suite" />
+                                </div>
+                            </div>
+                            <div id="div_id_city_state_zip_code" class="control-group  ">
+                                <label for="id_city_state_zip_code" class="control-label required-field">City, State, Zip Code</label>
+                                <div class="controls">
+                                    <input name="city_state_zip_code" maxlength="2000" required="" type="text" class="charfield required" id="id_city_state_zip_code" />
+                                </div>
+                            </div>
+                            <div id="div_id_phone" class="control-group  ">
+                                <label for="id_phone" class="control-label required-field">Phone</label>
+                                <div class="controls">
+                                    <input name="phone" maxlength="2000" required="" type="text" class="charfield required" id="id_phone" />
+                                </div>
+                            </div>
+                            <div id="div_id_e_mail" class="control-group  ">
+                                <label for="id_e_mail" class="control-label required-field">E-mail</label>
+                                <div class="controls">
+                                    <input name="e_mail" maxlength="2000" required="" type="email" class="emailfield required" id="id_e_mail" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="span5 nudge">
+                            {% block select-field-override %}
+                            <div id="div_id_yes_please_send_me_a_sample_of" class="control-group  ">
+                                <label for="id_yes_please_send_me_a_sample_of" class="control-label required-field">Yes! Please send me a sample of the following product</label>
+                                <div class="controls">
+                                    <select id="id_yes_please_send_me_a_sample_of" required="" placeholder="Choose Finish" class="required" name="yes_please_send_me_a_sample_of">
+                                        {% block option-overrides %}
+                                        <option value="Perdure U90">Perdure U90</option>
+                                        <option value="Perdure U50">Perdure U50</option>
+                                        <option value="Perdure U46">Perdure U46</option>
+                                        <option value="Perdure U45">Perdure U45</option>
+                                        <option value="Perdure U45f">Perdure U45f</option>
+                                        {% endblock %}
+                                    </select>
+                                </div>
+                            </div>
+                            {% endblock select-field-override %}
+                            <div id="div_id_comments" class="control-group">
+                                <label for="id_comments" class="control-label ">Comments</label>
+                                <div class="controls">
+                                    <textarea id="id_comments" rows="10" cols="40" name="comments" class="charfield"></textarea>
+                                </div>
+                            </div>
+
+
+                            <div class="form-actions">
+                                <label for="id_opt_in" class="control-label " style="width:auto;text-align:left;">
+                            <input type="checkbox" id="id_opt_in" checked name="mailchimp-opt-in" value="YES" />    Receive product information and special offers via e-mail?
+                            </label>
+
+                                <input type="submit" class="btn btn-primary btn-block" value="Submit">
+                            </div>
+                        </div>
+                    </div>
+                    </form>
+                {% endblock %}
+            </div>
+            {% endblock formwrap %}
+        </div>
+    </div>
+
+{% endblock body %}

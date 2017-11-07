@@ -1,0 +1,223 @@
+{% extends "base.html" %}
+
+
+
+{% block head_title %}{% endblock %}
+
+
+
+
+
+{% block body %}
+
+    {% block hero %}{% endblock hero %}
+
+    <h1 class="no-border">Edit Individual Product</h1>
+
+    <div class="row">
+
+        <div class="span12">
+
+        </div>
+
+    </div>
+
+    <div class="row">
+
+        <div class="span12">
+
+            <div class="product beige-bg" id="{{ page.content.slug }}" itemscope itemtype="http://schema.org/Product">
+
+                <div class="big-pad">
+
+                    <h2 class="border"><span itemprop="name">{% page "title" type="text" %}</span> | <small>{% page "subtitle" type="text" %}</small></h2>
+
+                </div>
+
+                <div class="row">
+
+                    <div class="span8">
+
+                        <div class="row full-height-wrap">
+
+                            <div class="span3">
+
+                                <div class="big-pad-left equal-height">
+
+                                    {% page "image" type="image" %}
+
+                                    {% if page.content.image or editing %}
+
+                                    <img class="bordered" src="{% if page.content.image %}{% imgix_url page.content.image %}{% else %}http://placem.at/places{% endif %}?w=242" data-srv-name="image" itemprop="image" alt="{{ page.content.title }}"/>
+
+                                    {% endif %}
+
+                                    
+
+                                    <div class="bordered small-pad documents">
+
+                                        <h6>Downloads</h6>
+
+                                        <ul class="unstyled">
+
+                                            {% page_list "downloads" %}
+
+                                            {% list_item "download" type="file" %}
+
+                                            <li><a href="{{ list_item.download.url }}">{% list_item "name" type="text" %}</a></li>
+
+                                            {% end_list %}
+
+                                        </ul> 
+
+                                    </div>
+
+                                    <a class="btn btn-info btn-block" href="/forms/order-now?product={{ page.content.slug }}" itemprop="potentialAction"> <b>ORDER NOW</b></a>
+
+
+
+
+
+                                </div>
+
+                            </div>
+
+                            <div class="span5 equal-height" itemprop="description">
+
+                                {% page "content" type="wysiwyg" %}
+
+                            </div> 
+
+                            <div class="span8">
+
+                                <div class="big-pad-left">
+
+                                    <h2>Technical Data</h2>
+
+                                    <table class="table table-bordered table-condensed">
+
+                                            {% page_list "data" %}
+
+                                            {% if forloop.counter|divisibleby:2 == False %}<tr>{% endif %}
+
+                                            <td><b>{% list_item "name" type="text" %}</b></td>
+
+                                            <td>{% list_item "value" type="text" %}</td>
+
+                                            {% if forloop.counter|divisibleby:2 %}</tr>{% endif %}
+
+                                            {% end_list %}
+
+                                    </table>
+
+
+
+                                     
+
+                                    {% page "youtube_video" type="text" %}
+                                 
+
+
+                                    
+
+
+
+                                    <div class="colors">
+
+                                        <h2>Color Chart</h2>
+
+                                        <ul class="thumbnails">
+
+                                            {% page_list "colors" %}
+
+                                            <li class="thumbnail">
+
+                                                {% list_item "image" type="image" %}
+
+                                                <img src="{{ list_item.image.url }}?width=136&amp;height=136">
+
+                                                <p class="caption" itemprop="color">{% list_item "name" type="text" %}</p>
+
+                                            </li>
+
+                                            {% end_list %}
+
+                                        </ul>
+
+                                    </div>
+
+
+
+                                    <a href="#top" class="to-top">top of page</a>
+
+                                    <div>
+
+                                    
+
+                                    {% if editing %}
+
+                                    <p><br></p>
+
+                                    <div class="well">
+
+                                        <h3>Admin tools</h3>
+
+                                        {% page "category" type="select" %}
+
+                                        <br>
+
+                                        {% page "applications" type="select" multiple="true" %}
+
+                                        <br>
+
+                                        {% page "industries" type="select" multiple="true" %}
+
+                                        
+
+                                    </div>
+
+                                    
+
+                                    
+
+                                    {% endif %}
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="span4">
+
+                        <div class="big-pad-right">
+
+                            <div class="well beige equal-height">
+
+                            {% page_list "images" %}
+
+                                {% list_item "image" type="image" %}
+
+                                <img class="bordered side-product-photo" src="{% imgix_url list_item.image %}?width=298" itemprop="image">
+
+                            {% end_list %}
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+{% endblock %}

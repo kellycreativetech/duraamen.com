@@ -1,0 +1,138 @@
+{% extends "base.html" %}
+
+
+{% block body %}
+    {% block hero %}{% endblock hero %}
+    <h1 class="no-border">{% page "name" type="text" %}</h1>
+    <div class="row">
+        <div class="span12">
+            {% page "content" type="wysiwyg" %}
+        </div>
+    </div>
+    <div class="row">
+        <div class="span12">
+            {% select_pages "category" path_split.1 varname="products" order_by="-published" %}
+            
+            {% for product in products %}
+            <div class="product beige-bg" id="{{ product.content.slug }}" itemscope itemtype="http://schema.org/Product">
+                <div class="big-pad">
+                    <h2 class="border"><span itemprop="name">{{ product.content.title }}</span> | <small>{{ product.content.subtitle }}</small></h2>
+                </div>
+                <div class="row">
+                    <div class="span8">
+                        <div class="row full-height-wrap">
+                            <div class="span3">
+                                <div class="big-pad-left equal-height">
+                                    <img class="bordered" src="{{ product.content.image.url }}?width=242" itemprop="image" alt="{{ product.content.title }}">
+                                    {% if product.content.downloads %}
+                                    <div class="bordered small-pad documents">
+                                        <h6>Downloads</h6>
+                                        <ul class="unstyled">
+                                            {% for document in product.content.downloads %}
+                                            <li><a href="{{ document.download.url }}">{{ document.name }}</a></li>
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                    {% endif %}
+
+
+                                    <a class="btn btn-info btn-block" href="/forms/order-now?product={{ product.content.slug }}" itemprop="potentialAction"> <b>ORDER NOW</b></a>
+
+
+                                </div>
+                            </div>
+                            <div class="span5 equal-height" itemprop="description">
+                                {{ product.content.content|safe }}
+                            </div>
+                            <div class="span8">
+                                <div class="big-pad-left">
+                                    {% if product.content.data %}
+                                    <h2>Technical Data</h2>
+                                    <table class="table table-bordered table-condensed">
+                                        {% for data_item in product.content.data %}
+                                            {% if forloop.counter|divisibleby:2 == False %}<tr>{% endif %}
+                                            <td><b>{{ data_item.name|safe }}</b></td>
+                                            <td>{{ data_item.value|safe }}</td>
+                                            {% if forloop.counter|divisibleby:2 %}</tr>{% endif %}
+                                        {% endfor %}
+                                    {% endif %}
+                                    </table>
+
+                                    {% if product.content.youtube_video %}
+                                    <iframe width="740" height="416" src="{{ product.content.youtube_video }}" frameborder="0" allowfullscreen></iframe>
+                                    {% endif %}
+
+                                    {% if product.content.colors %}
+                                    <div class="colors">
+                                        <h2>Color Chart</h2>
+                                        <ul class="thumbnails">
+                                            {% for color in product.content.colors %}
+                                            <li class="thumbnail">
+                                                <img src="{{ color.image.url }}?width=136&amp;height=136">
+                                                <p class="caption" itemprop="color">{{ color.name }}</p>
+                                            </li>
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                    {% endif %}
+
+                                    <a href="#top" class="to-top">top of page</a>
+                                    <div>
+                                        {% if editing %}
+                                        <a class="srv-icon-label srv-edit" href="/{{ product.path }}/admin"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-pencil-sm"></use></svg>Edit this Product</a>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="span4">
+                        <div class="big-pad-right">
+                            {% if product.content.images %}
+                            <div class="well beige equal-height">
+                                {% for image in product.content.images %}
+                                <img class="bordered side-product-photo" src="{{ image.image.url }}?width=298" itemprop="image">
+                                {% endfor %}
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            
+                    {% if editing %}
+                    <p><br></p>
+                    <div class="well">
+                    <h2>Admin tools</h2>
+                    {% include "_meta-admin-tools.html" %}
+                    </div>
+                    {% endif %}
+        </div>
+    </div>
+
+    <h2 class="bg-head center gold">Knowledge &amp; Inspiration</h2>
+    <ul class="thumbnails foot-thumbs">
+        <li class="span1-5">
+                <div><a href="/forms/locate-a-contractor/"><img src="/static/img/foot-contractor.png" alt="" /></a>
+
+                </div>
+            </li>
+            <li class="span1-5">
+                <div><a href="/installers-edge/"><img src="/static/img/foot-installers.png" alt="" /></a>
+                </div>
+            </li>
+            <li class="span1-5">
+                <div><a href="/architects-corner/"><img src="/static/img/foot-architects.png" alt="" /></a>
+                </div>
+            </li>
+            <li class="span1-5">
+                <div><a href="/blog/"><img src="/static/img/foot-blog.png" alt="" /></a>
+                </div>
+            </li>
+            <li class="span1-5">
+                <div><a href="/photo-gallery/"><img src="/static/img/foot-gallery.png" alt="" /></a>
+                </div>
+            </li>
+    </ul>
+{% endblock body %}

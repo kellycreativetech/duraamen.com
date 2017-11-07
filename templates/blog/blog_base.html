@@ -1,0 +1,18 @@
+{% extends "site_base.html" %}
+{% load seo %}
+{% block seo_head %}
+    {% get_metadata as my_meta %}
+    {{ my_meta.description }}
+    {{ my_meta.keywords }}
+{% endblock %}
+
+
+{% block body_id %}blog{% endblock %}
+
+
+{% block body %}
+<div class="beige-bg blog-container">
+    {% block primary %}{% endblock %}
+</div>
+
+{% endblock %}

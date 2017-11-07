@@ -1,0 +1,229 @@
+{% extends "site_base.html" %}
+{% load seo %}
+{% load frontendadmin_tags inlines chunks thumbnail %}
+
+{% block seo_head %}
+    {% get_metadata as my_meta %}
+    {{ my_meta.description }}
+    {{ my_meta.keywords }}
+{% endblock %}
+
+{% block head_title %}{% get_metadata as my_meta %}{{ my_meta.title.value|default:flatpage.title }}{% endblock %}
+
+
+{% block hero %}
+{% endblock %}
+
+{% block body %}
+    <div class="products">
+    <div class="big-pad beige-bg">
+        <h1 class="no-border">Acrylic Sealers</h1>
+    </div>
+
+    <div class="product beige-bg">
+        <div class="big-pad">
+            <h2 class="border">Perdüre A01 | <small>Acrylic Sealer</small></h2>
+        </div>
+        <div class="row">
+            <div class="span8">
+                <div class="row">
+                    <div class="span3">
+                        <div class="big-pad-left">
+                            <img class="bordered" src="/site_media/media/servee_images/product.jpg">
+                            <div class="bordered small-pad documents">
+                                <h6>Downloads</h6>
+                                <ul class="unstyled">
+                                    <li><a href="derp.pdf">Technical Data Sheet</a></li>
+                                    <li><a href="derp.doc">Architectural Document</a></li>
+                                    <li><a href="derp.pdf">Color Chart</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="span5">
+                        <p>Perdüre A01 is a clear acrylic solution formulated to create a clear, non-yellowing protective coating that provides a tough, UV and abrasion resistant film protecting surfaces from moisture penetration, staining, dirt, dust and wear. Perdüre A01 is an excellent choice for both interior and exterior applications.</p>
+                        <p>Most commonly used as a sealer for Düraamen concrete, epoxy terrazzo and polymeric terrazzo flooring systems. It is also used for sealing old and new concrete floors, exterior ramps, decks, sidewalks, slate and exposed aggregate surfaces.</p>
+                        <h6>advantages</h6>
+                        <ul class="square">
+                            <li>UV resistant g Excellent clarity &amp; color retention</li>
+                            <li>Low maintenance finish </li>
+                            <li>Excellent abrasion &amp; Mar resistance </li>
+                            <li>Seals substrate from moisture penetration</li>
+                        </ul>
+                    </div>
+                    <div class="span8">
+                        <div class="big-pad-left">
+                            <h2>Technical Data</h2>
+                            <table class="table table-bordered table-condensed">
+                                <tr>
+                                    <td><b>Viscosity @ 75°F</b></td>
+                                    <td>950cps</td>
+                                    <td><b>Weight per gallon</b></td>
+                                    <td>7.50–8.0lb/ga</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Viscosity @ 75°F</b></td>
+                                    <td>950cps</td>
+                                    <td><b>Weight per gallon</b></td>
+                                    <td>7.50–8.0lb/ga</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Viscosity @ 75°F</b></td>
+                                    <td>950cps</td>
+                                    <td><b>Weight per gallon</b></td>
+                                    <td>7.50–8.0lb/ga</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Viscosity @ 75°F</b></td>
+                                    <td>950cps</td>
+                                    <td><b>Weight per gallon</b></td>
+                                    <td>7.50–8.0lb/ga</td>
+                                </tr>
+                            </table>
+                            <a href="#top" class="to-top">top of page</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="span4">
+                <div class="big-pad-right">
+                    <div class="well beige">
+                        <img class="side-product-photo bordered" src="http://placehold.it/298x162">
+                        <img class="side-product-photo bordered" src="http://placehold.it/298x162">
+                        <img class="side-product-photo bordered" src="http://placehold.it/298x162">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="product beige-bg">
+        <div class="big-pad">
+            <h2 class="border">Perdüre A03 | <small>Acrylic Sealer</small></h2>
+        </div>
+        <div class="row">
+            <div class="span8">
+                <div class="row">
+                    <div class="span3">
+                        <div class="big-pad-left">
+                            <img class="bordered" src="/site_media/media/servee_images/product.jpg">
+                            <div class="bordered small-pad documents">
+                                <h6>Downloads</h6>
+                                <ul class="unstyled">
+                                    <li><a href="derp.pdf">Technical Data Sheet</a></li>
+                                    <li><a href="derp.doc">Architectural Document</a></li>
+                                    <li><a href="derp.pdf">Color Chart</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="span5">
+                        <p>Perdüre A01 is a clear acrylic solution formulated to create a clear, non-yellowing protective coating that provides a tough, UV and abrasion resistant film protecting surfaces from moisture penetration, staining, dirt, dust and wear. Perdüre A01 is an excellent choice for both interior and exterior applications.</p>
+                        <p>Most commonly used as a sealer for Düraamen concrete, epoxy terrazzo and polymeric terrazzo flooring systems. It is also used for sealing old and new concrete floors, exterior ramps, decks, sidewalks, slate and exposed aggregate surfaces.</p>
+                        <h6>advantages</h6>
+                        <ul class="square">
+                            <li>UV resistant g Excellent clarity &amp; color retention</li>
+                            <li>Low maintenance finish </li>
+                            <li>Excellent abrasion &amp; Mar resistance </li>
+                            <li>Seals substrate from moisture penetration</li>
+                        </ul>
+                    </div>
+                    <div class="span8">
+                        <div class="big-pad-left">
+                            <h2>Technical Data</h2>
+                            <table class="table table-bordered table-condensed">
+                                <tr>
+                                    <td><b>Viscosity @ 75°F</b></td>
+                                    <td>950cps</td>
+                                    <td><b>Weight per gallon</b></td>
+                                    <td>7.50–8.0lb/ga</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Viscosity @ 75°F</b></td>
+                                    <td>950cps</td>
+                                    <td><b>Weight per gallon</b></td>
+                                    <td>7.50–8.0lb/ga</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Viscosity @ 75°F</b></td>
+                                    <td>950cps</td>
+                                    <td><b>Weight per gallon</b></td>
+                                    <td>7.50–8.0lb/ga</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Viscosity @ 75°F</b></td>
+                                    <td>950cps</td>
+                                    <td><b>Weight per gallon</b></td>
+                                    <td>7.50–8.0lb/ga</td>
+                                </tr>
+                            </table>
+
+                            <iframe width="740" height="416" src="http://www.youtube.com/embed/eE5WQLMwHHk" frameborder="0" allowfullscreen></iframe>
+
+                            <div class="colors">
+                                <h2>Color Chart</h2>
+                                <ul class="thumbnails">
+                                    <li class="thumbnail">
+                                        <img src="http://placehold.it/200x200">
+                                        <p class="caption">Label</p>
+                                    </li>
+                                    <li class="thumbnail">
+                                        <img src="http://placehold.it/200x200">
+                                        <p class="caption">Label</p>
+                                    </li>
+                                    <li class="thumbnail">
+                                        <img src="http://placehold.it/200x200">
+                                        <p class="caption">Label</p>
+                                    </li>
+                                    <li class="thumbnail">
+                                        <img src="http://placehold.it/200x200">
+                                        <p class="caption">Label</p>
+                                    </li>
+                                    <li class="thumbnail">
+                                        <img src="http://placehold.it/200x200">
+                                        <p class="caption">Label</p>
+                                    </li>
+                                    <li class="thumbnail">
+                                        <img src="http://placehold.it/200x200">
+                                        <p class="caption">Label</p>
+                                    </li>
+                                    <li class="thumbnail">
+                                        <img src="http://placehold.it/200x200">
+                                        <p class="caption">Label</p>
+                                    </li>
+                                    <li class="thumbnail">
+                                        <img src="http://placehold.it/200x200">
+                                        <p class="caption">Label</p>
+                                    </li>
+                                    <li class="thumbnail">
+                                        <img src="http://placehold.it/200x200">
+                                        <p class="caption">Label</p>
+                                    </li>
+                                    <li class="thumbnail">
+                                        <img src="http://placehold.it/200x200">
+                                        <p class="caption">Label</p>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <a href="#top" class="to-top">top of page</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="span4">
+                <div class="big-pad-right">
+                    <div class="well beige">
+                        <img class="side-product-photo bordered" src="http://placehold.it/298x162">
+                        <img class="side-product-photo bordered" src="http://placehold.it/298x162">
+                        <img class="side-product-photo bordered" src="http://placehold.it/298x162">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    </div>
+{% endblock body %}

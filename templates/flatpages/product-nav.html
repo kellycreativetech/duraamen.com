@@ -1,0 +1,52 @@
+{% extends "site_base.html" %}
+{% load seo %}
+{% load frontendadmin_tags inlines chunks thumbnail bootstrap_tags %}
+
+{% block seo_head %}
+    {% get_metadata as my_meta %}
+    {{ my_meta.description }}
+    {{ my_meta.keywords }}
+{% endblock %}
+
+{% block meta %}
+{{ block.super }}
+<!--canonical URLs -->
+<link rel="canonical" href="http://www.duraamen.com{{ flatpage.url }}" />
+{% endblock %}
+
+{% block head_title %}{% get_metadata as my_meta %}{{ my_meta.title.value|default:flatpage.title }}{% endblock %}
+
+{% block hero %}
+{% endblock %}
+
+{% block body %}
+<div class="subpage-body">
+    <div class="big-pad">
+        <h1>{{ flatpage.title }}</h1>
+    </div>
+    <div class="row">
+        <div class="span8">
+            <div class="big-pad-left">
+                {% block content %}
+                {{ flatpage.content|render_inlines|safe }}
+                {% frontendadmin_change flatpage "Edit This Flatpage" %}
+                {% endblock content %}
+                <div class="product-nav"></div>
+            </div>
+        </div>
+        <div class="span4">
+            <div class="big-pad-right">
+                <div class="well beige">
+                    {% if flatpage.ext and flatpage.ext.image %}
+                        {% thumbnail flatpage.ext.image "300x700" crop="center" as bigimg %}
+                            <img src="{{ bigimg.url }}">
+                        {% endthumbnail %}
+                    {% else %}
+                        <img src="/static/img/sub-placeholder.jpg">
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock body %}
