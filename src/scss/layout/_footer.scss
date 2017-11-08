@@ -1,0 +1,48 @@
+.l-footer {
+  background: $dark-gray;
+  padding: 3em 0 1em;
+
+  h1, h2, h3, h4, h5, h6 {
+    color: $white;
+  }
+
+  p, li {
+    color: $gray;
+  }
+
+  .footer-logo {
+    display: block;
+    margin-bottom: 2em;
+
+    img {
+      max-width: 100%;
+      width: 180px;
+    }
+  }
+
+  a {
+    color: $brand-gold;
+
+    &:hover {
+      color: mix($white, $brand-gold, 15%);
+    }
+  }
+}
+
+.footer-nav {
+  display: none;
+
+  @include media-breakpoint-up(md) {
+    list-style: none;
+    margin: 0.5em 0;
+    display: flex;
+    justify-content: space-between;
+
+    li {
+      a {
+        display: block;
+        padding: 0 10px;
+      }
+    }
+  }
+}

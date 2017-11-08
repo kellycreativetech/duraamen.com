@@ -1,0 +1,23 @@
+<footer class="l-footer text-center">
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 ">
+      <a class="footer-logo wave-light" href="/{% if editing %}admin{% endif %}">
+        <img src="/dist/img/svg/logo-with-tag.svg">
+      </a>
+
+      <p>Copyright ©{% now "Y" %} <br>Duraamen Engineered Products, Inc.<br> All Rights Reserved.</p>
+      <p><a href="/privacy">Privacy Policy</a></p>
+
+    </div>
+    <div class="col-md-4">
+      {% include "includes/snippets/section-icons.html" %}
+    </div>
+    <div class="col-md-4 mt-4">
+      {% chunk "footer-contacts" %}
+    </div>
+  </div>
+  <hr>
+  {% include "includes/snippets/footer-nav.html" %}
+</div>
+</footer>

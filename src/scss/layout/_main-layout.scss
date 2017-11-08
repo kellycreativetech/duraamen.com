@@ -1,0 +1,53 @@
+.main-body {
+  position: relative;
+  margin: -40px 10px 20px;
+  border-radius: 4px;
+  border-top: 6px solid $primary-color;
+  background: #fff;
+
+  @include media-breakpoint-up(md) {
+    margin: -80px 40px 40px;
+  }
+}
+
+.gold-bg {
+  background: $secondary-color;
+
+  input[type=text],
+  input[type=email],
+  input[type=password] {
+    border-bottom-color: $dark-gray;
+  }
+
+  &:last-child {
+    border-radius: 0 0 4px 4px;
+  }
+}
+
+.gray-bg {
+  background: $light-gray-1;
+}
+
+.home-section {
+  padding: 2em 0;
+}
+
+
+.subscribe-form {
+  input[type=email] {
+    text-align: center;
+  }
+
+  .md-form label {
+    left: 50%;
+    transform: translateX(-50%);
+
+    &.active {
+      transform: translate(-50%, -140%);
+    }
+  }
+}
+
+hr {
+  border-top: 1px solid $gray;
+}

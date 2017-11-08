@@ -1,1 +1,6 @@
-{"error": "Page Not Found"}
+{
+  "error": "Page Not Found",
+  "dependencies": {
+    "bootstrap": "^4.0.0-beta.2"
+  }
+}

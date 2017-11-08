@@ -1,0 +1,42 @@
+// turning off MDB colors
+$enable_full_palette: false;
+
+$font-family-sans-serif: 'Roboto', sans-serif;
+$headings-font-family: 'Roboto Slab', serif;
+
+
+// colors that aren't in the MDB colors.scss file
+$maroon: #6c2a1f;
+$gold: #ff9800;
+$beige: #a89165;
+
+// aliases for naming consistency
+$brand-gold: $gold;
+$brand-beige: $beige;
+
+// using MDB colors.scss map files. Not sure if these will be useful yet.
+$brand-orange: #ff520b;
+$brand-green: #6d833f;
+
+$light-gray-1: #eee;
+$light-gray-2: #e9eaea;
+$gray: #999;
+$dark-gray: #454545;
+
+$theme-colors: (
+  primary: $maroon,
+  secondary: $gold,
+  light: $light-gray-2,
+  dark: $dark-gray
+);
+
+// MDB-specific color overrides
+$primary-color: $maroon;
+$secondary-color: $gold;
+
+
+
+
+// bootstrap variable overrides
+$headings-font-weight: 700;
+$link-color: $maroon;

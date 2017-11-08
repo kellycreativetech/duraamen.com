@@ -18,7 +18,8 @@ var gulp = require('gulp'),
 
 // all of these will be *checked* – they still need imported somewhere.
 var sassPaths = [
-  "src/sass"
+  "src/sass",
+  "node_modules/bootstrap/scss/"
 ]
 
 // all of these will be concatenated.
@@ -35,12 +36,12 @@ var scriptPaths = [
 
 // image paths
 var imgPaths = [
-  'src/img/*'
+  'src/img/**/*'
 ]
 
 // stylesheets
 gulp.task('sass', function sassTask() {
-  gulp.src('src/sass/material-kit.scss')
+  gulp.src('src/scss/style.scss')
   .pipe(sourcemaps.init())
   .pipe(sass({
     includePaths: sassPaths
@@ -50,7 +51,7 @@ gulp.task('sass', function sassTask() {
   .pipe(uglifycss())
   .pipe(sourcemaps.write('../maps', {
     includeContent: false,
-    sourceRoot: 'src/sass'
+    sourceRoot: 'src/scss'
   }))
   .pipe(gulp.dest('dist/css'));
 });
@@ -92,7 +93,7 @@ gulp.task('images', function imageMin() {
 
 // Watch lots of things task
 gulp.task('watch', function watchTask() {
-  gulp.watch('src/sass/**/*', ['sass']);
+  gulp.watch('src/scss/**/*', ['sass']);
   gulp.watch('src/js/**/*', ['scripts']);
   gulp.watch('src/img/**/*', ['images']);
   gulp.watch('src/fonts/**/*', ['fonts']);

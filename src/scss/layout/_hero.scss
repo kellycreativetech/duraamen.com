@@ -1,0 +1,36 @@
+.hero {
+  background-position: bottom center;
+  background-size: cover;
+
+  .btn.btn-lg {
+    font-size: 1.1rem;
+    line-height: 1.2;
+    padding: 0.8rem 2.4rem 0.4rem;
+    color: $dark-gray !important;
+  }
+
+  h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: .5rem;
+    color: $brand-gold;
+  }
+
+  h4 {
+    font-weight: 700;
+    line-height: 1.2;
+    color: $white;
+  }
+
+  @include media-breakpoint-up(md) {
+    h1 {
+      font-size: 3.5rem;
+    }
+
+    h4 {
+      margin-top: 0.5rem;
+      margin-bottom: 3rem;
+    }
+  }
+}

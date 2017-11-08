@@ -1,93 +1,49 @@
-<nav class="navbar navbar-danger navbar-transparent navbar-absolute">
-    	<div class="container">
-        	<!-- Brand and toggle get grouped for better mobile display -->
-        	<div class="navbar-header">
-        		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example">
-            		<span class="sr-only">Toggle navigation</span>
-		            <span class="icon-bar"></span>
-		            <span class="icon-bar"></span>
-		            <span class="icon-bar"></span>
-        		</button>
-        		<a class="navbar-brand" href="/">Duraamen</a>
-        	</div>
+<!--Navbar-->
+<nav class="navbar fixed-top navbar-expand-lg navbar-light scrolling-navbar">
+    <div class="container">
+        <a class="navbar-brand" href="#">
+          <img src="/dist/img/logo.svg"  width="200" height="40">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <!--Links-->
+            {% menu "Navigation" %}
+                <ul class="navbar-nav mr-auto smooth-scroll">
+                  {% for item in tree %}
+                <li id="menu-item-{{ item.name|slugify }}" class="nav-item {{ item.trail_class }} {{ item.name|slugify }} {{ item.current_class}} {% if item.children %}dropdown{% endif %}">
+                  <a
+                    class="nav-link {% if item.children %}dropdown-toggle{% endif %} {{ item.current_class }}"
+                    href="{{ item.url }}"
+                    {% if item.children %}data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"{% endif %}
+                  >{{ item.name|safe }}</a>
+                  {% if item.children %}
+                  <ul class="dropdown-menu">
+                    {% for citem in item.children %}
+                    <li class="dropdown-item {{ item.trail_class }}"><a class="nav-link {{ item.current_class }}" href="{{ citem.url }}">{{ citem.name|safe }}</a></li>
+                    {% endfor %}
+                  </ul>
+                  {% endif %}
+                </li>
+                {% endfor %}
+                </ul>
 
-        	<div class="collapse navbar-collapse" id="navigation-example">
-        		<ul class="nav navbar-nav navbar-right">
 
-					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-							Products
-							<b class="caret"></b>
-						</a>
-						<ul class="dropdown-menu dropdown-with-icons">
-							<li>
-								<a href="../sections.html#headers">
-									Industrial Flooring
-								</a>
-							</li>
-							<li>
-								<a href="../sections.html#features">
-									Architectural Concrete Flooring
-								</a>
-							</li>
-							<li>
-								<a href="../sections.html#blogs">
-									Sealers / Topcoats
-								</a>
-							</li>
-							<li>
-								<a href="../sections.html#teams">
-									Concrete Colorants
-								</a>
-							</li>
-							<li>
-								<a href="../sections.html#projects">
-									Tools – Preparation & Repair Products
-								</a>
-							</li>
-						</ul>
-					</li>
+            <!--Social Icons-->
+<!--            <ul class="navbar-nav nav-flex-icons">
+                <li class="nav-item">
+                    <a class="nav-link"><i class="fa fa-facebook light-green-text"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"><i class="fa fa-twitter light-green-text"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"><i class="fa fa-instagram light-green-text"></i></a>
+                </li>
+            </ul>-->
 
-					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-							Resources
-							<b class="caret"></b>
-						</a>
-						<ul class="dropdown-menu dropdown-with-icons">
-							<li>
-								<a href="../examples/about-us.html">
-									Architects/Designers
-								</a>
-							</li>
-							<li>
-								<a href="../examples/blog-post.html">
-									Under Construction
-								</a>
-							</li>
-						</ul>
-					</li>
-
-					<li>
-						<a href="http://www.creative-tim.com/buy/material-kit-pro?ref=presentation" target="_blank" class="btn btn-white btn-simple">
-							Technical FAQ
-						</a>
-					</li>
-          <li>
-						<a href="http://www.creative-tim.com/buy/material-kit-pro?ref=presentation" target="_blank" class="btn btn-white btn-simple">
-							Project Gallery
-						</a>
-					</li>
-          <li>
-						<a href="http://www.creative-tim.com/buy/material-kit-pro?ref=presentation" target="_blank" class="btn btn-white btn-simple">
-							Blog
-						</a>
-					</li>
-          <li>
-						<a href="http://www.creative-tim.com/buy/material-kit-pro?ref=presentation" target="_blank" class="btn btn-white btn-simple">
-							Order Now
-						</a>
-					</li>
-        		</ul>
-        	</div>
-    	</div>
-    </nav>
+        </div>
+    </div>
+</nav>
+<!--/Navbar-->

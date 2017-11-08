@@ -1,0 +1,13 @@
+{% menu "Navigation" %}
+    <ul class="footer-nav">
+      {% for item in tree %}
+    <li id="menu-item-{{ item.name|slugify }}" class="{{ item.trail_class }} {{ item.name|slugify }} {{ item.current_class}}">
+      <a
+        class="wave-light {{ item.current_class }}"
+        href="{{ item.url }}"
+      >
+        {{ item.name|safe }}
+      </a>
+    </li>
+    {% endfor %}
+    </ul>
