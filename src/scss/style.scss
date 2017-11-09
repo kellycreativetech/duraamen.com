@@ -44,7 +44,7 @@
 
 
 // MDB overrides. This is the material design toolkit.
-// Bootstrap //
+// Bootstrap bits included in the framework //
 
 @import "vendor/mdb/free/data/functions";
 @import "vendor/mdb/free/data/variables-b4";
@@ -77,9 +77,9 @@
 @import "vendor/mdb/free/footer";
 @import "vendor/mdb/free/list-group";
 @import "vendor/mdb/free/tables";
-@import "vendor/mdb/free/deprecated";
 
 @import "vendor/mdb/pro/variables-pro";
+@import "vendor/mdb/free/deprecated";
 @import "vendor/mdb/pro/deprecated";
 @import "vendor/mdb/pro/buttons-pro";
 @import "vendor/mdb/pro/social-buttons";
@@ -89,25 +89,44 @@
 @import "vendor/mdb/pro/navbars-pro";
 @import "vendor/mdb/pro/scrollspy";
 @import "vendor/mdb/pro/light-box";
+@import "vendor/mdb/pro/chips";
 @import "vendor/mdb/pro/msc";
+@import "vendor/mdb/pro/radio";
+@import "vendor/mdb/pro/checkbox";
 @import "vendor/mdb/pro/material-select";
+@import "vendor/mdb/pro/switch";
+@import "vendor/mdb/pro/file-input";
+@import "vendor/mdb/pro/range";
+@import "vendor/mdb/pro/input-group";
+@import "vendor/mdb/pro/autocomplete";
 @import "vendor/mdb/pro/parallax";
+@import "vendor/mdb/pro/side-nav";
 @import "vendor/mdb/pro/ecommerce";
 @import "vendor/mdb/pro/carousels-pro";
+@import "vendor/mdb/pro/stepper";
+@import "vendor/mdb/pro/blog";
+@import "vendor/mdb/pro/toasts";
 @import "vendor/mdb/pro/animations-pro";
+@import "vendor/mdb/pro/charts-pro";
+@import "vendor/mdb/pro/progress";
 @import "vendor/mdb/pro/scrollbar";
-@import "vendor/mdb/pro/sections";
+@import "vendor/mdb/pro/skins";
 
+@import "vendor/mdb/pro/date_picker/default";
+@import "vendor/mdb/pro/date_picker/default.time";
+@import "vendor/mdb/pro/date_picker/default.date";
+
+@import "vendor/mdb/pro/sections";
 @import "vendor/mdb/pro/sections/templates";
 @import "vendor/mdb/pro/sections/features";
+@import "vendor/mdb/pro/sections/social";
 @import "vendor/mdb/pro/sections/blog";
 @import "vendor/mdb/pro/sections/team";
 @import "vendor/mdb/pro/sections/testimonials";
 @import "vendor/mdb/pro/sections/projects";
+@import "vendor/mdb/pro/sections/magazine";
 @import "vendor/mdb/pro/sections/pricing";
 @import "vendor/mdb/pro/sections/contacts";
-
-@import "vendor/mdb/landing-page/style";
 
 
 // Duraamen-specific styles

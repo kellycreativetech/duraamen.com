@@ -1,40 +1,31 @@
 <!-- SCRIPTS -->
 
 <!-- JQuery -->
-<script type="text/javascript" src="dist/js/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="/dist/js/jquery-3.2.1.min.js"></script>
 
 <!-- Bootstrap tooltips -->
-<script type="text/javascript" src="dist/js/popper.min.js"></script>
+<script type="text/javascript" src="/dist/js/popper.min.js"></script>
 
 <!-- Bootstrap core JavaScript -->
-<script type="text/javascript" src="dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/dist/js/bootstrap.min.js"></script>
 
 <!-- MDB core JavaScript -->
-<script type="text/javascript" src="dist/js/mdb.min.js"></script>
+<script type="text/javascript" src="/dist/js/mdb.min.js"></script>
 
-<script>
-    //Animation init
+<script type="text/javascript">
+    /* WOW.js init */
     new WOW().init();
 
-    //Modal
-    // $('#myModal').on('shown.bs.modal', function () {
-    //   $('#myInput').focus()
-    // })
-
-    // Material Select Initialization
-    $(document).ready(function() {
-        $('.mdb-select').material_select();
-    });
-
-    // MDB Lightbox Init
-    // $(function () {
-    //     $("#mdb-lightbox-ui").load("mdb-addons/mdb-lightbox-ui.html");
-    // });
-</script>
-
-<script>
-
-    // SideNav Initialization
+    /* Side navigation toggle */
     $(".button-collapse").sideNav();
+    var el = document.querySelector('.custom-scrollbar');
+    Ps.initialize(el);
+
+    $('.mdb-select').material_select();
+
+    // Tooltips Initialization
+    $(function () {
+      $('[data-toggle="tooltip"]').tooltip()
+    })
 
 </script>
