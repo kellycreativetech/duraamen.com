@@ -15,56 +15,15 @@
   <header>
     {% include "includes/base/nav-top.html" %}
     {% include "includes/base/nav.html" %}
-    {% include "includes/base/hero.html" %}
+    {% block hero %}{% include "includes/base/hero.html" %}{% endblock %}
   </header>
 
   <main class="main-body z-depth-4" id="main">
-    <section class="gray-bg home-section">
-      <div class="container">
-        <div class="row justify-content-md-center">
-          <div class="col-lg-9 text-center">
-            <h2>{% page "title" %}</h2>
-            {% page "content" type="wysiwyg" %}
-            {% include "includes/snippets/section-icons.html" %}
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="home-section">
-      <div class="container">
-        <div class="row justify-content-md-center">
-          <div class="col-lg-9">
-            {% include "includes/sections/blog-latest.html" %}
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="subscribe-form gold-bg home-section">
-      <div class="container">
-        <h2 class="text-center mb-5 mt-4">{% page "subtitle_2" %}</h2>
-        <div class="row justify-content-md-center">
-          <div class="col-lg-4">
-            <form>
-              <div class="md-form">
-                <input type="email" id="defaultForm-email" class="form-control validate">
-                <label for="defaultForm-email">Your email</label>
-              </div>
-              <div class="text-center">
-                <button class="btn btn-primary">Submit</button>
-              </div>
-            </form>
-          </div>
-
-          </div>
-        </div>
-      </div>
-    </section>
+    {% block main %}
+    {% endblock %}
   </main>
 
   {% include "includes/base/footer.html" %}
   {% include "includes/base/_scripts.html" %}
-
-
 </body>
 </html>

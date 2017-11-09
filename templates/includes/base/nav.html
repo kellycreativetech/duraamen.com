@@ -41,65 +41,6 @@
               </li>
               {% endfor %}
               </ul>
-
-
-
-
-<!--
-
-                <li><a class="collapsible-header waves-effect arrow-r"><i class="fa fa-chevron-right"></i> Submit blog</a>
-                    <div class="collapsible-body">
-                        <ul>
-                            <li><a href="#" class="waves-effect">Submit listing</a>
-                            </li>
-                            <li><a href="#" class="waves-effect">Registration form</a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-                <li><a class="collapsible-header waves-effect arrow-r"><i class="fa fa-hand-pointer-o"></i> Instruction<i class="fa fa-angle-down rotate-icon"></i></a>
-                    <div class="collapsible-body">
-                        <ul>
-                            <li><a href="#" class="waves-effect">For bloggers</a>
-                            </li>
-                            <li><a href="#" class="waves-effect">For authors</a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-                <li><a class="collapsible-header waves-effect arrow-r"><i class="fa fa-eye"></i> About<i class="fa fa-angle-down rotate-icon"></i></a>
-                    <div class="collapsible-body">
-                        <ul>
-                            <li><a href="#" class="waves-effect">Introduction</a>
-                            </li>
-                            <li><a href="#" class="waves-effect">Monthly meetings</a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-                <li><a class="collapsible-header waves-effect arrow-r"><i class="fa fa-envelope-o"></i> Contact me<i class="fa fa-angle-down rotate-icon"></i></a>
-                    <div class="collapsible-body">
-                        <ul>
-                            <li><a href="#" class="waves-effect">FAQ</a>
-                            </li>
-                            <li><a href="#" class="waves-effect">Write a message</a>
-                            </li>
-                            <li><a href="#" class="waves-effect">FAQ</a>
-                            </li>
-                            <li><a href="#" class="waves-effect">Write a message</a>
-                            </li>
-                            <li><a href="#" class="waves-effect">FAQ</a>
-                            </li>
-                            <li><a href="#" class="waves-effect">Write a message</a>
-                            </li>
-                            <li><a href="#" class="waves-effect">FAQ</a>
-                            </li>
-                            <li><a href="#" class="waves-effect">Write a message</a>
-                            </li>
-                        </ul>
-                    </div>
-                </li> -->
-
         </li>
         <!--/. Side navigation links -->
 
@@ -146,28 +87,14 @@
                   {% if item.children %}
                   <ul class="dropdown-menu">
                     {% for citem in item.children %}
-                    <li class="dropdown-item {{ item.trail_class }}"><a class="nav-link {{ item.current_class }}" href="{{ citem.url }}">{{ citem.name|safe }}</a></li>
+                    <li class="dropdown-item {{ item.trail_class }}">
+                      <a class="nav-link {{ item.current_class }}" href="{{ citem.url }}">{{ citem.name|safe }}</a></li>
                     {% endfor %}
                   </ul>
                   {% endif %}
                 </li>
                 {% endfor %}
                 </ul>
-
-
-            <!--Social Icons-->
-<!--            <ul class="navbar-nav nav-flex-icons">
-                <li class="nav-item">
-                    <a class="nav-link"><i class="fa fa-facebook light-green-text"></i></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link"><i class="fa fa-twitter light-green-text"></i></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link"><i class="fa fa-instagram light-green-text"></i></a>
-                </li>
-            </ul>-->
-
         </div>
     </div>
 </nav>

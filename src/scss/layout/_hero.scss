@@ -33,4 +33,11 @@
       margin-bottom: 3rem;
     }
   }
+
+  &.smaller-hero {
+    &.jarallax {
+      min-height: 400px;
+    }
+  }
+
 }
