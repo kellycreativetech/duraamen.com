@@ -76,7 +76,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!--Links-->
             {% menu "Navigation" %}
-                <ul class="navbar-nav mr-auto smooth-scroll">
+                <ul class="navbar-nav mr-auto">
                   {% for item in tree %}
                 <li id="menu-item-{{ item.name|slugify }}" class="nav-item {{ item.trail_class }} {{ item.name|slugify }} {{ item.current_class}} {% if item.children %}dropdown{% endif %}">
                   <a
