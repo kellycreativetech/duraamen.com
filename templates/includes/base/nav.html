@@ -1,23 +1,12 @@
 <!-- Sidebar navigation -->
-<div id="slide-out" class="side-nav fixed">
+<div id="slide-out" class="side-nav right-aligned">
     <ul class="custom-scrollbar list-unstyled">
-        <!-- Logo -->
-        <li>
-            <div class="logo-wrapper waves-light">
-                <a href="#"><img src="https://mdbootstrap.com/img/logo/mdb-transparent.png" class="img-fluid flex-center"></a>
-            </div>
-        </li>
-        <!--/. Logo -->
-        <!--Social-->
-        <li>
-            <ul class="social">
-                <li><a href="#" class="icons-sm fb-ic"><i class="fa fa-facebook"> </i></a></li>
-                <li><a href="#" class="icons-sm pin-ic"><i class="fa fa-pinterest"> </i></a></li>
-                <li><a href="#" class="icons-sm gplus-ic"><i class="fa fa-google-plus"> </i></a></li>
-                <li><a href="#" class="icons-sm tw-ic"><i class="fa fa-twitter"> </i></a></li>
-            </ul>
-        </li>
-        <!--/Social-->
+      <div class="logo-wrapper waves-light waves-effect waves-light">
+          <a href="/"><img height="40" src="/dist/img/logo.svg" class="img-fluid flex-center" width="240"></a>
+      </div>
+
+
+
         <!--Search Form-->
         <li>
             <form class="search-form" role="search">
@@ -29,8 +18,36 @@
         <!--/.Search Form-->
         <!-- Side navigation links -->
         <li>
-            <ul class="collapsible collapsible-accordion">
-                <li><a class="collapsible-header waves-effect arrow-r"><i class="fa fa-chevron-right"></i> Submit blog<i class="fa fa-angle-down rotate-icon"></i></a>
+          {% menu "Navigation" %}
+              <ul class="collapsible collapsible-accordion">
+                {% for item in tree %}
+              <li id="menu-item-{{ item.name|slugify }}" class="{{ item.trail_class }} {{ item.current_class }}">
+                <a
+                  class="{% if item.children %}collapsible-header{% endif %} waves-effect arrow-r"
+                  {% if not item.children %}href="{{ item.url }}"{% endif %}
+                >{{ item.name|safe }} {% if item.children %}<i class="fa fa-angle-down rotate-icon"></i>{% endif %}</a>
+                {% if item.children %}
+                <div class="collapsible-body">
+                  <ul>
+                    {% if item.url %}<li class="copied-link"><a href="{{ item.url }}">{{ item.name|safe }}</a></li>{% endif %}
+                    {% for citem in item.children %}
+                    <li class="{{ item.trail_class }}">
+                      <a class="waves-effect {{ item.current_class }}" href="{{ citem.url }}">{{ citem.name|safe }}</a>
+                    </li>
+                    {% endfor %}
+                  </ul>
+                </div>
+                {% endif %}
+              </li>
+              {% endfor %}
+              </ul>
+
+
+
+
+<!--
+
+                <li><a class="collapsible-header waves-effect arrow-r"><i class="fa fa-chevron-right"></i> Submit blog</a>
                     <div class="collapsible-body">
                         <ul>
                             <li><a href="#" class="waves-effect">Submit listing</a>
@@ -81,10 +98,21 @@
                             </li>
                         </ul>
                     </div>
-                </li>
-            </ul>
+                </li> -->
+
         </li>
         <!--/. Side navigation links -->
+
+        <!--Social-->
+        <li>
+            <ul class="social">
+                <li><a href="#" class="icons-sm fb-ic"><i class="fa fa-facebook"> </i></a></li>
+                <li><a href="#" class="icons-sm pin-ic"><i class="fa fa-pinterest"> </i></a></li>
+                <li><a href="#" class="icons-sm gplus-ic"><i class="fa fa-google-plus"> </i></a></li>
+                <li><a href="#" class="icons-sm tw-ic"><i class="fa fa-twitter"> </i></a></li>
+            </ul>
+        </li>
+        <!--/Social-->
     </ul>
 </div>
 <!--/. Sidebar navigation -->
@@ -97,11 +125,11 @@
         <a class="navbar-brand" href="#">
           <img src="/dist/img/logo.svg"  width="200" height="40">
         </a>
-        <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button data-activates="slide-out" class="navbar-toggler button-collapse" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
-        </button> -->
+        </button>
 
-        <a href="#" data-activates="slide-out" class="button-collapse"><i class="fa fa-bars"></i></a>
+
 
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">

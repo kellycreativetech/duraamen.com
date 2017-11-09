@@ -66,6 +66,7 @@
 
   &.navbar-light:not(.top-nav-collapse) {
     background-color: $light-gray-2;
+    box-shadow: none;
   }
 
   .dropdown-menu .dropdown-item {
@@ -97,7 +98,7 @@
     }
   }
 
-  @include media-breakpoint-up(md) {
+  @include media-breakpoint-up(lg) {
     &.navbar-light:not(.top-nav-collapse) {
       background: transparent;
 
@@ -147,5 +148,22 @@
     padding-top: 0;
     text-align: left;
     justify-content: flex-start;
+  }
+}
+
+
+.side-nav {
+  background-color: $dark-gray;
+
+  .collapsible .copied-link {
+    margin-left: -26px;
+
+    a {
+      font-weight: bold;
+    }
+  }
+
+  .collapsible-header.active {
+    opacity: 0.4;
   }
 }
