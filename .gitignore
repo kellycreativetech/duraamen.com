@@ -3,3 +3,4 @@ assets/
 dist/
 node_modules/
 site_media/
+.glass/config
