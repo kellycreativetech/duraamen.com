@@ -1,6 +1,49 @@
 {
-  "error": "Page Not Found",
-  "dependencies": {
+  "name": "kct-starter-template",
+  "version": "1.0.0",
+  "description": "Starter template for Kelly Creative Tech",
+  "main": "gulpfile.js",
+  "scripts": {
+    "start": "gulp",
+    "build": "gulp build --production"
+  },
+  "author": "Kasey <kasey@servee.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "latest",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-changed": "^3.1.0",
+    "gulp-cli": "^1.2.1",
+    "gulp-concat": "^2.5.2",
+    "gulp-connect": "latest",
+    "gulp-cssnano": "^2.1.0",
+    "gulp-imagemin": "^3.3.0",
+    "gulp-load-plugins": "^1.1.0",
+    "gulp-sass": "latest",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "latest",
+    "gulp-uglifycss": "latest",
+    "gulp-uncss": "^1.0.1",
+    "gulp-util": "latest",
+    "js-yaml": "^3.4.6",
+    "pump": "^1.0.2",
     "bootstrap": "^4.0.0-beta.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kellycreativetech/duraamen.com"
+  },
+  "bugs": {
+    "url": "https://github.com/kellycreativetech/duraamen.com/issues",
+    "email": "kasey@servee.com"
+  },
+  "babel": {
+    "presets": [
+      "es2015"
+    ]
+  },
+  "private": true,
+  "dependencies": {
+
   }
 }
