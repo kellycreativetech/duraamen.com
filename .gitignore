@@ -4,3 +4,4 @@ dist/
 node_modules/
 site_media/
 .glass/config
+.DS_Store
