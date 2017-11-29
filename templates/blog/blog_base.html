@@ -1,18 +1,22 @@
-{% extends "site_base.html" %}
-{% load seo %}
-{% block seo_head %}
-    {% get_metadata as my_meta %}
-    {{ my_meta.description }}
-    {{ my_meta.keywords }}
-{% endblock %}
+{% extends "base.html" %}
+
+{% block undermain %}
+<section>
+  <div class="container">
+
+{# {% select_pages "sections" path_split.2 varname="posts" order_by="-published" %} #}
+
+    {% select_pages "tags" "concrete dye" varname="posts" order_by="-published" %}
+    {% for post in posts|slice:"5" %}
+                          {% if post.content.image %}
+                                <img class="float-right" src="{% imgix_url post.content.image %}?w=300&h=200" />
+                          {% endif %}
+                          <h3><a href="{{ post.get_absolute_url }}{% if editing %}/admin{% endif %}">{{ post.content.title }}</a></h3>
+                          {{ post.content.content|striptags|truncatewords:20 }}
+                    {% endfor %}
 
 
-{% block body_id %}blog{% endblock %}
 
-
-{% block body %}
-<div class="beige-bg blog-container">
-    {% block primary %}{% endblock %}
-</div>
-
+  </div>
+</section>
 {% endblock %}

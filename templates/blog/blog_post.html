@@ -1,92 +1,90 @@
-{% extends "biblion/blog_base.html" %}
-{% load seo %}
-{% load inlines frontendadmin_tags thumbnail chunks forms_builder_tags %}
-
-{% block head_title %}{% get_metadata as my_meta %}{{ my_meta.title.value|default:post.title|safe }}{% endblock %}
-
-{% block seo_head %}
-    {% get_metadata as my_meta %}
-    {{ my_meta.description }}
-    {{ my_meta.keywords }}
-{% endblock %}
-
+{% extends "blog/blog_base.html" %}
 
     {% block meta %}
-    <meta name="description" content="{{ post.teaser_html|striptags|truncatewords:60 }}">
+    {{ block.super }}
+    <meta name="description" content="{% if page.content.meta_description %}{{ page.content.meta_description|truncatechars:150 }}{% else %}{{ page.content.content|striptags|truncatechars:150 }}{% endif %}">
+
+    {% if page.content.meta_keywords %}
+    <meta name="keywords" content='{{ page.content.meta_keywords }}' />
+    {% endif %}
+
     <!-- Facebook, LinkedIn, and Google Plus meta tags -->
 
-    <meta property="og:image" content="{% if post.images.count > 0 %}{% for im in post.images.all %}{% if forloop.first %}{% thumbnail im.image_path "200x200" crop="center" as thumbsmallone %}{{ thumbsmallone.url }}{% endthumbnail %}{% endif %}{% endfor %}{% else %}/static/icons/apple-touch-icon-144-precomposed.png{% endif %}"/>
+    <meta property="og:image" content="{% if page.content.feature_image %}{% imgix_url page.content.feature_image  %}?w=200&amp;h=200&amp;fit=crop{% else %}/static/icons/apple-touch-icon-144-precomposed.png{% endif %}"/>
 
-    <meta property="og:title" content="{{ post.title }}"/>
-    <meta property="og:description" content="{{ post.teaser_html|striptags|truncatewords:60 }}"/>
-    <meta property="og:url" content="http://www.duraamen.com{{ post.get_absolute_url }}"/>
+    <meta property="og:title" content="{% if page.content.meta_title %}{{ page.content.meta_title }}{% else %}{{ page.content.title }}{% endif %}"/>
+    <meta property="og:description" content="{% if page.content.meta_description %}{{ page.content.meta_description }}{% else %}{{ post.content.content|striptags|truncatewords:60 }}{% endif %}"/>
+    <meta property="og:url" content="{{ page.get_absolute_url }}"/>
     <meta property="og:site_name" content="Duraamen decorative concrete and resinous flooring systems"/>
     <meta property="og:type" content="article"/>
 
     <!-- Twitter meta tags -->
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:url" content="http://www.duraamen.com{{ post.get_absolute_url }}">
-    <meta name="twitter:title" content="{{ post.title }}">
-    <meta name="twitter:description" content="{{ post.teaser_html|striptags|truncatechars:200 }}">
+    <meta name="twitter:url" content="{{ page.get_absolute_url }}">
+    <meta name="twitter:title" content="{% if page.content.meta_title %}{{ page.content.meta_title }}{% else %}{{ page.content.title }}{% endif %}">
+    <meta name="twitter:description" content="{% if page.content.meta_description %}{{ page.content.meta_description }}{% else %}{{ page.content.content|striptags|truncatechars:200 }}{% endif %}">
 
-    <meta name="twitter:image:src" content="{% if post.images.count > 0 %}{% for im in post.images.all %}{% if forloop.first %}{% thumbnail im.image_path "200x200" crop="center" as thumbsmalltwo %}{{ thumbsmalltwo.url }}{% endthumbnail %}{% endif %}{% endfor %}{% else %}/static/icons/apple-touch-icon-144-precomposed.png{% endif %}">
+    <meta name="twitter:image:src" content="{% if page.content.feature_image %}{% imgix_url page.content.feature_image  %}?w=200&amp;h=200&amp;fit=crop{% else %}/static/icons/apple-touch-icon-144-precomposed.png{% endif %}">
 
-    <meta name="twitter:site" content="http://www.duraamen.com">
+    <meta name="twitter:site" content="{{ site.domain }}">
     <meta name="twitter:creator" content="@duraamen">
-
-    <!--canonical URLs -->
-    <link rel="canonical" href="http://www.duraamen.com{{ post.get_absolute_url }}" />
     {% endblock %}
 
 
-{% block primary %}
-
-
-    <div class="row">
-        <div class="span8" itemscope itemtype="http://schema.org/Article">
-            <div class="big-pad-left pad-top">
-                {% frontendadmin_change post %}
-                <h1 itemprop="headline">{{ post.title|safe }}</h1>
-                <div itemprop="articleBody">
-                {{ post.content_html|safe }}
+{% block hero %}
+<!-- Intro Section -->
+<div
+  class="hero smaller-hero view hm-black-strong-1 jarallax"
+  data-jarallax='{"speed": 0.2}'
+  style="background-image: url( {% imgix_url "/dist/img/iStock-92277191.jpg" %}?w=1800&h=1000&fit=crop&sat=-80&crop=bottom&blend=000000&bm=normal&balph=50);">
+    <div class="full-bg-img">
+        <div class="container flex-center">
+            <div class="row smooth-scroll justify-content-md-center">
+                <div class="col-md-12 text-center">
+                    <div class="wow fadeInDown" data-wow-delay="0.2s">
+                        <h1>{% page "title" type="text" %}</h1>
+                    </div>
                 </div>
-
-                    <!-- AddThis Button BEGIN -->
-                    <!-- Go to www.addthis.com/dashboard to customize your tools -->
-                    <div class="addthis_sharing_toolbox"></div>
-                    <script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
-                    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-520d221765704fe3" async="async"></script>
-                    <!-- AddThis Button END -->
-
             </div>
         </div>
-        <div class="span4">
-        	<div class="big-pad-right pad-top blog-sidebar">
-        	   <div class="well beige">
-            	   {% chunk "blog-sidebar" %}
-
-                	{% if post.images.count > 0 %}
-                	{% for im in post.images.all %}
-                	    {% thumbnail im.image_path "340x700" as thumb %}
-                	    <img itemprop="image" class="side-photo" src="{{ thumb.url }}" alt="{{ post.title }}">
-                	    {% endthumbnail %}
-                    {% endfor %}
-                	{% endif %}
-
-                    {% block under-sidebar %}
-                        <h3><br><em>Contact us to learn more</em></h3>
-                        {% render_built_form id=15 %}
-                    {% endblock %}
-
-
-        	   </div>
-        	</div>
-        </div>
     </div>
+</div>
+
 {% endblock %}
 
+{% block main %}
+<section class="home-section">
+  <div class="container" itemscope itemtype="http://schema.org/Article">
+    <div class="row justify-content-center">
+      <div class="col-10">
+        <div itemprop="articleBody">
+        {% page "content" type="wysiwyg" %}
+        </div>
 
+        {% include "includes/snippets/section-icons.html" %}
 
+        <p><img src="/site_media/media/servee_images/rss.png"> <a href="https://www.duraamen.com/blog/.xml">Subscribe to our Feed</a></p>
+        {% page_list "Blog Photos" %}
+        {% list_item "image" type=img %}
+        <img itemprop="image" class="side-photo" src="{% imgix_url list_item.image %}?w=340" alt="">
+        {% end_list %}
 
-
-
+            {% if editing %}
+            <div class="well">
+              <h2>Admin tools</h2>
+              {% page "sections" type="select" multiple="true" %}
+              {% page "tags" type="select" multiple="true" %}
+            </div>
+            {% else %}
+            <!-- AddThis Button BEGIN -->
+            <!-- Go to www.addthis.com/dashboard to customize your tools -->
+            <div class="addthis_sharing_toolbox"></div>
+            <script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+            <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-520d221765704fe3" async="async"></script>
+            <!-- AddThis Button END -->
+            {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
