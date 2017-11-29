@@ -4,6 +4,24 @@
 <section>
   <div class="container">
 
+    {% for tagged_item in page.content.tags %}
+      <h1>{{ tagged_item }}</h1>
+      <p><em>Note: this is just here for structure at the moment. More soon.</em></p>
+
+
+      {% select_pages "tags" tagged_item %}
+   <ul> <!-- nested {{ t.record }} list -->
+        {% for selected_page in pages %}
+        <li>{{ selected_page.content.title }}</li>
+        {% endfor %}
+   </ul>
+    {% endfor %}
+    <ul> <!-- top level list -->
+
+
+{% comment %}
+
+
 {# {% select_pages "sections" path_split.2 varname="posts" order_by="-published" %} #}
 
     {% select_pages "tags" "concrete dye" varname="posts" order_by="-published" %}
@@ -14,7 +32,7 @@
                           <h3><a href="{{ post.get_absolute_url }}{% if editing %}/admin{% endif %}">{{ post.content.title }}</a></h3>
                           {{ post.content.content|striptags|truncatewords:20 }}
                     {% endfor %}
-
+{% endcomment %}
 
 
   </div>

@@ -1,5 +1,4 @@
-{% extends 'base.html' %}
-{% load highlight %}
+{% extends "base.html" %}
 
 {% block body %}
 <style>
@@ -13,40 +12,25 @@
     </div>
     <div class="row">
         <div class="span12">
-            <form method="get" action=".">
-{% comment %}                <table>
-                    {{ form.as_table }}
-                    <tr>
-                        <td>&nbsp;</td>
-                        <td>
-                            <input type="submit" value="Search">
-                        </td>
-                    </tr>
-                </table>
-{% endcomment %}
 
-                {% if query %}
                 <div class="row">
                 <div class="span8">
                 <div class="big-pad">
-                    {% for result in page.object_list %}
-                        <h3><b><a href="{{ result.object.get_absolute_url }}">{{ result.object.title|safe }}</a></b></h3>
-                        {% if result.object.description %}
-                          <p>{% highlight result.object.description with query max_length 140 %}<br></p>
-                        {% else %}
-                          {% if result.object.content %}
-                          <p>{% highlight result.object.content with query max_length 140 %}<br></p>
 
-                          {% else %}
-                          {% if result.object.content_html %}
-                          <p>{% highlight result.object.content_html with query max_length 140 %}<br></p>
-                          {% endif %}
-                        {% endif %}
-                        {% endif %}
-
+                {% for result in results.hits.hits %}
+                    <h2><a href="/{{ result.obj.path }}?q={{ request.GET.q }}">{{ result.obj.content.title }}</a></h2>
+                    {% for h in  result.highlight.searchable_text %}
+                        <p>{{ h|striptags }}</p>
                     {% empty %}
                         <p><br>No results found.</p>
                     {% endfor %}
+                {% endfor %}
+
+
+
+
+
+
 
                     {% if page.has_previous or page.has_next %}
                         <div class="pagination">
@@ -61,9 +45,7 @@
                         </ul>
                         </div>
                     {% endif %}
-                {% else %}
-                    {# Show some example queries to run, maybe query syntax, something else? #}
-                {% endif %}
+
             </form>
         </div>
         </div>

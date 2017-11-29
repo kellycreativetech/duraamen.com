@@ -1,22 +1,7 @@
-{% extends "site_base.html" %}
-{% load seo %}
-{% load frontendadmin_tags inlines chunks thumbnail %}
+{% extends "base.html" %}
 
-{% block seo_head %}
-    {% get_metadata as my_meta %}
-    {{ my_meta.description }}
-    {{ my_meta.keywords }}
-{% endblock %}
 
-{% block meta %}
-{{ block.super }}
-<!--canonical URLs -->
-<link rel="canonical" href="http://www.duraamen.com{{ flatpage.url }}" />
-{% endblock %}
-
-{% block bodyclass %}{{ flatpage.url|slugify }}{% endblock %}
-
-{% block head_title %}{% get_metadata as my_meta %}{{ my_meta.title.value|default:flatpage.title }}{% endblock %}
+{% block bodyclass %}{{ page.url|slugify }}{% endblock %}
 
 {% block hero %}
 {% endblock %}
@@ -27,26 +12,24 @@
 
 
     <div class="{% block landing-class %}landing-page{% endblock landing-class %}"
-        {% if flatpage.ext and flatpage.ext.image %}
-        {% thumbnail flatpage.ext.image "1200x600" crop="center" as bigimg %}
-        style="background:url({{ bigimg.url }}) top right no-repeat #fcc113"
-        {% endthumbnail %}
-        {% else %}
+
+
+        {# style="background:url(TODO: add background image) top right no-repeat #fcc113" #}
+
+
         style="background: {% block landing-bg-color %}#fcc113{% endblock landing-bg-color %}"
-        {% endif %}
     >
         <div class="landing-hero">
-            {% block title-override %}<h1>{{ flatpage.title }}</h1>{% endblock title-override %}
+            {% block title-override %}<h1>{% page "title" %}</h1>{% endblock title-override %}
             {% block content %}
-            {{ flatpage.content|render_inlines|safe }}
-            {% frontendadmin_change flatpage "Edit This Flatpage" %}
+            {% page "content" type="wysiwyg"%}
             {% endblock content %}
             {% block formwrap %}
             <div class="well">
                 {% block landing-form %}
                 <form actn="/forms/landing-page/" class="form-horizontal" method="post">
                     {% csrf_token %}
-                    <input id="id_origin" type="hidden" class="charfield" name="origin" value="{{ flatpage.url|slugify }}">
+                    <input id="id_origin" type="hidden" class="charfield" name="origin" value="{{ page.url|slugify }}">
                     <div class="row">
                         <div class="span5">
                             <div id="div_id_name" class="control-group  ">
@@ -132,6 +115,16 @@
                 {% endblock %}
             </div>
             {% endblock formwrap %}
+
+                        {% if editing %}
+            <div class="clearfix">
+                <p><br></p>
+                <div class="well">
+                <h2>Admin tools</h2>
+                {% include "_meta-admin-tools.html" %}
+                </div>
+                </div>
+                {% endif %}
         </div>
     </div>
 

@@ -1,7 +1,4 @@
 {% extends "flatpages/default.html" %}
-{% load frontendadmin_tags forms_builder_tags inlines %}
-
-
 
 {% block hero %}
 {% endblock %}
@@ -14,11 +11,21 @@
 
             <h1 class="visible-phone cms-head">{{ flatpage.title }}</h1>
             <div class="short-form well float-right">
-			    <h2>Get a FREE Consultation</h2>
-			    {% render_built_form id=9 %}
+			    <h2>{% page "form-cta" type="text" placeholder="Enter your form Call-to-action here" %}</h2>
+			    {% include "_short-landing-page-form.html" %}
 			</div>
-            {{ flatpage.content|render_inlines|safe }}
-            {% frontendadmin_change flatpage "Edit This Flatpage" %}
+            {% page content type="wysiwyg" %}
+
+
+            {% if editing %}
+            <div class="clearfix">
+                <p><br></p>
+                <div class="well">
+                <h2>Admin tools</h2>
+                {% include "_meta-admin-tools.html" %}
+                </div>
+                </div>
+                {% endif %}
 
 
 {% endblock body %}

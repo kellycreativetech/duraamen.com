@@ -1,11 +1,11 @@
 {% extends "flatpages/landing-page.html" %}
-{% load inlines forms_builder_tags %}
+
+
 
 {% block gallery %}
-{% with '<img class="inline_replace" data-inline-type="servee_gallery.gallery" data-inline-id="8">' as gallery %}
-{{ gallery|render_inlines }}
-{% endwith %}
+<h3> some sort of gallery goes here. </h3>
 {% endblock gallery %}
+
 
 
 
@@ -14,4 +14,5 @@
 
 {% block select-field-override %}{% endblock select-field-override %}
 
-{% block formwrap %}{% endblock formwrap %}
+{% block formwrap %}
+{% endblock formwrap %}

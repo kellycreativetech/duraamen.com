@@ -12,7 +12,7 @@
     <div class="row">
         <div class="span12">
             {% select_pages "category" path_split.1 varname="products" order_by="-published" %}
-            
+
             {% for product in products %}
             <div class="product beige-bg" id="{{ product.content.slug }}" itemscope itemtype="http://schema.org/Product">
                 <div class="big-pad">
@@ -100,7 +100,7 @@
                 </div>
             </div>
             {% endfor %}
-            
+
                     {% if editing %}
                     <p><br></p>
                     <div class="well">

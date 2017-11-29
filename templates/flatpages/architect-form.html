@@ -1,20 +1,5 @@
-{% extends "site_base.html" %}
-{% load seo %}
-{% load frontendadmin_tags inlines chunks thumbnail %}
 
-{% block seo_head %}
-    {% get_metadata as my_meta %}
-    {{ my_meta.description }}
-    {{ my_meta.keywords }}
-{% endblock %}
-
-{% block meta %}
-{{ block.super }}
-<!--canonical URLs -->
-<link rel="canonical" href="http://www.duraamen.com{{ flatpage.url }}" />
-{% endblock %}
-
-{% block head_title %}{% get_metadata as my_meta %}{{ my_meta.title.value|default:flatpage.title }}{% endblock %}
+{% extends "base.html" %}
 
 
 {% block hero %}
@@ -26,18 +11,22 @@
         <img class="subpage-logo-head" src="/static/img/arch-logo.png">
     </div>
     <div class="subpage-hero">
-        <img class="subpage-logo-head" src="/static/img/arch-head-2.jpg">
-        <h1>{{ flatpage.title }}</h1>
+        <img class="subpage-logo-head" src="/static/img/arch-head-3.jpg">
+        <h1>{% page title type="text" %}</h1>
     </div>
     <div class="row">
         <div class="span8">
             <div class="big-pad-left">
                 {% block content %}
-                {{ flatpage.content|render_inlines|safe }}
-                {% frontendadmin_change flatpage "Edit This Flatpage" %}
+                {% page "content" type="wysiwyg" %}
 
-                <form action="/forms/architects-corner/" method="post">
+                <form action="/siteapi/submit_form" method="post">
     {% csrf_token %}
+    <input type="hidden" name="mc_id" value="4f09927312">
+    <input name="to" type="hidden" value="bbbf6b9f-1dc5-4a06-862c-c4d7135b78f2,cca47383-89e1-4e69-89e1-205ff5301c12">
+    <input name="success_message" type="hidden" value="Your form was submitted successfully" />
+    <input type="hidden" name="redirect" value="/success" />
+
     <div id="div_id_please_contact_us_about_any_of_the_following" class="control-group  ">
         <div class="row-fluid">
             <div class="span12">

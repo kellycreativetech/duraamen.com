@@ -23,11 +23,11 @@
                                     {% page "description" type="text" %}
                                 </h3>
                                 <h3>{% page "image_category" type="select" %}</h3>
-                                
+
                                 <h3>{% page "image_subcategory" type="select" %}</h3>
-                                
+
                                 <h3>{% page "tags" type="select" multiple="True" %}</h3>
-                                
+
                                 <div style="margin:1em 0;max-width:270px">
                                     {% page "image" type="img" %}
                                     {% if page.content.image %}
@@ -36,8 +36,8 @@
                                         <img src="http://placehold.it/800x200&text=no+image" data-srv-name="image">
                                     {% endif %}
                                 </div>
-                                
-                                    
+
+
        {% if editing %}
 
                 <p><br></p>
@@ -45,9 +45,9 @@
                 <h2>Admin tools</h2>
                 {% include "_meta-admin-tools.html" %}
                 </div>
-                
+
                 {% endif %}
-                                
+
                             </div>
                         </div>
                     </div>
