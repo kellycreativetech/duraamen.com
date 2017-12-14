@@ -130,6 +130,9 @@
 
 
 // Duraamen-specific styles
+
+@import "jquery.fancybox";
+@import "base/utilities";
 @import "base/typography";
 
 @import "layout/main-layout";
@@ -137,5 +140,9 @@
 @import "layout/hero";
 @import "layout/footer";
 
-@import "module/section-icons";
+@import "module/accordions";
 @import "module/blog-preview";
+@import "module/estimate";
+@import "module/pdfs";
+@import "module/product-customizations";
+@import "module/section-icons";

@@ -2,73 +2,64 @@
 
 {% block head_title %} Duraamen News{% endblock %}
 
-{% block primary %}
+{% block content %}
     {% if path_split.1 == "section" %}
         {% select_pages "sections" path_split.2 varname="posts" order_by="-published" %}
     {% else %}
         {% children as posts order_by="-published" %}
     {% endif %}
 
-    {% autopaginate posts 8 %}
-    <div class="row">
-        <div class="span8">
-            <div class="big-pad-left pad-top">
-            {% if tag %}<h1><small>Posts tagged {{ tag }}</small></h1>{% endif %}
+            {% autopaginate posts 16 %}
             {% if posts %}
                 {% for post in posts %}
-                    <h1><a href="{{ post.get_absolute_url }}{% if editing %}/admin{% endif %}" class="post-link">{{ post.content.title|safe }}</a></h1>
-                    <p class="teaser">{{ post.content.content|truncatewords_html:75|striptags|safe }}</p>
-                    <p class="more"><a href="{{ post.get_absolute_url }}{% if editing %}/admin{% endif %}" class="post-link">read more...</a></p>
-                    <hr />
-                {% endfor %}
-                <div class="pagination">
-                    <ul>
-                        {% if page_obj.has_previous %}
-                            <li><a href="?page={{ page_obj.previous_page_number }}">â—€</a></li>
-                            {% else %}
-                            <li class="disabled"><a>â—€</a></li>
-                        {% endif %}
+                <div class="row blog-list-post">
+                  {% if post.content.masthead_img or post.content.gallery.0.image %}
+                  <div class="col-md-4">
+                    <a href="{{ post.get_absolute_url }}{% if editing %}/admin{% endif %}" class="blog-preview-img z-depth-1-half rounded">
+                      <img class="img-fluid rounded" src="
+                      {% if post.content.masthead_img %}{% imgix_url post.content.masthead_img %}{% else %}{% imgix_url post.content.gallery.0.image %}{% endif %}?w=400&h=300&fit=crop">
+                      </a>
+                    </a>
+                  </div>
+                  <div class="col-md-8">
+                  {% else %}
+                  <div class="col-md-12">
+                  {% endif %}
+                    <h6 class="text-muted text-uppercase">{{ post.content.related.0 }}</h6>
+                    <h2><a href="{{ post.get_absolute_url }}{% if editing %}/admin{% endif %}" class="post-link">{{ post.content.title|safe }}</a></h2>
+                    <p class="teaser">{{ post.content.content|truncatewords:40|striptags|safe }}</p>
+                    <p><span class="text-muted">By</span> <strong>Duraamen</strong>,
+                      <span class="date text-muted">{% if post.published %}{{ post.published|date:"F jS, Y" }}{% else %}Not published yet{% endif %}</span>
+                    </p>
 
-                        <li class="active">
-                            <a>Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.</a>
-                        </li>
-
-                        {% if page_obj.has_next %}
-                            <li><a href="?page={{ page_obj.next_page_number }}">â–¶</a></li>
-                            {% else %}
-                            <li class="disabled"><a>â–¶</a></li>
-                        {% endif %}
-                    </ul>
+                  </div>
                 </div>
+                {% endfor %}
+
+
+                <nav class="mt-3 d-flex justify-content-center">
+                <ul class="pagination pagination-lg">
+                  <li class="page-item {% if not page_obj.has_previous %}disabled{% endif %}">
+                    <a class="page-link" href="{% if page_obj.has_previous %}?page={{ page_obj.previous_page_number }}{% endif %}" aria-label="Previous">
+                      <span aria-hidden="true">PREV</span>
+                    </a>
+                  </li>
+                  <li class="page-item disabled" style="cursor:default !important;"><span class="page-link">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.</span></li>
+                  <li class="page-item {% if not page_obj.has_next %}disabled{% endif %}">
+                    <a class="page-link" href="{% if page_obj.has_next %}?page={{ page_obj.next_page_number }}{% endif %}" aria-label="Next">
+                      <span aria-hidden="true">NEXT</span>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+
+
             {% else %}
                 <p>None Matching</p>
             {% endif %}
 
-            {% if editing %}
-                    <p><br></p>
-                    <div class="well">
+{% endblock %}
 
-                    <h2>Admin tools</h2>
-                    {% include "_meta-admin-tools.html" %}
-
-                    </div>
-                    {% endif %}
-
-
-
-            </div>
-        </div>
-        <div class="span4">
-            <div class="big-pad-right pad-top blog-sidebar">
-        	   <div class="well beige">
-                {% chunk "blog-sidebar" %}
-
-                {% block under-sidebar %}
-                {% include "_blog-sidebar-form.html" %}
-                {% endblock %}
-
-        	   </div>
-            </div>
-        </div>
-    </div>
+{% block belowmaincontent %}
+{% include "includes/base/subscribe-form.html" %}
 {% endblock %}

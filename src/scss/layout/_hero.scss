@@ -23,6 +23,26 @@
     color: $white;
   }
 
+  .srv-icon-img-edit {
+    top: 47px;
+    z-index: 200;
+  }
+
+  &.full-height-hero {
+    &.jarallax {
+      min-height: 100vh;
+    }
+
+    h1 {
+      margin-bottom: 1em;
+    }
+  }
+
+  .product-head {
+    margin-bottom: 100px;
+  }
+
+
   @include media-breakpoint-up(md) {
     h1 {
       font-size: 3.5rem;
@@ -36,8 +56,13 @@
 
   &.smaller-hero {
     &.jarallax {
-      min-height: 400px;
+      min-height: 500px;
     }
   }
 
+  &.x-small-hero {
+    &.jarallax {
+      min-height: 400px;
+    }
+  }
 }

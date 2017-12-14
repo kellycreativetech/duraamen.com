@@ -1,10 +1,13 @@
+
 <!-- SCRIPTS -->
 
+<script type="text/javascript" src="/dist/js/all.js"></script>
+{% comment %}
 <!-- JQuery -->
-<script type="text/javascript" src="/dist/js/jquery-3.2.1.min.js"></script>
+
 
 <!-- Bootstrap tooltips -->
-<!--<script type="text/javascript" src="/dist/js/popper.min.js"></script>-->
+<script type="text/javascript" src="/dist/js/popper.min.js"></script>
 
 <!-- Bootstrap core JavaScript -->
 <script type="text/javascript" src="/dist/js/bootstrap.min.js"></script>
@@ -15,19 +18,20 @@
 <script type="text/javascript" src="/dist/js/mdb.min.js"></script>
 
 <script type="text/javascript">
-    /* WOW.js init */
-    new WOW().init();
+   /* WOW.js init */
+   new WOW().init();
 
-    /* Side navigation toggle */
-    $('.button-collapse').sideNav({
-      edge: 'right', // Choose the horizontal origin
-    });
+   /* Side navigation toggle */
+   $('.button-collapse').sideNav({
+     edge: 'right' // Choose the horizontal origin
+   });
 
-    var el = document.querySelector('.custom-scrollbar');
-    Ps.initialize(el);
+   // var el = document.querySelector('.custom-scrollbar');
+   // Ps.initialize(el);
 
-    // Tooltips Initialization
-    $(function () {
-      $('[data-toggle="tooltip"]').tooltip()
-    })
+   // Tooltips Initialization
+   // $(function () {
+   //   $('[data-toggle="tooltip"]').tooltip()
+   // })
 </script>
+{% endcomment %}

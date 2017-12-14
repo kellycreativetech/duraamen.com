@@ -1,22 +1,87 @@
 {% extends "base.html" %}
 
+{% block hero %}
+<!-- Intro Section -->
+<div
+  class="hero
+    view
+    hm-black-strong-1
+    jarallax
+    {% block heroclass %}{% endblock %}
+    "
+  data-jarallax="{'speed': 0.2}"
+  data-srv-name="masthead_img"
+  style="background-image: url({% if page.content.masthead_img %}{% imgix_url page.content.masthead_img %}{% else %}{% imgix_url "/dist/img/iStock-92277191.jpg" %}{% endif %}?w=1800&h=1000&fit=crop&crop=entropy&sat=-80&crop=bottom&blend=000000&bm=normal&balph=50);">
+    <div class="full-bg-img">
+      {% page "masthead_img" type="img" %}
+        <div class="container flex-center">
+            <div class="row smooth-scroll justify-content-md-center">
+                <div class="col-md-12 text-center">
+                    <div class="wow fadeInDown" data-wow-delay="0.2s">
+                        <h1>{% page "title" type="text" %}</h1>
+                        <h4>{% page "subhead" type="text" %}</h4>
+                    </div>
+                    {% block undertitle %}{% endblock %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+{% block main %}
+<section class="home-section">
+  <div class="container" itemscope itemtype="http://schema.org/Article">
+    <div class="row justify-content-center">
+      <div class="col-10">
+        <div itemprop="articleBody">
+
+          {% block content %}
+          {% endblock content %}
+        </div>
+        {# {% include "includes/snippets/section-icons.html" %} #}
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+
 {% block undermain %}
 <section>
-  <div class="container">
+  <div class="container pad-bottom">
+    {% if page.content.related %}
+    <h3 class="text-center">You may also be interested in:</h3>
+    {% endif %}
 
-    {% for tagged_item in page.content.tags %}
-      <h1>{{ tagged_item }}</h1>
-      <p><em>Note: this is just here for structure at the moment. More soon.</em></p>
+    <div class="row"><!-- nested {{ t.record }} list -->
+    {% for related_item in page.content.related  %}
+      {# {{ related_item }} #}
 
-
-      {% select_pages "tags" tagged_item %}
-   <ul> <!-- nested {{ t.record }} list -->
+      {% select_pages "related" related_item %}
         {% for selected_page in pages %}
-        <li>{{ selected_page.content.title }}</li>
+        {% if page.path != selected_page.path %}
+        <div class="col-md-3 d-flex align-items-stretch">
+          <div class="card">
+            <img class="img-fluid" src="
+            {% if selected_page.masthead_img %}{% imgix_url selected_page.masthead_img %}{% else %}{% imgix_url "/dist/img/iStock-92277191.jpg" %}{% endif %}?w=400&h=300&fit=crop"
+            alt="{{ selected_page.content.title }}">
+            <div class="card-body">
+                <h5 class="card-title"><a href="{{ selected_page.get_absolute_url }}{% if editing %}/admin{% endif %}">{{ selected_page.content.title }}</h5>
+                <p class="card-text">{{ selected_page.content.content|striptags|truncatewords:20 }}</p>
+                <a href="{{ selected_page.get_absolute_url }}{% if editing %}/admin{% endif %}" class="black-text d-flex flex-row-reverse">
+                  <p class="waves-effect p-2">Read more <i class="fa fa-chevron-right"></i></p>
+                </a>
+            </div>
+          </div>
+        </div>
+        {% endif %}
         {% endfor %}
-   </ul>
+
+
     {% endfor %}
-    <ul> <!-- top level list -->
+  </div>
 
 
 {% comment %}

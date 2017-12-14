@@ -2,75 +2,277 @@
 
 
 
-{% block head_title %}{% endblock %}
+{% block hero %}
+<!-- Intro Section -->
+<div
+  class="hero
+    view
+    hm-black-strong-1
+    jarallax
+    {% block heroclass %}x-small-hero{% endblock %}
+    "
+  data-jarallax="{'speed': 0.2}"
+  data-srv-name="masthead_img"
+  style="background-image: url({% if page.content.masthead_img %}{% imgix_url page.content.masthead_img %}{% else %}{% imgix_url "/dist/img/iStock-92277191.jpg" %}{% endif %}?w=1800&h=1000&fit=crop&crop=entropy&sat=-80&crop=bottom&blend=000000&bm=normal&balph=50);">
+    <div class="full-bg-img d-flex justify-content-start align-items-end">
+      {% page "masthead_img" type="img" %}
+        <div class="container">
+            <div class="row smooth-scroll">
+                <div class="col-md-12">
+                    <div class="product-head wow fadeInDown" data-wow-delay="0.2s">
+                        <h1>{% page "title" type="text" %}</h1>
+                        <h4>{% page "subtitle" type="text" %}</h4>
+                    </div>
+                    {% block undertitle %}{% endblock %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
 
 
 
 
+{% block main %}
+<section class="home-section">
+  <div class="container" id="{{ page.content.slug }}" itemscope itemtype="http://schema.org/Product">
+    <div class="row justify-content-center">
+      <div class="col-md-4">
+        {% page "image" type="img" %}
+        {% if page.content.image or editing %}
 
-{% block body %}
+        {% if not editing %}
+        <a class="product-image" data-fancybox href="{% imgix_url page.content.image %}?w=1400&h=1400">
+          {% endif %}
+          <img
+            class="img-fluid z-depth-1-half"
+            src="{% if page.content.image %}{% imgix_url page.content.image %}{% elif editing %}https://placem.at/places{% endif %}?w=600"
+            data-srv-name="image"
+          />
+        {% if not editing %}</a>{% endif %}
+        {% endif %}
 
-    {% block hero %}{% endblock hero %}
+        <div class="text-center mt-3">
+          {% chunk "under-product-image" %}
 
-    <h1 class="no-border">Edit Individual Product</h1>
+          <a class="btn btn-primary btn-lg btn-block" href="/forms/order-now?product={{ page.path|slugify }}">How to Order <i class="fa fa-chevron-right"></i></a>
 
-    <div class="row">
-
-        <div class="span12">
+          {% chunk "under-product-button" %}
 
         </div>
 
+
+        {% include "includes/snippets/section-icons.html" %}
+      </div>
+      <div class="col-md-8">
+        <!--Accordion wrapper-->
+<div class="accordion" role="tablist" aria-multiselectable="true">
+
+    <!-- Accordion card -->
+    <div class="card">
+        <!-- Card header -->
+        <div class="card-header" role="tab" id="headingOne">
+            <a data-toggle="collapse" data-parent="#accordionEx" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                <h5 class="mb-0">
+                    Description<i class="fa fa-angle-down rotate-icon"></i>
+                </h5>
+            </a>
+        </div>
+
+        <!-- Card body -->
+        <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
+            <div class="card-body">
+                {% page "content" type="wysiwyg" %}
+            </div>
+        </div>
     </div>
+    <!-- Accordion card -->
 
-    <div class="row">
-
-        <div class="span12">
-
-            <div class="product beige-bg" id="{{ page.content.slug }}" itemscope itemtype="http://schema.org/Product">
-
-                <div class="big-pad">
-
-                    <h2 class="border"><span itemprop="name">{% page "title" type="text" %}</span> | <small>{% page "subtitle" type="text" %}</small></h2>
-
-                </div>
-
-                <div class="row">
-
-                    <div class="span8">
-
-                        <div class="row full-height-wrap">
-
-                            <div class="span3">
-
-                                <div class="big-pad-left equal-height">
-
-                                    {% page "image" type="image" %}
-
-                                    {% if page.content.image or editing %}
-
-                                    <img class="bordered" src="{% if page.content.image %}{% imgix_url page.content.image %}{% else %}http://placem.at/places{% endif %}?w=242" data-srv-name="image" itemprop="image" alt="{{ page.content.title }}"/>
-
-                                    {% endif %}
+    <!-- Accordion card -->
+    {% if page.content.technical_details or editing %}
+    <div class="card">
+        <!-- Card header -->
+        <div class="card-header" role="tab" id="techDetails">
+            <a data-toggle="collapse" data-parent="#accordionEx" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree" class="collapsed">
+                <h5 class="mb-0">
+                    Technical Details<i class="fa fa-angle-down rotate-icon"></i>
+                </h5>
+            </a>
+        </div>
+        <!-- Card body -->
+        <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="techDetails">
+            <div class="card-body">
+              {% page "technical_details" type="wysiwyg" %}
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    <!-- Accordion card -->
 
 
+    <!-- Accordion card -->
+    {% if page.content.advantages or editing %}
+    <div class="card">
+        <!-- Card header -->
+        <div class="card-header" role="tab" id="advantages">
+            <a data-toggle="collapse" data-parent="#accordionEx" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour" class="collapsed">
+                <h5 class="mb-0">
+                    Advantages<i class="fa fa-angle-down rotate-icon"></i>
+                </h5>
+            </a>
+        </div>
+        <!-- Card body -->
+        <div id="collapseFour" class="collapse" role="tabpanel" aria-labelledby="advantages">
+            <div class="card-body">
+              {% page "advantages" type="wysiwyg" %}
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    <!-- Accordion card -->
 
-                                    <div class="bordered small-pad documents">
+    <!-- Accordion card -->
+    {% if page.content.suggested_applications or editing %}
+    <div class="card">
+        <!-- Card header -->
+        <div class="card-header" role="tab" id="applications">
+            <a data-toggle="collapse" data-parent="#accordionEx" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive" class="collapsed">
+                <h5 class="mb-0">
+                    Suggested Applications<i class="fa fa-angle-down rotate-icon"></i>
+                </h5>
+            </a>
+        </div>
+        <!-- Card body -->
+        <div id="collapseFive" class="collapse" role="tabpanel" aria-labelledby="applications">
+            <div class="card-body">
+              {% page "suggested_applications" type="wysiwyg" %}
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    <!-- Accordion card -->
 
-                                        <h6>Downloads</h6>
+    <!-- Accordion card -->
+    {% if page.content.systems or editing %}
+    <div class="card">
+        <!-- Card header -->
+        <div class="card-header" role="tab" id="systems">
+            <a data-toggle="collapse" data-parent="#accordionEx" href="#collapseSix" aria-expanded="false" aria-controls="collapseSix" class="collapsed">
+                <h5 class="mb-0">
+                    Flooring Systems including this Product<i class="fa fa-angle-down rotate-icon"></i>
+                </h5>
+            </a>
+        </div>
+        <!-- Card body -->
+        <div id="collapseSix" class="collapse" role="tabpanel" aria-labelledby="systems">
+            <div class="card-body">
+              {% page "systems" type="wysiwyg" %}
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    <!-- Accordion card -->
 
-                                        <ul class="unstyled">
+    <!-- Accordion card -->
+    {% if page.content.estimate or editing %}
+    <div class="card">
+        <!-- Card header -->
+        <div class="card-header" role="tab" id="estimate">
+            <a data-toggle="collapse" data-parent="#accordionEx" href="#collapseSeven" aria-expanded="true" aria-controls="collapseSeven">
+                <h5 class="mb-0">
+                    Estimate<i class="fa fa-angle-down rotate-icon"></i>
+                </h5>
+            </a>
+        </div>
+        <!-- Card body -->
+        <div id="collapseSeven" class="collapse show" role="tabpanel" aria-labelledby="estimate">
+            <div class="card-body">
+              <ul class="estimate">
+              {% page_list "estimate" %}
+              <li><span class="name">{% list_item "name" type="text" %}</span>
+              <span class="cost">{% list_item "cost" type="text" %}</span></li>
+              {% end_list %}
+              </ul>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    <!-- Accordion card -->
 
-                                            {% page_list "downloads" %}
+    <!-- Accordion card -->
+    {% if page.content.downloads or editing %}
+    <div class="card">
+        <!-- Card header -->
+        <div class="card-header" role="tab" id="downloads">
+            <a data-toggle="collapse" data-parent="#accordionEx" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                <h5 class="mb-0">
+                    Downloads<i class="fa fa-angle-down rotate-icon"></i>
+                </h5>
+            </a>
+        </div>
+        <!-- Card body -->
+        <div id="collapseTwo" class="collapse show" role="tabpanel" aria-labelledby="downloads">
+            <div class="card-body">
+              <ul class="pdfs">
+                  {% page_list "downloads" %}
+                  {% list_item "download" type="file" %}
+                  <li><a href="{{ list_item.download.url }}">
+                    <img src="/dist/img/svg/pdf.svg"> {% list_item "name" type="text" %}</a></li>
+                  {% end_list %}
+              </ul>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    <!-- Accordion card -->
 
-                                            {% list_item "download" type="file" %}
+    {% page "related_products" type="select" multiple="true" %}
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
 
-                                            <li><a href="{{ list_item.download.url }}">{% list_item "name" type="text" %}</a></li>
 
-                                            {% end_list %}
+{% block undermain %}
+<section>
+  <div class="container pad-bottom">
+    {% if page.content.related_products %}
+    <h3 class="text-center">You may also be interested in:</h3>
+    {% endif %}
+{% for related_item in page.content.related_products  %}
+  {# {{ related_item }} #}
 
-                                        </ul>
+  {% select_pages "related_products" related_item %}
+    {% for selected_page in pages %}
+    {% if page.path != selected_page.path %}
+    <div class="col-md-3 d-flex align-items-stretch">
+      <div class="card">
+        <img class="img-fluid" src="
+        {% if selected_page.content.image %}{% imgix_url selected_page.content.image %}{% else %}{% imgix_url "/dist/img/iStock-92277191.jpg" %}{% endif %}?w=400&h=400&fit=crop"
+        alt="{{ selected_page.content.title }}">
+        <div class="card-body">
+            <h5 class="card-title"><a href="{{ selected_page.get_absolute_url }}{% if editing %}/admin{% endif %}">{{ selected_page.content.title }}</h5>
+            <p class="card-text">{{ selected_page.content.content|striptags|truncatewords:20 }}</p>
+            <a href="{{ selected_page.get_absolute_url }}{% if editing %}/admin{% endif %}" class="black-text d-flex flex-row-reverse">
+              <p class="waves-effect p-2">Read more <i class="fa fa-chevron-right"></i></p>
+            </a>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+    {% endfor %}
+    {% endfor %}
+  </div>
+</section>
 
-                                    </div>
+
+{% endblock %}
+
+{% comment %}
+
+
 
                                     <a class="btn btn-info btn-block" href="/forms/order-now?product={{ page.content.slug }}" itemprop="potentialAction"> <b>ORDER NOW</b></a>
 
@@ -221,3 +423,4 @@
     </div>
 
 {% endblock %}
+{% endcomment %}

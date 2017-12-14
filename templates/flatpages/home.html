@@ -24,23 +24,8 @@
     </div>
   </div>
 </section>
-<section class="subscribe-form gold-bg home-section">
-  <div class="container">
-    <h2 class="text-center mb-5 mt-4">{% page "subtitle_2" %}</h2>
-    <div class="row justify-content-md-center">
-      <div class="col-lg-4">
-        <form>
-          <div class="md-form">
-            <input type="email" id="defaultForm-email" class="form-control validate">
-            <label for="defaultForm-email">Your email</label>
-          </div>
-          <div class="text-center">
-            <button class="btn btn-primary">Submit</button>
-          </div>
-        </form>
-      </div>
-      </div>
-    </div>
-  </div>
-</section>
+{% endblock %}
+
+{% block belowmaincontent %}
+{% include "includes/base/subscribe-form.html" %}
 {% endblock %}

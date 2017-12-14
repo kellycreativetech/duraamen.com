@@ -21,6 +21,9 @@
   <main class="main-body z-depth-4" id="main">
     {% block main %}
     {% endblock %}
+
+    {% block belowmaincontent %}
+    {% endblock %}
   </main>
 
   {% block undermain %}
@@ -28,5 +31,7 @@
 
   {% include "includes/base/footer.html" %}
   {% include "includes/base/_scripts.html" %}
+
+
 </body>
 </html>

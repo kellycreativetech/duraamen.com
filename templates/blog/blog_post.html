@@ -1,90 +1,51 @@
 {% extends "blog/blog_base.html" %}
 
-    {% block meta %}
-    {{ block.super }}
-    <meta name="description" content="{% if page.content.meta_description %}{{ page.content.meta_description|truncatechars:150 }}{% else %}{{ page.content.content|striptags|truncatechars:150 }}{% endif %}">
+{% block heroclass %}{% if page.content.masthead_img %}full-height-hero{% else %}smaller-hero{% endif %}{% endblock %}
 
-    {% if page.content.meta_keywords %}
-    <meta name="keywords" content='{{ page.content.meta_keywords }}' />
-    {% endif %}
-
-    <!-- Facebook, LinkedIn, and Google Plus meta tags -->
-
-    <meta property="og:image" content="{% if page.content.feature_image %}{% imgix_url page.content.feature_image  %}?w=200&amp;h=200&amp;fit=crop{% else %}/static/icons/apple-touch-icon-144-precomposed.png{% endif %}"/>
-
-    <meta property="og:title" content="{% if page.content.meta_title %}{{ page.content.meta_title }}{% else %}{{ page.content.title }}{% endif %}"/>
-    <meta property="og:description" content="{% if page.content.meta_description %}{{ page.content.meta_description }}{% else %}{{ post.content.content|striptags|truncatewords:60 }}{% endif %}"/>
-    <meta property="og:url" content="{{ page.get_absolute_url }}"/>
-    <meta property="og:site_name" content="Duraamen decorative concrete and resinous flooring systems"/>
-    <meta property="og:type" content="article"/>
-
-    <!-- Twitter meta tags -->
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:url" content="{{ page.get_absolute_url }}">
-    <meta name="twitter:title" content="{% if page.content.meta_title %}{{ page.content.meta_title }}{% else %}{{ page.content.title }}{% endif %}">
-    <meta name="twitter:description" content="{% if page.content.meta_description %}{{ page.content.meta_description }}{% else %}{{ page.content.content|striptags|truncatechars:200 }}{% endif %}">
-
-    <meta name="twitter:image:src" content="{% if page.content.feature_image %}{% imgix_url page.content.feature_image  %}?w=200&amp;h=200&amp;fit=crop{% else %}/static/icons/apple-touch-icon-144-precomposed.png{% endif %}">
-
-    <meta name="twitter:site" content="{{ site.domain }}">
-    <meta name="twitter:creator" content="@duraamen">
-    {% endblock %}
-
-
-{% block hero %}
-<!-- Intro Section -->
-<div
-  class="hero smaller-hero view hm-black-strong-1 jarallax"
-  data-jarallax='{"speed": 0.2}'
-  style="background-image: url( {% imgix_url "/dist/img/iStock-92277191.jpg" %}?w=1800&h=1000&fit=crop&sat=-80&crop=bottom&blend=000000&bm=normal&balph=50);">
-    <div class="full-bg-img">
-        <div class="container flex-center">
-            <div class="row smooth-scroll justify-content-md-center">
-                <div class="col-md-12 text-center">
-                    <div class="wow fadeInDown" data-wow-delay="0.2s">
-                        <h1>{% page "title" type="text" %}</h1>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
+{% block undertitle %}
+{% if page.content.masthead_img %}
+<a class="btn btn-secondary btn-lg waves-effect waves-light wow fadeInUp smooth-scroll" data-offset="110" data-wow-delay="0.2s" href="#main">
+    <span>Read More</span><br>
+    <i class="fa fa-chevron-down"></i>
+</a>
+{% endif %}
 {% endblock %}
 
-{% block main %}
-<section class="home-section">
-  <div class="container" itemscope itemtype="http://schema.org/Article">
-    <div class="row justify-content-center">
-      <div class="col-10">
-        <div itemprop="articleBody">
-        {% page "content" type="wysiwyg" %}
+{% block content %}
+    <ul class="blog-list-imgs">
+      {% page_list "gallery" %}
+      {% list_item "image" type=img %}
+      <li>
+        <div class="card card-cascade">
+          <div class="view">
+            <img itemprop="image" class="img-fluid" src="{% imgix_url list_item.image %}?w=920&h=920" alt="">
+          </div>
         </div>
+      </li>
+      {% end_list %}
 
-        {% include "includes/snippets/section-icons.html" %}
+    </ul>
 
-        <p><img src="/site_media/media/servee_images/rss.png"> <a href="https://www.duraamen.com/blog/.xml">Subscribe to our Feed</a></p>
-        {% page_list "Blog Photos" %}
-        {% list_item "image" type=img %}
-        <img itemprop="image" class="side-photo" src="{% imgix_url list_item.image %}?w=340" alt="">
-        {% end_list %}
-
-            {% if editing %}
-            <div class="well">
-              <h2>Admin tools</h2>
-              {% page "sections" type="select" multiple="true" %}
-              {% page "tags" type="select" multiple="true" %}
-            </div>
-            {% else %}
-            <!-- AddThis Button BEGIN -->
-            <!-- Go to www.addthis.com/dashboard to customize your tools -->
-            <div class="addthis_sharing_toolbox"></div>
-            <script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
-            <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-520d221765704fe3" async="async"></script>
-            <!-- AddThis Button END -->
-            {% endif %}
-      </div>
+    <div>
+      {% page "content" type="wysiwyg" %}
     </div>
+
+  {# <p><img src="/site_media/media/servee_images/rss.png"> <a href="https://www.duraamen.com/blog/.xml">Subscribe to our Feed</a></p> #}
+
+  {% if editing %}
+  <div class="well">
+    <h2>Admin tools</h2>
+    {% page "sections" type="select" multiple="true" %}
+    <p><br></p>
+    {% page "related" type="select" multiple="true" %}
   </div>
-</section>
-{% endblock %}
+  {% else %}
+  <!-- AddThis Button BEGIN -->
+  <!-- Go to www.addthis.com/dashboard to customize your tools -->
+  <div class="addthis_sharing_toolbox"></div>
+  <script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-520d221765704fe3" async="async"></script>
+  <!-- AddThis Button END -->
+  {% endif %}
+
+{% endblock content %}

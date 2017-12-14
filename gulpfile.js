@@ -19,19 +19,26 @@ var gulp = require('gulp'),
 // all of these will be *checked* – they still need imported somewhere.
 var sassPaths = [
   "src/sass",
-  "node_modules/bootstrap/scss/"
+  "node_modules/@fancyapps/fancybox/dist",
+  "node_modules/bootstrap/scss"
 ]
 
 // all of these will be concatenated.
+// "node_modules/moment/min/moment.min.js",
+// "node_modules/fullcalendar/dist/fullcalendar.min.js",
+// "bower_components/slick-carousel/slick/slick.js",
+// "bower_components/fancybox/dist/jquery.fancybox.js",
+// "bower_components/superfish/dist/js/hoverIntent.js",
+// "bower_components/superfish/dist/js/superfish.js",
+// "src/scripts/KCT-mobilenav.js",
+
 var scriptPaths = [
-  "node_modules/moment/min/moment.min.js",
-  "node_modules/fullcalendar/dist/fullcalendar.min.js",
-  "bower_components/slick-carousel/slick/slick.js",
-  "bower_components/fancybox/dist/jquery.fancybox.js",
-  "bower_components/superfish/dist/js/hoverIntent.js",
-  "bower_components/superfish/dist/js/superfish.js",
-  "src/scripts/KCT-mobilenav.js",
-  "src/scripts/scripts.js"
+  "node_modules/jquery/dist/jquery.min.js",
+  "node_modules/popper.js/dist/umd/popper.min.js",
+  "node_modules/bootstrap/dist/js/bootstrap.min.js",
+  "node_modules/@fancyapps/fancybox/dist/jquery.fancybox.min.js",
+  "src/js/mdb.min.js",
+  "src/js/scripts.js"
 ]
 
 // image paths
