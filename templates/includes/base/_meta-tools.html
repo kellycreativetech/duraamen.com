@@ -1,0 +1,81 @@
+<style>
+
+.Select-control {height: 44px;margin-bottom: 20px;}
+  .admin-tools {background-color: rgba(0,0,0,0.05);max-width:1400px;margin:2em auto;padding:10px;}
+  .admin-tools.toggler {overflow:auto;}
+  .admin-tools .column {width: 33%;float: left;padding-right: 30px;}
+  .admin-tools .column-2 {width: 33%;float: left; padding-right: 20px;}
+  .admin-tools .column-3 {width: 33%;float: right;}
+  .toggle-title {margin:0;cursor: pointer;}
+  .toggle-title span { display: inline-block; transition: transform .3s;vertical-align: middle;}
+  .toggle-title.open span {transform: rotate(180deg);vertical-align: top;}
+  .toggle-this{max-height:1px;overflow:hidden; transition: all .3s;}
+  .toggle-this.open {max-height:2000px; padding-top: 10px;}
+  .meta-field {font-size: 16px;}
+  .meta-help {font-size: 14px;line-height: 1.4;}
+  .fake-google, .fake-google h3, .fake-google p, .fake-google a {font-family:'Roboto',arial,sans-serif;}
+  .fake-google {margin-bottom:20px; padding: 10px;background:#fff;}
+  .fake-google h3 {font-size:18px;margin-top:0;margin-bottom:0; line-height: 1.3}
+  .fake-google h3 a{color: #1a0dab; text-decoration:none;}
+  .fake-google h3 a:hover{color: #1a0dab; text-decoration:underline;}
+  .fake-google p {color: #545454;font-size:13px;margin:0;line-height: 1.2;}
+  .fake-google .link {color: #006621;font-size:13px;margin:0;}
+  .fake-facebook {border: 1px solid #d1d1d1;background:#fff;margin-bottom:20px;}
+  .fake-facebook .meta-img-override { border-bottom: 1px solid #d1d1d1;display:block; }
+  .fake-facebook .wrap { padding: 10px;}
+  .fake-facebook h3 {font-family:Georgia, serif;font-size:18px;line-height: 1.3;margin: 0;}
+  .fake-facebook h3 a {color: #1d2129;text-decoration:none;}
+  .fake-facebook h3 a:hover {text-decoration: underline;color: #1d2129;}
+  .fake-facebook .desc {color: #4b4f56;font-family: Helvetica, Arial, sans-serif;line-height: 16px;font-size:12px;}
+  .fake-facebook .link {font-size:11px;line-height:11px;color:#90949c;font-family: Helvetica, Arial, sans-serif;text-transform:uppercase;}
+</style>
+
+<div class="well clearfix admin-tools toggler">
+  <h4 class="toggle-title">Admin tools <small>SEO and Social Media optimizations <span>👇</span></small></h4>
+  <div class="toggle-this">
+    <div class="column">
+      <p class="meta-help"><strong>Default metadata overrides</strong></p>
+      <p class="meta-field"><small>Meta title:</small><br>
+      {% page "meta_title" placeholder="This title will override the page default" %}
+      </p>
+
+      <p class="meta-field"><small>Meta Description:</small><br>
+      {% page "meta_description" placeholder="If this field is empty, a text snippet from the beginning of the page will be used" %}
+      </p>
+
+      <p class="meta-field"><small>Meta keywords:</small><br>
+      {% page "meta_keywords" placeholder="Insert a comma-separated list of Meta keywords" %}
+      </p>
+
+    </div>
+    <div class="column-2">
+      <p class="meta-help"><strong>Sample search result:</strong></p>
+      <div class="fake-google">
+        <h3><a href="#">{% if page.content.meta_title %}{{ page.content.meta_title|striptags }}{% elif page.content.title %}{{ page.content.title|striptags }} | {{ site.name }}{% else %}{{ site.name }}{% endif %}</a></h3>
+        <p><a class="link" href="#">{{ site.domain }}/{{ page.path }}</a></p>
+        <p>{% if page.content.meta_description %}{{ page.content.meta_description|striptags|truncatechars:200 }}{% elif page.content.intro_text %}{{ page.content.intro_text|striptags|truncatechars:200 }}{% else %}{{ page.content.content|striptags|truncatechars:200 }}{% endif %}</p>
+      </div>
+      <p class="meta-help"><em>Using the current settings for this page, a search result MAY appear like this sample. Note that if the fields above are changed, this display will be updated after you publish and refresh the page.</em></p>
+    </div>
+    <div class="column-3">
+
+
+
+
+      <p class="meta-help"><strong>Social Media card view preview:</strong></p>
+      <div class="fake-facebook">
+        {% page "meta_override" type="img" %}
+        <img
+          class="meta-img-override"
+          src="{% if page.content.meta_override %}{% imgix_url page.content.meta_override %}?w=1200&h=630&fit=crop{% else %}{% include "includes/base/_meta-img.html" %}{% endif %}"
+          data-srv-name="meta_override"
+        />
+        <div class="wrap">
+          <h3><a href="#">{% if page.content.meta_title %}{{ page.content.meta_title|striptags }}{% elif page.content.title %}{{ page.content.title|striptags }} | {{ site.name }}{% else %}{{ site.name }}{% endif %}</a></h3>
+          <p class="desc">{% if page.content.meta_description %}{{ page.content.meta_description|striptags|truncatechars:200 }}{% elif page.content.intro_text %}{{ page.content.intro_text|striptags|truncatechars:200 }}{% else %}{{ page.content.content|striptags|truncatechars:200 }}{% endif %}</p>
+          <p class="link">{{ site.name }}</p>
+        </div>
+      </div>
+    </div>
+</div>
+</div>

@@ -4,7 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Material Design Bootstrap</title>
+    <title>{% if page.content.meta_title %}{{ page.content.meta_title|striptags }}{% elif page.content.title %}{{ page.content.title|striptags }} | {{ site.name }}{% else %}{{ site.name }}{% endif %}</title>
+    {% include "includes/base/_meta-head.html" %}
     <!-- Font Awesome -->
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Roboto:400,400i,500" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -28,6 +29,10 @@
 
   {% block undermain %}
   {% endblock %}
+
+  {% if editing %}
+  {% include "includes/base/_meta-tools.html" %}
+  {% endif %}
 
   {% include "includes/base/footer.html" %}
   {% include "includes/base/_scripts.html" %}

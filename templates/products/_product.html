@@ -55,179 +55,278 @@
 
         <div class="text-center mt-3">
           {% chunk "under-product-image" %}
-
-          <a class="btn btn-primary btn-lg btn-block" href="/forms/order-now?product={{ page.path|slugify }}">How to Order <i class="fa fa-chevron-right"></i></a>
-
-          {% chunk "under-product-button" %}
-
+          <a class="btn btn-primary btn-lg btn-block" href="/forms/order-now?product={{ page.path|slugify }}" itemprop="potentialAction">How to Order <i class="fa fa-chevron-right"></i></a>
+          <div class="d-none d-md-block">
+            {% chunk "under-product-button" %}
+            {% include "includes/snippets/section-icons.html" %}
+          </div>
         </div>
 
 
-        {% include "includes/snippets/section-icons.html" %}
+
+
+
       </div>
       <div class="col-md-8">
         <!--Accordion wrapper-->
-<div class="accordion" role="tablist" aria-multiselectable="true">
+        <div class="accordion" role="tablist" aria-multiselectable="true" id="projectAccordion">
+          <!-- Accordion card -->
+          <div class="card">
+              <!-- Card header -->
+              <div class="card-header" role="tab" id="headingOne">
+                  <a data-toggle="collapse" data-parent="#productAccordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                      <h5 class="mb-0">
+                          Description<i class="fa fa-angle-down rotate-icon"></i>
+                      </h5>
+                  </a>
+              </div>
 
-    <!-- Accordion card -->
-    <div class="card">
-        <!-- Card header -->
-        <div class="card-header" role="tab" id="headingOne">
-            <a data-toggle="collapse" data-parent="#accordionEx" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                <h5 class="mb-0">
-                    Description<i class="fa fa-angle-down rotate-icon"></i>
-                </h5>
-            </a>
-        </div>
+              <!-- Card body -->
+              <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
+                  <div class="card-body">
+                      {% page "content" type="wysiwyg" %}
+                  </div>
+              </div>
+          </div>
+          <!-- Accordion card -->
 
-        <!-- Card body -->
-        <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
-            <div class="card-body">
-                {% page "content" type="wysiwyg" %}
-            </div>
-        </div>
-    </div>
-    <!-- Accordion card -->
-
-    <!-- Accordion card -->
-    {% if page.content.technical_details or editing %}
-    <div class="card">
-        <!-- Card header -->
-        <div class="card-header" role="tab" id="techDetails">
-            <a data-toggle="collapse" data-parent="#accordionEx" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree" class="collapsed">
-                <h5 class="mb-0">
-                    Technical Details<i class="fa fa-angle-down rotate-icon"></i>
-                </h5>
-            </a>
-        </div>
-        <!-- Card body -->
-        <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="techDetails">
-            <div class="card-body">
-              {% page "technical_details" type="wysiwyg" %}
-            </div>
-        </div>
-    </div>
-    {% endif %}
-    <!-- Accordion card -->
+          <!-- Accordion card -->
+          {% if page.content.technical_details or editing %}
+          <div class="card">
+              <!-- Card header -->
+              <div class="card-header" role="tab" id="techDetails">
+                  <a data-toggle="collapse" data-parent="#productAccordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree" class="collapsed">
+                      <h5 class="mb-0">
+                          Technical Details<i class="fa fa-angle-down rotate-icon"></i>
+                      </h5>
+                  </a>
+              </div>
+              <!-- Card body -->
+              <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="techDetails">
+                  <div class="card-body">
+                    <table class="table table-sm">
+                      {% page_list "data" %}
+                      {% if forloop.counter|divisibleby:2 == False %}<tr>{% endif %}
+                      <td><b>{% list_item "name" type="text" %}</b></td>
+                      <td>{% list_item "value" type="text" %}</td>
+                      {% if forloop.counter|divisibleby:2 %}</tr>{% endif %}
+                      {% end_list %}
+                    </table>
+                  </div>
+              </div>
+          </div>
+          {% endif %}
+          <!-- Accordion card -->
 
 
-    <!-- Accordion card -->
-    {% if page.content.advantages or editing %}
-    <div class="card">
-        <!-- Card header -->
-        <div class="card-header" role="tab" id="advantages">
-            <a data-toggle="collapse" data-parent="#accordionEx" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour" class="collapsed">
-                <h5 class="mb-0">
-                    Advantages<i class="fa fa-angle-down rotate-icon"></i>
-                </h5>
-            </a>
-        </div>
-        <!-- Card body -->
-        <div id="collapseFour" class="collapse" role="tabpanel" aria-labelledby="advantages">
-            <div class="card-body">
-              {% page "advantages" type="wysiwyg" %}
-            </div>
-        </div>
-    </div>
-    {% endif %}
-    <!-- Accordion card -->
+          <!-- Accordion card -->
+          {% if page.content.advantages or editing %}
+          <div class="card">
+              <!-- Card header -->
+              <div class="card-header" role="tab" id="advantages">
+                  <a data-toggle="collapse" data-parent="#productAccordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour" class="collapsed">
+                      <h5 class="mb-0">
+                          Advantages<i class="fa fa-angle-down rotate-icon"></i>
+                      </h5>
+                  </a>
+              </div>
+              <!-- Card body -->
+              <div id="collapseFour" class="collapse" role="tabpanel" aria-labelledby="advantages">
+                  <div class="card-body">
+                    {% page "advantages" type="wysiwyg" %}
+                  </div>
+              </div>
+          </div>
+          {% endif %}
+          <!-- Accordion card -->
 
-    <!-- Accordion card -->
-    {% if page.content.suggested_applications or editing %}
-    <div class="card">
-        <!-- Card header -->
-        <div class="card-header" role="tab" id="applications">
-            <a data-toggle="collapse" data-parent="#accordionEx" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive" class="collapsed">
-                <h5 class="mb-0">
-                    Suggested Applications<i class="fa fa-angle-down rotate-icon"></i>
-                </h5>
-            </a>
-        </div>
-        <!-- Card body -->
-        <div id="collapseFive" class="collapse" role="tabpanel" aria-labelledby="applications">
-            <div class="card-body">
-              {% page "suggested_applications" type="wysiwyg" %}
-            </div>
-        </div>
-    </div>
-    {% endif %}
-    <!-- Accordion card -->
+          <!-- Accordion card -->
+          {% if page.content.suggested_applications or page.content.images or editing %}
+          <div class="card">
+              <!-- Card header -->
+              <div class="card-header" role="tab" id="applications">
+                  <a data-toggle="collapse" data-parent="#productAccordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive" class="collapsed">
+                      <h5 class="mb-0">
+                          Suggested Applications<i class="fa fa-angle-down rotate-icon"></i>
+                      </h5>
+                  </a>
+              </div>
+              <!-- Card body -->
+              <div id="collapseFive" class="collapse" role="tabpanel" aria-labelledby="applications">
+                  <div class="card-body">
+                    {% page "suggested_applications" type="wysiwyg" %}
+                    <div class="mt-3 mb-3">
+                    {% page_list "images" %}
+                    <a class="d-inline-block z-depth-1" data-fancybox="photos" href="{% imgix_url list_item.image %}?w=1400&h=1400">
+                        {% list_item "image" type="image" %}
+                        <img class="bordered side-product-photo" src="{% imgix_url list_item.image %}?w=150&h=150&fit=crop" itemprop="image">
+                      </a>
+                    {% end_list %}
+                    </div>
+                  </div>
+              </div>
+          </div>
+          {% endif %}
+          <!-- Accordion card -->
 
-    <!-- Accordion card -->
-    {% if page.content.systems or editing %}
-    <div class="card">
-        <!-- Card header -->
-        <div class="card-header" role="tab" id="systems">
-            <a data-toggle="collapse" data-parent="#accordionEx" href="#collapseSix" aria-expanded="false" aria-controls="collapseSix" class="collapsed">
-                <h5 class="mb-0">
-                    Flooring Systems including this Product<i class="fa fa-angle-down rotate-icon"></i>
-                </h5>
-            </a>
-        </div>
-        <!-- Card body -->
-        <div id="collapseSix" class="collapse" role="tabpanel" aria-labelledby="systems">
-            <div class="card-body">
-              {% page "systems" type="wysiwyg" %}
-            </div>
-        </div>
-    </div>
-    {% endif %}
-    <!-- Accordion card -->
+          <!-- Accordion card -->
+          {% if page.content.systems or editing %}
+          <div class="card">
+              <!-- Card header -->
+              <div class="card-header" role="tab" id="systems">
+                  <a data-toggle="collapse" data-parent="#productAccordion" href="#collapseSix" aria-expanded="false" aria-controls="collapseSix" class="collapsed">
+                      <h5 class="mb-0">
+                          Flooring Systems that include this Product<i class="fa fa-angle-down rotate-icon"></i>
+                      </h5>
+                  </a>
+              </div>
+              <!-- Card body -->
+              <div id="collapseSix" class="collapse" role="tabpanel" aria-labelledby="systems">
+                  <div class="card-body">
+                    {% page "systems" type="wysiwyg" %}
+                  </div>
+              </div>
+          </div>
+          {% endif %}
+          <!-- Accordion card -->
 
-    <!-- Accordion card -->
-    {% if page.content.estimate or editing %}
-    <div class="card">
-        <!-- Card header -->
-        <div class="card-header" role="tab" id="estimate">
-            <a data-toggle="collapse" data-parent="#accordionEx" href="#collapseSeven" aria-expanded="true" aria-controls="collapseSeven">
-                <h5 class="mb-0">
-                    Estimate<i class="fa fa-angle-down rotate-icon"></i>
-                </h5>
-            </a>
-        </div>
-        <!-- Card body -->
-        <div id="collapseSeven" class="collapse show" role="tabpanel" aria-labelledby="estimate">
-            <div class="card-body">
-              <ul class="estimate">
-              {% page_list "estimate" %}
-              <li><span class="name">{% list_item "name" type="text" %}</span>
-              <span class="cost">{% list_item "cost" type="text" %}</span></li>
-              {% end_list %}
-              </ul>
-            </div>
-        </div>
-    </div>
-    {% endif %}
-    <!-- Accordion card -->
+          <!-- Accordion card -->
+          {% if page.content.estimate or editing %}
+          <div class="card">
+              <!-- Card header -->
+              <div class="card-header" role="tab" id="estimate">
+                  <a data-toggle="collapse" data-parent="#productAccordion" href="#collapseSeven" aria-expanded="true" aria-controls="collapseSeven">
+                      <h5 class="mb-0">
+                          Estimate<i class="fa fa-angle-down rotate-icon"></i>
+                      </h5>
+                  </a>
+              </div>
+              <!-- Card body -->
+              <div id="collapseSeven" class="collapse show" role="tabpanel" aria-labelledby="estimate">
+                  <div class="card-body">
+                    <ul class="estimate">
+                    {% page_list "estimate" %}
+                    <li><span class="name">{% list_item "name" type="text" %}</span>
+                    <span class="cost">{% list_item "cost" type="text" %}</span></li>
+                    {% end_list %}
+                    </ul>
+                  </div>
+              </div>
+          </div>
+          {% endif %}
+          <!-- Accordion card -->
 
-    <!-- Accordion card -->
-    {% if page.content.downloads or editing %}
-    <div class="card">
-        <!-- Card header -->
-        <div class="card-header" role="tab" id="downloads">
-            <a data-toggle="collapse" data-parent="#accordionEx" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                <h5 class="mb-0">
-                    Downloads<i class="fa fa-angle-down rotate-icon"></i>
-                </h5>
-            </a>
-        </div>
-        <!-- Card body -->
-        <div id="collapseTwo" class="collapse show" role="tabpanel" aria-labelledby="downloads">
-            <div class="card-body">
-              <ul class="pdfs">
-                  {% page_list "downloads" %}
-                  {% list_item "download" type="file" %}
-                  <li><a href="{{ list_item.download.url }}">
-                    <img src="/dist/img/svg/pdf.svg"> {% list_item "name" type="text" %}</a></li>
-                  {% end_list %}
-              </ul>
-            </div>
-        </div>
-    </div>
-    {% endif %}
-    <!-- Accordion card -->
+          <!-- Accordion card -->
+          {% if page.content.downloads or editing %}
+          <div class="card">
+              <!-- Card header -->
+              <div class="card-header" role="tab" id="downloads">
+                  <a data-toggle="collapse" data-parent="#productAccordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                      <h5 class="mb-0">
+                          Downloads<i class="fa fa-angle-down rotate-icon"></i>
+                      </h5>
+                  </a>
+              </div>
+              <!-- Card body -->
+              <div id="collapseTwo" class="collapse show" role="tabpanel" aria-labelledby="downloads">
+                  <div class="card-body">
+                    <ul class="pdfs">
+                        {% page_list "downloads" %}
+                        {% list_item "download" type="file" %}
+                        <li><a href="{{ list_item.download.url }}">
+                          <img src="/dist/img/svg/pdf.svg"> {% list_item "name" type="text" %}</a></li>
+                        {% end_list %}
+                    </ul>
+                  </div>
+              </div>
+          </div>
+          {% endif %}
+          <!-- Accordion card -->
 
-    {% page "related_products" type="select" multiple="true" %}
+          <!-- Accordion card -->
+          {% if page.content.youtube_video or editing %}
+          <div class="card">
+              <!-- Card header -->
+              <div class="card-header" role="tab" id="video">
+                  <a data-toggle="collapse" data-parent="#productAccordion" href="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+                      <h5 class="mb-0">
+                          Video<i class="fa fa-angle-down rotate-icon"></i>
+                      </h5>
+                  </a>
+              </div>
+              <!-- Card body -->
+              <div id="collapseEight" class="collapse" role="tabpanel" aria-labelledby="video">
+                  <div class="card-body">
+                    {% if editing %}
+                    <p><small>Youtube video ID (Take from the youtube URL. For example, dQw4w9WgXcQ):</small> <br>
+                      {% page "youtube_video" type="text" %}
+                    </p>
+                    {% else %}
+                    <!-- 16:9 aspect ratio -->
+                    <div class="embed-responsive embed-responsive-16by9">
+                      <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{ page.content.youtube_video }}?rel=0&amp;showinfo=0" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+                    </div>
+                    {% endif %}
+                  </div>
+              </div>
+          </div>
+          {% endif %}
+          <!-- Accordion card -->
+
+          <!-- Accordion card -->
+          {% if page.content.colors or editing %}
+          <div class="card">
+              <!-- Card header -->
+              <div class="card-header" role="tab" id="colors">
+                  <a data-toggle="collapse" data-parent="#productAccordion" href="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
+                      <h5 class="mb-0">
+                          Color Chart<i class="fa fa-angle-down rotate-icon"></i>
+                      </h5>
+                  </a>
+              </div>
+              <!-- Card body -->
+              <div id="collapseNine" class="collapse" role="tabpanel" aria-labelledby="colors">
+                  <div class="card-body">
+                    <ul class="thumbnails">
+                        {% page_list "colors" %}
+                        <li class="thumbnail">
+                            {% list_item "image" type="image" %}
+                            <img src="{% imgix_url list_item.image.url %}?w=136&h=136&fit=crop">
+                            <p class="caption" itemprop="color">{% list_item "name" type="text" %}</p>
+                        </li>
+                        {% end_list %}
+                    </ul>
+                  </div>
+              </div>
+          </div>
+          {% endif %}
+          <!-- Accordion card -->
+
+          <div class="d-md-none text-center">
+            <a class="btn btn-secondary btn-lg btn-block" href="tel:18668356595" itemprop="potentialAction">Order Now: 866.835.6595</a>
+
+            <a class="btn btn-primary btn-lg btn-block" href="/forms/order-now?product={{ page.path|slugify }}" itemprop="potentialAction">How to Order <i class="fa fa-chevron-right"></i></a>
+            <hr>
+
+            {% chunk "under-product-button" %}
+            {% include "includes/snippets/section-icons.html" %}
+          </div>
+
+
+          {% if editing %}
+          <div class="mt-5 mb-5">
+              <h3>Admin tools</h3>
+              {% page "category" type="select" %}
+              <br>
+              {% page "applications" type="select" multiple="true" %}
+              <br>
+              {% page "industries" type="select" multiple="true" %}
+              <br>
+              {% page "related_products" type="select" multiple="true" %}
+          </div>
+          {% endif %}
+
+
       </div>
     </div>
   </div>
@@ -236,191 +335,5 @@
 
 
 {% block undermain %}
-<section>
-  <div class="container pad-bottom">
-    {% if page.content.related_products %}
-    <h3 class="text-center">You may also be interested in:</h3>
-    {% endif %}
-{% for related_item in page.content.related_products  %}
-  {# {{ related_item }} #}
-
-  {% select_pages "related_products" related_item %}
-    {% for selected_page in pages %}
-    {% if page.path != selected_page.path %}
-    <div class="col-md-3 d-flex align-items-stretch">
-      <div class="card">
-        <img class="img-fluid" src="
-        {% if selected_page.content.image %}{% imgix_url selected_page.content.image %}{% else %}{% imgix_url "/dist/img/iStock-92277191.jpg" %}{% endif %}?w=400&h=400&fit=crop"
-        alt="{{ selected_page.content.title }}">
-        <div class="card-body">
-            <h5 class="card-title"><a href="{{ selected_page.get_absolute_url }}{% if editing %}/admin{% endif %}">{{ selected_page.content.title }}</h5>
-            <p class="card-text">{{ selected_page.content.content|striptags|truncatewords:20 }}</p>
-            <a href="{{ selected_page.get_absolute_url }}{% if editing %}/admin{% endif %}" class="black-text d-flex flex-row-reverse">
-              <p class="waves-effect p-2">Read more <i class="fa fa-chevron-right"></i></p>
-            </a>
-        </div>
-      </div>
-    </div>
-    {% endif %}
-    {% endfor %}
-    {% endfor %}
-  </div>
-</section>
-
-
+{% include "includes/sections/related-products.html" %}
 {% endblock %}
-
-{% comment %}
-
-
-
-                                    <a class="btn btn-info btn-block" href="/forms/order-now?product={{ page.content.slug }}" itemprop="potentialAction"> <b>ORDER NOW</b></a>
-
-
-
-
-
-                                </div>
-
-                            </div>
-
-                            <div class="span5 equal-height" itemprop="description">
-
-                                {% page "content" type="wysiwyg" %}
-
-                            </div>
-
-                            <div class="span8">
-
-                                <div class="big-pad-left">
-
-                                    <h2>Technical Data</h2>
-
-                                    <table class="table table-bordered table-condensed">
-
-                                            {% page_list "data" %}
-
-                                            {% if forloop.counter|divisibleby:2 == False %}<tr>{% endif %}
-
-                                            <td><b>{% list_item "name" type="text" %}</b></td>
-
-                                            <td>{% list_item "value" type="text" %}</td>
-
-                                            {% if forloop.counter|divisibleby:2 %}</tr>{% endif %}
-
-                                            {% end_list %}
-
-                                    </table>
-
-
-
-
-
-                                    {% page "youtube_video" type="text" %}
-
-
-
-
-
-
-
-                                    <div class="colors">
-
-                                        <h2>Color Chart</h2>
-
-                                        <ul class="thumbnails">
-
-                                            {% page_list "colors" %}
-
-                                            <li class="thumbnail">
-
-                                                {% list_item "image" type="image" %}
-
-                                                <img src="{{ list_item.image.url }}?width=136&amp;height=136">
-
-                                                <p class="caption" itemprop="color">{% list_item "name" type="text" %}</p>
-
-                                            </li>
-
-                                            {% end_list %}
-
-                                        </ul>
-
-                                    </div>
-
-
-
-                                    <a href="#top" class="to-top">top of page</a>
-
-                                    <div>
-
-
-
-                                    {% if editing %}
-
-                                    <p><br></p>
-
-                                    <div class="well">
-
-                                        <h3>Admin tools</h3>
-
-                                        {% page "category" type="select" %}
-
-                                        <br>
-
-                                        {% page "applications" type="select" multiple="true" %}
-
-                                        <br>
-
-                                        {% page "industries" type="select" multiple="true" %}
-
-
-
-                                    </div>
-
-
-
-
-
-                                    {% endif %}
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                    <div class="span4">
-
-                        <div class="big-pad-right">
-
-                            <div class="well beige equal-height">
-
-                            {% page_list "images" %}
-
-                                {% list_item "image" type="image" %}
-
-                                <img class="bordered side-product-photo" src="{% imgix_url list_item.image %}?width=298" itemprop="image">
-
-                            {% end_list %}
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-{% endblock %}
-{% endcomment %}

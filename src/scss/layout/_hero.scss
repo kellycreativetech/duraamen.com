@@ -39,19 +39,8 @@
   }
 
   .product-head {
-    margin-bottom: 100px;
-  }
-
-
-  @include media-breakpoint-up(md) {
-    h1 {
-      font-size: 3.5rem;
-    }
-
-    h4 {
-      margin-top: 0.5rem;
-      margin-bottom: 3rem;
-    }
+    margin-bottom: 50px;
+    margin-top: 130px;
   }
 
   &.smaller-hero {
@@ -62,7 +51,28 @@
 
   &.x-small-hero {
     &.jarallax {
-      min-height: 400px;
+      min-height: 260px;
+    }
+  }
+
+  @include media-breakpoint-up(md) {
+    .product-head {
+      margin-bottom: 100px;
+    }
+
+    h1 {
+      font-size: 3.5rem;
+    }
+
+    h4 {
+      margin-top: 0.5rem;
+      margin-bottom: 3rem;
+    }
+
+    &.x-small-hero {
+      &.jarallax {
+        min-height: 400px;
+      }
     }
   }
 }

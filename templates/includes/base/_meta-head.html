@@ -1,0 +1,33 @@
+<title>{% if page.content.meta_title %}{{ page.content.meta_title|striptags }}{% elif page.content.title %}{{ page.content.title|striptags }} | {{ site.name }}{% else %}{{ site.name }}{% endif %}</title><meta name="author" content="{{ site.name }}">
+<meta name="msapplication-TileColor" content="#228978"/>
+<meta name="description" content="{% if page.content.meta_description %}{{ page.content.meta_description|striptags|truncatechars:200 }}{% elif page.content.intro_text %}{{ page.content.intro_text|striptags|truncatechars:200 }}{% else %}{{ page.content.content|striptags|truncatechars:200 }}{% endif %}">
+<meta name="google-site-verification" content="6MoEbzJPkdVzsZbip6tJhsgK58qkNnLTNNUHD0Zwhp4" />
+<link href="/dist/icons/favicon.ico" rel=icon type="image/x-icon">
+<link href="/dist/icons/favicon.png" rel=icon type="image/png">
+<link rel="apple-touch-icon-precomposed" href="/dist/icons/apple-touch-icon.png">
+<!-- Login Modal popups -->
+<script src="//s3-us-west-2.amazonaws.com/assets.webconnex.com/modal/wx-modal.js"></script>
+
+
+
+<!-- Facebook, LinkedIn, and Google Plus meta tags -->
+<meta property="og:image" content="{% if page.content.meta_override %}{% imgix_url page.content.meta_override %}?w=1200&h=630&fit=crop{% else %}{% include "includes/base/_meta-img.html" %}{% endif %}"/>
+<meta property="og:title" content="{% if page.content.meta_title %}{{ page.content.meta_title|striptags }}{% else %}{% if page.content.title %}{{ page.content.title|striptags }} | {% endif %} {{ site.name }}{% endif %}"/>
+<meta property="og:description" content="{% if page.content.meta_description %}{{ page.content.meta_description|striptags|truncatechars:200 }}{% elif page.content.intro_text %}{{ page.content.intro_text|striptags|truncatechars:200 }}{% else %}{{ page.content.content|striptags|truncatechars:200 }}{% endif %}"/>
+<meta property="og:url" content="{{ page.get_absolute_url }}"/>
+<meta property="og:site_name" content="{{ site.name }}"/>
+<meta property="og:type" content="website"/>
+
+<!-- Twitter meta tags -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:url" content="{{ page.get_absolute_url }}">
+<meta name="twitter:title" content="{% if page.content.meta_title %}{{ page.content.meta_title|striptags }}{% else %}{% if page.content.title %}{{ page.content.title|striptags }} | {% endif %} {{ site.name }}{% endif %}">
+<meta name="twitter:description" content="{% if page.content.meta_description %}{{ page.content.meta_description|striptags|truncatechars:200 }}{% elif page.content.intro_text %}{{ page.content.intro_text|striptags|truncatechars:200 }}{% else %}{{ page.content.content|striptags|truncatechars:200 }}{% endif %}">
+
+<meta name="twitter:image:src" content="{% if page.content.meta_override %}{% imgix_url page.content.meta_override %}?w=1200&h=630&fit=crop{% else %}{% include "includes/base/_meta-img.html" %}{% endif %}">
+
+<meta name="twitter:site" content="//{{ site.domain }}">
+{# <meta name="twitter:creator" content="@summithumane"> #}
+
+<!--canonical URLs -->
+<link rel="canonical" href="{{ page.get_absolute_url }}" />

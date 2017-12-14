@@ -64,9 +64,11 @@
         {% if page.path != selected_page.path %}
         <div class="col-md-3 d-flex align-items-stretch">
           <div class="card">
+            <a class="blog-preview-img hm-zoom waves-light" href="{{ selected_page.get_absolute_url }}{% if editing %}/admin{% endif %}">
             <img class="img-fluid" src="
             {% if selected_page.masthead_img %}{% imgix_url selected_page.masthead_img %}{% else %}{% imgix_url "/dist/img/iStock-92277191.jpg" %}{% endif %}?w=400&h=300&fit=crop"
             alt="{{ selected_page.content.title }}">
+            </a>
             <div class="card-body">
                 <h5 class="card-title"><a href="{{ selected_page.get_absolute_url }}{% if editing %}/admin{% endif %}">{{ selected_page.content.title }}</h5>
                 <p class="card-text">{{ selected_page.content.content|striptags|truncatewords:20 }}</p>
@@ -78,6 +80,8 @@
         </div>
         {% endif %}
         {% endfor %}
+
+
 
 
     {% endfor %}

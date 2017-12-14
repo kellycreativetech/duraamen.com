@@ -13,3 +13,8 @@ $('.button-collapse').sideNav({
 // $(function () {
 //   $('[data-toggle="tooltip"]').tooltip()
 // })
+
+$('.toggle-title').on('click', function(){
+  $(this).next('.toggle-this').toggleClass('open');
+  $(this).toggleClass('open');
+});

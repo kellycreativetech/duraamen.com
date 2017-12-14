@@ -1,0 +1,18 @@
+@include media-breakpoint-down(md) {
+
+  .related-products {
+    display: flex;
+    flex-direction: row;
+
+
+    .blog-preview-img {
+      width: 100px;
+      flex: 0 0 auto;
+      align-self: center;
+    }
+
+    .card-body {
+      flex: 1 1 auto;
+    }
+  }
+}
