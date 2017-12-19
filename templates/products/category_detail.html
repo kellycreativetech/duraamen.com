@@ -11,19 +11,19 @@
     view
     hm-black-strong-1
     jarallax
-    {% block heroclass %}{% endblock %}
+    {% block heroclass %}x-small-hero{% endblock %}
     "
   data-jarallax="{'speed': 0.2}"
   data-srv-name="masthead_img"
   style="background-image: url({% if page.content.masthead_img %}{% imgix_url page.content.masthead_img %}{% else %}{% imgix_url "/dist/img/iStock-92277191.jpg" %}{% endif %}?w=1800&h=1000&fit=crop&crop=entropy&sat=-80&crop=bottom&blend=000000&bm=normal&balph=50);">
-    <div class="full-bg-img">
+    <div class="full-bg-img d-flex justify-content-start align-items-end">
       {% page "masthead_img" type="img" %}
-        <div class="container flex-center">
-            <div class="row smooth-scroll justify-content-md-center">
-                <div class="col-md-12 text-center">
-                    <div class="wow fadeInDown" data-wow-delay="0.2s">
-                        <h1>{% page "title" type="text" %}</h1>
-                        <h4>{% page "subhead" type="text" %}</h4>
+        <div class="container">
+            <div class="row smooth-scroll">
+                <div class="col-md-12">
+                    <div class="product-head wow fadeInDown" data-wow-delay="0.2s">
+                        <h1>{% page "name" type="text" %}</h1>
+                        <h4>{% page "subtitle" type="text" %}</h4>
                     </div>
                     {% block undertitle %}{% endblock %}
                 </div>
@@ -41,153 +41,67 @@
   <div class="container" itemscope itemtype="http://schema.org/Article">
     <div class="row justify-content-center">
       <div class="col-md-4">
-        {% include "includes/snippets/section-icons.html" %}
+
+
+        {% menu "Navigation" begin_at="ecf1480f-b683-4e22-86b0-e603591e2fb1" trail_class="open" current_class="font-bold" %}
+
+        <!--Accordion wrapper-->
+        <div class="accordion" id="accordionEx" role="tablist" aria-multiselectable="true">
+          {% for item in tree %}
+            <!-- Accordion card -->
+            <div class="card">
+                <!-- Card header -->
+                <div class="card-header" role="tab" id="menu-item-{{ item.name|slugify }}" class="{{ item.classes|join:" " }}">
+                    <a data-toggle="collapse" data-parent="#accordionEx" href="#id_{{ item.name|slugify }}" aria-expanded="{% if "open" in item.classes %}true{% else %}false{% endif %}" aria-controls="id_{{ item.name|slugify }}">
+                        <h5 class="mb-0">
+                            {{ item.name }} <i class="fa fa-angle-down {% if "open" in item.classes %}rotate-icon{% endif %}"></i>
+                        </h5>
+                    </a>
+                </div>
+                <!-- Card body -->
+                <div id="id_{{ item.name|slugify }}" class="collapse {% if "open" in item.classes %}show{% endif %}" role="tabpanel" aria-labelledby="menu-item-{{ item.name|slugify }}">
+                    <div class="card-body">
+                      {% if item.children %}
+                      <ul class="nav flex-column">
+                          {% for citem in item.children %}
+                          <li class="nav-link {{ citem.classes|join:" " }}"><a class="{{ citem.classes|join:" " }}" href="{{ citem.url }}">{{ citem.name }}</a></li>
+                          {% endfor %}
+                      </ul>
+                      {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+          </div>
+
+
+
+
       </div>
       <div class="col-md-8">
+        {% page "content" type="wysiwyg" %}
+
         {% block content %}
+        <div class="row">
+
+        {% select_pages "category" path_split.1 varname="products" order_by="-published" %}
+        {% for product in products %}
+        <div class="col-md-6 col-lg-4" itemscope itemtype="http://schema.org/Product">
+          {% if product.content.image %}
+            <a href="{{ product.get_absolute_url }}{% if editing %}/admin{% endif %}" class="z-depth-1 hm-zoom waves-light waves-effect waves-light">
+              <img class="" src="{% imgix_url product.content.image %}?w=400&h=400&fit=crop" itemprop="image">
+            </a>
+          {% endif %}
+
+          <h5><a href="{{ product.get_absolute_url }}{% if editing %}/admin{% endif %}" itemprop="name">{{ product.content.title }}</a> <br><small>{{ product.content.subtitle }}</small></h5>
+          <p class="small">{{ product.content.content|striptags|truncatewords:12 }}</p>
+        </div>
+        {% endfor %}
+
+        </div>
         {% endblock content %}
       </div>
     </div>
   </div>
 </section>
 {% endblock %}
-
-
-
-
-
-{% block body %}
-    {% block hero %}{% endblock hero %}
-    <h1 class="no-border">{% page "name" type="text" %}</h1>
-    <div class="row">
-        <div class="span12">
-            {% page "content" type="wysiwyg" %}
-        </div>
-    </div>
-    <div class="row">
-        <div class="span12">
-            {% select_pages "category" path_split.1 varname="products" order_by="-published" %}
-
-            {% for product in products %}
-            <div class="product beige-bg" id="{{ product.content.slug }}" itemscope itemtype="http://schema.org/Product">
-                <div class="big-pad">
-                    <h2 class="border"><span itemprop="name">{{ product.content.title }}</span> | <small>{{ product.content.subtitle }}</small></h2>
-                </div>
-                <div class="row">
-                    <div class="span8">
-                        <div class="row full-height-wrap">
-                            <div class="span3">
-                                <div class="big-pad-left equal-height">
-                                    <img class="bordered" src="{{ product.content.image.url }}?width=242" itemprop="image" alt="{{ product.content.title }}">
-                                    {% if product.content.downloads %}
-                                    <div class="bordered small-pad documents">
-                                        <h6>Downloads</h6>
-                                        <ul class="unstyled">
-                                            {% for document in product.content.downloads %}
-                                            <li><a href="{{ document.download.url }}">{{ document.name }}</a></li>
-                                            {% endfor %}
-                                        </ul>
-                                    </div>
-                                    {% endif %}
-
-
-                                    <a class="btn btn-info btn-block" href="/forms/order-now?product={{ product.content.slug }}" itemprop="potentialAction"> <b>ORDER NOW</b></a>
-
-
-                                </div>
-                            </div>
-                            <div class="span5 equal-height" itemprop="description">
-                                {{ product.content.content|safe }}
-                            </div>
-                            <div class="span8">
-                                <div class="big-pad-left">
-                                    {% if product.content.data %}
-                                    <h2>Technical Data</h2>
-                                    <table class="table table-bordered table-condensed">
-                                        {% for data_item in product.content.data %}
-                                            {% if forloop.counter|divisibleby:2 == False %}<tr>{% endif %}
-                                            <td><b>{{ data_item.name|safe }}</b></td>
-                                            <td>{{ data_item.value|safe }}</td>
-                                            {% if forloop.counter|divisibleby:2 %}</tr>{% endif %}
-                                        {% endfor %}
-                                    {% endif %}
-                                    </table>
-
-                                    {% if product.content.youtube_video %}
-                                    <iframe width="740" height="416" src="{{ product.content.youtube_video }}" frameborder="0" allowfullscreen></iframe>
-                                    {% endif %}
-
-                                    {% if product.content.colors %}
-                                    <div class="colors">
-                                        <h2>Color Chart</h2>
-                                        <ul class="thumbnails">
-                                            {% for color in product.content.colors %}
-                                            <li class="thumbnail">
-                                                <img src="{{ color.image.url }}?width=136&amp;height=136">
-                                                <p class="caption" itemprop="color">{{ color.name }}</p>
-                                            </li>
-                                            {% endfor %}
-                                        </ul>
-                                    </div>
-                                    {% endif %}
-
-                                    <a href="#top" class="to-top">top of page</a>
-                                    <div>
-                                        {% if editing %}
-                                        <a class="srv-icon-label srv-edit" href="/{{ product.path }}/admin"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-pencil-sm"></use></svg>Edit this Product</a>
-                                        {% endif %}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="span4">
-                        <div class="big-pad-right">
-                            {% if product.content.images %}
-                            <div class="well beige equal-height">
-                                {% for image in product.content.images %}
-                                <img class="bordered side-product-photo" src="{{ image.image.url }}?width=298" itemprop="image">
-                                {% endfor %}
-                            </div>
-                            {% endif %}
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {% endfor %}
-
-                    {% if editing %}
-                    <p><br></p>
-                    <div class="well">
-                    <h2>Admin tools</h2>
-                    {% include "_meta-admin-tools.html" %}
-                    </div>
-                    {% endif %}
-        </div>
-    </div>
-
-    <h2 class="bg-head center gold">Knowledge &amp; Inspiration</h2>
-    <ul class="thumbnails foot-thumbs">
-        <li class="span1-5">
-                <div><a href="/forms/locate-a-contractor/"><img src="/static/img/foot-contractor.png" alt="" /></a>
-
-                </div>
-            </li>
-            <li class="span1-5">
-                <div><a href="/installers-edge/"><img src="/static/img/foot-installers.png" alt="" /></a>
-                </div>
-            </li>
-            <li class="span1-5">
-                <div><a href="/architects-corner/"><img src="/static/img/foot-architects.png" alt="" /></a>
-                </div>
-            </li>
-            <li class="span1-5">
-                <div><a href="/blog/"><img src="/static/img/foot-blog.png" alt="" /></a>
-                </div>
-            </li>
-            <li class="span1-5">
-                <div><a href="/photo-gallery/"><img src="/static/img/foot-gallery.png" alt="" /></a>
-                </div>
-            </li>
-    </ul>
-{% endblock body %}
