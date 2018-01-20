@@ -47,8 +47,7 @@
           {% endif %}
           <img
             class="img-fluid z-depth-1-half"
-            {# src="{% if page.content.image %}{% imgix_url page.content.image %}{% elif editing %}https://placem.at/places{% endif %}?w=600" #}
-            src="https://www.duraamen.com{{ page.content.image.url }}?w=600"
+            src="{% if page.content.image %}{% imgix_url page.content.image %}{% elif editing %}https://placem.at/places{% endif %}?w=600"
             data-srv-name="image"
           />
         {% if not editing %}</a>{% endif %}
@@ -288,7 +287,7 @@
               <!-- Card body -->
               <div id="collapseNine" class="collapse" role="tabpanel" aria-labelledby="colors">
                   <div class="card-body">
-                    <ul class="thumbnails">
+                    <ul class="color-thumbnails">
                         {% page_list "colors" %}
                         <li class="thumbnail">
                             {% list_item "image" type="image" %}

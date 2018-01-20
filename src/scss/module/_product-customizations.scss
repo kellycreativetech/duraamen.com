@@ -22,3 +22,19 @@
     background: $gold;
   }
 }
+
+.color-thumbnails {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  li {
+    text-align: left;
+    max-width: 136px;
+    font-size: 0.8em;
+
+  }
+}
