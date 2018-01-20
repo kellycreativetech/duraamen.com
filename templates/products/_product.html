@@ -47,7 +47,8 @@
           {% endif %}
           <img
             class="img-fluid z-depth-1-half"
-            src="{% if page.content.image %}{% imgix_url page.content.image %}{% elif editing %}https://placem.at/places{% endif %}?w=600"
+            {# src="{% if page.content.image %}{% imgix_url page.content.image %}{% elif editing %}https://placem.at/places{% endif %}?w=600" #}
+            src="https://www.duraamen.com{{ page.content.image.url }}?w=600"
             data-srv-name="image"
           />
         {% if not editing %}</a>{% endif %}

@@ -5,3 +5,7 @@ node_modules/
 site_media/
 .glass/config
 .DS_Store
+blog/
+bower_components/
+external-images/
+uploads/

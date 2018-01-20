@@ -1,9 +1,6 @@
-site_media/
-wp-content/
-uploads/
-static/
-src/
 gulpfile.js
 package.json
 .gitignore
 node_modules/
+bower_components/
+*.md
