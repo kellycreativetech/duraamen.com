@@ -35,6 +35,12 @@
     text-align: left;
     max-width: 136px;
     font-size: 0.8em;
-
   }
+}
+
+.two-column-text {
+  column-count: 2;
+  column-gap: 3em;
+  margin: 1em 0;
+  column-width: 500px;
 }

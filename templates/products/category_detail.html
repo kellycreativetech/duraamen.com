@@ -15,10 +15,21 @@
     "
   data-jarallax="{'speed': 0.2}"
   data-srv-name="masthead_img"
-  style="background-image: url({% if page.content.masthead_img %}{% imgix_url page.content.masthead_img %}{% else %}{% imgix_url "/dist/img/iStock-92277191.jpg" %}{% endif %}?w=1800&h=1000&fit=crop&crop=entropy&sat=-80&crop=bottom&blend=000000&bm=normal&balph=50);">
-    <div class="full-bg-img d-flex justify-content-start align-items-end">
-      {% page "masthead_img" type="img" %}
+  style="
+  {% if page.content.masthead_img %}
+    background-image: url({% imgix_url page.content.masthead_img %}?w=1800&h=1000&fit=crop&crop=entropy&sat=-80&crop=bottom&blend=000000&bm=normal&balph=50);
+  {% else %}
+  background-color: #555;
+  {% endif %}">
+
+  {% comment %}
+  If you want the background image as a default, here's the URL that you need:
+  {% imgix_url "/dist/img/iStock-92277191.jpg" %}
+  {% endcomment %}
+
+      <div class="full-bg-img d-flex justify-content-start align-items-end">
         <div class="container">
+          {% page "masthead_img" type="img" %}
             <div class="row smooth-scroll">
                 <div class="col-md-12">
                     <div class="product-head wow fadeInDown" data-wow-delay="0.2s">
@@ -79,14 +90,12 @@
 
       </div>
       <div class="col-md-8">
-        {% page "content" type="wysiwyg" %}
-
         {% block content %}
         <div class="row">
 
         {% select_pages "category" path_split.1 varname="products" order_by="-published" %}
         {% for product in products %}
-        <div class="col-md-6 col-lg-4" itemscope itemtype="http://schema.org/Product">
+        <div class="col-md-6 col-lg-4 mb-4" itemscope itemtype="http://schema.org/Product">
           {% if product.content.image %}
             <a href="{{ product.get_absolute_url }}{% if editing %}/admin{% endif %}" class="z-depth-1 hm-zoom waves-light waves-effect waves-light">
               <img class="" src="{% imgix_url product.content.image %}?w=400&h=400&fit=crop" itemprop="image">
@@ -102,6 +111,34 @@
         {% endblock content %}
       </div>
     </div>
+    <div class="row">
+      <div class="col-md-12">
+
+
+        <!--Accordion wrapper-->
+        <div class="accordion" role="tablist" aria-multiselectable="true" id="projectAccordion">
+          <!-- Accordion card -->
+          <div class="card">
+              <!-- Card header -->
+              <div class="card-header" role="tab" id="headingOne">
+                  <a data-toggle="collapse" data-parent="#productAccordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                      <h5 class="mb-0">
+                          {{ page.content.title }}<i class="fa fa-angle-down rotate-icon"></i>
+                      </h5>
+                  </a>
+              </div>
+
+              <!-- Card body -->
+              <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
+                  <div class="card-body {% if not editing %}two-column-text{% endif %}">
+                      {% page "content" type="wysiwyg" %}
+                  </div>
+              </div>
+          </div>
+
+
+
+      </div>
   </div>
 </section>
 {% endblock %}
