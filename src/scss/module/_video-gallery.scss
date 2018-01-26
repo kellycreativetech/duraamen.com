@@ -1,0 +1,39 @@
+.fa-5 {
+  font-size: 90px;
+}
+.fa-3 {
+  font-size: 54px;
+}
+
+.video-gallery {
+  a {
+    display: block;
+    position: relative;
+
+    .play-icon {
+      position: absolute;
+      top: 50%;
+      text-align: center;
+      color: #fff;
+      opacity: 0.7;
+      width: 100%;
+      transform: translateY(-75%);
+    }
+
+    &:hover {
+      .play-icon {
+        opacity: 0.7;
+      }
+    }
+  }
+}
+
+.thumbnails {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  li {
+    margin-bottom: 1em;
+  }
+}

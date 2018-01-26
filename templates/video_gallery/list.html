@@ -1,41 +1,55 @@
 {% extends "base.html" %}
 
+
+
 {% block hero %}
+<!-- Intro Section -->
+<div
+  class="hero
+    view
+    hm-black-strong-1
+    jarallax
+    {% block heroclass %}x-small-hero{% endblock %}
+    "
+  data-jarallax="{'speed': 0.2}"
+  data-srv-name="masthead_img"
+  style="background-image: url({% if page.content.masthead_img %}{% imgix_url page.content.masthead_img %}{% else %}{% imgix_url "/dist/img/iStock-92277191.jpg" %}{% endif %}?w=1800&h=1000&fit=crop&crop=entropy&sat=-80&crop=bottom&blend=000000&bm=normal&balph=50);">
+    <div class="full-bg-img d-flex justify-content-start align-items-end">
+      {% page "masthead_img" type="img" %}
+        <div class="container">
+            <div class="row smooth-scroll">
+                <div class="col-md-12">
+                    <div class="product-head wow fadeInDown" data-wow-delay="0.2s">
+                        <h1>{% page "title" type="text" %}</h1>
+                        <h4>{% page "subtitle" type="text" %}</h4>
+                    </div>
+                    {% block undertitle %}{% endblock %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
 
-{% block body %}
-    <div class="product beige-bg">
-        <div class="big-pad">
-            <h1 class="border">Video Gallery <img src="{{ STATIC_URL }}img/video-play.png"></h1>
-            {% chunk "video-gallery-summary" %}
-        </div>
 
+{% block main %}
+<section class="home-section">
+  <div class="container" id="{{ page.content.slug }}" itemscope itemtype="http://schema.org/Product">
+    <div class="row justify-content-center">
+      <div class="col-md-12">
+        {% chunk "video-gallery-summary" %}
 
-
-        <ul class="thumbnails video-gallery" itemscope itemtype="http://schema.org/VideoObject">
+        <div class="row video-gallery" itemscope itemtype="http://schema.org/VideoObject">
         {% children as "categories" %}
         {% for category in categories %}
-            <li class="span4">
-            <div class="vid-pad">
-                <a class="thumbnail" href="{{ category.get_absolute_url }}" title="{{ category.content.name|default:"" }}"><img itemprop="image" class="bordered" src="{% imgix_url category.content.image %}?w=370&amp;h=205&amp;crop=entropy&amp;fit=crop" alt="{{ category.content.name|default:"" }} (thumbnail)"></a>
-                <p class="caption"><a href="{{ category.get_absolute_url }}">{{ category.content.name }} | {{ category.content.videos|length }} videos</a></p>
-            </div>
-            </li>
+            <div class="col-md-4">
+                  <a class="thumbnail" href="{{ category.get_absolute_url }}" title="{{ category.content.name|default:"" }}"><img itemprop="image" class="bordered" src="{% imgix_url category.content.image %}?w=370&amp;h=205&amp;crop=entropy&amp;fit=crop" alt="{{ category.content.name|default:"" }} (thumbnail)"></a>
+                  <h5 class="text-center mt-2 mb-4" itemprop="name"><a href="{{ category.get_absolute_url }}">{{ category.content.name }} | {{ category.content.videos|length }} videos</a></h5>
+          </div>
         {% endfor %}
-        </ul>
-
-</div>
-
-{% if editing %}
-
-                <p><br></p>
-                <div class="well">
-                <h2>Admin tools</h2>
-                {% include "_meta-admin-tools.html" %}
-                </div>
-
-                {% endif %}
-
-
-
-{% endblock body %}
+      </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
