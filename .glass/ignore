@@ -5,3 +5,7 @@ node_modules/
 bower_components/
 *.md
 src/
+blog/wp-contents/
+uploads/
+media/
+dev_documentation.md
