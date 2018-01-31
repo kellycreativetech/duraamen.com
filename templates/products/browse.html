@@ -1,5 +1,7 @@
 {% extends "products/category_list.html" %}
 
+{# UNUSED IN THE 22018 REDESIGN #}
+
 
 {% block page-title %}Products filtered by {% if request.GET.industry %}{{ request.GET.industry }}{% endif %}{% if request.GET.industry and request.GET.application %},{% endif %} {% if request.GET.application %}{{ application }}{% endif %}{% endblock %}
 

@@ -90,15 +90,20 @@
 
       </div>
       <div class="col-md-8">
-          
-         {% new_page_button label="New Product" parent="p" %}
-        
-        
-        
+
+         {% new_page_button label="New Product" parent="products" %}
+
+
+
         {% block content %}
         <div class="row">
 
-        {% select_pages "category" path_split.1 varname="products" order_by="-published" %}
+        {% if page.path == "products" %}
+        {% children as products order_by="-published" %}
+        {% else %}
+        {% select_pages "category" path_split.0 varname="products" order_by="-published" %}
+        {% endif %}
+        {% autopaginate products 15 %}
         {% for product in products %}
         <div class="col-md-6 col-lg-4 mb-4" itemscope itemtype="http://schema.org/Product">
           {% if product.content.image %}
@@ -108,14 +113,35 @@
           {% endif %}
 
           <h5><a href="{{ product.get_absolute_url }}{% if editing %}/admin{% endif %}" itemprop="name">{{ product.content.title }}</a> <br><small>{{ product.content.subtitle }}</small></h5>
-          <p class="small">{{ product.content.content|striptags|truncatewords:12 }}</p>
+          <p class="small">{{ product.content.content|striptags|safe|truncatewords:12 }}</p>
         </div>
         {% endfor %}
+
+        {% if page.path == 'products' %}
+        <nav class="mt-3 d-flex justify-content-center">
+        <ul class="pagination pagination-lg">
+          <li class="page-item {% if not page_obj.has_previous %}disabled{% endif %}">
+            <a class="page-link" href="{% if page_obj.has_previous %}?page={{ page_obj.previous_page_number }}{% endif %}" aria-label="Previous">
+              <span aria-hidden="true">PREV</span>
+            </a>
+          </li>
+          <li class="page-item disabled" style="cursor:default !important;"><span class="page-link">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.</span></li>
+          <li class="page-item {% if not page_obj.has_next %}disabled{% endif %}">
+            <a class="page-link" href="{% if page_obj.has_next %}?page={{ page_obj.next_page_number }}{% endif %}" aria-label="Next">
+              <span aria-hidden="true">NEXT</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      {% endif %}
+
 
         </div>
         {% endblock content %}
       </div>
     </div>
+
+    {% if page.content.content or editing %}
     <div class="row">
       <div class="col-md-12">
 
@@ -140,10 +166,9 @@
                   </div>
               </div>
           </div>
-
-
-
       </div>
+    </div>
   </div>
+  {% endif %}
 </section>
 {% endblock %}
