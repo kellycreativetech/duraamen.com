@@ -13,7 +13,7 @@
     jarallax
     {% block heroclass %}x-small-hero{% endblock %}
     "
-  
+
   data-srv-name="masthead_img"
   style="
   {% if page.content.masthead_img %}
@@ -91,7 +91,9 @@
       </div>
       <div class="col-md-8">
 
-         {% new_page_button label="New Product" parent="products" %}
+         {# {% new_page_button label="New Product" parent="products" %} #}
+
+         {% new_page_button label="New Category" template="templates/products/categories.html" %}
 
 
 

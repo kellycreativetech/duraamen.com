@@ -10,3 +10,6 @@ $('.toggle-title').on('click', function(){
   $(this).next('.toggle-this').toggleClass('open');
   $(this).toggleClass('open');
 });
+
+
+$('[data-glass-form-api]').attr({'action': "/siteapi/submit_form"});

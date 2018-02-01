@@ -2,11 +2,18 @@
 
 {% block belowcontent %}
 
-<form id ="contact-form" name="contact-form" action="mail.php" method="POST">
+<form data-glass-form-api action="/404/" method="POST">
+
+  {% csrf_token %}
+          <input name="to" type="hidden" value="bbbf6b9f-1dc5-4a06-862c-c4d7135b78f2,cca47383-89e1-4e69-89e1-205ff5301c12">
+          <input name="success_message" type="hidden" value="Thanks! We'll get back to you as soon as possible." />
+          <input type="hidden" name="redirect" value="/success" />
+          <input type="hidden" name="mc_id" value="e5e0332929">
+          <input id="id_from_duraamen_url" name="from_duraamen_url" type="hidden">
+
 
                <!--Grid row-->
                <div class="row">
-
                    <!--Grid column-->
                    <div class="col-md-6">
                        <div class="md-form">
@@ -56,11 +63,17 @@
 
                    </div>
                </div>
+               <div class="row">
+                 <div class="md-form form-check">
+                   <input type="checkbox" id="id_opt_in" checked name="mailchimp-opt-in" value="YES" />
+                   <label class="form-check-label" for="id_opt_in">Receive product information and special offers via email?</label>
+                 </div>
+               </div>
                <!--Grid row-->
            </form>
 
            <div class="center-on-small-only">
-           <a class="btn btn-primary" onclick="document.getElementById('contact-form').submit();">Send</a>
+           <a class="btn btn-primary" onclick="document.getElementById('contact-form').submit();"><i class="fa fa-paper-plane fa-2x"></i> Send</a>
        </div>
 
 
@@ -70,15 +83,20 @@
 
 <ul class="contact-icons">
                 <li><i class="fa fa-map-marker fa-2x"></i>
-                    <p>San Francisco, CA 94126, USA</p>
+                    <h5>Customer Service Office</h5>
+                    <p>116 West 23rd Street<br>
+                      5th Floor<br>
+                      New York, NY 10011</p>
                 </li>
 
                 <li><i class="fa fa-phone fa-2x"></i>
-                    <p>+ 01 234 567 89</p>
+                    <h5>Give us a ring</h5>
+                    <p><a href="tel:18668356595">+1 (866) 835-6595</a></p>
                 </li>
 
                 <li><i class="fa fa-envelope fa-2x"></i>
-                    <p>contact@mdbootstrap.com</p>
+                    <h5>Legal Information</h5>
+                    <p><a href="/privacy">View our privacy policy</a></p>
                 </li>
             </ul>
 
