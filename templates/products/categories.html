@@ -13,7 +13,7 @@
     jarallax
     {% block heroclass %}x-small-hero{% endblock %}
     "
-  data-jarallax="{'speed': 0.2}"
+
   data-srv-name="masthead_img"
   style="
   {% if page.content.masthead_img %}
@@ -91,7 +91,9 @@
       </div>
       <div class="col-md-8">
 
-         {% new_page_button label="New Product" parent="products" %}
+         {# {% new_page_button label="New Product" parent="products" %} #}
+
+         {% new_page_button label="New Category" template="templates/products/categories.html" %}
 
 
 
@@ -100,9 +102,12 @@
 
         {% if page.path == "products" %}
         {% children as products order_by="-published" %}
+        {% elif path_split.0 == "p" %}
+        {% select_pages "category" path_split.1 varname="products" order_by="-published" %}
         {% else %}
         {% select_pages "category" path_split.0 varname="products" order_by="-published" %}
         {% endif %}
+
         {% autopaginate products 15 %}
         {% for product in products %}
         <div class="col-md-6 col-lg-4 mb-4" itemscope itemtype="http://schema.org/Product">

@@ -11,7 +11,7 @@
     jarallax
     {% block heroclass %}x-small-hero{% endblock %}
     "
-  data-jarallax="{'speed': 0.2}"
+
   data-srv-name="masthead_img"
   style="background-image: url({% if page.content.masthead_img %}{% imgix_url page.content.masthead_img %}{% else %}{% imgix_url "/dist/img/iStock-92277191.jpg" %}{% endif %}?w=1800&h=1000&fit=crop&crop=entropy&sat=-80&crop=bottom&blend=000000&bm=normal&balph=50);">
     <div class="full-bg-img d-flex justify-content-start align-items-end">
@@ -47,17 +47,18 @@
         {% endcomment %}
 
         {% for firstvid in page.content.videos %}
-        {% if forloop.counter == 1 %}
-        <div class="video-gallery" itemprop="video" class="video-thumb">
+        <div class="video-gallery {% if forloop.counter != 1 %}d-md-none{% endif %}" itemprop="video" class="video-thumb">
           <a data-fancybox="videos" class="thumbnail" rel="video" href="https://www.youtube-nocookie.com/embed/{{ firstvid.youtube_id }}?rel=0" title="{{ firstvid.title }}">
             <i class="play-icon fa fa-play-circle fa-5" aria-hidden="true"></i>
             <img itemprop="thumbnail" src="{% imgix_url firstvid.image %}?w=730" alt="{{ firstvid.title }}">
             <h3 class="mt-2 mb-4 text-center" itemprop="name">{{ firstvid.title }}</h3>
           </a>
         </div>
-        {% endif %}
-
         {% endfor %}
+
+        <div class="text-center">
+          <p><a href="/video-gallery" class="btn btn-secondary"><i class="play-icon fa fa-chevron-left" aria-hidden="true"></i> Back to Video Gallery</a></p>
+        </div>
 
         {% page "content" type="wysiwyg" %}
 
@@ -70,7 +71,7 @@
 
       </div>
       <div class="col-md-4">
-        <ul class="thumbnails video-gallery" itemscope itemtype="http://schema.org/VideoObject">
+        <ul class="thumbnails video-gallery d-none d-md-block" itemscope itemtype="http://schema.org/VideoObject">
           {% page_list "videos" %}
               {% list_item "youtube_id" type="text" noprint="true" %}
               {% list_item "image" type="img" noprint="true" %}
