@@ -100,7 +100,7 @@
 
         {% if page.path == "products" %}
         {% children as products order_by="-published" %}
-        {% elif path_split.0 == 'p' %}
+        {% elif path_split.0 == "p" %}
         {% select_pages "category" path_split.1 varname="products" order_by="-published" %}
         {% else %}
         {% select_pages "category" path_split.0 varname="products" order_by="-published" %}
