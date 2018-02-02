@@ -7,17 +7,19 @@
 <section class="home-section">
 <div class="container">
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-10 offset-md-1">
           <h2>{% page "Subhead" type="text" %}</h2>
 
           {% block content %}
-          {% page "Content" type="wysiwyg" placeholder="Insert Content here" %}
+          {% page "content" type="wysiwyg" placeholder="Insert Content here" %}
           {% endblock content %}
 
           {% block map-wrap %}{% endblock %}
           {% block belowcontent %}{% endblock %}
 
         </div>
+
+        {% comment %}
         <div class="col-md-4">
           {% page "main_content_img" type="img" %}
           {% if page.content.main_content_img or editing %}
@@ -30,6 +32,7 @@
 
           {% block belowsidebar %}{% endblock belowsidebar %}
         </div>
+        {% endcomment %}
     </div>
 </div>
 </section>

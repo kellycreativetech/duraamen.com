@@ -1,14 +1,14 @@
 <!-- Intro Section -->
 <div
   class="hero smaller-hero view hm-black-strong-1 jarallax"
-  data-jarallax='{"speed": '0.2'}'
-  style="background-image: url( {% imgix_url "/dist/img/iStock-92277191.jpg" %}?w=1800&h=1000&fit=crop&sat=-80&crop=bottom&blend=000000&bm=normal&balph=50);">
+  style="background-image: url({% if page.content.masthead_img %}{% imgix_url page.content.masthead_img %}{% else %}{% imgix_url "/dist/img/iStock-92277191.jpg" %}{% endif %}?w=1800&h=1000&fit=crop&sat=-80&crop=bottom&blend=000000&bm=normal&balph=50);"
     <div class="full-bg-img">
+      {% page "masthead_img" type="img" %}
         <div class="container flex-center">
             <div class="row smooth-scroll justify-content-md-center">
                 <div class="col-md-12 text-center">
                     <div class="wow fadeInDown" data-wow-delay="0.2s">
-                        <h1>{% page "Headline" type="text" %}</h1>
+                        <h1>{% page "title" type="text" %}</h1>
                     </div>
                 </div>
             </div>

@@ -65,10 +65,16 @@
 .navbar {
   background-color: $light-gray-2;
 
-  &.navbar-light:not(.top-nav-collapse) {
-    background-color: $light-gray-2;
-    box-shadow: none;
+  &,
+  &.top-nav-collapse,
+  &.scrolling-navbar {
+    padding-top: 5px;
+    padding-bottom: 5px;
   }
+  // &.navbar-light:not(.top-nav-collapse) {
+  //   background-color: $light-gray-2;
+  //   box-shadow: none;
+  // }
 
   .dropdown-menu .dropdown-item {
     padding-top:0;
@@ -100,13 +106,13 @@
   }
 
   @include media-breakpoint-up(lg) {
-    &.navbar-light:not(.top-nav-collapse) {
-      background: transparent;
-
-      .navbar-nav .nav-item .nav-link {
-        color: $light-gray-2;
-      }
-    }
+    // &.navbar-light:not(.top-nav-collapse) {
+    //   background: transparent;
+    //
+    //   .navbar-nav .nav-item .nav-link {
+    //     color: $light-gray-2;
+    //   }
+    // }
 
     .navbar-brand {
       width: 200px;
