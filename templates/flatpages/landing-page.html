@@ -1,131 +1,39 @@
 {% extends "base.html" %}
 
-
-{% block bodyclass %}{{ page.url|slugify }}{% endblock %}
-
-{% block hero %}
-{% endblock %}
-
-{% block body %}
-
-{% block gallery %}{% endblock gallery %}
+{% block hero %}{% include "includes/base/hero-with-landing-page-form.html" %}{% endblock %}
 
 
-    <div class="{% block landing-class %}landing-page{% endblock landing-class %}"
+{% block main %}
+<section class="home-section">
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 offset-md-1">
+          <h2>{% page "Subhead" type="text" %}</h2>
 
+          {% block content %}
+          {% page "content" type="wysiwyg" placeholder="Insert Content here" %}
+          {% endblock content %}
 
-        {# style="background:url(TODO: add background image) top right no-repeat #fcc113" #}
+          {% block map-wrap %}{% endblock %}
+          {% block belowcontent %}{% endblock %}
 
-
-        style="background: {% block landing-bg-color %}#fcc113{% endblock landing-bg-color %}"
-    >
-        <div class="landing-hero">
-            {% block title-override %}<h1>{% page "title" %}</h1>{% endblock title-override %}
-            {% block content %}
-            {% page "content" type="wysiwyg"%}
-            {% endblock content %}
-            {% block formwrap %}
-            <div class="well">
-                {% block landing-form %}
-                <form actn="/forms/landing-page/" class="form-horizontal" method="post">
-                    {% csrf_token %}
-                    <input id="id_origin" type="hidden" class="charfield" name="origin" value="{{ page.url|slugify }}">
-                    <div class="row">
-                        <div class="span5">
-                            <div id="div_id_name" class="control-group  ">
-                                <label for="id_name" class="control-label required-field">First Name</label>
-                                <div class="controls">
-                                    <input name="name" maxlength="2000" required="" type="text" class="charfield required" id="id_name" />
-                                </div>
-                            </div>
-                            <div id="div_id_last_name_surname" class="control-group  ">
-                                <label for="id_last_name_surname" class="control-label required-field">Last Name / Surname</label>
-                                <div class="controls">
-                                    <input name="last_name_surname" maxlength="2000" required="" type="text" class="charfield required" id="id_last_name_surname" />
-                                </div>
-                            </div>
-
-
-                            <div id="div_id_company" class="control-group  ">
-                                    <label for="id_company" class="control-label required-field">Company</label>
-                                <div class="controls">
-                                    <input name="company" maxlength="2000" required="" type="text" class="charfield required" id="id_company" />
-                                </div>
-                            </div>
-                            <div id="div_id_street_address_suite" class="control-group  ">
-                                    <label for="id_street_address_suite" class="control-label required-field">Street Address, Suite</label>
-                                <div class="controls">
-                                    <input name="street_address_suite" maxlength="2000" required="" type="text" class="charfield required" id="id_street_address_suite" />
-                                </div>
-                            </div>
-                            <div id="div_id_city_state_zip_code" class="control-group  ">
-                                <label for="id_city_state_zip_code" class="control-label required-field">City, State, Zip Code</label>
-                                <div class="controls">
-                                    <input name="city_state_zip_code" maxlength="2000" required="" type="text" class="charfield required" id="id_city_state_zip_code" />
-                                </div>
-                            </div>
-                            <div id="div_id_phone" class="control-group  ">
-                                <label for="id_phone" class="control-label required-field">Phone</label>
-                                <div class="controls">
-                                    <input name="phone" maxlength="2000" required="" type="text" class="charfield required" id="id_phone" />
-                                </div>
-                            </div>
-                            <div id="div_id_e_mail" class="control-group  ">
-                                <label for="id_e_mail" class="control-label required-field">E-mail</label>
-                                <div class="controls">
-                                    <input name="e_mail" maxlength="2000" required="" type="email" class="emailfield required" id="id_e_mail" />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="span5 nudge">
-                            {% block select-field-override %}
-                            <div id="div_id_yes_please_send_me_a_sample_of" class="control-group  ">
-                                <label for="id_yes_please_send_me_a_sample_of" class="control-label required-field">Yes! Please send me a sample of the following product</label>
-                                <div class="controls">
-                                    <select id="id_yes_please_send_me_a_sample_of" required="" placeholder="Choose Finish" class="required" name="yes_please_send_me_a_sample_of">
-                                        {% block option-overrides %}
-                                        <option value="Perdure U90">Perdure U90</option>
-                                        <option value="Perdure U50">Perdure U50</option>
-                                        <option value="Perdure U46">Perdure U46</option>
-                                        <option value="Perdure U45">Perdure U45</option>
-                                        <option value="Perdure U45f">Perdure U45f</option>
-                                        {% endblock %}
-                                    </select>
-                                </div>
-                            </div>
-                            {% endblock select-field-override %}
-                            <div id="div_id_comments" class="control-group">
-                                <label for="id_comments" class="control-label ">Comments</label>
-                                <div class="controls">
-                                    <textarea id="id_comments" rows="10" cols="40" name="comments" class="charfield"></textarea>
-                                </div>
-                            </div>
-
-
-                            <div class="form-actions">
-                                <label for="id_opt_in" class="control-label " style="width:auto;text-align:left;">
-                            <input type="checkbox" id="id_opt_in" checked name="mailchimp-opt-in" value="YES" />    Receive product information and special offers via e-mail?
-                            </label>
-
-                                <input type="submit" class="btn btn-primary btn-block" value="Submit">
-                            </div>
-                        </div>
-                    </div>
-                    </form>
-                {% endblock %}
-            </div>
-            {% endblock formwrap %}
-
-                        {% if editing %}
-            <div class="clearfix">
-                <p><br></p>
-                <div class="well">
-                <h2>Admin tools</h2>
-                {% include "_meta-admin-tools.html" %}
-                </div>
-                </div>
-                {% endif %}
         </div>
-    </div>
 
-{% endblock body %}
+        {% comment %}
+        <div class="col-md-4">
+          {% page "main_content_img" type="img" %}
+          {% if page.content.main_content_img or editing %}
+          <img
+            class="img-fluid"
+            src="{% if page.content.main_content_img %}{% imgix_url page.content.main_content_img %}{% elif editing %}https://placem.at/places{% endif %}?w=400"
+            data-srv-name="main_content_img"
+          />
+          {% endif %}
+
+          {% block belowsidebar %}{% endblock belowsidebar %}
+        </div>
+        {% endcomment %}
+    </div>
+</div>
+</section>
+{% endblock %}

@@ -1,0 +1,34 @@
+<form id="contact-form" data-glass-form-api action="/404/" method="POST">
+  {% csrf_token %}
+  <input name="to" type="hidden" value="bbbf6b9f-1dc5-4a06-862c-c4d7135b78f2,cca47383-89e1-4e69-89e1-205ff5301c12">
+  <input name="success_message" type="hidden" value="Your form was submitted successfully" />
+  <input type="hidden" name="redirect" value="/success" />
+  <input type="hidden" name="mc_id" value="4f09927312">
+  <input id="id_from_duraamen_url" name="from_duraamen_url" type="hidden">
+<div class="md-form">
+  <label for="id_name" class="control-label required-field">Name</label>
+  <input name="name" maxlength="2000" required="" type="text" class="charfield required" id="id_name" />
+</div>
+<div class="md-form">
+  <label for="id_company" class="control-label required-field">Company</label>
+  <input name="Company" maxlength="2000" required="" type="text" class="charfield required" id="id_company" />
+</div>
+<div class="md-form">
+  <label for="id_e_mail" class="control-label required-field">E-mail</label>
+  <input name="e_mail" maxlength="2000" required="" type="email" class="emailfield required" id="id_e_mail" />
+</div>
+<div class="md-form">
+  <label for="id_phone" class="control-label required-field">Phone</label>
+  <input name="phone" maxlength="2000" required="" type="text" class="charfield required" id="id_phone" />
+</div>
+
+<div class="md-form">
+  <input checked id="id_opt_in" name="mailchimp-opt-in" type="checkbox" value="YES"/>
+  <label class="checkbox" for="id_opt_in">Receive product information and special offers via e-mail?</label>
+</div>
+
+</form>
+
+<div class="center-on-small-only">
+<a class="btn btn-primary" onclick="document.getElementById('contact-form').submit();"><span class="fa fa-paper-plane fa-2x"></span> Send</a>
+</div>

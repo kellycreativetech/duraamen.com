@@ -11,8 +11,6 @@
     color: $dark-gray !important;
   }
 
-
-
   h1 {
     font-size: 2.2rem;
     font-weight: 700;
@@ -71,6 +69,10 @@
 
     &.x-small-hero {
       min-height: 400px;
+    }
+
+    .push-content {
+      margin-bottom: 120px;
     }
   }
 }
