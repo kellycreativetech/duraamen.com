@@ -1,21 +1,17 @@
-{% extends "flatpages/default.html" %}
+{% extends "base.html" %}
 
+{% block hero %}{% include "includes/base/hero-smaller.html" %}{% endblock %}
 
 
 
 {% block main %}
 <section class="home-section">
   <div class="container">
-    <div class="row">
-      <div class="col-md-6">
-        {% page "content" type="wysiwyg" placeholder="Insert Content here" %}
-      </div>
-      <div class="col-md-6">
-        {% page "content_2" type="wysiwyg" placeholder="Insert Content here" %}
-      </div>
-    </div>
     <div class="row" style="margin-top: 2em;">
       <div class="col-md-6">
+        {% page "content" type="wysiwyg" placeholder="Insert Content here" %}
+
+
       <form data-glass-form-api action="/404/" method="POST">
 
         {% csrf_token %}
@@ -92,30 +88,15 @@
                </div>
                <div class="col-md-6">
 
-                 <ul class="contact-icons">
-                                 <li><i class="fa fa-map-marker fa-2x"></i>
-                                     <h5>Corporate Office: New York</h5>
-                                     <p><strong>Duraamen Engineered Products Inc.</strong><br>
-                                       116 West 23rd Street<br>
-                                       5th Floor<br>
-                                       New York, NY 10011<br>
-                                     <a href="tel:12123867609">T: 212.386.7609</a></p>
-                                 </li>
-
-                                  <li><i class="fa fa-map-marker fa-2x"></i>
-                                     <h5>Warehouse: New Jersey</h5>
-                                     <p>457 Frelinghuysen Avenue<br>
-                                     Newark, NJ 07114<br>
-                                     T: <a href="9732301301">973.230.1301</a><br>
-                                     F: <a href="tel:9732417830">973.241.7830</a></p>
-                                   </li>
-
-                             </ul>
-
+                {% page "content_2" type="wysiwyg" placeholder="Insert Content here" %}
 
 
                </div>
+               <div class="col-md-12 mt-5 text-center">
+                 {% page "content_3" type="wysiwyg" placeholder="Insert Content here" %}
+               </div>
              </div>
+
   </div>
 </section>
 
