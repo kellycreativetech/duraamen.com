@@ -54,40 +54,30 @@
       <div class="col-md-4">
 
 
-        {% menu "Navigation" begin_at="ecf1480f-b683-4e22-86b0-e603591e2fb1" trail_class="open" current_class="font-bold" %}
-
-        <!--Accordion wrapper-->
-        <div class="accordion" id="accordionEx" role="tablist" aria-multiselectable="true">
+        {% menu "Navigation" begin_at="ecf1480f-b683-4e22-86b0-e603591e2fb1" trail_class="trail" current_class="current" %}
+        <ul class="product-nav-sidebar">
           {% for item in tree %}
-            <!-- Accordion card -->
-            <div class="card">
-                <!-- Card header -->
-                <div class="card-header" role="tab" id="menu-item-{{ item.name|slugify }}" class="{{ item.classes|join:" " }}">
-                    <a data-toggle="collapse" data-parent="#accordionEx" href="#id_{{ item.name|slugify }}" aria-expanded="{% if "open" in item.classes %}true{% else %}false{% endif %}" aria-controls="id_{{ item.name|slugify }}">
-                        <h5 class="mb-0">
-                            {{ item.name }} <i class="fa fa-angle-down {% if "open" in item.classes %}rotate-icon{% endif %}"></i>
-                        </h5>
-                    </a>
-                </div>
-                <!-- Card body -->
-                <div id="id_{{ item.name|slugify }}" class="collapse {% if "open" in item.classes %}show{% endif %}" role="tabpanel" aria-labelledby="menu-item-{{ item.name|slugify }}">
-                    <div class="card-body">
-                      {% if item.children %}
-                      <ul class="nav flex-column">
-                          {% for citem in item.children %}
-                          <li class="nav-link {{ citem.classes|join:" " }}"><a class="{{ citem.classes|join:" " }}" href="{{ citem.url }}">{{ citem.name }}</a></li>
-                          {% endfor %}
-                      </ul>
-                      {% endif %}
-                    </div>
-                </div>
-            </div>
+      <li class="{{ item.classes|join:" " }}">
+          <a href="{{ item.url }}">{{ item.name }}</a>
+              {% if item.children %}
+              <ul>
+                  {% for citem in item.children %}
+                  <li class="{{ citem.classes|join:" " }}">
+                    <a href="{{ citem.url }}">{{ citem.name }}</a>
+                    {% if citem.children %}
+                    <ul>
+                        {% for ditem in citem.children %}
+                        <li class="{{ ditem.classes|join:" " }}"><a href="{{ ditem.url }}">{{ ditem.name }}</a></li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                  </li>
+                  {% endfor %}
+              </ul>
+              {% endif %}
+            </li>
             {% endfor %}
-          </div>
-
-
-
-
+            </ul>
       </div>
       <div class="col-md-8">
 

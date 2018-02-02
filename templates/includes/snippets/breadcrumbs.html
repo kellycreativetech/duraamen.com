@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="col-md-12">
+    {% menu "Navigation" begin_at="ecf1480f-b683-4e22-86b0-e603591e2fb1" trail_class="open" current_class="current" %}
+    <ol class="product-breadcrumb breadcrumb">
+      {% for item in tree %}
+        <li class="breadcrumb-item {{ item.classes|join:" " }}">
+          <a href="{{ item.url }}">{{ item.name }}</a></li>
+        {% if item.children %}
+        {% for citem in item.children %}
+        <li class="breadcrumb-item {{ citem.classes|join:" " }}">
+          <a href="{{ citem.url }}">{{ citem.name }}</a></li>
+        {% endfor %}
+        {% endif %}
+      {% endfor %}
+</ol>
+  </div>
+</div>
