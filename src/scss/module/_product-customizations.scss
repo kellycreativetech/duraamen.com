@@ -36,6 +36,14 @@
     max-width: 136px;
     font-size: 0.8em;
   }
+  &.system-page {
+    justify-content: flex-start;
+    li {
+      width: auto;
+      max-width: 100%;
+      margin: 0 20px 20px 0;
+    }
+  }
 }
 
 .two-column-text {
