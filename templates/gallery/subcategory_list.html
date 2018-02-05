@@ -1,81 +1,69 @@
 {% extends "base.html" %}
 
 {% block hero %}
-{% endblock %}
+<!-- Intro Section -->
+<div
+  class="hero
+    view
+    hm-black-strong-1
+    jarallax
+    {% block heroclass %}x-small-hero{% endblock %}
+    "
 
-{% block body %}
-    <div class="product beige-bg" itemscope itemtype="http://schema.org/ImageGallery">
-        <div class="big-pad">
-            <h1 class="photo-subcat-head border" itemprop="headline"><a class="back-subcat-link" href="/photo-gallery/">Photo Gallery</a> <span class="divider" style="font-family:sans-serif;">▶</span> <span class="subcat-page-title">{% page "title" type="text" %}</span></h1>
-
-            {% page "content" type="wysiwyg" %}
-        </div>
-
-        <div class="row">
-            <div class="span12">
-                <div class="big-pad">
-                    <ul class="thumbnails photo-gallery-thumbs">
-                    {% children as mixed_img_sub order_by="published" %}
-                    {% autopaginate mixed_img_sub 16 %}
-                    {% for image in page_obj %}
-                        {# thumbnail image.image "800x800" watermark="img/duraamen.png" as bigimg #}
-                        {# thumbnail image.image "270x230" crop="center" as thumb #}
-                        <li id="{{ image.id }}">
-
-                            {% if image.content.cover_image %}
-                            <a class="thumbnail subcategory" itemprop="image" href="/{{ image.path }}" title="{{ image.content.name|default:"" }}"><img class="bordered" src="{% imgix_url image.content.cover_image %}?w=270&amp;h=230&amp;crop=entropy&amp;fit=crop" alt="{{ image.content.name|default:"" }}"></a>
-                            <p class="caption subcat"><a href="/{{ image.path }}" title="{{ image.content.name|default:"" }}">{{ image.content.name }} <br><span>Click for photos</span></a></p>
-
-                            {% else %}
-                            <a class="thumbnail"
-                                rel="fancied" itemprop="image"
-                                href="{% imgix_url image.content.image %}?w=800&amp;h=800&amp;mark=/fb19770b-7be1-4c05-87a1-509b359e6111/0a/a0/0aa024ad767d4f5585cdf8a7e3e4fa4e-duraamen.png"
-                                title="{% firstof image.content.description image.title "" %}"
-                            ><img class="bordered" src="{% imgix_url image.content.image %}?w=270&amp;h=230&amp;crop=entropy&amp;fit=crop" alt="{% firstof image.content.description image.title "" %} (thumbnail)"></a>
-
-                            <p class="gallery-photo-caption">{% firstof image.content.description image.title "" %}
-                            </p>
-                                {% if editing %}
-                                <a class="srv-icon-label srv-edit" href="{{ image.get_absolute_url }}/admin"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-pencil-sm"></use></svg>Edit</a>
-                                {% endif %}
-                            {% endif %}
-                        </li>
-                    {% endfor %}
-                    </ul>
-                    <div class="pagination">
-                        <ul>
-                            {% if page_obj.has_previous %}
-                                <li><a href="?page={{ page_obj.previous_page_number }}">◀</a></li>
-                                {% else %}
-                                <li class="disabled"><a>◀</a></li>
-                            {% endif %}
-
-                            <li class="active">
-                                <a>Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.</a>
-                            </li>
-
-                            {% if page_obj.has_next %}
-                                <li><a href="?page={{ page_obj.next_page_number }}">▶</a></li>
-                                {% else %}
-                                <li class="disabled"><a>▶</a></li>
-                            {% endif %}
-                        </ul>
+  data-srv-name="masthead_img"
+  style="background-image: url({% if page.content.masthead_img %}{% imgix_url page.content.masthead_img %}{% else %}{% imgix_url "/dist/img/iStock-92277191.jpg" %}{% endif %}?w=1800&h=1000&fit=crop&crop=entropy&sat=-80&crop=bottom&blend=000000&bm=normal&balph=50);">
+    <div class="full-bg-img d-flex justify-content-start align-items-end">
+      {% page "masthead_img" type="img" %}
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="product-head wow fadeInDown" data-wow-delay="0.2s">
+                        <h5><a href="/photo-gallery" class="white-text"><i class="fa fa-chevron-left"></i> Photo Gallery</a></h5>
+                        <h1><span class="subcat-page-title">{% page "title" type="text" %}</span></h1>
                     </div>
-
-                    {% if editing %}
-
-                <p><br></p>
-                <div class="well">
-                <h2>Admin tools</h2>
-                {% include "_meta-admin-tools.html" %}
-                </div>
-
-                {% endif %}
-
-
+                    {% block undertitle %}{% endblock %}
                 </div>
             </div>
         </div>
     </div>
 </div>
-{% endblock body %}
+{% endblock %}
+
+
+{% block main %}
+<section class="home-section">
+  <div class="container" id="{{ page.content.slug }}">
+    {% page "content" typex="wysiwyg" %}
+
+    <div class="row" itemscope itemtype="http://schema.org/ImageGallery">
+      {% children as mixed_img_sub order_by="published" %}
+      {% autopaginate mixed_img_sub 16 %}
+      {% for image in page_obj %}
+        <div class="col-md-3" id="{{ image.id }}">
+          {% if image.content.cover_image %}
+          <a class="thumbnail subcategory z-depth-1 hm-zoom waves-light waves-effect waves-light" itemprop="image" href="/{{ image.path }}" title="{{ image.content.name|default:"" }}"><img class="bordered" src="{% imgix_url image.content.cover_image %}?w=270&amp;h=230&amp;crop=entropy&amp;fit=crop" alt="{{ image.content.name|default:"" }}"></a>
+          <p class="caption subcat"><a href="/{{ image.path }}" title="{{ image.content.name|default:"" }}">{{ image.content.name }} <br><span>Click for photos</span></a></p>
+
+          {% else %}
+          <a class="thumbnail"
+              data-fancybox="photo-gallery"
+              itemprop="image"
+              href="{% imgix_url image.content.image %}?w=800&amp;h=800&amp;mark=/fb19770b-7be1-4c05-87a1-509b359e6111/0a/a0/0aa024ad767d4f5585cdf8a7e3e4fa4e-duraamen.png"
+              title="{% firstof image.content.description image.title "" %}"
+          ><img class="bordered" src="{% imgix_url image.content.image %}?w=270&amp;h=230&amp;crop=entropy&amp;fit=crop" alt="{% firstof image.content.description image.title "" %} (thumbnail)"></a>
+
+          <p class="gallery-photo-caption">{% firstof image.content.description image.title "" %}
+          </p>
+              {% if editing %}
+              <a class="srv-icon-label srv-edit" href="{{ image.get_absolute_url }}/admin"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-pencil-sm"></use></svg>Edit</a>
+              {% endif %}
+          {% endif %}
+        </div>
+    {% endfor %}
+    </div>
+    {% include "includes/snippets/pagination.html" %}
+
+
+  </div>
+</section>
+{% endblock main %}

@@ -1,32 +1,49 @@
 {% extends "base.html" %}
 
-{% block head_title %}{% endblock %}
+{% block hero %}
+<!-- Intro Section -->
+<div
+  class="hero
+    view
+    hm-black-strong-1
+    jarallax
+    {% block heroclass %}x-small-hero{% endblock %}
+    "
 
-
-{% block body %}
-    {% block hero %}{% endblock hero %}
-    <h1 class="no-border">Edit Gallery Image</h1>
-    <div class="row">
-        <div class="span12">
+  data-srv-name="masthead_img"
+  style="background-image: url({% if page.content.masthead_img %}{% imgix_url page.content.masthead_img %}{% else %}{% imgix_url "/dist/img/iStock-92277191.jpg" %}{% endif %}?w=1800&h=1000&fit=crop&crop=entropy&sat=-80&crop=bottom&blend=000000&bm=normal&balph=50);">
+    <div class="full-bg-img d-flex justify-content-start align-items-end">
+      {% page "masthead_img" type="img" %}
+        <div class="container">
+            <div class="row smooth-scroll">
+                <div class="col-md-12">
+                    <div class="product-head wow fadeInDown" data-wow-delay="0.2s">
+                        <h1>Edit gallery image (admin only view)</h1>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="row">
-        <div class="span12">
-                <div class="row">
-                    <div class="span8">
-                        <div class="row full-height-wrap">
-                            <div class="span8">
+</div>
+{% endblock %}
+
+
+{% block main %}
+<section class="home-section">
+  <div class="container" id="{{ page.content.slug }}">
+
+
                                 <h3><small>Title:</small><br>
                                     {% page "title" type="text" %}
                                 </h3>
-                                <h3><small>Description:</small><br>
+                                <p><small>Description:</small><br>
                                     {% page "description" type="text" %}
-                                </h3>
-                                <h3>{% page "image_category" type="select" %}</h3>
+                                </p>
+                                <p>{% page "image_category" type="select" %}</p>
 
-                                <h3>{% page "image_subcategory" type="select" %}</h3>
+                                <p>{% page "image_subcategory" type="select" %}</p>
 
-                                <h3>{% page "tags" type="select" multiple="True" %}</h3>
+                                <p>{% page "tags" type="select" multiple="True" %}</p>
 
                                 <div style="margin:1em 0;max-width:270px">
                                     {% page "image" type="img" %}
@@ -37,26 +54,6 @@
                                     {% endif %}
                                 </div>
 
-
-       {% if editing %}
-
-                <p><br></p>
-                <div class="well">
-                <h2>Admin tools</h2>
-                {% include "_meta-admin-tools.html" %}
-                </div>
-
-                {% endif %}
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="span4">
-                        <div class="big-pad-right">
-                        </div>
-                    </div>
-            </div>
-        </div>
-    </div>
-
+</div>
+</section>
 {% endblock %}
