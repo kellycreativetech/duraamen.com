@@ -1,55 +1,59 @@
 {% extends "base.html" %}
 
-{% block body %}
+{% block hero %}
+<!-- Intro Section -->
+<div
+  class="hero
+    view
+    hm-black-strong-1
+    jarallax
+    {% block heroclass %}x-small-hero{% endblock %}
+    "
+
+  data-srv-name="masthead_img"
+  style="background-image: url({% if page.content.masthead_img %}{% imgix_url page.content.masthead_img %}{% else %}{% imgix_url "/dist/img/iStock-92277191.jpg" %}{% endif %}?w=1800&h=1000&fit=crop&crop=entropy&sat=-80&crop=bottom&blend=000000&bm=normal&balph=50);">
+    <div class="full-bg-img d-flex justify-content-start align-items-end">
+      {% page "masthead_img" type="img" %}
+        <div class="container">
+            <div class="row smooth-scroll">
+                <div class="col-md-12">
+                    <div class="product-head wow fadeInDown" data-wow-delay="0.2s">
+                        <h1>Search</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+
+{% block main %}
+
 <style>
   .highlighted{
     font-weight:bold;
   }
 </style>
-<div class="beige-bg">
-    <div class="big-pad">
-      <h1>Search Results</h1>
-    </div>
+
+<section class="home-section">
+<div class="container">
     <div class="row">
-        <div class="span12">
+        <div class="col-md-10 offset-md-1">
+          {% for result in results.hits.hits %}
+              <h2><a href="/{{ result.obj.path }}?q={{ request.GET.q }}">{{ result.obj.content.title }}</a></h2>
+              {% for h in  result.highlight.searchable_text %}
+                  <p>{{ h|striptags }}</p>
+              {% empty %}
+                  <p><br>No results found.</p>
+              {% endfor %}
+          {% endfor %}
 
-                <div class="row">
-                <div class="span8">
-                <div class="big-pad">
+          {% include "includes/snippets/pagination.html" %}
 
-                {% for result in results.hits.hits %}
-                    <h2><a href="/{{ result.obj.path }}?q={{ request.GET.q }}">{{ result.obj.content.title }}</a></h2>
-                    {% for h in  result.highlight.searchable_text %}
-                        <p>{{ h|striptags }}</p>
-                    {% empty %}
-                        <p><br>No results found.</p>
-                    {% endfor %}
-                {% endfor %}
-
-
-
-
-
-
-
-                    {% if page.has_previous or page.has_next %}
-                        <div class="pagination">
-                        <ul>
-                            {% if page.has_previous %}<li><a href="?q={{ query }}&amp;page={{ page.previous_page_number }}">◀</a></li>
-                            {% else %}<li class="disabled"><a>◀</a></li>
-                            {% endif %}
-
-                            {% if page.has_next %}<li><a href="?q={{ query }}&amp;page={{ page.next_page_number }}">▶</a></li>
-                            {% else %}<li class="disabled"><a>▶</a></li>
-                            {% endif %}
-                        </ul>
-                        </div>
-                    {% endif %}
-
-            </form>
-        </div>
-        </div>
         </div>
     </div>
-    </div>
+</div>
+</section>
 {% endblock %}
