@@ -1,1 +1,25 @@
-<script type="text/javascript" src="/dist/js/all.js"></script>
+<script src="/dist/js/all.js" type="text/javascript" ></script>
+<script src="//assets.pinterest.com/js/pinit.js" type="text/javascript" async  data-pin-hover="true" ></script>
+
+
+{% if not editing %}
+<!-- Start of LiveChat (www.livechatinc.com) code -->
+<script type="text/javascript">
+window.__lc = window.__lc || {};
+window.__lc.license = 8698196;
+(function() {
+  var lc = document.createElement('script'); lc.type = 'text/javascript'; lc.async = true;
+  lc.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'cdn.livechatinc.com/tracking.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(lc, s);
+})();
+</script>
+<!-- End of LiveChat code -->
+{% endif %}
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=5BSV345"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+
+{% block extra-scripts %}{% endblock %}
