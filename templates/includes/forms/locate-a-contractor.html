@@ -1,0 +1,212 @@
+<div class="row"><div class="col-md-8">
+<form id="contact-form" data-glass-form-api  actn="/siteapi/submit_form" class="form-horizontal" method="post">
+    {% csrf_token %}
+    <input type="hidden" name="mc_id" value="e5e0332929">
+    <input name="to" type="hidden" value="bbbf6b9f-1dc5-4a06-862c-c4d7135b78f2,cca47383-89e1-4e69-89e1-205ff5301c12">
+    <input name="success_message" type="hidden" value="Your form was submitted successfully" />
+    <input type="hidden" name="redirect" value="/success" />
+
+    <div class="md-form" id="div_id_first_name">
+        <label class="control-label required-field" for="id_first_name">First Name</label>
+        <input class="charfield required" id="id_first_name" maxlength="2000" name="first_name" required="" type="text">
+    </div>
+    <div class="md-form" id="div_id_last_name_surname">
+        <label class="control-label required-field" for="id_last_name_surname">Last Name (Surname)</label>
+        <input class="charfield required" id="id_last_name_surname" maxlength="2000" name="last_name_surname" required="" type="text">
+    </div>
+
+    <div class="md-form" id="div_id_street_address">
+        <label class="control-label required-field" for="id_street_address">Street Address</label>
+        <input class="charfield required" id="id_street_address" maxlength="2000" name="street_address" required="" type="text">
+    </div>
+    <div class="md-form" id="div_id_city">
+        <label class="control-label required-field" for="id_city">Address 2</label>
+        <input class="charfield required" id="id_city" maxlength="2000" name="city" required="" type="text">
+    </div>
+    <div class="md-form" id="div_id_state_or_province">
+            <select class="mdb-select choicefield required" id="id_state_or_province" name="state_or_province" required="">
+                <option value="Alabama"> Alabama </option>
+                <option value="Alaska"> Alaska </option>
+                <option value="Arizona"> Arizona </option>
+                <option value="Arkansas"> Arkansas </option>
+                <option value="California"> California </option>
+                <option value="Colorado"> Colorado </option>
+                <option value="Connecticut"> Connecticut </option>
+                <option value="Delaware"> Delaware </option>
+                <option value="Florida"> Florida </option>
+                <option value="Georgia"> Georgia </option>
+                <option value="Hawaii"> Hawaii </option>
+                <option value="Idaho"> Idaho </option>
+                <option value="Illinois"> Illinois </option>
+                <option value="Indiana"> Indiana </option>
+                <option value="Iowa"> Iowa </option>
+                <option value="Kansas"> Kansas </option>
+                <option value="Kentucky"> Kentucky </option>
+                <option value="Louisiana"> Louisiana </option>
+                <option value="Maine"> Maine </option>
+                <option value="Maryland"> Maryland </option>
+                <option value="Massachusetts"> Massachusetts </option>
+                <option value="Michigan"> Michigan </option>
+                <option value="Minnesota"> Minnesota </option>
+                <option value="Mississippi"> Mississippi </option>
+                <option value="Missouri"> Missouri </option>
+                <option value="Montana"> Montana </option>
+                <option value="Nebraska"> Nebraska </option>
+                <option value="Nevada"> Nevada </option>
+                <option value="New Hampshire"> New Hampshire </option>
+                <option value="New Jersey"> New Jersey </option>
+                <option value="New Mexico"> New Mexico </option>
+                <option value="New York"> New York </option>
+                <option value="North Carolina"> North Carolina </option>
+                <option value="North Dakota"> North Dakota </option>
+                <option value="Ohio"> Ohio </option>
+                <option value="Oklahoma"> Oklahoma </option>
+                <option value="Oregon"> Oregon </option>
+                <option value="Pennsylvania"> Pennsylvania </option>
+                <option value="Rhode Island"> Rhode Island </option>
+                <option value="South Carolina"> South Carolina </option>
+                <option value="South Dakota"> South Dakota </option>
+                <option value="Tennessee"> Tennessee </option>
+                <option value="Texas"> Texas </option>
+                <option value="Utah"> Utah </option>
+                <option value="Vermont"> Vermont </option>
+                <option value="Virginia"> Virginia </option>
+                <option value="Washington"> Washington </option>
+                <option value="West Virginia"> West Virginia </option>
+                <option value="Wisconsin"> Wisconsin </option>
+                <option value="Wyoming"> Wyoming </option>
+                <option value="Alberta"> Alberta </option>
+                <option value="British Columbia"> British Columbia </option>
+                <option value="Manitoba"> Manitoba </option>
+                <option value="New Brunswick"> New Brunswick </option>
+                <option value="Newfoundland and Labrador"> Newfoundland and Labrador </option>
+                <option value="Northwest Territories"> Northwest Territories </option>
+                <option value="Nova Scotia"> Nova Scotia </option>
+                <option value="Nunavut"> Nunavut </option>
+                <option value="Ontario"> Ontario </option>
+                <option value="Prince Edward Island"> Prince Edward Island </option>
+                <option value="Quebec"> Quebec </option>
+                <option value="Saskatchewan"> Saskatchewan </option>
+                <option value="Yukon"> Yukon </option>
+                <option value="YT"> YT </option>
+            </select>
+            <label class="control-label required-field" for="id_state_or_province">State or Province</label>
+    </div>
+    <div class="md-form" id="div_id_state">
+        <select class="mdb-select choicefield required" id="id_state" name="state" required="">
+            <option value="United States"> United States </option>
+            <option value="Canada"> Canada </option>
+        </select>
+        <label class="control-label required-field" for="id_state">Country</label>
+    </div>
+    <div class="md-form" id="div_id_postal_code">
+        <label class="control-label required-field" for="id_postal_code">Postal Code</label>
+        <input class="charfield required" id="id_postal_code" maxlength="2000" name="postal_code" required="" type="text">
+    </div>
+    <div class="md-form" id="div_id_area_code_and_phone_number">
+        <label class="control-label required-field" for="id_area_code_and_phone_number">Area Code and Phone Number</label>
+            <input class="floatfield required" id="id_area_code_and_phone_number" name="area_code_and_phone_number" required="" type="number">
+    </div>
+    <div class="md-form" id="div_id_email_address">
+        <label class="control-label required-field" for="id_email_address">Email Address</label>
+        <input class="emailfield required" id="id_email_address" maxlength="2000" name="email_address" required="" type="email">
+      </div>
+    <div class="md-form" id="div_id_area_square_feet">
+        <label class="control-label" for="id_area_square_feet">Area (Square Feet)</label>
+        <input class="charfield" id="id_area_square_feet" maxlength="2000" name="area_square_feet" type="text">
+    </div>
+
+    <div class="md-form" id="div_id_budget">
+        <label class="control-label" for="id_budget">Budget</label>
+
+            <input class="charfield" id="id_budget" maxlength="2000" name="budget" type="text">
+    </div>
+    <div class="md-form" id="div_id_existing_subfloor">
+            <select class="mdb-select choicefield" id="id_existing_subfloor" name="existing_subfloor">
+                <option value="Concrete"> Concrete </option>
+                <option value="Tile"> Tile </option>
+                <option value="Wood"> Wood </option>
+                <option value="Linoleum"> Linoleum </option>
+            </select>
+            <label class="control-label" for="id_existing_subfloor">Existing Subfloor?</label>
+    </div>
+
+
+    <div class="md-form" id="div_id_usage">
+      <select class="mdb-select choicefield required" id="id_usage" name="usage" required="">
+          <option value="Commercial"> Commercial </option>
+          <option value="Residential"> Residential </option>
+      </select>
+      <label class="control-label required-field" for="id_usage">Usage</label>
+    </div>
+
+    <div class="md-form" id="div_id_desired_completion_date">
+        <label class="control-label" for="id_desired_completion_date">Desired Completion Date</label>
+        <input class="datefield" id="id_desired_completion_date" name="desired_completion_date" type="text">
+      </div>
+
+    <div class="md-form" id="div_id_name_or_architect_interior_designer">
+        <label class="control-label" for="id_name_or_architect_interior_designer">Name of Architect / Interior Designer</label>
+        <input class="charfield" id="id_name_or_architect_interior_designer" maxlength="2000" name="name_or_architect_interior_designer" type="text">
+    </div>
+
+    <div class="md-form" id="div_id_additional_project_information_comments">
+        <label class="control-label required-field" for="id_additional_project_information_comments">Additional Project Information / Comments</label>
+
+            <textarea class="md-textarea texcharfield required" cols="40" id="id_additional_project_information_comments" name="additional_project_information_comments" required="" rows="10"></textarea>  </div>
+
+
+        <label class="control-label required-field" for="id_how_did_you_hear_about_us">How did you hear about us?</label>
+
+        <div class="form-group">
+            <input id="id_how_did_you_hear_about_us_1" name="how_did_you_hear_about_us" type="radio" value="Google">
+            <label for="id_how_did_you_hear_about_us_1" class="radio">Google</label>
+          </div>
+        <div class="form-group">
+            <input id="id_how_did_you_hear_about_us_2" name="how_did_you_hear_about_us" type="radio" value="Bing">
+            <label for="id_how_did_you_hear_about_us_2" class="radio">Bing</label>
+          </div>
+          <div class="form-group">
+            <input id="id_how_did_you_hear_about_us_3" name="how_did_you_hear_about_us" type="radio" value="Yahoo">
+            <label for="id_how_did_you_hear_about_us_3" class="radio">Yahoo</label>
+          </div>
+          <div class="form-group">
+            <input id="id_how_did_you_hear_about_us_4" name="how_did_you_hear_about_us" type="radio" value="Concretenetwork.com">
+            <label for="id_how_did_you_hear_about_us_4" class="radio">Concretenetwork.com</label>
+          </div>
+          <div class="form-group">
+            <input id="id_how_did_you_hear_about_us_5" name="how_did_you_hear_about_us" type="radio" value="Another Website">
+            <label for="id_how_did_you_hear_about_us_5" class="radio">Another Website</label>
+          </div>
+          <div class="form-group">
+            <input id="id_how_did_you_hear_about_us_6" name="how_did_you_hear_about_us" type="radio" value="Word of Mouth">
+            <label for="id_how_did_you_hear_about_us_6" class="radio">Word of Mouth</label>
+          </div>
+          <div class="form-group">
+            <input id="id_how_did_you_hear_about_us_7" name="how_did_you_hear_about_us" type="radio" value="Brochure">
+            <label for="id_how_did_you_hear_about_us_7" class="radio">Brochure</label>
+          </div>
+          <div class="form-group">
+            <input id="id_how_did_you_hear_about_us_8" name="how_did_you_hear_about_us" type="radio" value="Magazine">
+            <label for id="id_how_did_you_hear_about_us_8"class="radio">Magazine</label>
+          </div>
+          <div class="form-group">
+            <input id="id_how_did_you_hear_about_us_9" name="how_did_you_hear_about_us" type="radio" value="Other">
+            <label for="id_how_did_you_hear_about_us_9" class="radio">Other</label>
+          </div>
+
+    <div class="md-form" id="div_id_if_you_heard_about_us_via_another_website_please_tells_us_which_website">
+        <label class="control-label required-field" for="id_if_you_heard_about_us_via_another_website_please_tells_us_which_website">If you heard about us via another website please tells us which website.</label>
+        <input class="charfield required" id="id_if_you_heard_about_us_via_another_website_please_tells_us_which_website" maxlength="2000" name="if_you_heard_about_us_via_another_website_please_tells_us_which_website" required="" type="text">
+    </div>
+
+    <div class="md-form" id="div_id_opt_in">
+        <input checked="" id="id_opt_in" name="mailchimp-opt-in" type="checkbox" value="YES" class="checkbox">
+        <label class="control-label" for="id_opt_in">Receive product information and special offers via e-mail?</label>
+
+    </div>
+    <div class="md-form">
+        <input class="btn btn-primary" type="submit" value="Submit"> </div>
+</form>
+</div>
+</div>

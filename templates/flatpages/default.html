@@ -15,6 +15,10 @@
           {% page "content" type="wysiwyg" placeholder="Insert Content here" %}
           {% endblock content %}
 
+          {% if page.path == "forms/locate-a-contractor" %}
+          {% include "includes/forms/locate-a-contractor.html" %}
+          {% endif %}
+
           {% block map-wrap %}{% endblock %}
           {% block belowcontent %}{% endblock %}
 

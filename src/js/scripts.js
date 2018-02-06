@@ -6,6 +6,9 @@ $('.button-collapse').sideNav({
   edge: 'right' // Choose the horizontal origin
 });
 
+// so far, only used on /forms/locate-a-contractor
+$('.mdb-select').material_select();
+
 $('.toggle-title').on('click', function(){
   $(this).next('.toggle-this').toggleClass('open');
   $(this).toggleClass('open');
