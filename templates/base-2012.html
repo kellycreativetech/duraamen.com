@@ -21,8 +21,7 @@
     {% if page.content.meta_keywords %}<meta name="keywords" content='{{ page.content.meta_keywords }}' />{% endif %}
     {% endblock meta %}
 
-    <link href="/old-static/styles.css" rel="stylesheet">
-    <link rel="stylesheet" href="/dist/css/overrides.css">
+    <link href="/dist/old-static/styles.css" rel="stylesheet">
     <link rel="shortcut icon" href="/dist/icons/favicon.ico">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/dist/icons/apple-touch-icon-144-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/dist/icons/apple-touch-icon-114-precomposed.png">
@@ -39,6 +38,12 @@
       ga('send', 'pageview');
 
     </script>
+
+    <style>
+    header .brand {
+      background-size: cover;
+    }
+    </style>
 
     <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':

@@ -95,8 +95,9 @@
 @import "vendor/mdb/pro/checkbox";
 
 // wrapping this because it messes with Glass too much.
-@import "vendor/mdb/pro/material-select";
-
+.main-body {
+  @import "vendor/mdb/pro/material-select";
+}
 
 @import "vendor/mdb/pro/switch";
 @import "vendor/mdb/pro/file-input";
