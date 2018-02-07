@@ -17,12 +17,20 @@
     line-height: 1.2;
     margin-bottom: .5rem;
     color: $brand-gold;
+
+    @at-root .product-pages & {
+      color: $maroon;
+    }
   }
 
   h4 {
     font-weight: 700;
     line-height: 1.2;
     color: $white;
+
+    @at-root .product-pages & {
+      color: $dark-gray;
+    }
   }
 
   &.full-height-hero {
@@ -64,6 +72,9 @@
 
     &.x-small-hero {
       min-height: 400px;
+    }
+    @at-root .product-pages &.x-small-hero {
+      min-height: 260px;
     }
 
     .push-content {
