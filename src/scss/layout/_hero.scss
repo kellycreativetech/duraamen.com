@@ -20,6 +20,14 @@
 
     @at-root .product-pages & {
       color: $maroon;
+      font-family: $font-family-sans-serif;
+      font-weight: 500;
+    }
+
+    @at-root .system-pages & {
+      color: $maroon;
+      font-family: $font-family-sans-serif;
+      font-weight: 500;
     }
   }
 
@@ -27,9 +35,18 @@
     font-weight: 700;
     line-height: 1.2;
     color: $white;
+    text-transform: capitalize;
 
     @at-root .product-pages & {
       color: $dark-gray;
+      font-family: $font-family-sans-serif;
+      font-weight: 100;
+    }
+
+    @at-root .system-pages & {
+      color: $dark-gray;
+      font-family: $font-family-sans-serif;
+      font-weight: 100;
     }
   }
 
@@ -74,6 +91,10 @@
       min-height: 400px;
     }
     @at-root .product-pages &.x-small-hero {
+      min-height: 260px;
+    }
+
+    @at-root .system-pages &.x-small-hero {
       min-height: 260px;
     }
 
