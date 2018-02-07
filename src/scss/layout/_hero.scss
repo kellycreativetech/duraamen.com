@@ -18,13 +18,9 @@
     margin-bottom: .5rem;
     color: $brand-gold;
 
-    @at-root .product-pages & {
-      color: $maroon;
-      font-family: $font-family-sans-serif;
-      font-weight: 500;
-    }
-
-    @at-root .system-pages & {
+    @at-root .product-pages &,
+    .product-category-pages &,
+    .system-pages & {
       color: $maroon;
       font-family: $font-family-sans-serif;
       font-weight: 500;
@@ -37,13 +33,9 @@
     color: $white;
     text-transform: capitalize;
 
-    @at-root .product-pages & {
-      color: $dark-gray;
-      font-family: $font-family-sans-serif;
-      font-weight: 100;
-    }
-
-    @at-root .system-pages & {
+    @at-root .product-pages &,
+    .system-pages &,
+    .product-category-pages & {
       color: $dark-gray;
       font-family: $font-family-sans-serif;
       font-weight: 100;
@@ -90,11 +82,9 @@
     &.x-small-hero {
       min-height: 400px;
     }
-    @at-root .product-pages &.x-small-hero {
-      min-height: 260px;
-    }
-
-    @at-root .system-pages &.x-small-hero {
+    @at-root .product-pages &.x-small-hero,
+    .product-category-pages &.x-small-hero,
+    .system-pages &.x-small-hero {
       min-height: 260px;
     }
 
