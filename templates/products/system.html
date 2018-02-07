@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-
+{% block bodyclass %}system-pages{% endblock %}
 
 {% block hero %}
 <!-- Intro Section -->
@@ -13,7 +13,7 @@
     "
 
   data-srv-name="masthead_img"
-  style="background-image: url({% if page.content.masthead_img %}{% imgix_url page.content.masthead_img %}{% else %}{% imgix_url "/dist/img/iStock-92277191.jpg" %}{% endif %}?w=1800&h=1000&fit=crop&crop=entropy&sat=-80&crop=bottom&blend=000000&bm=normal&balph=50);">
+  style="background:#f5f5f5">
     <div class="full-bg-img d-flex justify-content-start align-items-end">
       {% page "masthead_img" type="img" %}
         <div class="container">
@@ -127,7 +127,7 @@
               <div class="card-header" role="tab" id="advantages">
                   <a data-toggle="collapse" data-parent="#productAccordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour" class="collapsed">
                       <h5 class="mb-0">
-                          Advantages<i class="fa fa-angle-down rotate-icon"></i>
+                          Key Features<i class="fa fa-angle-down rotate-icon"></i>
                       </h5>
                   </a>
               </div>
@@ -177,7 +177,7 @@
               <div class="card-header" role="tab" id="systems">
                   <a data-toggle="collapse" data-parent="#productAccordion" href="#collapseSix" aria-expanded="false" aria-controls="collapseSix" class="collapsed">
                       <h5 class="mb-0">
-                          Flooring Systems that include this Product<i class="fa fa-angle-down rotate-icon"></i>
+                          Products Included in this System<i class="fa fa-angle-down rotate-icon"></i>
                       </h5>
                   </a>
               </div>
@@ -204,6 +204,9 @@
               </div>
               <!-- Card body -->
               <div id="collapseSeven" class="collapse show" role="tabpanel" aria-labelledby="estimate">
+                <div class="card-body">
+                  {% page "estimate_description_top" type="wysiwyg" %}
+                </div>
                   <div class="card-body">
                     <ul class="estimate">
                     {% page_list "estimate" %}
@@ -211,6 +214,9 @@
                     <span class="cost">{% list_item "cost" type="text" %}</span></li>
                     {% end_list %}
                     </ul>
+                  </div>
+                  <div class="card-body">
+                    {% page "estimate_text_bottom" type="wysiwyg" %}
                   </div>
               </div>
           </div>
@@ -236,65 +242,6 @@
                         {% list_item "download" type="file" %}
                         <li><a href="{{ list_item.download.url }}">
                           <img src="/dist/img/svg/pdf.svg"> {% list_item "name" type="text" %}</a></li>
-                        {% end_list %}
-                    </ul>
-                  </div>
-              </div>
-          </div>
-          {% endif %}
-          <!-- Accordion card -->
-
-          <!-- Accordion card -->
-          {% if page.content.youtube_video or editing %}
-          <div class="card">
-              <!-- Card header -->
-              <div class="card-header" role="tab" id="video">
-                  <a data-toggle="collapse" data-parent="#productAccordion" href="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
-                      <h5 class="mb-0">
-                          Video<i class="fa fa-angle-down rotate-icon"></i>
-                      </h5>
-                  </a>
-              </div>
-              <!-- Card body -->
-              <div id="collapseEight" class="collapse" role="tabpanel" aria-labelledby="video">
-                  <div class="card-body">
-                    {% if editing %}
-                    <p><small>Youtube video ID (Take from the youtube URL. For example, dQw4w9WgXcQ):</small> <br>
-                      {% page "youtube_video" type="text" %}
-                    </p>
-                    {% else %}
-                    <!-- 16:9 aspect ratio -->
-                    <div class="embed-responsive embed-responsive-16by9">
-                      <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{ page.content.youtube_video }}?rel=0&amp;showinfo=0" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
-                    </div>
-                    {% endif %}
-                  </div>
-              </div>
-          </div>
-          {% endif %}
-          <!-- Accordion card -->
-
-          <!-- Accordion card -->
-          {% if page.content.colors or editing %}
-          <div class="card">
-              <!-- Card header -->
-              <div class="card-header" role="tab" id="colors">
-                  <a data-toggle="collapse" data-parent="#productAccordion" href="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
-                      <h5 class="mb-0">
-                          Color Chart<i class="fa fa-angle-down rotate-icon"></i>
-                      </h5>
-                  </a>
-              </div>
-              <!-- Card body -->
-              <div id="collapseNine" class="collapse" role="tabpanel" aria-labelledby="colors">
-                  <div class="card-body">
-                    <ul class="color-thumbnails">
-                        {% page_list "colors" %}
-                        <li class="thumbnail">
-                            {% list_item "image" type="image" %}
-                            <img src="{% imgix_url list_item.image.url %}?w=136&h=136&fit=crop">
-                            <p class="caption" itemprop="color">{% list_item "name" type="text" %}</p>
-                        </li>
                         {% end_list %}
                     </ul>
                   </div>
@@ -413,8 +360,8 @@
     </div>
   </div>
 
-  <!-- Required Tools -->
-  <h4 class="text-center"><br>Required Tools</h4>
+  <!-- Recommended Tools -->
+  <h4 class="text-center"><br>Recommended Tools</h4>
   <div class="row">
     {% page_list "tools" %}
     {% list_item "gallery_img" type="img" %}
