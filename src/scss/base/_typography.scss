@@ -9,3 +9,38 @@ h1, h2, h3, h4, h5, h6 {
     }
   }
 }
+
+// bulleted list styles for body copy
+
+.card-body ul {
+  list-style: none;
+
+  li:before {
+  font-family: $icon-font-family;
+  font-weight: bold;
+  content: '\f105';
+  margin:0 5px 0 -15px;
+  color: $brand-gold;
+  }
+}
+
+.card-body{
+  .estimate li:before {
+    content: none
+  }
+  .pdfs li:before {
+    content: none
+  }
+}
+
+.arrow-gold {
+  list-style: none;
+
+  li:before {
+  font-family: $icon-font-family;
+  font-weight: bold;
+  content: '\f105';
+  margin:0 5px 0 -15px;
+  color: $brand-gold;
+  }
+}
