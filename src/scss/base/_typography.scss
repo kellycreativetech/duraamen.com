@@ -1,5 +1,9 @@
 h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
+  text-rendering: optimizeLegibility!important;
+  -webkit-font-smoothing: antialiased!important;
+  -moz-osx-font-smoothing: grayscale;
+  text-shadow:1px 1px 1px 1px rgba(0,0,0,0.005);
 
   a{
     color: $body-color;
@@ -18,7 +22,7 @@ h1, h2, h3, h4, h5, h6 {
   li:before {
   font-family: $icon-font-family;
   font-weight: bold;
-  content: '\f105';
+  content: '\f054';
   margin:0 5px 0 -15px;
   color: $brand-gold;
   }
@@ -36,11 +40,15 @@ h1, h2, h3, h4, h5, h6 {
 .arrow-gold {
   list-style: none;
 
+  li {
+    margin-bottom: .65rem;
+  }
+
   li:before {
   font-family: $icon-font-family;
   font-weight: bold;
-  content: '\f105';
-  margin:0 5px 0 -15px;
+  content: '\f054';
+  margin:0 5px 0 -22px;
   color: $brand-gold;
   }
 }
