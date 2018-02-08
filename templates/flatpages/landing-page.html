@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block bodyclass %}landing-pages {% endblock %}
+{% block bodyclass %}landing-pages {{ page.path|slugify }}{% endblock %}
 
 {% block hero %}{% include "includes/base/hero-with-landing-page-form.html" %}{% endblock %}
 
@@ -14,27 +14,31 @@
 
           {% block content %}
           {% page "content" type="wysiwyg" placeholder="Insert Content here" %}
+
+
+          {% if page.path == "for-architects" %}
+          <h3>This is only on the architects page</h3>
+          {% elif page.path == "for-contractors" %}
+          <h3>This is only on the contractors page</h3>
+          {% endif %}
+
+          {% if page.path != "for-architects" %}
+          <h3>This is all pages except for-architects</h3>
+          {% endif %}
+
+          {% if page.path == "for-architects" %}
+          {% else %}
+          <h3>Which is functionally equivalent to this.</h3>
+          {% endif %}
+
+
+
           {% endblock content %}
 
           {% block map-wrap %}{% endblock %}
           {% block belowcontent %}{% endblock %}
 
         </div>
-
-        {% comment %}
-        <div class="col-md-4">
-          {% page "main_content_img" type="img" %}
-          {% if page.content.main_content_img or editing %}
-          <img
-            class="img-fluid"
-            src="{% if page.content.main_content_img %}{% imgix_url page.content.main_content_img %}{% elif editing %}https://placem.at/places{% endif %}?w=400"
-            data-srv-name="main_content_img"
-          />
-          {% endif %}
-
-          {% block belowsidebar %}{% endblock belowsidebar %}
-        </div>
-        {% endcomment %}
     </div>
 </div>
 </section>
