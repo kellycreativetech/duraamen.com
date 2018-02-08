@@ -138,7 +138,7 @@
           <!-- Accordion card -->
 
           <!-- Accordion card -->
-          {% if page.content.suggested_applications or page.content.images or editing %}
+          {% if page.content.suggested_applications or page.content.application_photos or editing %}
           <div class="card">
               <!-- Card header -->
               <div class="card-header" role="tab" id="applications">
@@ -153,7 +153,7 @@
                   <div class="card-body">
                     {% page "suggested_applications" type="wysiwyg" %}
                     <div class="mt-3 mb-3">
-                    {% page_list "images" %}
+                    {% page_list "application_photos" %}
                     <a class="d-inline-block z-depth-1" data-fancybox="photos" href="{% imgix_url list_item.image %}?w=1400&h=1400">
                         {% list_item "image" type="image" %}
                         <img class="bordered side-product-photo" src="{% imgix_url list_item.image %}?w=150&h=150&fit=crop" itemprop="image">
