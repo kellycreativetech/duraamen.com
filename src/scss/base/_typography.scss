@@ -52,3 +52,37 @@ h1, h2, h3, h4, h5, h6 {
   color: $brand-gold;
   }
 }
+
+.arrow-maroon {
+  list-style: none;
+
+  li {
+    margin-bottom: .65rem;
+  }
+
+  li:before {
+  font-family: $icon-font-family;
+  font-weight: bold;
+  content: '\f054';
+  margin:0 5px 0 -22px;
+  color: $maroon;
+  }
+}
+
+.arrow-white {
+  list-style: none;
+
+  li {
+    margin-bottom: .65rem;
+  }
+
+  li:before {
+  font-family: $icon-font-family;
+  font-weight: bold;
+  content: '\f054';
+  margin:0 5px 0 -22px;
+  color: #fff;
+  }
+}
+
+// end bulleted list styles for body copy
