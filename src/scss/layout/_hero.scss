@@ -25,13 +25,16 @@
       font-family: $font-family-sans-serif;
       font-weight: 500;
     }
+    @at-root .video-pages &,
+    .gallery-pages & {
+      color: $maroon;
+    }
   }
 
   h4 {
     font-weight: 700;
     line-height: 1.2;
     color: $white;
-    text-transform: capitalize;
 
     @at-root .product-pages &,
     .system-pages &,
@@ -39,6 +42,9 @@
       color: $dark-gray;
       font-family: $font-family-sans-serif;
       font-weight: 100;
+    }
+    @at-root .video-pages & {
+      color: $dark-gray;
     }
   }
 
@@ -61,6 +67,7 @@
 
   &.x-small-hero {
     min-height: 260px;
+    text-align: center;
   }
 
   @include media-breakpoint-up(md) {
@@ -86,6 +93,12 @@
     .product-category-pages &.x-small-hero,
     .system-pages &.x-small-hero {
       min-height: 260px;
+      text-align: left;
+    }
+
+    @at-root .video-pages &.x-small-hero,
+    .gallery-pages &.x-small-hero {
+      min-height: 230px;
     }
 
     .push-content {
