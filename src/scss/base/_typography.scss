@@ -32,6 +32,21 @@ p {
   }
 }
 
+li {
+  a{
+    color: $maroon;
+
+    &:hover {
+      text-decoration: underline;
+      color: $maroon;
+    }
+    &:focus {
+      text-decoration: underline;
+      color: $maroon;
+    }
+  }
+}
+
 // bulleted list styles for body copy
 
 .card-body ul {
