@@ -14,6 +14,24 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+p {
+  a{
+    color: $brand-gold;
+
+    &:hover {
+      color: $brand-gold;
+      text-decoration: underline;
+    }
+    &:focus {
+      color: $brand-gold;
+      text-decoration: underline;
+    }
+    &:visited {
+      color: $brand-gold-dark;
+    }
+  }
+}
+
 // bulleted list styles for body copy
 
 .card-body ul {

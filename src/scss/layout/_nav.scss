@@ -182,8 +182,20 @@
   padding: 0;
 
   a {
+    color: $primary-color;
     display: block;
     padding: 10px;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  a:hover::before, a:focus::before {
+    font-family: $icon-font-family;
+    font-weight: bold;
+    content: '\f054';
+    margin:0 5px 0 -1rem;
+    color: $gray;
   }
 
   > li {
@@ -202,6 +214,13 @@
   }
   li.current > a {
     font-weight: bold;
+  }
+  li.current > a:before {
+  font-family: $icon-font-family;
+  font-weight: bold;
+  content: '\f054';
+  margin:0 5px 0 -15px;
+  color: $brand-gold;
   }
 
   > li.trail,
