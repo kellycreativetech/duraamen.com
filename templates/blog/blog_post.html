@@ -12,20 +12,6 @@
 {% endblock %}
 
 {% block content %}
-    <ul class="blog-list-imgs">
-      {% page_list "gallery" %}
-      {% list_item "image" type=img %}
-      <li>
-        <div class="card card-cascade">
-          <div class="view">
-            <img itemprop="image" class="img-fluid" src="{% imgix_url list_item.image %}?w=920&h=920" alt="">
-          </div>
-        </div>
-      </li>
-      {% end_list %}
-
-    </ul>
-
     <div>
       {% page "content" type="wysiwyg" %}
     </div>
@@ -40,6 +26,19 @@
     {% page "related" type="select" multiple="true" %}
   </div>
   {% else %}
+  <ul class="blog-list-imgs">
+    {% page_list "gallery" %}
+    {% list_item "image" type=img %}
+    <li>
+      <div class="card card-cascade">
+        <div class="view">
+          <img itemprop="image" class="img-fluid" src="{% imgix_url list_item.image %}?w=920&h=920" alt="">
+        </div>
+      </div>
+    </li>
+    {% end_list %}
+
+  </ul>
   <!-- AddThis Button BEGIN -->
   <!-- Go to www.addthis.com/dashboard to customize your tools -->
   <div class="addthis_sharing_toolbox"></div>
