@@ -13,3 +13,11 @@ img {
 .text-center {
   text-align: center;
 }
+
+.chevron-after:after {
+font-family: $icon-font-family;
+font-weight: bold;
+content: '\f054';
+margin:0 0 0 5px;
+color: $brand-gold;
+}

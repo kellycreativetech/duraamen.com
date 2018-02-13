@@ -3,12 +3,12 @@
 {% children as "posts" parent="blog" limit=4 order_by="?" %}
   {% for post in posts %}
   <div class="col-md-3">
-    <a class="blog-preview-img hm-zoom waves-light" href="{{ post.get_absolute_url }}{% if editing %}/admin{% endif %}">
+    <!--<a class="blog-preview-img hm-zoom waves-light" href="{{ post.get_absolute_url }}{% if editing %}/admin{% endif %}">
       <img src="{% if post.content.masthead_img %}{% imgix_url post.content.masthead_img %}{% elif post.content.gallery.0.image %}{% imgix_url post.content.gallery.0.image %}{% else %}{% imgix_url "/dist/img/iStock-92277191.jpg" %}{% endif %}?w=400&h=300&fit=crop" class="img-fluid" alt="zoom">
-    </a>
+    </a>-->
     <h3 class="h5"><a href="{{ post.get_absolute_url }}{% if editing %}/admin{% endif %}">{{ post.content.title|safe }}</a></h3>
     <p>{{ post.content.content|striptags|truncatewords:30|safe }}</p>
-    <p><strong><a href="{{ post.get_absolute_url }}{% if editing %}/admin{% endif %}">Read more</a></strong></p>
+    <p class="chevron-after"><strong><a href="{{ post.get_absolute_url }}{% if editing %}/admin{% endif %}">Read more</a></strong></p>
   </div>
   {% endfor %}
 </div>
