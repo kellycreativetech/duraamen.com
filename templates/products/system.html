@@ -241,7 +241,12 @@
                         {% page_list "downloads" %}
                         {% list_item "download" type="file" %}
                         <li><a href="{{ list_item.download.url }}">
-                          <img src="/dist/img/svg/pdf.svg"> {% list_item "name" type="text" %}</a></li>
+                          {% if list_item.download.url|default:""|slice:"-3:" == "pdf" %}
+                          <img src="/dist/img/svg/pdf.svg">
+                          {% elif list_item.download.url|default:""|slice:"-3:" == "doc" or list_item.download.url|default:""|slice:"-4:" == "docx" %}
+                          <img src="/dist/img/svg/word.svg">
+                          {% endif %}{% list_item "name" type="text" %}</a></li>
+
                         {% end_list %}
                     </ul>
                   </div>

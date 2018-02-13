@@ -6,6 +6,11 @@ $('.button-collapse').sideNav({
   edge: 'right' // Choose the horizontal origin
 });
 
+// randominzing a select_pages tag:
+$(".remove-fifth-item").html($(".remove-fifth-item > .d-flex").sort(function(){
+    return Math.random()-0.5;
+}));
+
 // so far, only used on /forms/locate-a-contractor
 $('.mdb-select').material_select();
 

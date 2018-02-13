@@ -52,3 +52,10 @@
   margin: 1em 0;
   column-width: 500px;
 }
+
+// not exactly proud of this, but it works. Faking random order with 10 JS items,
+.remove-fifth-item {
+  .d-flex:nth-of-type(n+5) {
+    display: none !important;
+  }
+}
