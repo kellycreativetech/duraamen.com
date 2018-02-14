@@ -1,8 +1,10 @@
-@include media-breakpoint-down(md) {
+@include media-breakpoint-down(sm) {
 
   .related-products {
     display: flex;
     flex-direction: row;
+    width: 100%;
+    margin: 10px 0;
 
 
     .blog-preview-img {

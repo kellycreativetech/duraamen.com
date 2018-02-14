@@ -86,7 +86,8 @@
   &.x-small-hero {
     min-height: 340px;
     text-align: center;
-    padding-top: 45px;//keeps title from going under nav on mobile
+    padding-top: 110px;//keeps title from going under nav on mobile
+    padding-bottom: 40px;
   }
 
   @at-root .product-pages &.x-small-hero,
@@ -122,6 +123,7 @@
     &.x-small-hero {
       min-height: 400px;
       padding-top: 0px;//resets padding for full screen
+      padding-bottom: 80px;
     }
     @at-root .product-pages &.x-small-hero,
     .product-category-pages &.x-small-hero,
