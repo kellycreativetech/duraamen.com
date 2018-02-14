@@ -232,9 +232,9 @@
                         {% list_item "download" type="file" %}
                         <li><a href="{{ list_item.download.url }}">
                           {% if list_item.download.url|default:""|slice:"-3:" == "pdf" %}
-                          <img src="/dist/img/svg/pdf.svg">
+                          <img src="/dist/img/svg/pdf.svg" alt="PDF icon">
                           {% elif list_item.download.url|default:""|slice:"-3:" == "doc" or list_item.download.url|default:""|slice:"-4:" == "docx" %}
-                          <img src="/dist/img/svg/word.svg">
+                          <img src="/dist/img/svg/word.svg" alt="Word document icon">
                           {% endif %}
                           {% list_item "name" type="text" %}</a>
                         </li>
