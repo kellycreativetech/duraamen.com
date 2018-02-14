@@ -3,6 +3,11 @@
   background-size: cover;
   display: flex;
   align-items: center;
+  padding-bottom: 100px;
+
+  @at-root .landing-pages {
+    margin-top: 100px;
+  }
 
   .btn.btn-lg {
     font-size: 1.1rem;
@@ -87,6 +92,8 @@
 
   @include media-breakpoint-up(md) {
     & {margin-top: 110px;}
+    & {padding-bottom: 0;}
+    & {@at-root .landing-pages {margin-top: 110px;}}
 
     .product-head {
       margin-bottom: 100px;
