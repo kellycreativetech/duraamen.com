@@ -1,0 +1,150 @@
+{% extends "base.html" %}
+
+
+{% block bodyclass %}product-category-pages {% endblock %}
+
+
+{% block hero %}
+<!-- Intro Section -->
+<div
+  class="hero
+    view
+    hm-black-strong-1
+    jarallax
+    {% block heroclass %}x-small-hero{% endblock %}
+    "
+
+  data-srv-name="masthead_img"
+  style="
+  {% if page.content.masthead_img %}
+    background-image: url({% imgix_url page.content.masthead_img %}?w=1800&h=1000&fit=crop&crop=entropy&sat=-80&crop=bottom&blend=000000&bm=normal&balph=50);
+  {% else %}
+  background-color: #f5f5f5;
+  {% endif %}">
+
+  {% comment %}
+  If you want the background image as a default, here's the URL that you need:
+  {% imgix_url "/dist/img/iStock-92277191.jpg" %}
+  {% endcomment %}
+
+      <div class="full-bg-img d-flex justify-content-start align-items-end">
+        <div class="container">
+          {% page "masthead_img" type="img" %}
+            <div class="row smooth-scroll">
+                <div class="col-md-12">
+                    <div class="product-head wow fadeInDown" data-wow-delay="0.2s">
+                        <h1>{% page "name" type="text" %}</h1>
+                        <h4>{% page "subtitle" type="text" %}</h4>
+                    </div>
+                    {% block undertitle %}{% endblock %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+
+
+{% block main %}
+<section class="home-section">
+  <div class="container" itemscope itemtype="http://schema.org/Article">
+    <div class="row justify-content-center">
+    <!--  <div class="col-md-4">
+
+
+       {% menu "Navigation" begin_at="ecf1480f-b683-4e22-86b0-e603591e2fb1" trail_class="trail" current_class="current" %}
+        <ul class="product-nav-sidebar">
+          {% for item in tree %}
+      <li class="{{ item.classes|join:" " }}">
+          <a href="{{ item.url }}">{{ item.name }}</a>
+              {% if item.children %}
+              <ul>
+                  {% for citem in item.children %}
+                  <li class="{{ citem.classes|join:" " }}">
+                    <a href="{{ citem.url }}">{{ citem.name }}</a>
+                    {% if citem.children %}
+                    <ul>
+                        {% for ditem in citem.children %}
+                        <li class="{{ ditem.classes|join:" " }}"><a href="{{ ditem.url }}">{{ ditem.name }}</a></li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                  </li>
+                  {% endfor %}
+              </ul>
+              {% endif %}
+            </li>
+            {% endfor %}
+          </ul>
+      </div>-->
+      <div class="col-md-12">
+
+         {# {% new_page_button label="New Product" parent="products" %} #}
+
+         {% new_page_button label="New Category" template="templates/products/categories.html" %}
+
+
+
+        {% block content %}
+        <div class="row">
+
+        {% if page.path == "products" %}
+        {% children as products order_by="-published" %}
+        {% elif path_split.0 == "p" %}
+        {% select_pages "category" path_split.1 varname="products" order_by="-published" %}
+        {% else %}
+        {% select_pages "category" path_split.0 varname="products" order_by="-published" %}
+        {% endif %}
+
+        {% autopaginate products 15 %}
+        {% for product in products %}
+        <div class="col-md-4 col-lg-3 mb-3" itemscope itemtype="http://schema.org/Product">
+          {% if product.content.image %}
+            <a href="{{ product.get_absolute_url }}{% if editing %}/admin{% endif %}" class="z-depth-1 hm-zoom waves-light waves-effect waves-light">
+              <img class="" src="{% imgix_url product.content.image %}?w=400&h=400&fit=crop" itemprop="image">
+            </a>
+          {% endif %}
+
+          <h5><a href="{{ product.get_absolute_url }}{% if editing %}/admin{% endif %}" itemprop="name">{{ product.content.title }}</a> <br><small>{{ product.content.subtitle }}</small></h5>
+          <p class="small">{{ product.content.content|striptags|safe|truncatewords:12 }}</p>
+        </div>
+        {% endfor %}
+
+        {% include "includes/snippets/pagination.html" %}
+        </div>
+        {% endblock content %}
+      </div>
+    </div>
+
+    {% if page.content.content or editing %}
+    <div class="clearfix">
+
+
+
+        <!--Accordion wrapper-->
+        <div class="accordion" role="tablist" aria-multiselectable="true" id="projectAccordion">
+          <!-- Accordion card -->
+          <div class="card">
+              <!-- Card header -->
+              <div class="card-header" role="tab" id="headingOne">
+                  <a data-toggle="collapse" data-parent="#productAccordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                      <h5 class="mb-0">
+                          {{ page.content.title }}<i class="fa fa-angle-down rotate-icon"></i>
+                      </h5>
+                  </a>
+              </div>
+
+              <!-- Card body -->
+              <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
+                  <div class="card-body {% if not editing %}two-column-text{% endif %}">
+                      {% page "content" type="wysiwyg" %}
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  {% endif %}
+</section>
+{% endblock %}
