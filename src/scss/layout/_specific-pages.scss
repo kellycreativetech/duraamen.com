@@ -12,3 +12,9 @@
     min-height: 300px;
   }
 }
+
+.home-page {
+  .h2title-latest-blog {
+    display: none;//hides the default header in the random blog include/sections/blog_random.html on the homepage only.
+  }
+}

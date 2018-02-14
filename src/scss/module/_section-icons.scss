@@ -27,6 +27,8 @@
 
     &:hover {
       @extend .z-depth-2;
+      color: $white;
+      text-decoration: none;
     }
   }
 
