@@ -1,14 +1,16 @@
 <div class="top-button">{% page "masthead_img" type="img" %}</div>
+<!--This is the if statment for the hero image if needed
+{% if page.content.masthead_img %}{% imgix_url page.content.masthead_img %}{% else %}{% imgix_url "/dist/img/iStock-92277191.jpg" %}{% endif %}  -->
 <div
   class="hero view hm-black-strong-1 jarallax"
-  style="background-image: url({% if page.content.masthead_img %}{% imgix_url page.content.masthead_img %}{% else %}{% imgix_url "/dist/img/iStock-92277191.jpg" %}{% endif %}?w=1800&h=1000&fit=crop&sat=-80&crop=bottom&blend=000000&bm=normal&balph=50);"
+  style="background-image: url({% imgix_url page.content.masthead_img %}?w=1800&h=1000&fit=crop&sat=-80&crop=bottom&blend=000000&bm=normal&balph=50);"
     <div class="full-bg-img">
         <div class="container flex-center">
             <div class="row smooth-scroll justify-content-md-center">
                 <div class="col-md-9 white-text text-center">
                     <div class="wow fadeInDown" data-wow-delay="0.2s">
-                        <h1>Industrial Coatings & Decorative Concrete Flooring</h1>
-                        <h4>High performance products for professional contractors, property managers, and do-it-yourselfers.</h4>
+                        <h1 {% if page.content.masthead_img %}class="light-title"{% endif %}>Industrial Coatings & Decorative Concrete Flooring</h1>
+                        <h4 {% if page.content.masthead_img %}class="light-sub-title"{% endif %}>High performance products for professional contractors, property managers, and do-it-yourselfers.</h4>
                     </div>
                     <a class="btn btn-secondary btn-lg waves-effect waves-light wow fadeInUp smooth-scroll" data-offset="110" data-wow-delay="0.2s" href="#main">
                         <span>Learn More</span><br>

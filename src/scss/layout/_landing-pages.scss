@@ -1,38 +1,27 @@
 .landing-pages {
   h1 {
-      color: $brand-gold;
-    }
+    color:#fff;
+    text-shadow:0px 2px 2px rgba(0,0,0,0.25);
+  }
+
+  h2, h3, h4, h5, h6 {
+    text-shadow:0px 1px 1px rgba(0,0,0,0.15);
+  }
 }
 
 
+.for-architercts {
+
+}
 
 .for-contractors {
 
-  .hero{
-
-    h1 {
-      color:#fff;
-      text-shadow:0px 2px 2px rgba(0,0,0,0.25);
-    }
-
-    h2, h3, h4, h5, h6 {
-      text-shadow:0px 1px 1px rgba(0,0,0,0.15);
-    }
-  }
 }
 
+.for-homeowners {
 
-.for-architects {
+}
 
-  .hero{
+.for-business-owners-property-managers {
 
-    h1 {
-      color:#fff;
-      text-shadow:0px 2px 2px rgba(0,0,0,0.25);
-    }
-
-    h2, h3, h4, h5, h6 {
-      text-shadow:0px 1px 1px rgba(0,0,0,0.15);
-    }
-  }
 }
