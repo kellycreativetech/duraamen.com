@@ -18,3 +18,22 @@
     display: none;//hides the default header in the random blog include/sections/blog_random.html on the homepage only.
   }
 }
+
+
+//Gallery Pages
+
+.gallery-pages {
+
+  .caption {
+    text-align: center;
+
+    a {
+     color: $brand-gold-dark;
+     font-weight: 600;
+    }
+    a:hover {
+      text-decoration: none;
+      color: $brand-gold;
+    }
+  }
+}
