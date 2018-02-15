@@ -9,10 +9,10 @@
 
         <!--Search Form-->
         <li>
-            <form class="search-form" role="search">
-                <div class="form-group waves-light">
-                    <input type="text" class="form-control" placeholder="Search">
-                </div>
+            <form class="search-form" role="search" action="/search/">
+              <div class="form-group waves-light">
+                <input name="q" class="form-control" type="text" placeholder="Search" aria-label="Search" value="{{ request.GET.query }}">
+              </div>
             </form>
         </li>
         <!--/.Search Form-->
