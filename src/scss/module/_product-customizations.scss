@@ -46,6 +46,23 @@
   }
 }
 
+//Product & System Category Pages Adjustments
+.product-category-pages {
+  .category-item {
+    h5{
+      margin-top: 8px;
+    }
+  }
+
+  @include media-breakpoint-up(sm) {
+    .category-item {
+      h5{
+        margin-top: 0;
+      }
+    }
+  }
+}
+
 .two-column-text {
   column-count: 2;
   column-gap: 3em;

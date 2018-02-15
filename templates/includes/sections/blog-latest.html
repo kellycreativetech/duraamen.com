@@ -1,4 +1,4 @@
-<h2 class="text-center mb-5 mt-4 h2title-latest-blog">You might also be interested in…</h2>
+{% if request.get_full_path == "/"  %}<h2 class="text-center">Articles & Inspiration</h2>{% else %}<h2 class="text-center mb-5 mt-4 h2title-latest-blog">You might also be interested in…</h2>{% endif %}
 <div class="row">
 {% children as "posts" parent="blog" limit=4 %}
   {% for post in posts %}

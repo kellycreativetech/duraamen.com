@@ -177,6 +177,7 @@
 
 
 .product-nav-sidebar {
+  display: none;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -186,6 +187,9 @@
     display: block;
     padding: 10px;
     &:hover {
+      text-decoration: none;
+    }
+    &:focus {
       text-decoration: none;
     }
   }
@@ -232,6 +236,11 @@
   }
 }
 
+@include media-breakpoint-up(sm) {
+  .product-nav-sidebar {
+    display: block;
+  }
+}
 
 .product-breadcrumb {
   li {display: none;}
