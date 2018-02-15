@@ -103,7 +103,7 @@
         <div class="col-md-4 col-lg-3 mb-3" itemscope itemtype="http://schema.org/Product">
           {% if product.content.image %}
             <a href="{{ product.get_absolute_url }}{% if editing %}/admin{% endif %}" class="z-depth-1 hm-zoom waves-light waves-effect waves-light">
-              <img class="" src="{% imgix_url product.content.image %}?w=400&h=400&fit=crop" itemprop="image">
+              <img alt="{{ product.content.title|striptags }}" src="{% imgix_url product.content.image %}?w=400&h=400&fit=crop" itemprop="image">
             </a>
           {% endif %}
 

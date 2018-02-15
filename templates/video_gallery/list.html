@@ -43,7 +43,7 @@
         {% children as "categories" %}
         {% for category in categories %}
             <div class="col-md-4">
-                  <a class="thumbnail" href="{{ category.get_absolute_url }}" title="{{ category.content.name|default:"" }}"><img itemprop="image" class="bordered" src="{% imgix_url category.content.image %}?w=370&amp;h=205&amp;crop=entropy&amp;fit=crop" alt="{{ category.content.name|default:"" }} (thumbnail)"></a>
+                  <a class="thumbnail" href="{{ category.get_absolute_url }}" title="{{ category.content.name|default:"" }}"><img itemprop="image" class="bordered" alt="{{ category.content.name|striptags }}" src="{% imgix_url category.content.image %}?w=370&amp;h=205&amp;crop=entropy&amp;fit=crop" alt="{{ category.content.name|default:"" }} (thumbnail)"></a>
                   <h5 class="text-center mt-2 mb-4" itemprop="name"><a href="{{ category.get_absolute_url }}">{{ category.content.name }} | {{ category.content.videos|length }} videos</a></h5>
           </div>
         {% endfor %}

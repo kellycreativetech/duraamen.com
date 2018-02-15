@@ -47,6 +47,7 @@
           {% endif %}
           <img
             class="img-fluid z-depth-1-half"
+            alt="{{ page.content.title|striptags }} {{ page.content.subtitle|striptags }}"
             src="{% if page.content.image %}{% imgix_url page.content.image %}{% elif editing %}https://placem.at/places{% endif %}?w=600"
             data-srv-name="image"
           />
