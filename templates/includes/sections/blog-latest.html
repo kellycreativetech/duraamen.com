@@ -8,7 +8,7 @@
     </a>
     <h3 class="h5"><a href="{{ post.get_absolute_url }}{% if editing %}/admin{% endif %}">{{ post.content.title|safe }}</a></h3>
     <p>{{ post.content.content|striptags|truncatewords:30|safe }}</p>
-    <p><strong><a href="{{ post.get_absolute_url }}{% if editing %}/admin{% endif %}">Read more</a></strong></p>
+    <p class="chevron-after"><strong><a href="{{ post.get_absolute_url }}{% if editing %}/admin{% endif %}">Read more</a></strong></p>
   </div>
   {% endfor %}
 </div>
