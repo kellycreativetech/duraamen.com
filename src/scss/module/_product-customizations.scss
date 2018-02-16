@@ -51,6 +51,17 @@
   .category-item {
     h5{
       margin-top: 8px;
+      font-family: $font-family-sans-serif;
+      font-weight: 600;
+      text-shadow: none;
+
+      a {
+        color: $maroon;
+
+        &:hover {
+          color: $dark-gray;
+        }
+      }
     }
   }
 
