@@ -162,12 +162,38 @@
 .side-nav {
   background-color: $dark-gray;
 
-  .collapsible .copied-link {
-    margin-left: -26px;
+  a {
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  .collapsible-body {
 
     a {
       font-weight: bold;
+      &:hover,
+      &:focus {
+        text-decoration: none;
+      }&:active {
+
+        &::before {
+          font-family: $icon-font-family;
+          font-weight: bold;
+          content: '\f054';
+          margin:0 5px 0 -15px;
+          color: $brand-gold;
+        }
+      }
     }
+  }
+
+  .collapsible .copied-link {
+    margin-left: -26px;
+    a {
+      font-weight: bold;
+    }
+
   }
 
   .collapsible-header.active {

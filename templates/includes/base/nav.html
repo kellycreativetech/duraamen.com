@@ -24,12 +24,12 @@
               <li id="menu-item-{{ item.name|slugify }}" class="{{ item.trail_class }} {{ item.current_class }}">
                 <a
                   class="{% if item.children %}collapsible-header{% endif %} waves-effect arrow-r"
-                  {% if not item.children %}href="{{ item.url }}"{% endif %}
+                  {% if not item.children %}href="{{ item.url }}"{% endif %} aria-expanded="true"
                 >{{ item.name|safe }} {% if item.children %}<i class="fa fa-angle-down rotate-icon"></i>{% endif %}</a>
                 {% if item.children %}
                 <div class="collapsible-body">
                   <ul>
-                    {% if item.url %}<li class="copied-link"><a href="{{ item.url }}">{{ item.name|safe }}</a></li>{% endif %}
+                    <!--{% if item.url %}<li class="copied-link"><a href="{{ item.url }}">{{ item.name|safe }}</a></li>{% endif %}-->
                     {% for citem in item.children %}
                     <li class="{{ item.trail_class }}">
                       <a class="waves-effect {{ item.current_class }}" href="{{ citem.url }}">{{ citem.name|safe }}</a>
