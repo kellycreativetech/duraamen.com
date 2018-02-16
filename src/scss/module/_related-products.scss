@@ -1,3 +1,19 @@
+.related-products {
+
+  h5{
+    font-family: $font-family-sans-serif;
+
+    a {
+      color: $maroon;
+      font-weight: 500;
+
+      &:hover {
+        color: $brand-gold-dark;
+      }
+    }
+  }
+}
+
 @include media-breakpoint-down(sm) {
 
   .related-products {
