@@ -42,8 +42,10 @@
                                 <p>{% page "image_category" type="select" %}</p>
 
                                 <p>{% page "image_subcategory" type="select" %}</p>
-
+                                {% comment %}
                                 <p>{% page "tags" type="select" multiple="True" %}</p>
+                                {% endcomment %}
+                                <p>{% page "add_to_system" type="select" multiple="True" %}</p>
 
                                 <div style="margin:1em 0;max-width:270px">
                                     {% page "image" type="img" %}

@@ -320,8 +320,12 @@
           {% if editing %}
           <div class="mt-5 mb-5">
               <h3>Admin tools</h3>
-              {% page "category" type="select" multiple="true" %}
-              <br>
+              <p>{% page "category" type="select" multiple="true" %}</p>
+
+              {% if "tools" in page.content.category %}
+              {% page "add_tool_to_system" type="select" multiple="true" %}
+              {% endif %}
+
               {% comment %}
               {% page "applications" type="select" multiple="true" %}
               <br>
