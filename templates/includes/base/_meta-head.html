@@ -1,4 +1,4 @@
-<title>{% if page.content.meta_title %}{{ page.content.meta_title|striptags }}{% elif page.content.title %}{{ page.content.title|striptags }} | {{ site.name }}{% else %}{{ site.name }}{% endif %}</title><meta name="author" content="{{ site.name }}">
+<meta name="author" content="{{ site.name }}">
 <meta name="msapplication-TileColor" content="#228978"/>
 <meta name="description" content="{% if page.content.meta_description %}{{ page.content.meta_description|striptags|truncatechars:200 }}{% elif page.content.intro_text %}{{ page.content.intro_text|striptags|truncatechars:200 }}{% else %}{{ page.content.content|striptags|truncatechars:200 }}{% endif %}">
 <meta name="google-site-verification" content="6MoEbzJPkdVzsZbip6tJhsgK58qkNnLTNNUHD0Zwhp4" />

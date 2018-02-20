@@ -57,6 +57,9 @@
 
       a {
         color: $maroon;
+        &.waves-light {
+          display: block;
+        }
 
         &:hover {
           color: $dark-gray;

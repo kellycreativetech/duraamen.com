@@ -88,6 +88,7 @@
 
 
         {% block content %}
+        {% include "includes/base/_third-tier-mobile-nav.html" %}
         <div class="row">
 
         {% if page.path == "products" %}
@@ -102,7 +103,7 @@
         {% for product in products %}
         <div class="col-sm-6 col-md-6 col-lg-4 mb-4 category-item" itemscope itemtype="http://schema.org/Product">
           {% if product.content.image %}
-            <a href="{{ product.get_absolute_url }}{% if editing %}/admin{% endif %}" class="z-depth-1 hm-zoom waves-light waves-effect waves-light">
+            <a href="{{ product.get_absolute_url }}{% if editing %}/admin{% endif %}" class="d-block z-depth-1 hm-zoom waves-light waves-effect waves-light">
               <img alt="{{ product.content.title|striptags }}" src="{% imgix_url product.content.image %}?w=400&h=400&fit=crop" itemprop="image">
             </a>
           {% endif %}

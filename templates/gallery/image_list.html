@@ -39,13 +39,11 @@
       {% children as mixed_img_sub order_by="published" %}
       {% autopaginate mixed_img_sub 16 %}
       {% for image in page_obj %}
-          {# thumbnail image.image "800x800" watermark="img/duraamen.png" as bigimg #}
-          {# thumbnail image.image "270x230" crop="center" as thumb #}
           <div class="col-md-3" id="{{ image.id }}">
               <a class="thumbnail z-depth-1 hm-zoom waves-light waves-effect waves-light"
                   data-fancybox="photo-gallery"
                   itemprop="image"
-                  href="{% imgix_url image.content.image %}?w=800&amp;h=800&amp;mark=/fb19770b-7be1-4c05-87a1-509b359e6111/0a/a0/0aa024ad767d4f5585cdf8a7e3e4fa4e-duraamen.png"
+                  href="{% imgix_url image.content.image %}?w=1400&h=1400&mark=/fb19770b-7be1-4c05-87a1-509b359e6111/0a/a0/0aa024ad767d4f5585cdf8a7e3e4fa4e-duraamen.png&markpad=0"
                   title="{% firstof image.content.description image.title "" %}"
               ><img class="bordered" src="{% imgix_url image.content.image %}?w=270&amp;h=230&amp;crop=entropy&amp;fit=crop" alt="{% firstof image.content.description image.title "" %} (thumbnail)"></a>
 
