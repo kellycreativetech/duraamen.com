@@ -1,10 +1,19 @@
 {% menu "Navigation" begin_at="ecf1480f-b683-4e22-86b0-e603591e2fb1" trail_class="trail" current_class="active" %}
   {% for item in tree %}
   {% if "trail" in item.classes %}
-      {% if item.children %}
+    {% if item.children %}
       <div class="d-md-none">
-      <p>Filter by:</p>
-      <ul>
+        <p>Filter by:</p>
+        <ul>
+          <li class="{{ item.classes|join:" " }}">
+            <strong>
+          {% if not "active" in item.classes %}<a href="{{ item.url }}">{% endif %}
+            All {{ item.name }}
+          {% if not "active" in item.classes %}</a>{% endif %}
+          </strong>
+          </li>
+
+
           {% for citem in item.children %}
           <li class="{{ citem.classes|join:" " }}">
             {% if not "active" in citem.classes %}<a href="{{ citem.url }}">{% endif %}
