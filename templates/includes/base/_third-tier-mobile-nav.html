@@ -2,7 +2,7 @@
   {% for item in tree %}
   {% if "trail" in item.classes %}
     {% if item.children %}
-      <div class="d-md-none">
+      <div class="d-md-none filter-nav-mobile">
         <p>Filter by:</p>
         <ul>
           <li class="{{ item.classes|join:" " }}">
