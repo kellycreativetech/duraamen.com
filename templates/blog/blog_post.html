@@ -7,46 +7,46 @@
 {% block undertitle %}
 {% if page.content.masthead_img %}
 <a class="btn btn-secondary btn-lg waves-effect waves-light wow fadeInUp smooth-scroll" data-offset="110" data-wow-delay="0.2s" href="#main">
-    <span>Read More</span><br>
-    <i class="fa fa-chevron-down"></i>
+  <span>Read More</span><br>
+  <i class="fa fa-chevron-down"></i>
 </a>
 {% endif %}
 {% endblock %}
 
 {% block content %}
-    <div>
-      {% page "content" type="wysiwyg" %}
-    </div>
+<div>
+  {% page "content" type="wysiwyg" %}
+</div>
 
-  {# <p><img src="/site_media/media/servee_images/rss.png" alt="RSS icon"> <a href="https://www.duraamen.com/blog/.xml">Subscribe to our Feed</a></p> #}
-
-  {% if editing %}
-  <div class="well">
-    <h2>Admin tools</h2>
-    {% page "sections" type="select" multiple="true" %}
-    <p><br></p>
-    {% page "related" type="select" multiple="true" %}
-  </div>
-  {% else %}
-  <ul class="blog-list-imgs">
-    {% page_list "gallery" %}
-    {% list_item "image" type=img %}
-    <li>
-      <div class="card card-cascade">
-        <div class="view">
-          <img itemprop="image" class="img-fluid" src="{% imgix_url list_item.image %}?w=920&h=920" alt="">
-        </div>
+<ul class="blog-list-imgs">
+  {% page_list "gallery" %}
+  {% list_item "image" type=img %}
+  <li>
+    <div class="card card-cascade">
+      <div class="view">
+        <img itemprop="image" class="img-fluid" src="{% imgix_url list_item.image %}?w=920&h=920" alt="">
       </div>
-    </li>
-    {% end_list %}
+    </div>
+  </li>
+  {% end_list %}
+</ul>
 
-  </ul>
-  <!-- AddThis Button BEGIN -->
-  <!-- Go to www.addthis.com/dashboard to customize your tools -->
-  <div class="addthis_sharing_toolbox"></div>
-  <script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
-  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-520d221765704fe3" async="async"></script>
-  <!-- AddThis Button END -->
-  {% endif %}
+{# <p><img src="/site_media/media/servee_images/rss.png" alt="RSS icon"> <a href="https://www.duraamen.com/blog/.xml">Subscribe to our Feed</a></p> #}
+
+{% if editing %}
+<div class="well">
+  <h2>Admin tools</h2>
+  {% page "sections" type="select" multiple="true" %}
+  <p><br></p>
+  {% page "related" type="select" multiple="true" %}
+</div>
+
+<!-- AddThis Button BEGIN -->
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<div class="addthis_sharing_toolbox"></div>
+<script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-520d221765704fe3" async="async"></script>
+<!-- AddThis Button END -->
+{% endif %}
 
 {% endblock content %}
