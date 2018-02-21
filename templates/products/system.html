@@ -381,7 +381,7 @@
   <div class="row">
     {% select_pages "add_tool_to_system" path_split.0 varname="tool_list" order_by="-published" %}
     {% for tool in tool_list %}
-      <div class="col-md-3 mt-3 mb-3">
+      <div class="col-lg-2 col-md-3 col-sm-4 col-6 mt-3 mb-3">
         <a class="d-block"
           href="{{ tool.get_absolute_url }}{% if editing %}/admin{% endif %}"
           title="{% firstof tool.title "" %}">
