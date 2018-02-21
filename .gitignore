@@ -9,3 +9,7 @@ blog/wp-content/uploads/
 bower_components/
 external-images/
 uploads/
+feed-rss.xml
+feed_rss.xml
+sitemap-blog.xml
+sitemap-video.xml
