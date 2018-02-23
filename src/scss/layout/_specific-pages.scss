@@ -1,4 +1,4 @@
-.success, .contact {
+.success, .contact, .thank-you {
   text-align: center;
 
   .hero{
@@ -29,5 +29,20 @@
       text-decoration: none;
       color: $brand-gold;
     }
+  }
+}
+// Center Category Items on Mobile Devices
+.product-category-pages, .system-category-pages, .blog  {
+  .row{
+    &.justify-content-center{
+    margin-left: 15px;
+    }
+  }
+  @include media-breakpoint-up(md) {
+    .row{
+    &.justify-content-center{
+      margin-left: -15px;
+    }
+  }
   }
 }

@@ -18,8 +18,8 @@
                    <div class="col-md-6">
                        <div class="md-form">
                            <div class="md-form">
-                               <input type="text" id="name" name="name" class="form-control">
-                               <label for="name" class="">Your name</label>
+                               <input type="text" id="name" required name="name" class="form-control">
+                               <label for="name" class="">Your name*</label>
                            </div>
                        </div>
                    </div>
@@ -29,8 +29,8 @@
                    <div class="col-md-6">
                        <div class="md-form">
                            <div class="md-form">
-                               <input type="text" id="email" name="email" class="form-control">
-                               <label for="email" class="">Your email</label>
+                               <input type="text" id="email" required name="email" class="form-control">
+                               <label for="email" class="">Your email*</label>
                            </div>
                        </div>
                    </div>
@@ -57,8 +57,8 @@
                    <div class="col-md-12">
 
                        <div class="md-form">
-                           <textarea type="text" id="message" name="message" class="md-textarea"></textarea>
-                           <label for="message">Your message</label>
+                           <textarea type="text" id="message" required name="message" class="md-textarea"></textarea>
+                           <label for="message">Your message*</label>
                        </div>
 
                    </div>
@@ -70,11 +70,10 @@
                  </div>
                </div>
                <!--Grid row-->
+               <div class="center-on-small-only">
+                 <button type="submit" class="btn btn-primary"><span class="fa fa-paper-plane fa-2x"></span> Send</button>
+               </div>
            </form>
-
-           <div class="center-on-small-only">
-           <a class="btn btn-primary" onclick="document.getElementById('contact-form').submit();"><i class="fa fa-paper-plane fa-2x"></i> Send</a>
-       </div>
 
 
 {% endblock %}
