@@ -16,14 +16,14 @@ h1, h2, h3, h4, h5, h6 {
 
 p {
   a{
-    color: $brand-gold;
+    color: $brand-gold-dark;
 
     &:hover {
-      color: $brand-gold;
+      color: $brand-gold-dark;
       text-decoration: underline;
     }
     &:focus {
-      color: $brand-gold;
+      color: $brand-gold-dark;
       text-decoration: underline;
     }
     &:visited {

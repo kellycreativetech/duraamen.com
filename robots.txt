@@ -1,1 +1,5 @@
-Replace this file with robots.txt info at website.glass
+User-agent: *
+Disallow:/browse
+
+SITEMAP: http://www.duraamen.com/sitemap.xml
+SITEMAP: http://www.duraamen.com/sitemap-video.xml

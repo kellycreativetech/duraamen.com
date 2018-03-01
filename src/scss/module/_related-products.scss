@@ -15,6 +15,21 @@
   }
 }
 
+.recommended-tools {
+  h5{
+    font-family: $font-family-sans-serif;
+    a{
+      color: $maroon;
+      font-weight: 500;
+      font-size: 1rem;
+
+      &:hover {
+        color: $brand-gold-dark;
+      }
+    }
+  }
+}
+
 @include media-breakpoint-down(sm) {
 
   .related-products {

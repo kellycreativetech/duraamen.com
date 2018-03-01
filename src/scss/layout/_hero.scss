@@ -80,7 +80,7 @@
   }
 
   &.smaller-hero {
-    min-height: 260px;
+    min-height: 400px;
   }
 
   &.x-small-hero {
@@ -92,12 +92,19 @@
 
   @at-root .product-pages &.x-small-hero,
   .product-category-pages &.x-small-hero {
-    min-height: 260px;
+    min-height: 310px;
     text-align: center;
 
     h4 {
       font-size: 1.25rem;
     }
+  }
+
+  @at-root .blog-pages &.x-small-hero {
+    min-height: 60vh;
+    padding-bottom: 0;
+    margin-top: 50px;
+    text-align: center;
   }
 
   @include media-breakpoint-up(md) {
@@ -119,7 +126,8 @@
       margin-bottom: 3rem;
     }
 
-    &.x-small-hero {
+    &.x-small-hero,
+     .blog-pages &.x-small-hero {
       min-height: 400px;
       padding-top: 0px;//resets padding for full screen
       padding-bottom: 80px;

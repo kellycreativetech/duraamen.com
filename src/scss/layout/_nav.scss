@@ -273,3 +273,55 @@
   li.trail {display: flex-item;}
   li.current a { font-weight: bold;}
 }
+
+//Nav on category pages that displays filter by, Third tier mobile nav
+
+.filter-nav-mobile {
+
+  p{
+    font-weight: 600;
+    font-family: $headings-font-family;
+    font-size: 1.2em;
+    color: $dark-gray;
+    text-indent: 20px;
+  }
+
+  ul{
+    list-style: none;
+
+    li {
+      margin: 12px 0;
+      text-indent: 17px;
+
+      &:first-child {
+        text-indent: 2px;
+      }
+
+      &:last-child {
+        margin-bottom: 40px;
+      }
+
+      a {
+        color: $dark-gray;
+      }
+
+      &.active {
+        &::before{
+          font-family: $icon-font-family;
+          font-weight: bold;
+          content: '\f054';
+          margin:0 5px 0 -15px;
+          color: $brand-gold;
+        }
+      }
+
+      &::before {
+        font-family: $icon-font-family;
+        font-weight: bold;
+        content: '\f054';
+        margin:0 5px 0 -15px;
+        color: $light-gray-2;
+      }
+    }
+  }
+}
