@@ -150,9 +150,14 @@
   }
 }
 
-.top-button {
-  .srv-icon-img-edit {
-    // top: 117px;
-    z-index: 200;
+.at4-follow {
+  &.slideInRight {
+	z-index: 200;
   }
+}
+
+.hero .srv-icon-img-edit {
+    top: 117px;
+    right: 10px;
+    z-index: 200;
 }
