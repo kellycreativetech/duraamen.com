@@ -69,6 +69,7 @@
         <!--Accordion wrapper-->
         <div class="accordion" role="tablist" aria-multiselectable="true" id="projectAccordion">
           <!-- Accordion card -->
+
           <div class="card">
               <!-- Card header -->
               <div class="card-header" role="tab" id="headingOne">
@@ -89,18 +90,18 @@
           <!-- Accordion card -->
 
           <!-- Accordion card -->
-          {% if page.content.technical_details or editing %}
+          {% if page.content.data or editing %}
           <div class="card">
               <!-- Card header -->
               <div class="card-header" role="tab" id="techDetails">
-                  <a data-toggle="collapse" data-parent="#productAccordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree" class="collapsed">
+                  <a data-toggle="collapse" data-parent="#productAccordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree" class="collapsed">
                       <h5 class="mb-0">
                           Technical Details<i class="fa fa-angle-down rotate-icon"></i>
                       </h5>
                   </a>
               </div>
               <!-- Card body -->
-              <div id="collapseThree" class="collapse show" role="tabpanel" aria-labelledby="techDetails">
+              <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="techDetails">
                   <div class="card-body">
                     <table class="table table-sm">
                       {% page_list "data" %}
