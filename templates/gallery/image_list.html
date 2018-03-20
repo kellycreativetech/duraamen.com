@@ -19,7 +19,7 @@
                 <div class="col-md-12">
                     <div class="product-head wow fadeInDown" data-wow-delay="0.2s">
                         <h1><span class="subcat-page-title">{% page "title" type="text" %}</span></h1>
-                        <h5><a href="/photo-gallery" ><i class="fa fa-chevron-left"></i> Photo Gallery</a></h5>
+                        <h5><a href="/photo-gallery{% if editing %}/admin{% endif %}" ><i class="fa fa-chevron-left"></i> Photo Gallery</a></h5>
                     </div>
                     {% block undertitle %}{% endblock %}
                 </div>
@@ -35,6 +35,7 @@
   <div class="container" id="{{ page.content.slug }}">
     {% page "content" typex="wysiwyg" %}
 
+    {% new_page_button label="Add New Image to this category" template="templates/gallery/_detail.html"  %}
     <div class="row" itemscope itemtype="http://schema.org/ImageGallery">
       {% children as mixed_img_sub order_by="published" %}
       {% autopaginate mixed_img_sub 16 %}

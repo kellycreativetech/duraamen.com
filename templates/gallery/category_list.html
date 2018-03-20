@@ -34,14 +34,25 @@
   <div class="container" id="{{ page.content.slug }}">
     {% chunk "photo-gallery-top" %}
 
+
+    {% if editing %}
+      {% new_page_button label="Add New Category"  %}
+      <p><small><em><strong>Note:</strong> It's not currently possible from
+        the frontend editor to create a child page that is also a parent page
+        of other pages, which is how this gallery was imported in Glass from
+        the original Wordpress build. In order to add photos to this page,
+        you need to go it's page in the Glass admin and click the "is parent"
+        checkbox toward the bottom of the screen.
+      </em></small></p>
+    {% endif %}
     <div class="row" itemscope itemtype="http://schema.org/ImageGallery">
     {% children as "categories" order_by="published" %}
     {% for category in categories %}
         <div class="col-md-3">
-            <a class="thumbnail z-depth-1 hm-zoom waves-light waves-effect waves-light" href="/photo-gallery/{{ category.content.slug }}/" title="{{ category.content.name|default:"" }}">
+            <a class="thumbnail z-depth-1 hm-zoom waves-light waves-effect waves-light" href="/photo-gallery/{{ category.content.slug }}{% if editing %}/admin{% endif %}" title="{{ category.content.name|default:"" }}">
                 <img itemprop="image" class="bordered" src="{% imgix_url category.content.cover_image %}?w=270&h=230&crop=entropy&fit=crop" alt="{{ category.content.name|default:"" }} (thumbnail)"></a>
             <p class="caption">
-                <a class="thumbnail" href="/photo-gallery/{{ category.content.slug }}/" title="{{ category.content.name|default:"" }}">
+                <a class="thumbnail" href="/photo-gallery/{{ category.content.slug }}{% if editing %}/admin{% endif %}" title="{{ category.content.name|default:"" }}">
                     {{ category.content.name }}  <br><small>Click for photos</small>
                 </a>
             </p>
