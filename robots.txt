@@ -1,5 +1,45 @@
 User-agent: *
-Disallow:/browse
 
-SITEMAP: http://www.duraamen.com/sitemap.xml
-SITEMAP: http://www.duraamen.com/sitemap-video.xml
+# Pages That Have No Search Value
+Disallow: /order-now?*
+
+# Old Pages & URLs
+Disallow:/browse/
+Disallow:/browse$
+Disallow:/calendar/
+Disallow:/calendar$
+Disallow:/techsheets/
+Disallow:/techsheets$
+Disallow:/p/$
+Disallow:/p$
+Disallow:/blog/signin-4$
+Disallow:/p/epoxy-concrete-crack-repair$
+Disallow:/products/terrazzi-concrete-resurfacing$
+Disallow:/color-charts/
+Disallow:/color-charts$
+
+#Old Landingpages
+
+#Old Blog URLs
+Disallow:/blog/2011/
+Disallow:/blog/2010/
+Disallow:/blog/tag/
+Disallow:/blog/tag$
+Disallow:/tag/
+Disallow:/tag$
+Disallow:/blog/york-city-concrete-floor-contractors$
+Disallow:/blog/*/comment-page-
+Disallow:/blog/*/concrete%20sealants$
+Disallow:/blog/?p=*$
+Disallow:/blog/sitemap.xml$
+Disallow:/blog/sitemap.xml.gz$
+Allow:/blog/wp-content/uploads/
+
+#Old Photo Gallery URLs
+Disallow:/photo-gallery/tag/
+Disallow:/photo-gallery/tag$
+Disallow:/photo-gallery/stained-concrete/
+Disallow:/photo-gallery/stained-concrete$
+
+Sitemap: http://www.duraamen.com/sitemap.xml
+Sitemap: http://www.duraamen.com/sitemap-video.xml

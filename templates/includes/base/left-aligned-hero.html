@@ -1,0 +1,24 @@
+<!-- Intro Section -->
+<div
+  class="hero view hm-black-strong-1 jarallax"
+
+  style="background-image: url({% if page.content.masthead_img %}{% imgix_url page.content.masthead_img %}{% else %}{% imgix_url "/dist/img/iStock-92277191.jpg" %}{% endif %}?w=1800&h=1000&fit=crop&sat=-80&crop=bottom&blend=000000&bm=normal&balph=50);"
+  data-srv-name="masthead_img">
+    <div class="full-bg-img">
+      {% page "masthead_img" type="img" %}
+        <div class="container flex-center">
+            <div class="row smooth-scroll">
+                <div class="col-md-9 white-text">
+                    <div class="wow fadeInDown" data-wow-delay="0.2s">
+                      <h1>{% page "title" %}</h1>
+                        {% page "hero-content" type="wysiwyg" %}
+                    </div>
+                    <a class="btn btn-secondary btn-lg waves-effect waves-light wow fadeInUp smooth-scroll" data-offset="110" data-wow-delay="0.2s" href="#main">
+                        <span>Find out more</span><br>
+                        <i class="fa fa-chevron-down"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

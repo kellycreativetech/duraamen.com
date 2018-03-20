@@ -1,0 +1,149 @@
+
+{% extends "base.html" %}
+
+
+{% block hero %}
+{% endblock %}
+
+{% block body %}
+    <div class="subpage-body architect">
+    <div class="big-pad">
+        <img class="subpage-logo-head" src="/static/img/arch-logo.png">
+    </div>
+    <div class="subpage-hero">
+        <img class="subpage-logo-head" src="/static/img/arch-head-3.jpg">
+        <h1>{% page title type="text" %}</h1>
+    </div>
+    <div class="row">
+        <div class="span8">
+            <div class="big-pad-left">
+                {% block content %}
+                {% page "content" type="wysiwyg" %}
+
+                <form action="/siteapi/submit_form" method="post">
+    {% csrf_token %}
+    <input type="hidden" name="mc_id" value="4f09927312">
+    <input name="to" type="hidden" value="bbbf6b9f-1dc5-4a06-862c-c4d7135b78f2,cca47383-89e1-4e69-89e1-205ff5301c12">
+    <input name="success_message" type="hidden" value="Your form was submitted successfully" />
+    <input type="hidden" name="redirect" value="/success" />
+
+    <div id="div_id_please_contact_us_about_any_of_the_following" class="control-group  ">
+        <div class="row-fluid">
+            <div class="span12">
+                <p><b>Please Contact us about any of the following *</b></p>
+            </div>
+            <div class="span4">
+                <div class="controls">
+                        <label class="checkbox">
+                            <input type="checkbox"  name="please_contact_us_about_any_of_the_following" id="id_please_contact_us_about_any_of_the_following_1" value="CES Seminars">CES Seminars
+                        </label>
+
+                        <label class="checkbox">
+                            <input type="checkbox"  name="please_contact_us_about_any_of_the_following" id="id_please_contact_us_about_any_of_the_following_2" value="Product Binder">Product Binder
+                        </label>
+                </div>
+            </div>
+            <div class="span4">
+                 <div class="controls">
+                    <label class="checkbox">
+                            <input type="checkbox"  name="please_contact_us_about_any_of_the_following" id="id_please_contact_us_about_any_of_the_following_3" value="Product Samples">Product Samples
+                        </label>
+
+                        <label class="checkbox">
+                            <input type="checkbox"  name="please_contact_us_about_any_of_the_following" id="id_please_contact_us_about_any_of_the_following_4" value="Develop Specifications">Develop Specifications
+                        </label>
+                 </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row-fluid">
+        <div class="span6">
+            <div id="div_id_name" class="control-group  ">
+           <label for="id_name" class="control-label required-field">
+                Name
+            </label>
+        <div class="controls">
+                    <input name="name" maxlength="2000" required="" type="text" class="charfield required" id="id_name" />
+        </div>
+    </div>
+    <div id="div_id_company" class="control-group  ">
+            <label for="id_company" class="control-label required-field">
+                Company
+            </label>
+        <div class="controls">
+                    <input name="company" maxlength="2000" required="" type="text" class="charfield required" id="id_company" />
+        </div>
+    </div>
+    <div id="div_id_street_address_suite" class="control-group  ">
+            <label for="id_street_address_suite" class="control-label required-field">
+                Street Address, Suite
+            </label>
+        <div class="controls">
+                    <input name="street_address_suite" maxlength="2000" required="" type="text" class="charfield required" id="id_street_address_suite" />
+        </div>
+    </div>
+    <div id="div_id_city_state_zip_code" class="control-group  ">
+            <label for="id_city_state_zip_code" class="control-label required-field">
+                City / State / Zip Code
+            </label>
+        <div class="controls">
+                    <input name="city_state_zip_code" maxlength="2000" required="" type="text" class="charfield required" id="id_city_state_zip_code" />
+        </div>
+    </div>
+    <div id="div_id_phone" class="control-group  ">
+            <label for="id_phone" class="control-label required-field">
+                Phone
+            </label>
+        <div class="controls">
+                    <input name="phone" maxlength="2000" required="" type="text" class="charfield required" id="id_phone" />
+        </div>
+    </div>
+    <div id="div_id_e_mail" class="control-group  ">
+            <label for="id_e_mail" class="control-label required-field">
+                E-mail
+            </label>
+        <div class="controls">
+                    <input name="e_mail" maxlength="2000" required="" type="email" class="emailfield required" id="id_e_mail" />
+        </div>
+    </div>
+        </div>
+        <div class="span6">
+             <div id="div_id_comments" class="control-group  ">
+            <label for="id_comments" class="control-label required-field">
+                Comments
+            </label>
+        <div class="controls">
+                    <textarea rows="10" name="comments" id="id_comments" class="charfield" cols="40"></textarea>
+        </div>
+        <div class="control-group " id="div_id_opt_in">
+            <label class="control-label " for="id_opt_in">Receive product information and special offers via e-mail?</label>
+            <div class="controls">
+                <input checked="" id="id_opt_in" name="mailchimp-opt-in" type="checkbox" value="YES"/>
+            </div>
+        </div>
+
+    </div>
+    <input type="submit" class="btn btn-primary" value="Submit">
+
+        </div>
+    </div>
+</form>
+
+
+                {% endblock content %}
+            </div>
+        </div>
+        <div class="span4">
+            <div class="big-pad-right">
+                <div class="well">
+                    <div style="text-align:center">
+                        {% chunk "architect-hero-info" %}
+                    </div>
+                    {% chunk "architect-sidebar" %}
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock body %}
