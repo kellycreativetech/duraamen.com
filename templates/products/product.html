@@ -89,6 +89,29 @@
           </div>
           <!-- Accordion card -->
 
+
+          <!-- Accordion card -->
+          {% if page.content.advantages or editing %}
+          <div class="card">
+              <!-- Card header -->
+              <div class="card-header" role="tab" id="advantages">
+                  <a data-toggle="collapse" data-parent="#productAccordion" href="#collapseFour" aria-expanded="true" aria-controls="collapseFour" >
+                      <h5 class="mb-0">
+                          Advantages<i class="fa fa-angle-down rotate-icon"></i>
+                      </h5>
+                  </a>
+              </div>
+              <!-- Card body -->
+              <div id="collapseFour" class="collapse show" role="tabpanel" aria-labelledby="advantages">
+                  <div class="card-body">
+                    {% page "advantages" type="wysiwyg" %}
+                  </div>
+              </div>
+          </div>
+          {% endif %}
+          <!-- Accordion card -->
+          
+
           <!-- Accordion card -->
           {% if page.content.data or editing %}
           <div class="card">
@@ -117,27 +140,6 @@
           {% endif %}
           <!-- Accordion card -->
 
-
-          <!-- Accordion card -->
-          {% if page.content.advantages or editing %}
-          <div class="card">
-              <!-- Card header -->
-              <div class="card-header" role="tab" id="advantages">
-                  <a data-toggle="collapse" data-parent="#productAccordion" href="#collapseFour" aria-expanded="true" aria-controls="collapseFour" >
-                      <h5 class="mb-0">
-                          Advantages<i class="fa fa-angle-down rotate-icon"></i>
-                      </h5>
-                  </a>
-              </div>
-              <!-- Card body -->
-              <div id="collapseFour" class="collapse show" role="tabpanel" aria-labelledby="advantages">
-                  <div class="card-body">
-                    {% page "advantages" type="wysiwyg" %}
-                  </div>
-              </div>
-          </div>
-          {% endif %}
-          <!-- Accordion card -->
 
           <!-- Accordion card -->
           {% if page.content.suggested_applications or page.content.application_photos or editing %}
