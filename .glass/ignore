@@ -1,5 +1,6 @@
 gulpfile.js
 package.json
+package-lock.json
 .gitignore
 node_modules/
 bower_components/

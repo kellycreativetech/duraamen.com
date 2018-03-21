@@ -19,7 +19,7 @@
                 <div class="col-md-12">
                     <div class="product-head wow fadeInDown" data-wow-delay="0.2s">
                         <h1><span class="subcat-page-title">{% page "title" type="text" %}</span></h1>
-                        <h5><a href="/photo-gallery"><i class="fa fa-chevron-left"></i> Photo Gallery</a></h5>
+                        <h5><a href="/photo-gallery{% if editing %}/admin{% endif %}"><i class="fa fa-chevron-left"></i> Photo Gallery</a></h5>
                     </div>
                     {% block undertitle %}{% endblock %}
                 </div>
@@ -35,29 +35,52 @@
   <div class="container" id="{{ page.content.slug }}">
     {% page "content" typex="wysiwyg" %}
 
+    {% if editing %}
+
+    <div class="admin-tools" style="max-width: 400px;margin:0;">
+      <p>Cover image (for category page display):</p>
+      {% page "cover_image" type="img" %}
+      <img
+        src="{% if page.content.cover_image %}{% imgix_url page.content.cover_image %}{% else %}https://placem.at/places{% endif %}?w=600"
+        data-srv-name="cover_image"
+      />
+    <p><small><em><strong>Note:</strong> It's not currently possible from
+      the frontend editor to create a child page that is also a parent page
+      of other pages, which is how this gallery was imported in Glass from
+      the original Wordpress build. In order to add photos to this page,
+      you need to go it's page in the Glass admin and click the "is parent"
+      checkbox toward the bottom of the screen.
+      <a href="http://website.glass/admin/pages/page/{{ page.id }}">Glass admin for this page</a>
+    </em></small></p>
+    </div>
+    {% endif %}
+    {% new_page_button label="Add New Image to this category" template="templates/gallery/_detail.html"  %}
+
     <div class="row" itemscope itemtype="http://schema.org/ImageGallery">
       {% children as mixed_img_sub order_by="published" %}
       {% autopaginate mixed_img_sub 16 %}
       {% for image in page_obj %}
         <div class="col-md-3" id="{{ image.id }}">
           {% if image.content.cover_image %}
-          <a class="thumbnail subcategory z-depth-1 hm-zoom waves-light waves-effect waves-light" itemprop="image" href="/{{ image.path }}" title="{{ image.content.name|default:"" }}"><img class="bordered" src="{% imgix_url image.content.cover_image %}?w=270&amp;h=230&amp;crop=entropy&amp;fit=crop" alt="{{ image.content.name|default:"" }}"></a>
-          <p class="caption subcat"><a href="/{{ image.path }}" title="{{ image.content.name|default:"" }}">{{ image.content.name }} <br><span>Click for photos</span></a></p>
+          <a class="thumbnail subcategory z-depth-1 hm-zoom waves-light waves-effect waves-light" itemprop="image" href="{{ image.get_absolute_url }}{% if editing %}/admin{% endif %}" title="{{ image.content.name|default:"" }}"><img class="bordered" src="{% imgix_url image.content.cover_image %}?w=270&amp;h=230&amp;crop=entropy&amp;fit=crop" alt="{{ image.content.name|default:"" }}"></a>
+          <p class="caption subcat"><a href="{{ image.get_absolute_url }}{% if editing %}/admin{% endif %}" title="{{ image.content.name|default:"" }}">{% firstof image.content.title image.content.name %} <br<small>Click for photos</small></a></p>
 
           {% else %}
           <a class="thumbnail"
               data-fancybox="photo-gallery"
               itemprop="image"
               href="{% imgix_url image.content.image %}?w=1400&h=1400&mark=/fb19770b-7be1-4c05-87a1-509b359e6111/0a/a0/0aa024ad767d4f5585cdf8a7e3e4fa4e-duraamen.png&markpad=0"
-              title="{% firstof image.content.description image.title "" %}"
-          ><img class="bordered" src="{% imgix_url image.content.image %}?w=270&amp;h=230&amp;crop=entropy&amp;fit=crop" alt="{% firstof image.content.description image.title "" %} (thumbnail)"></a>
+              title="{% firstof image.content.description image.content.title image.title "" %}"
+          ><img class="bordered" src="{% imgix_url image.content.image %}?w=270&amp;h=230&amp;crop=entropy&amp;fit=crop" alt="{% firstof image.content.description image.content.title image.title "" %} (thumbnail)"></a>
 
-          <p class="gallery-photo-caption">{% firstof image.content.description image.title "" %}
+          <p class="gallery-photo-caption">{% firstof image.content.description image.content.title image.title "" %}
           </p>
-              {% if editing %}
-              <a class="srv-icon-label srv-edit" href="{{ image.get_absolute_url }}/admin"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-pencil-sm"></use></svg>Edit</a>
-              {% endif %}
           {% endif %}
+
+          {% if editing %}
+          <a class="srv-icon-label srv-edit" href="{{ image.get_absolute_url }}/admin"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-pencil-sm"></use></svg>Edit</a>
+          {% endif %}
+
         </div>
     {% endfor %}
     </div>

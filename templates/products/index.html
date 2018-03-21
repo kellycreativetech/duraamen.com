@@ -1,0 +1,149 @@
+{% extends "base.html" %}
+
+
+
+
+
+{% block hero %}
+<!-- Intro Section -->
+<div
+  class="hero
+    view
+    hm-black-strong-1
+    jarallax
+    {% block heroclass %}x-small-hero{% endblock %}
+    "
+  data-jarallax="{'speed': 0.2}"
+  data-srv-name="masthead_img"
+  style="
+  {% if page.content.masthead_img %}
+    background-image: url({% imgix_url page.content.masthead_img %}?w=1800&h=1000&fit=crop&crop=entropy&sat=-80&crop=bottom&blend=000000&bm=normal&balph=50);
+  {% else %}
+  background-color: #555;
+  {% endif %}">
+
+  {% comment %}
+  If you want the background image as a default, here's the URL that you need:
+  {% imgix_url "/dist/img/iStock-92277191.jpg" %}
+  {% endcomment %}
+
+      <div class="full-bg-img d-flex justify-content-start align-items-end">
+        <div class="container">
+          {% page "masthead_img" type="img" %}
+            <div class="row smooth-scroll">
+                <div class="col-md-12">
+                    <div class="product-head wow fadeInDown" data-wow-delay="0.2s">
+                        <h1>{% page "name" type="text" %}</h1>
+                        <h4>{% page "subtitle" type="text" %}</h4>
+                    </div>
+                    {% block undertitle %}{% endblock %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+
+
+{% block main %}
+<section class="home-section">
+  <div class="container" itemscope itemtype="http://schema.org/Article">
+    <div class="row justify-content-center">
+      <div class="col-md-4">
+
+
+        {% menu "Navigation" begin_at="ecf1480f-b683-4e22-86b0-e603591e2fb1" trail_class="open" current_class="font-bold" %}
+
+        <!--Accordion wrapper-->
+        <div class="accordion" id="accordionEx" role="tablist" aria-multiselectable="true">
+          {% for item in tree %}
+            <!-- Accordion card -->
+            <div class="card">
+                <!-- Card header -->
+                <div class="card-header" role="tab" id="menu-item-{{ item.name|slugify }}" class="{{ item.classes|join:" " }}">
+                    <a data-toggle="collapse" data-parent="#accordionEx" href="#id_{{ item.name|slugify }}" aria-expanded="{% if "open" in item.classes %}true{% else %}false{% endif %}" aria-controls="id_{{ item.name|slugify }}">
+                        <h5 class="mb-0">
+                            {{ item.name }} <i class="fa fa-angle-down {% if "open" in item.classes %}rotate-icon{% endif %}"></i>
+                        </h5>
+                    </a>
+                </div>
+                <!-- Card body -->
+                <div id="id_{{ item.name|slugify }}" class="collapse {% if "open" in item.classes %}show{% endif %}" role="tabpanel" aria-labelledby="menu-item-{{ item.name|slugify }}">
+                    <div class="card-body">
+                      {% if item.children %}
+                      <ul class="nav flex-column">
+                          {% for citem in item.children %}
+                          <li class="nav-link {{ citem.classes|join:" " }}"><a class="{{ citem.classes|join:" " }}" href="{{ citem.url }}">{{ citem.name }}</a></li>
+                          {% endfor %}
+                      </ul>
+                      {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+          </div>
+
+
+
+
+      </div>
+      <div class="col-md-8">
+
+         {% new_page_button label="New Product" parent="p" %}
+
+
+
+        {% block content %}
+        <div class="row">
+
+        {% select_pages "category" path_split.1 varname="products" order_by="-published" %}
+        {% for product in products %}
+        <div class="col-md-6 col-lg-4 mb-4" itemscope itemtype="http://schema.org/Product">
+          {% if product.content.image %}
+            <a href="{{ product.get_absolute_url }}{% if editing %}/admin{% endif %}" class="z-depth-1 hm-zoom waves-light waves-effect waves-light">
+              <img class="" src="{% imgix_url product.content.image %}?w=400&h=400&fit=crop" itemprop="image">
+            </a>
+          {% endif %}
+
+          <h5><a href="{{ product.get_absolute_url }}{% if editing %}/admin{% endif %}" itemprop="name">{{ product.content.title }}</a> <br><small>{{ product.content.subtitle }}</small></h5>
+          <p class="small">{{ product.content.content|striptags|truncatewords:12 }}</p>
+        </div>
+        {% endfor %}
+
+        </div>
+        {% endblock content %}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+
+
+        <!--Accordion wrapper-->
+        <div class="accordion" role="tablist" aria-multiselectable="true" id="projectAccordion">
+          <!-- Accordion card -->
+          <div class="card">
+              <!-- Card header -->
+              <div class="card-header" role="tab" id="headingOne">
+                  <a data-toggle="collapse" data-parent="#productAccordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                      <h5 class="mb-0">
+                          {{ page.content.title }}<i class="fa fa-angle-down rotate-icon"></i>
+                      </h5>
+                  </a>
+              </div>
+
+              <!-- Card body -->
+              <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
+                  <div class="card-body {% if not editing %}two-column-text{% endif %}">
+                      {% page "content" type="wysiwyg" %}
+                  </div>
+              </div>
+          </div>
+
+
+
+      </div>
+  </div>
+</section>
+{% endblock %}

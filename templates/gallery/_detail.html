@@ -36,13 +36,14 @@
                                 <h3><small>Title:</small><br>
                                     {% page "title" type="text" %}
                                 </h3>
+                                <p><a href="http://website.glass/admin/pages/page/{{ page.id }}">Django admin for this page (to categorize)</a></p>
                                 <p><small>Description:</small><br>
                                     {% page "description" type="text" %}
                                 </p>
-                                <p>{% page "image_category" type="select" %}</p>
-
-                                <p>{% page "image_subcategory" type="select" %}</p>
                                 {% comment %}
+                                These are not used anywhere and are just confusing.
+                                <p>{% page "image_category" type="select" %}</p>
+                                <p>{% page "image_subcategory" type="select" %}</p>
                                 <p>{% page "tags" type="select" multiple="True" %}</p>
                                 {% endcomment %}
                                 <p>{% page "add_to_system" type="select" multiple="True" %}</p>
