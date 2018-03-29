@@ -108,7 +108,7 @@
             </a>
           {% endif %}
 
-          <h5><a href="{{ product.get_absolute_url }}{% if editing %}/admin{% endif %}" itemprop="name">{{ product.content.title }}</a> <br><small>{{ product.content.subtitle }}</small></h5>
+          <h5><a href="{{ product.get_absolute_url }}{% if editing %}/admin{% endif %}" itemprop="name">{{ product.content.title|safe }}</a> <br><small>{{ product.content.subtitle|safe }}</small></h5>
           <p class="small">{{ product.content.content|striptags|safe|truncatewords:12 }}</p>
         </div>
         {% endfor %}
