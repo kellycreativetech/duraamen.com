@@ -110,7 +110,7 @@
           </div>
           {% endif %}
           <!-- Accordion card -->
-          
+
 
           <!-- Accordion card -->
           {% if page.content.data or editing %}
@@ -171,7 +171,7 @@
           <!-- Accordion card -->
 
           <!-- Accordion card -->
-          {% if page.content.systems or editing %}
+          {% if page.content.systems or page.content.included_in_systems or editing %}
           <div class="card">
               <!-- Card header -->
               <div class="card-header" role="tab" id="systems">
@@ -185,6 +185,23 @@
               <div id="collapseSix" class="collapse show" role="tabpanel" aria-labelledby="systems">
                   <div class="card-body">
                     {% page "systems" type="wysiwyg" %}
+
+
+                    {% page "included_in_systems" type="select" multiple="true" %}
+                    {% if not editing %}
+                    <ul>
+                    {% for system in page.content.included_in_systems %}
+                    <li><a href="/{{ system }}">
+                      {% if system == "metallic-epoxy-flooring-system" %}<strong>Lumiere</strong> Designer Metallic Epoxy
+                      {% elif system == "decorative-quartz-flooring-system-epoxy-resins" %}<strong>Kwortz</strong> Seamless Decorative Quartz Flooring System
+                      {% elif system == "self-leveling-epoxy-flooring-system" %}<strong>Self-leveling Epoxy</strong> Flooring system (Concrete Sub)
+                      {% elif system == "high-build-epoxy-flooring-system" %}<strong>Seamless High Build Epoxy</strong> Flooring System
+                      {% else %}{{ system }}
+                      {% endif %}
+                    </a></li>
+                    {% endfor %}
+                    </ul>
+                    {% endif %}
                   </div>
               </div>
           </div>

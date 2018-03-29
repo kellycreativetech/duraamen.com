@@ -18,21 +18,21 @@
         <!--/.Search Form-->
         <!-- Side navigation links -->
         <li>
-          {% menu "Navigation" %}
+          {% menu "Navigation" trail_class="trail" current_class="active" %}
               <ul class="collapsible collapsible-accordion">
                 {% for item in tree %}
-              <li id="menu-item-{{ item.name|slugify }}" class="{{ item.trail_class }} {{ item.current_class }}">
+              <li id="menu-item-{{ item.name|slugify }}" class="{{ item.classes|join:" " }}">
                 <a
-                  class="{% if item.children %}collapsible-header{% endif %} waves-effect arrow-r"
-                  {% if not item.children %}href="{{ item.url }}"{% endif %} aria-expanded="true"
+                  class="{% if item.children %}collapsible-header{% endif %} waves-effect arrow-r {% if "trail" in item.classes %}active{% endif %}"
+                  {% if not item.children %}href="{{ item.url }}"{% endif %} aria-expanded="{% if "trail" in item.classes %}true{% else %}false{% endif %}"
                 >{{ item.name|safe }} {% if item.children %}<i class="fa fa-angle-down rotate-icon"></i>{% endif %}</a>
                 {% if item.children %}
                 <div class="collapsible-body">
                   <ul>
                     <!--{% if item.url %}<li class="copied-link"><a href="{{ item.url }}">{{ item.name|safe }}</a></li>{% endif %}-->
                     {% for citem in item.children %}
-                    <li class="{{ item.trail_class }}">
-                      <a class="waves-effect {{ item.current_class }}" href="{{ citem.url }}">{{ citem.name|safe }}</a>
+                    <li class="{{ citem.classes|join:" " }}">
+                      <a class="waves-effect {{ citem.classes|join:" " }}" href="{{ citem.url }}">{{ citem.name|safe }}</a>
                     </li>
                     {% endfor %}
                   </ul>
@@ -75,20 +75,20 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!--Links-->
-            {% menu "Navigation" %}
+            {% menu "Navigation" trail_class="trail" current_class="active" %}
                 <ul class="navbar-nav mr-auto">
                   {% for item in tree %}
-                <li id="menu-item-{{ item.name|slugify }}" class="nav-item {{ item.trail_class }} {{ item.name|slugify }} {{ item.current_class}} {% if item.children %}dropdown{% endif %}">
+                <li id="menu-item-{{ item.name|slugify }}" class="nav-item {{ item.classes|join:" " }} {{ item.name|slugify }} {% if item.children %}dropdown{% endif %}">
                   <a
-                    class="nav-link {% if item.children %}dropdown-toggle{% endif %} {{ item.current_class }}"
+                    class="nav-link {% if item.children %}dropdown-toggle{% endif %} {{ item.classes|join:" " }}"
                     href="{{ item.url }}"
                     {% if item.children %}data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"{% endif %}
                   >{{ item.name|safe }}</a>
                   {% if item.children %}
                   <ul class="dropdown-menu">
                     {% for citem in item.children %}
-                    <li class="dropdown-item {{ item.trail_class }}">
-                      <a class="nav-link {{ item.current_class }}" href="{{ citem.url }}">{{ citem.name|safe }}</a></li>
+                    <li class="dropdown-item {{ citem.classes|join:" " }}">
+                      <a class="nav-link {{ citem.classes|join:" " }}" href="{{ citem.url }}">{{ citem.name|safe }}</a></li>
                     {% endfor %}
                   </ul>
                   {% endif %}

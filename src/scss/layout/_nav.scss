@@ -325,3 +325,9 @@
     }
   }
 }
+
+
+.side-nav .collapsible-body > ul > li > a.parent,
+.side-nav .collapsible-body > ul > li > a.trail {
+  color: $gold;
+}

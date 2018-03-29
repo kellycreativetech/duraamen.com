@@ -181,7 +181,8 @@
           <!-- Accordion card -->
 
           <!-- Accordion card -->
-          {% if page.content.systems or editing %}
+          {% select_pages "included_in_systems" path_split.0 varname="system_list" order_by="-published" %}
+          {% if page.content.systems or system_list.count > 0 or editing %}
           <div class="card">
               <!-- Card header -->
               <div class="card-header" role="tab" id="systems">
@@ -195,6 +196,21 @@
               <div id="collapseSix" class="collapse show" role="tabpanel" aria-labelledby="systems">
                   <div class="card-body">
                     {% page "systems" type="wysiwyg" %}
+
+
+                    <div class="row">
+                    {% for system in system_list %}
+                      <div class="col-md-3 col-sm-4 col-6 mt-3 mb-3 recommended-systems">
+                        <a class="d-block"
+                          href="{{ system.get_absolute_url }}{% if editing %}/admin{% endif %}"
+                          title="{% firstof system.title "" %}">
+                            <img class="bordered side-product-photo img-fluid z-depth-1-half" src="{% imgix_url system.content.image %}?w=300&h=300&fit=crop" alt="{% firstof tool.title "" %}">
+                          </a>
+                          <h5 class="text-center mt-2 mb-4"><a href="{{ system.get_absolute_url }}{% if editing %}/admin{% endif %}">{{ system.content.title|safe }}</a></h5>
+                      </div>
+                    {% endfor %}
+                  </div>
+
                   </div>
               </div>
           </div>
