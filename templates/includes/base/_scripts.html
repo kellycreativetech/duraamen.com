@@ -27,4 +27,24 @@ window.__lc.license = 8698196;
 </script>
 
 
+<!-- shopify integration -->
+	<script id="CartItemTemplate" type="text/template">
+		<div class="cart-item">
+				<div class="cart-item__img"></div>
+				<div class="cart-item__content">
+						<div class="cart-item__content-row">
+								<div class="cart-item__variant-title"></div>
+								<span class="cart-item__title"></span>
+						</div>
+						<div class="cart-item__content-row">
+								<div class="cart-item__quantity-container">
+										<button class="btn--seamless quantity-decrement" type="button"><span>-</span><span class="visuallyhidden">Decrement</span></button>
+										<input class="cart-item__quantity" type="number" min="0" aria-label="Quantity">
+										<button class="btn--seamless quantity-increment" type="button"><span>+</span><span class="visuallyhidden">Increment</span></button>
+								</div>
+								<span class="cart-item__price"></span>
+						</div>
+				</div>
+		</div>
+	</script>
 {% block extra-scripts %}{% endblock %}

@@ -56,7 +56,13 @@
 
         <div class="text-center mt-3">
           {% chunk "under-product-image" %}
+
+          {% if page.content.shopify_product_id and user.is_staff %}
+          <div id='product-component-7fe6fb0565d'></div>
+          {% else %}
           <a class="btn btn-primary btn-lg btn-block" href="/order-now?product={{ page.path|slugify }}" itemprop="potentialAction">How to Order <i class="fa fa-chevron-right"></i></a>
+          {% endif %}
+
           <div class="d-none d-md-block">
             {% chunk "under-product-button" %}
             {% include "includes/snippets/section-icons.html" %}
@@ -352,6 +358,8 @@
               {% if "tools" in page.content.category %}
               {% page "add_tool_to_system" type="select" multiple="true" %}
               {% endif %}
+
+              <p><small>Shopify Product ID</small><br>{% page "shopify_product_id" placeholder="Enter a shopify Product ID here to enable the cart button." type="text" %}</p>
 
               {% comment %}
               {% page "applications" type="select" multiple="true" %}
