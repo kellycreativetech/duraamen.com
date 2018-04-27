@@ -10,7 +10,7 @@
           <input type="hidden" name="mailchimp-opt-in" value="YES"/>
           {% csrf_token %}
           <div class="md-form">
-            <input type="email" id="defaultForm-email" name="email" class="form-control validate">
+            <input type="email" id="defaultForm-email" name="email" class="form-control validate" required>
             <label for="defaultForm-email">Your email</label>
           </div>
           <div class="text-center">
