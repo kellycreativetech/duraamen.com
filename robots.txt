@@ -33,7 +33,6 @@ Disallow:/blog/*/concrete%20sealants$
 Disallow:/blog/?p=*$
 Disallow:/blog/sitemap.xml$
 Disallow:/blog/sitemap.xml.gz$
-Allow:/blog/wp-content/uploads/
 
 #Old Photo Gallery URLs
 Disallow:/photo-gallery/tag/
@@ -41,5 +40,9 @@ Disallow:/photo-gallery/tag$
 Disallow:/photo-gallery/stained-concrete/
 Disallow:/photo-gallery/stained-concrete$
 
-Sitemap: http://www.duraamen.com/sitemap.xml
-Sitemap: http://www.duraamen.com/sitemap-video.xml
+# Allow These Pages
+Allow:/blog/wp-content/uploads/
+Allow:/blog/2010/03/04/decorative-concrete-contractors-develop-skills
+
+Sitemap: https://www.duraamen.com/siteapi/duraamen/content.xml
+Sitemap: https://www.duraamen.com/sitemap-video.xml
