@@ -15,8 +15,6 @@ Disallow:/p$
 Disallow:/blog/signin-4$
 Disallow:/p/epoxy-concrete-crack-repair$
 Disallow:/products/terrazzi-concrete-resurfacing$
-Disallow:/color-charts/
-Disallow:/color-charts$
 
 #Old Landingpages
 
