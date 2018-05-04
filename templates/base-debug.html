@@ -3,12 +3,11 @@
 
 <body class="skraffino product-pages ">
 
-<div id="product-component-7fe6fb0565d"></div>
-
-
   <style>
 .shopify-buy-frame {margin: 0 auto;}
-</style> <script type=text/javascript>
+</style>
+<div id='product-component-ec1c4450888'></div>
+<script type="text/javascript">
 /*<![CDATA[*/
 
 (function () {
@@ -34,14 +33,14 @@
   function ShopifyBuyInit() {
     var client = ShopifyBuy.buildClient({
       domain: 'duraamen-com.myshopify.com',
-      storefrontAccessToken: 'a101fb6a56588c90b11224037193d216',
+      apiKey: 'a101fb6a56588c90b11224037193d216',
       appId: '6',
     });
 
     ShopifyBuy.UI.onReady(client).then(function (ui) {
       ui.createComponent('product', {
-        id: ['621883424828'],
-        node: document.getElementById('product-component-7fe6fb0565d'),
+        id: [643582984252],
+        node: document.getElementById('product-component-ec1c4450888'),
         moneyFormat: '%24%7B%7Bamount%7D%7D',
         options: {
   "product": {
@@ -54,8 +53,7 @@
       "variantTitle": false,
       "price": false,
       "description": false,
-      "buttonWithQuantity": true,
-      "button": false,
+      "buttonWithQuantity": false,
       "quantity": false
     },
     "styles": {
@@ -102,7 +100,6 @@
     "contents": {
       "button": true
     },
-    "popup":false,
     "styles": {
       "button": {
         "background-color": "#6c2a1f",

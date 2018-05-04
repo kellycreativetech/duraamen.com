@@ -3,7 +3,6 @@
 .shopify-buy-frame {margin: 0 auto;}
 </style>
 
-
 <script type="text/javascript">
 /*<![CDATA[*/
 
@@ -37,7 +36,7 @@
     ShopifyBuy.UI.onReady(client).then(function (ui) {
       ui.createComponent('product', {
         id: [{{ page.content.shopify_product_id|striptags }}],
-        node: document.getElementById('product-component-7fe6fb0565d'),
+        node: document.getElementById('product-component-ec1c4450888'),
         moneyFormat: '%24%7B%7Bamount%7D%7D',
         options: {
   "product": {
@@ -50,8 +49,7 @@
       "variantTitle": false,
       "price": false,
       "description": false,
-      "buttonWithQuantity": true,
-      "button": false,
+      "buttonWithQuantity": false,
       "quantity": false
     },
     "styles": {
@@ -68,8 +66,9 @@
         "font-size": "14px",
         "padding-top": "15px",
         "padding-bottom": "15px",
-        "padding-left": "40px",
-        "padding-right": "40px",
+        "padding-left": "20px",
+        "padding-right": "20px",
+        "width": "100%",
         ":hover": {
           "background-color": "#61261c"
         },
