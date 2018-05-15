@@ -31,9 +31,6 @@
 </div>
 {% endblock %}
 
-
-
-
 {% block main %}
 <section class="home-section">
   <div class="container" id="{{ page.content.slug }}" itemscope itemtype="http://schema.org/Product">
@@ -42,35 +39,36 @@
         {% page "image" type="img" %}
         {% if page.content.image or editing %}
 
-<div class="z-depth-1-half pb-5">
-        {% if not editing %}
-        <a class="product-image  d-block" data-fancybox href="{% imgix_url page.content.image %}?w=1400&h=1400">
-          {% endif %}
-          <img
+        <div class="z-depth-1-half pb-5">
+          {% if not editing %}
+          <a class="product-image  d-block" data-fancybox href="{% imgix_url page.content.image %}?w=1400&h=1400">
+            {% endif %}
+            <img
             class="img-fluid"
             alt="{{ page.content.title|striptags }} {{ page.content.subtitle|striptags }}"
             src="{% if page.content.image %}{% imgix_url page.content.image %}{% elif editing %}https://placem.at/places{% endif %}?w=600"
             data-srv-name="image"
-          />
-        {% if not editing %}</a>{% endif %}
-        {% endif %}
+            />
+            {% if not editing %}</a>{% endif %}
+            {% endif %}
 
-        <div class="text-center mt-3">
-          {% chunk "under-product-image" %}
+            <div class="text-center mt-3">
+              {% chunk "under-product-image" %}
 
-          {% if page.content.shopify_product_id and user.is_staff %}
-          <div id='product-component-ec1c4450888'></div>
-          {% else %}
-          <a class="btn btn-primary btn-lg btn-block" href="/order-now?product={{ page.path|slugify }}" itemprop="potentialAction">How to Order <i class="fa fa-chevron-right"></i></a>
-          {% endif %}
-        </div>
-        </div>
-<div class="text-center mt-3">
-          <div class="d-none d-md-block">
-            {% chunk "under-product-button" %}
-            {% include "includes/snippets/section-icons.html" %}
+              {% if page.content.shopify_product_id and user.is_staff %}
+              <div id='product-component-ec1c4450888'></div>
+              {% else %}
+              <a class="btn btn-primary btn-lg btn-block" href="/order-now?product={{ page.path|slugify }}" itemprop="potentialAction">How to Order <i class="fa fa-chevron-right"></i></a>
+              {% endif %}
+            </div>
           </div>
-        </div>
+
+          <div class="text-center mt-3">
+            <div class="d-none d-md-block">
+              {% chunk "under-product-button" %}
+              {% include "includes/snippets/section-icons.html" %}
+            </div>
+          </div>
 
 
       </div>
