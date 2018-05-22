@@ -95,7 +95,8 @@
 @import "vendor/mdb/pro/checkbox";
 
 // wrapping this because it messes with Glass too much.
-.main-body {
+
+body:not(.product-pages) .main-body {
   @import "vendor/mdb/pro/material-select";
 }
 
@@ -156,3 +157,4 @@
 @import "module/section-icons";
 @import "module/video-gallery";
 @import "module/contact-icons";
+@import "module/cart-overrides";

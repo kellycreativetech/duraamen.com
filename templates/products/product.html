@@ -61,8 +61,16 @@ style="background-color: #f5f5f5;">
 
 
             {% if page.content.shopify_product_id and user.is_staff %}
-            <div class="text-center">
+            <div class="text-center shop-button-wrappers">
               <div id='product-component-ec1c4450888'></div>
+
+              {% if page.content.shopify_sample_id and user.is_staff %}
+              <div class="second-shopify-product">
+                  <p><em><b>Not sure which color to choose?</b> Scroll down to see the color chart or order samples here to test all colors.</em></p>
+                  <div id='product-component-f0d847679a0'></div>
+              </div>
+
+              {% endif %}
             </div>
           </div>
 
@@ -377,6 +385,9 @@ style="background-color: #f5f5f5;">
                   {% endif %}
 
                   <p><small>Shopify Product ID</small><br>{% page "shopify_product_id" placeholder="Enter a shopify Product ID here to enable the cart button." type="text" %}</p>
+
+
+                  <p><small>Shopify Sample Product ID</small><br>{% page "shopify_sample_id" placeholder="If this product contains samples, enter that product ID here." type="text" %}</p>
 
                   {% comment %}
                   {% page "applications" type="select" multiple="true" %}

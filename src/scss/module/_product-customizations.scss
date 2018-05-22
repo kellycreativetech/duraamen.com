@@ -29,12 +29,13 @@
   padding: 0;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: flex-start;
 
   li {
     text-align: left;
     max-width: 136px;
     font-size: 0.8em;
+    margin: 0 6px 10px 0;
   }
   &.system-page {
     justify-content: flex-start;
