@@ -1,8 +1,8 @@
 {% paginate customer.addresses by 5 %}
 
-<div class="page-width text-center">
+<div class="page-width text-center pt-5">
   <header class="section-header">
-    <h2>{{ 'customer.addresses.title' | t }}</h2>
+    {% comment %}<h2>{{ 'customer.addresses.title' | t }}</h2>{% endcomment %}
     <p><a href="/account">{{ 'customer.account.return' | t }}</a></p>
     <p>
       <button type="button" class="btn address-new-toggle">{{ 'customer.addresses.add_new' | t }}</button>

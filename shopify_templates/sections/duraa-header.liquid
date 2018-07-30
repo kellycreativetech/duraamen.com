@@ -252,11 +252,12 @@
       -->
       {% if shop.customer_accounts_enabled %}
       {% if customer %}
-      <a href="/account" class="site-header__account">
+      <a href="/account">
         {% comment %}{% include 'icon-login' %}{% endcomment %}
-        <span>{{ 'layout.customer.account' | t }}</span> <i class="fa fa-user"></i>
+        <span style="font-weight: 600">Hello {{ customer.first_name }}! </span>
         <span class="icon__fallback-text">{{ 'layout.customer.account' | t }}</span>
-      </a>
+      </a> | {{ 'layout.customer.log_out' | t | customer_logout_link }} <i class="fa fa-user"></i>
+
       {% else %}
       <a href="/account/login" class="site-header__account">
         {% comment %}{% include 'icon-login' %}{% endcomment %}
@@ -293,17 +294,32 @@
 </nav>
 <!-- duraamen hero image -->
 <div class="hero x-small-hero view hm-black-strong-1">
-    <div class="full-bg-img">
-        <div class="container flex-center">
-          <div class="row smooth-scroll justify-content-md-center">
-                <div class="col-md-12 text-center">
-                    <div class="wow fadeInDown" data-wow-delay="0.2s">
-                        <h1>Duraamen Shopping Account</h1>
-                    </div>
-                </div>
-            </div>
+  <div class="full-bg-img">
+    <div class="container flex-center">
+      <div class="row smooth-scroll justify-content-md-center">
+        <div class="col-md-12 text-center">
+          <div class="wow fadeInDown" data-wow-delay="0.2s">
+            <!--h1>Duraamen Shopping Account</h1-->
+            <h1 class="text-center">
+              {% if template.name == 'login' %}
+              Sign in
+              {% elsif template.name == 'register' %}
+              Create an Account
+              {% elsif template.name == 'account' %}
+              Account Details
+              {% elsif template.name == 'order' %}
+              Order Details
+              {% elsif template.name == 'addresses' %}
+              Your Registered Addresses
+              {% else %}
+              Your Account
+              {% endif %}
+            </h1>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </div>
 <!-- end hero image -->
 
