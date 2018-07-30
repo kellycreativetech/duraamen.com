@@ -1,7 +1,11 @@
-<div class="page-width">
+<div class="page-width pt-5 pb-5">
   <div class="grid">
 
-    <div class="grid__item medium-up--one-half medium-up--push-one-quarter">
+     <div class="grid__item medium-up--one-half pr-md-5 duraaBorderRt">
+
+       <h3 class="mb-md-5 text-center">Sign in with your email</h3>
+        <h4 class="showOnMobile mb-3 text-center">(or scroll down to login with social media)</h4>
+
       <div class="note form-success hide" id="ResetSuccess">
         {{ 'customer.recover_password.success' | t }}
       </div>
@@ -9,7 +13,7 @@
       <div id="CustomerLoginForm" class="form-vertical">
         {% form 'customer_login' %}
 
-          <h1 class="text-center">{{ 'customer.login.title' | t }}</h1>
+          {% comment %}<h1 class="text-center">{{ 'customer.login.title' | t }}</h1>{% endcomment %}
 
           {{ form.errors | default_errors }}
 
@@ -35,16 +39,6 @@
 
         {% endform %}
       </div>
-
-      <!-- duraamen social login -->
-
-      <div class="text-center mt-5">
-        <h4>Login with one of your other accounts</h4>
-        <div class="one-click-social-login"></div>
-      </div>
-
-	  <!-- end duraamen social login -->
-
       <div id="RecoverPasswordForm" class="hide">
 
         <div class="text-center">
@@ -93,6 +87,18 @@
           {% endform %}
         </div>
       {% endif %}
+    </div>
+    <div class="grid__item medium-up--one-half mt-5 mt-md-0">
+
+          <!-- duraamen social login -->
+
+      <div class="text-center">
+        <h3>Sign in with…</h3>
+        <div class="one-click-social-login"></div>
+      </div>
+
+	  <!-- end duraamen social login -->
+
     </div>
 
   </div>
