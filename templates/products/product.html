@@ -42,7 +42,7 @@ style="background-color: #f5f5f5;">
         {% page "image" type="img" %}
         {% if page.content.image or editing %}
 
-        {% if page.content.shopify_product_id and user.is_staff %}
+        {% if page.content.shopify_product_id %}
         <div class="z-depth-1-half pb-3 pr-2 mb-3 mb-md-0">
         {% endif %}
 
@@ -50,7 +50,7 @@ style="background-color: #f5f5f5;">
           <a class="product-image  d-block" data-fancybox href="{% imgix_url page.content.image %}?w=1400&h=1400">
             {% endif %}
             <img
-            class="{% if page.content.shopify_product_id and user.is_staff %}img-fluid{% else %}img-fluid z-depth-1-half{% endif %}"
+            class="{% if page.content.shopify_product_id %}img-fluid{% else %}img-fluid z-depth-1-half{% endif %}"
             alt="{{ page.content.title|striptags }} {{ page.content.subtitle|striptags }}"
             src="{% if page.content.image %}{% imgix_url page.content.image %}{% elif editing %}https://placem.at/places{% endif %}?w=600"
             data-srv-name="image"
@@ -60,11 +60,11 @@ style="background-color: #f5f5f5;">
 
 
 
-            {% if page.content.shopify_product_id and user.is_staff %}
+            {% if page.content.shopify_product_id %}
             <div class="text-center shop-button-wrappers">
               <div id='product-component-ec1c4450888'></div>
 
-              {% if page.content.shopify_sample_id and user.is_staff %}
+              {% if page.content.shopify_sample_id %}
               <div class="second-shopify-product">
                   <p><em><b>Not sure which color to choose?</b> Scroll down to see the color chart or order samples here to test all colors.</em></p>
                   <div id='product-component-f0d847679a0'></div>
@@ -117,6 +117,14 @@ style="background-color: #f5f5f5;">
               <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
                 <div class="card-body">
                   {% page "content" type="wysiwyg" %}
+                  <div class="mt-3 mb-3">
+                    {% page_list "product_description_photos" %}
+                    <a class="d-inline-block z-depth-1" data-fancybox="photos" href="{% imgix_url list_item.image %}?w=1400&h=1400">
+                      {% list_item "image" type="image" %}
+                      <img class="bordered side-product-photo" src="{% imgix_url list_item.image %}?w=150&h=150&fit=crop" itemprop="image">
+                    </a>
+                    {% end_list %}
+                  </div>
                 </div>
               </div>
             </div>

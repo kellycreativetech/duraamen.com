@@ -1,25 +1,32 @@
 <div class="nav-top">
   <div class="container">
     <div class="row">
-      <div class="col-lg-8 ml-auto">
+
+      <div class="col col-lg-10 ml-auto mr-auto mr-md-0">
         <div class="row">
-          <div class="col has-contact-links  hide-for-mobile">
+
+          <div class="col has-contact-links hide-for-mobile ">
             <a class="contact-link" href="/contact"><i class="fa fa-envelope-o" aria-hidden="true"></i><i class="fa fa-chevron-right" aria-hidden="true"></i> Request Info</a>
           </div>
-          <div class="col has-contact-links">
+
+          <div class="col-sm-6 col-md has-contact-links d-md-none d-lg-flex">
             <a class="contact-link phone" href="tel:8668356595"><i class="fa fa-mobile" aria-hidden="true"></i><span>+1 866.835.6595</span></a>
           </div>
 
-            <!--todo: addthis -->
+          <div class="col-sm-6 col-md d-none d-sm-flex has-contact-links">
+            <a class="contact-link" href="https://shop.duraamen.com/account"><i aria-hidden="true" class="fa fa-user"></i> <span class="d-none d-sm-inline">Your Account</span></a>
+          </div>
 
-          <div class="col-md-5  hide-for-mobile">
+          <div class="col-md-4 hide-for-mobile">
             <form action="/search/" class="form-inline md-form form-sm search-form">
               <input name="q" class="form-control w-75 mr-3" type="text" placeholder="Search" aria-label="Search" value="{{ request.GET.query }}">
               <button class="btn btn-white btn-floating"><i class="fa fa-search" aria-hidden="true"></i></button>
             </form>
           </div>
+
         </div>
       </div>
+
     </div>
   </div>
 </div>

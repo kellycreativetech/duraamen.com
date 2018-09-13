@@ -1,0 +1,61 @@
+<div class="page-width pt-5 pb-5">
+  <div class="grid__item text-center p-3 duraaCallOut"><h2>Up to 15% OFF</h2><h3>on every purchase, every time!</h3></div>
+  <div class="grid">
+    <div class="grid__item medium-up--two-thirds pr-md-5 duraaBorderRt">
+
+      <div class="form-vertical">
+        {% form 'create_customer' %}
+
+          {% comment %}<h1 class="text-center">{{ 'customer.register.title' | t }}</h1>{% endcomment %}
+           <h3 class="mb-md-5 text-center">Fill out this form</h3>
+        <h4 class="showOnMobile mb-3 text-center">(or scroll down to register with social media)</h4>
+
+          {{ form.errors | default_errors }}
+<script src='//open-signin.okasconcepts.com/customer/script?shop=duraamen-com.myshopify.com'></script>
+
+          <label for="FirstName">{{ 'customer.register.first_name' | t }}</label>
+          <input type="text" name="customer[first_name]" id="FirstName" {% if form.first_name %}value="{{ form.first_name }}"{% endif %} autofocus>
+
+          <label for="LastName">{{ 'customer.register.last_name' | t }}</label>
+          <input type="text" name="customer[last_name]" id="LastName" {% if form.last_name %}value="{{ form.last_name }}"{% endif %}>
+
+          <label for="Email">{{ 'customer.register.email' | t }}</label>
+          <input type="email" name="customer[email]" id="Email" class="{% if form.errors contains 'email' %} input--error{% endif %}" {% if form.email %} value="{{ form.email }}"{% endif %} autocorrect="off" autocapitalize="off">
+
+          <label for="CreatePassword">{{ 'customer.register.password' | t }}</label>
+          <input type="password" name="customer[password]" id="CreatePassword" class="{% if form.errors contains 'password' %} input--error{% endif %}">
+
+       	<div>
+  			<input type="hidden" name="customer[accepts_marketing]" value="" />
+  			<input type="checkbox" name="customer[accepts_marketing]" checked="checked" /> Subscribe to stay updated with new products and offers!
+		</div>
+
+
+
+          <p class="text-center">
+            <input type="submit" value="{{ 'customer.register.submit' | t }}" class="btn">
+          </p>
+
+        {% endform %}
+      </div>
+
+    </div>
+
+        <div class="grid__item medium-up--one-third mt-5 mt-md-0">
+
+          <!-- duraamen social login -->
+
+      <div class="text-center">
+        <h3>Register with one<br>of your other accounts</h3>
+        <p style="font-size:.75em;">You will receive product news and offers via email. You may unsubscribe at any time.</p>
+        <div class="one-click-social-login"></div>
+      </div>
+
+	  <!-- end duraamen social login -->
+
+    </div>
+
+
+
+  </div>
+</div>

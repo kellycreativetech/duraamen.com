@@ -122,3 +122,10 @@ li {
 }
 
 // end bulleted list styles for body copy
+
+
+/* sale prices */
+.shopify-buy__product__compare-price {
+  text-decoration: line-through!important;
+  margin-left: 10px;
+}

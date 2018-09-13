@@ -46,3 +46,13 @@
   }
   }
 }
+
+// Privacy Policy & other flat pages with tables
+.normalTable td {
+  display: table-cell;
+}
+
+// move livechat window up
+#livechat-compact-container {
+  bottom: 55px!important;
+}
