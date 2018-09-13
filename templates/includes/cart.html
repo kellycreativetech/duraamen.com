@@ -1,4 +1,4 @@
-{% if page.content.shopify_product_id and user.is_staff %}
+
 <style>
 .shopify-buy-frame {margin: 0 auto;}
 </style>
@@ -101,14 +101,23 @@
       }
     }
 
+
     ShopifyBuy.UI.onReady(client, productOptions).then(function (ui) {
+      {% if page.content.shopify_product_id %}
       ui.createComponent('product', {
         id: [{{ page.content.shopify_product_id|striptags }}],
         node: document.getElementById('product-component-ec1c4450888'),
         moneyFormat: '%24%7B%7Bamount%7D%7D',
         options: productOptions
       });
+      {% else %}
+      ui.createCart({
+          moneyFormat: '%24%7B%7Bamount%7D%7D',
+          options: productOptions
+      })
+      {% endif %}
     });
+
 
     // optional second product on page
     {% if page.content.shopify_sample_id %}
@@ -125,4 +134,3 @@
 })();
 /*]]>*/
 </script>
-{% endif %}
