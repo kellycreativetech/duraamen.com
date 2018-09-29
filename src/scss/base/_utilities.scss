@@ -22,7 +22,9 @@ margin:0 0 0 5px;
 color: $brand-gold;
 }
 
-
+.fancybox-container {
+  z-index: 21474836458; //wut. Arms race with Shopify's cart.
+}
 
 .row {
   width: 100%;

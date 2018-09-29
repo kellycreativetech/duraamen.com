@@ -100,7 +100,7 @@
       }
     }
 
-    
+
     ShopifyBuy.UI.onReady(client, productOptions).then(function (ui) {
       {% if page.content.shopify_product_id %}
       ui.createComponent('product', {
@@ -113,10 +113,10 @@
       ui.createCart({
           moneyFormat: '%24%7B%7Bamount%7D%7D',
           options: productOptions
-      }) 
+      })
       {% endif %}
     });
-    
+
 
     // optional second product on page
     {% if page.content.shopify_sample_id %}
@@ -129,6 +129,43 @@
           });
         });
    {% endif %}
+
+
+   // optional products for case study pages
+   {% if page.content.shopify_product_2 %}
+       ShopifyBuy.UI.onReady(client, productOptions).then(function (ui) {
+         ui.createComponent('product', {
+           id: [{{ page.content.shopify_product_2 }}],
+           node: document.getElementById('product-component-2'),
+           moneyFormat: '%24%7B%7Bamount%7D%7D',
+           options: productOptions
+         });
+       });
+  {% endif %}
+
+  {% if page.content.shopify_product_3 %}
+      ShopifyBuy.UI.onReady(client, productOptions).then(function (ui) {
+        ui.createComponent('product', {
+          id: [{{ page.content.shopify_product_3 }}],
+          node: document.getElementById('product-component-3'),
+          moneyFormat: '%24%7B%7Bamount%7D%7D',
+          options: productOptions
+        });
+      });
+ {% endif %}
+
+ {% if page.content.shopify_product_4 %}
+     ShopifyBuy.UI.onReady(client, productOptions).then(function (ui) {
+       ui.createComponent('product', {
+         id: [{{ page.content.shopify_product_4 }}],
+         node: document.getElementById('product-component-4'),
+         moneyFormat: '%24%7B%7Bamount%7D%7D',
+         options: productOptions
+       });
+     });
+{% endif %}
+
+
   }
 })();
 /*]]>*/
