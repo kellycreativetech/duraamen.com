@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block hero %}{% include "includes/base/hero-x-small.html" %}{% endblock %}
+
+
+{% block main %}
+<section class="home-section">
+  <div class="container" itemscope itemtype="http://schema.org/Article">
+    <div class="row justify-content-center">
+      <div class="col-10">
+        <div itemprop="articleBody">
+          {% block content %}
+          {% endblock content %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+
+{% block undermain %}
+<section>
+  <div class="container pad-bottom">
+    {% include "includes/sections/blog-random.html" %}
+  </div>
+</section>
+{% endblock %}
