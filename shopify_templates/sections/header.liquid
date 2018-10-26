@@ -174,7 +174,7 @@
         {% endif %}
           {% if section.settings.logo %}
             {%- assign img_url = section.settings.logo | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
-            <a href="/" class="site-header__logo-image{% if section.settings.align_logo == 'center' %} site-header__logo-image--centered{% endif %}">
+            <a href="https://www.duraamen.com/products" class="site-header__logo-image{% if section.settings.align_logo == 'center' %} site-header__logo-image--centered{% endif %}">
               {% capture logo_alt %}{{ section.settings.logo.alt | default: shop.name }}{% endcapture %}
               <img class="lazyload js"
                    src="{{ section.settings.logo | img_url: '300x300' }}"
@@ -193,7 +193,7 @@
               </noscript>
             </a>
           {% else %}
-            <a class="site-header__logo-link" href="http://duraamen.com/"><img alt="Duraamen logo | concrete coatings &amp; polished concrete products that are engineered to perform" height="40" src="https://www.duraamen.com/dist/img/logo.svg" width="200"></a>
+            <a class="site-header__logo-link" href="http://duraamen.com/products"><img alt="Duraamen logo | concrete coatings &amp; polished concrete products that are engineered to perform" height="40" src="https://www.duraamen.com/dist/img/logo.svg" width="200"></a>
           {% endif %}
         {% if template.name == 'index' %}
           </h1>
