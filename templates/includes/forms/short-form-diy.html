@@ -17,6 +17,17 @@
   <label for="id_phone" class="control-label required-field">Phone</label>
   <input name="phone" maxlength="2000" type="text" class="charfield required" id="id_phone" />
 </div>
+<!-- hidden input for mailchimp add to group -->
+<div class="mc-field-group input-group" style="display:none;">
+    <strong>Interest / Profession </strong>
+    <ul><li><input type="checkbox" value="1" name="group[10521][1]" id="mce-group[10521]-10521-0"><label for="mce-group[10521]-10521-0">Architect</label></li>
+<li><input type="checkbox" value="2" name="group[10521][2]" id="mce-group[10521]-10521-1" checked><label for="mce-group[10521]-10521-1">DIY / Homeowner</label></li>
+<li><input type="checkbox" value="4" name="group[10521][4]" id="mce-group[10521]-10521-2"><label for="mce-group[10521]-10521-2">Business Owner / Property Manager</label></li>
+<li><input type="checkbox" value="8" name="group[10521][8]" id="mce-group[10521]-10521-3"><label for="mce-group[10521]-10521-3">Conctractor / Intaller</label></li>
+<li><input type="checkbox" value="16" name="group[10521][16]" id="mce-group[10521]-10521-4"><label for="mce-group[10521]-10521-4">Installers Edge Contractor Workshop</label></li>
+</ul>
+</div>
+<!-- end hidden input -->
 <div class="md-form">
   <label for="message">If you have a specific request type it below</label>
   <textarea type="text" id="message" name="message" class="md-textarea"></textarea>
@@ -31,3 +42,6 @@
 </div>
 
 </form>
+
+
+<input type="checkbox" value="262144" name="group[10517][262144]" id="mce-group[10517]-10517-0" style="display:none;" checked>
