@@ -16,12 +16,27 @@ window.__lc.license = 8698196;
 <!-- End of LiveChat code -->
 {% endif %}
 
+
+
+{% if editing %}
+<script>
+function setCookie(name, value, days) {
+    var d = new Date;
+    d.setTime(d.getTime() + 5000*days);
+    document.cookie = name + "=" + value + ";path=/;expires=" + d.toGMTString();
+};
+setCookie("user_is_admin", "true");
+</script>
+{% endif %}
+
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-65651587-1"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
+
+  {% if editing %}gtag('set', 'dimension2', 'true');{% endif %}
 
   gtag('config', 'UA-65651587-1');
 </script>
