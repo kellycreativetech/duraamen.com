@@ -25,3 +25,32 @@
 .for-business-owners-property-managers {
 
 }
+
+/* landing pages NO NAV */
+.landing-pages.no-nav {
+  margin-top: 0!important;
+
+  nav, .nav-top, .side-nav {
+    display:none;
+  }
+  nav.nav-no-nav {
+    display: block;
+    top: 0;
+  }
+  .hero {
+    margin-top: 0;
+    .push-content {
+      margin-top: 70px;
+      @include media-breakpoint-up(md) {
+        padding-top: 40px;
+        .card {
+          z-index: 999;
+          top: -85px;
+        }
+        h1 {
+          text-align: left;
+        }
+      }
+    }
+  }
+}
