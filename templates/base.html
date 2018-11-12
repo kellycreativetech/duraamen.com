@@ -36,6 +36,7 @@
 
   {% include "includes/base/footer.html" %}
   {% include "includes/base/_scripts.html" %}
+  {% if request.path|slice:":5" == '/blog' %}<script src="//assets.pinterest.com/js/pinit.js" type="text/javascript" async  data-pin-hover="true" ></script>{% endif %}
   {% include "includes/cart.html" %}
 
 
