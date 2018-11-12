@@ -20,8 +20,11 @@
                   <div class="card wow fadeInDown" data-wow-delay="0.4s">">
                     <div class="card-body">
                       <h3 class="text-center" style="color:#333;">{% page "form-cta" %}</h3>
-                    {% if request.get_full_path == "/for-homeowners" %}{% include "includes/forms/short-form-diy.html" %}{% else %}{% include "includes/forms/short-form.html" %}{% endif %}
-
+                    {% if request.get_full_path == "/for-homeowners" %}{% include "includes/forms/short-form-diy.html" %}
+                    {% elif request.get_full_path == "/for-architects" %}{% include "includes/forms/short-form-architects.html" %}
+                    {% elif request.get_full_path == "/for-contractors" %}{% include "includes/forms/short-form-contractors.html" %}
+                    {% elif request.get_full_path == "/for-business-owners-property-managers" %}{% include "includes/forms/short-form-business.html" %}
+                    {% else %}{% include "includes/forms/short-form.html" %}{% endif %}
                     </div>
                   </div>
                 </div>
