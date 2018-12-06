@@ -9,6 +9,10 @@
   <label for="id_name" class="control-label required-field">Name*</label>
   <input name="name" maxlength="2000" required type="text" class="charfield required" id="id_name" />
 </div>
+<!--<div class="md-form">
+  <label for="id_company" class="control-label required-field">Company</label>
+  <input name="Company" maxlength="2000" type="text" class="charfield required" id="id_company" />
+</div>-->
 <div class="md-form">
   <label for="id_e_mail" class="control-label required-field">E-mail*</label>
   <input name="email" maxlength="2000" required type="email" class="emailfield required" id="id_e_mail" />
@@ -17,30 +21,17 @@
   <label for="id_phone" class="control-label required-field">Phone</label>
   <input name="phone" maxlength="2000" type="text" class="charfield required" id="id_phone" />
 </div>
-
-<!--The mc_id field is unnecessary because we're publishing everything
-to the same list. You can only use form-specific lists OR groups with
-the mailchimp API Zapier app.
-
-uncomment this if you want to use mutilple lists again.
-<input type="hidden" name="mc_id" value="bdd0a42dd0">
-
-Otherwise, uncomment the correct field from the options here, as I've
-done just below this commment. If you change the name of the group,
-the text needs to match exactly here.
-
-<input type="hidden" name="mc_group" value="Interest / Profession->Architect">
-<input type="hidden" name="mc_group" value="Interest / Profession->DIY / Homeowner">
-<input type="hidden" name="mc_group" value="Interest / Profession->Business Owner / Property Manager">
-<input type="hidden" name="mc_group" value="Interest / Profession->Conctractor / Installer">
-<input type="hidden" name="mc_group" value="Interest / Profession->Installers Edge Contractor Workshop">
--->
-
-<input type="hidden" name="mc_group" value="Interest / Profession->DIY / Homeowner">
-
-<div class="md-form">
+<!--<div class="md-form">
   <label for="message">If you have a specific request type it below</label>
   <textarea type="text" id="message" name="message" class="md-textarea"></textarea>
+</div>-->
+
+<p>Interested in:* <p>
+<div class="md-form">
+  <input checked id="id_diy" name="duraamen_diy" type="checkbox" value="NONE"/>
+  <label class="checkbox" for="id_diy">DIY Products</label>
+  <input checked id="id_install" name="duraamen_installer" type="checkbox" value="NO"/>
+  <label class="checkbox" for="id_install">Hiring an Installer</label>
 </div>
 
 <div class="md-form">
@@ -48,10 +39,6 @@ the text needs to match exactly here.
   <label class="checkbox" for="id_opt_in">Receive product information and special offers via e-mail?</label>
 </div>
 <div class="center-on-small-only">
-<button type="submit" class="btn btn-primary"><span class="fa fa-paper-plane fa-2x"></span> Send</button>
+  <button type="submit" class="btn btn-primary"><span class="fa fa-paper-plane fa-2x"></span> Send</button>
 </div>
-
 </form>
-
-
-<input type="checkbox" value="262144" name="group[10517][262144]" id="mce-group[10517]-10517-0" style="display:none;" checked>
