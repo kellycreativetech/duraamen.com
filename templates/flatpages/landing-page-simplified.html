@@ -6,39 +6,79 @@
 
 {% block main %}
 <section class="home-section">
-<div class="container">
+  <div class="container">
     <div class="row">
-        <div class="col-md-10 offset-md-1">
-          <h2>{% page "Subhead" type="text" %}</h2>
-
-          {% block content %}
-          {% page "content" type="wysiwyg" placeholder="Insert Content here" %}
-
-
-          <!--{% if page.path == "for-architects" %}
-          <h3>This is only on the architects page</h3>
-          {% elif page.path == "for-contractors" %}
-          <h3>This is only on the contractors page</h3>
-          {% endif %}
-
-          {% if page.path != "for-architects" %}
-          <h3>This is all pages except for-architects</h3>
-          {% endif %}
-
-          {% if page.path == "for-architects" %}
-          {% else %}
-          <h3>Which is functionally equivalent to this.</h3>
-          {% endif %}-->
-
-
-
-          {% endblock content %}
-
-          {% block map-wrap %}{% endblock %}
-          {% block belowcontent %}{% endblock %}
-
+      <div class="col-md-10 offset-md-1 text-center">
+        <h2 class="mb-5">Most Requested Services</h2>
+        <div class="row text-left">
+          <div class="col-sm">
+            {% page "services1" type="wysiwyg" placeholder="Services Col 1" %}
+          </div>
+          <div class="col-sm">
+            {% page "services2" type="wysiwyg" placeholder="Services Col 2" %}
+          </div>
+          <div class="col-sm">
+            {% page "services3" type="wysiwyg" placeholder="Services Col 3" %}
+          </div>
         </div>
+        {% block map-wrap %}{% endblock %}
+        {% block belowcontent %}{% endblock %}
+      </div>
     </div>
-</div>
+  </div>
+</section>
+
+<div class="top-button">{% page "section_img" type="img" %}</div>
+
+<section
+
+class="section-hero jarallax-section"
+
+style="background-image: url({% if page.content.section_img %}{% imgix_url page.content.section_img %}{% else %}{% imgix_url "/dist/img/iStock-92277191.jpg" %}{% endif %}?w=2020&h=690&fit=crop&sat=-0&crop=bottom&blend=000000&bm=normal&balph=0);"
+data-srv-name="section_img">
+
+<div class="container class="full-bg-img"">
+  <div class="row">
+    <div class="col-md-10 offset-md-1 text-center pt-5 pb-5" style="background-color:rgba(0, 0, 0, 0.4); color: #fff;">
+      <h2>Hire a {% page "h2" type="text" placeholder="City" %} Concrete Flooring
+        Contractor with confidence.</h2>
+        {% page "installerdesc" type="wysiwyg" placeholder="Insert Content here" %}
+        <a class="btn btn-secondary btn-lg waves-effect waves-light wow fadeInUp smooth-scroll pb-3 pt-1" data-offset="110" data-wow-delay="0.2s" href="#top-of-page">
+          <i class="fa fa-chevron-up"></i><br>
+          <span>Refer me to a contractor</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</section>
+<section class="home-section" style="background-color: #eee;">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10 offset-md-1 text-center">
+        <h2>Doing It Yourself?</h2>
+        {% page "diydesc" type="wysiwyg" placeholder="Insert Content here" %}
+        <a class="btn btn-secondary btn-lg waves-effect waves-light wow fadeInUp smooth-scroll pb-3 pt-1" data-offset="110" data-wow-delay="0.2s" href="#top-of-page">
+          <i class="fa fa-chevron-up"></i><br>
+          <span>Request information</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</section>
+<section class="home-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10 offset-md-1 text-center">
+        <h5 class="mb-5">Find local concrete coatings & decorative concrete contractors in areas across the U.S.</h5>
+        <div class="row mb-5 city-links">
+          {% include "includes/snippets/landingpage-cities.html" %}
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 {% endblock %}

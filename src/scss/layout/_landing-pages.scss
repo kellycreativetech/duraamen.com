@@ -54,4 +54,24 @@
       }
     }
   }
+  section {
+    p, ul, ol {
+      font-size: 1.25rem;
+    }
+    .city-links a {
+      font-size: 1rem;
+    }
+  }
+  .jarallax-section {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 680px;
+  }
+
+  .section-hero {
+    display: flex;
+    align-items: center;
+  }
+
 }

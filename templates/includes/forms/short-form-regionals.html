@@ -5,40 +5,33 @@
   <input type="hidden" name="redirect" value="/thank-you?fromurl={{ page.path }}" />
   <input type="hidden" name="mc_id" value="bdd0a42dd0">
   <input id="id_from_duraamen_url" name="from_duraamen_url" type="hidden">
-<div class="md-form">
-  <label for="id_name" class="control-label required-field">Name*</label>
-  <input name="name" maxlength="2000" required type="text" class="charfield required" id="id_name" />
-</div>
-<!--<div class="md-form">
-  <label for="id_company" class="control-label required-field">Company</label>
-  <input name="Company" maxlength="2000" type="text" class="charfield required" id="id_company" />
-</div>-->
-<div class="md-form">
-  <label for="id_e_mail" class="control-label required-field">E-mail*</label>
-  <input name="email" maxlength="2000" required type="email" class="emailfield required" id="id_e_mail" />
-</div>
-<div class="md-form">
-  <label for="id_phone" class="control-label required-field">Phone</label>
-  <input name="phone" maxlength="2000" type="text" class="charfield required" id="id_phone" />
-</div>
-<!--<div class="md-form">
-  <label for="message">If you have a specific request type it below</label>
-  <textarea type="text" id="message" name="message" class="md-textarea"></textarea>
-</div>-->
-
-<p>Interested in:* <p>
-<div class="md-form">
-  <input checked id="id_diy" name="duraamen_diy" type="checkbox" value="NONE"/>
-  <label class="checkbox" for="id_diy">DIY Products</label>
-  <input checked id="id_install" name="duraamen_installer" type="checkbox" value="NO"/>
-  <label class="checkbox" for="id_install">Hiring an Installer</label>
-</div>
-
-<div class="md-form">
-  <input checked id="id_opt_in" name="mailchimp-opt-in" type="checkbox" value="YES"/>
-  <label class="checkbox" for="id_opt_in">Receive product information and special offers via e-mail?</label>
-</div>
-<div class="center-on-small-only">
-  <button type="submit" class="btn btn-primary"><span class="fa fa-paper-plane fa-2x"></span> Send</button>
-</div>
-</form>
+  <div class="md-form mb-2">
+    <label for="id_name" class="control-label required-field">Name*</label>
+    <input name="name" maxlength="2000" required type="text" class="charfield required" id="id_name" />
+  </div>
+  <div class="md-form mb-2">
+    <label for="id_e_mail" class="control-label required-field">E-mail*</label>
+    <input name="email" maxlength="2000" required type="email" class="emailfield required" id="id_e_mail" />
+  </div>
+  <div class="md-form">
+    <label for="id_phone" class="control-label required-field">Phone</label>
+    <input name="phone" maxlength="2000" type="text" class="charfield required" id="id_phone" />
+  </div>
+  <large id="helper" class="form-text text-muted font-weight-bold ">Interested in* :</large>
+  <div class="md-form form-check form-check-inline mb-0">
+    <input type="checkbox" id="id_diy" name="diy_products">
+    <label class="checkbox" for="id_diy">DIY Products</label>
+  </div>
+  <div class="md-form form-check form-check-inline mb-0">
+    <input type="checkbox" id="id_installers" name="intallers">
+    <label class="checkbox" for="id_installers">Hiring an Installer</label>
+  </div>
+  <div class="md-form">
+    <input checked id="id_opt_in" name="mailchimp-opt-in" type="checkbox" value="YES"/>
+    <label class="checkbox" for="id_opt_in">Receive product information &amp; special offers via email?</label>
+  </div>
+  <div class="text-center mb-4">
+    <button type="submit" class="btn btn-secondary text-center"><!--<span class="fa fa-paper-plane fa-2x"></span>-->Request Info</button>
+  </div>
+  <large id="helper" class="form-text text-muted text-center mb-4"><span style="color:#000;">We’ll contact you within 24 hrs to learn about your project,<br> or call </span><span class="font-weight-bold font-size-xl text-nowrap" style="font-size: 1.3rem; color:#000;" >1-866-835-6595</span><span style="color:#000;"> to talk to someone now.</span></large>
+  </form>
