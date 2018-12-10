@@ -38,7 +38,7 @@
     display: block;
     top: 0;
   }
-  .hero {
+  .simple-hero {
     margin-top: 0;
     .push-content {
       margin-top: 70px;
@@ -61,17 +61,43 @@
     .city-links a {
       font-size: 1rem;
     }
+    .col-landingpage-customer {
+      font-family: 'Roboto', sans-serif;
+      font-size: 1.25rem;
+      color:#fff;
+      letter-spacing: .05rem;
+      font-weight: 400;
+    }
+    .col-services {
+      ul {
+        li{
+          margin-bottom: 50px;
+          line-height: 115%;
+          font-size: 1.4rem;
+        }
+      }
+    }
   }
   .jarallax-section {
     background-size: cover;
-    background-repeat: no-repeat;
+    background-repeat: repeat-y;
     background-position: center;
-    height: 680px;
+    min-height: 680px;
   }
-
   .section-hero {
     display: flex;
     align-items: center;
   }
-
+  .jarallax-column {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 300px;
+  }
+  .column-hero {
+    display: flex;
+    align-items: center;
+    text-align: center!important;
+    color: #FFF;
+  }
 }
