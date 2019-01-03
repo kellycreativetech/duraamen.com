@@ -1,0 +1,147 @@
+{% extends "base-simplified.html" %}
+
+{% block bodyclass %} landing-pages no-nav {% endblock %}
+
+{% block hero %}{% include "includes/base/hero-with-landing-page-form-simplified.html" %}{% endblock %}
+
+{% block main %}
+<section>
+  <div class="row ml-0 mr-0" >
+
+    <div class="col-sm text-center pt-2 pb-2 col-landingpage-customer" style="background-color:#6d8340;">
+      Residential
+    </div>
+    <div class="col-sm text-center pt-2 pb-2 col-landingpage-customer" style="background-color:#a89165;">
+      Commercial
+    </div>
+    <div class="col-sm text-center pt-2 pb-2 col-landingpage-customer" style="background-color:#ff9800;">
+      Industrial
+    </div>
+
+  </div>
+</section>
+<!-- services section -->
+</section>
+<section class="home-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10 offset-md-1 text-center">
+        <h2 class="mb-5">Most Requested Services</h2>
+        <div class="row text-left">
+          <div class="col-sm col-services">
+            {% page "services1" type="wysiwyg" placeholder="Services Col 1" %}
+          </div>
+          <div class="col-sm col-services">
+            {% page "services2" type="wysiwyg" placeholder="Services Col 2" %}
+          </div>
+          <div class="col-sm col-services">
+            {% page "services3" type="wysiwyg" placeholder="Services Col 3" %}
+          </div>
+        </div>
+        {% block map-wrap %}{% endblock %}
+        {% block belowcontent %}{% endblock %}
+      </div>
+    </div>
+  </div>
+</section>
+<!-- installers section w/ background image -->
+<div class="top-button">{% page "section_img" type="img" %}</div>
+
+<section
+class="section-hero jarallax-section"
+style="background-image: url({% if page.content.section_img %}{% imgix_url page.content.section_img %}{% else %}{% imgix_url "/dist/img/iStock-92277191.jpg" %}{% endif %}?w=2020&h=690&fit=crop&sat=-0&crop=bottom&blend=000000&bm=normal&balph=0);"
+data-srv-name="section_img">
+
+<div class="container class="full-bg-img"">
+  <div class="row">
+    <div class="col-lg-6 offset-lg-3 col-md-8 offset-md-2 col-sm-10 offset-sm-1 col-xs-12 offset-xs-0 text-center pt-5 pb-5" style="background-color:rgba(0, 0, 0, 0.75); color: #fff;">
+      <h2>Hire a {% page "h2" type="text" placeholder="City" %} Concrete Flooring
+        Contractor with confidence.</h2>
+        {% page "installerdesc" type="wysiwyg" placeholder="Insert Content here" %}
+        <a class="btn btn-secondary btn-lg waves-effect waves-light wow fadeInUp smooth-scroll pb-3 pt-1" data-offset="110" data-wow-delay="0.2s" href="#top-of-page">
+          <i class="fa fa-chevron-up"></i><br>
+          <span>Refer me to a contractor</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Diy section-->
+</section>
+<section class="home-section" style="background-color: #eee;">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10 offset-md-1 text-center">
+        <h2>Doing It Yourself?</h2>
+        {% page "diydesc" type="wysiwyg" placeholder="Insert Content here" %}
+        <a class="btn btn-secondary btn-lg waves-effect waves-light wow fadeInUp smooth-scroll pb-3 pt-1" data-offset="110" data-wow-delay="0.2s" href="#top-of-page">
+          <i class="fa fa-chevron-up"></i><br>
+          <span>Request information</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section>
+  <div class="row ml-0 mr-0" >
+
+    <div class="column-hero jarallax-column col-sm" style="background-image: url({% if page.content.residential_img %}{% imgix_url page.content.residential_img %}{% else %}{% imgix_url "/dist/img/iStock-92277191.jpg" %}{% endif %}?w=500&h=350&fit=crop&sat=-0&crop=bottom&blend=6d8340&bm=normal&balph=0);" data-srv-name="residential_img">
+      <div class="container class="full-bg-img"">
+        <div class="row">
+          <div class="col-md-10 offset-md-1 text-center pt-5 pb-5" >
+            <div class="top-button">{% page "residential_img" type="img" %}</div>
+            <!--<h5>Residential</h5>-->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="column-hero jarallax-column col-sm" style="background-image: url({% if page.content.commercial_img %}{% imgix_url page.content.commercial_img %}{% else %}{% imgix_url "/dist/img/iStock-92277191.jpg" %}{% endif %}?w=500&h=350&fit=crop&sat=-0&crop=bottom&blend=a89165&bm=normal&balph=0);" data-srv-name="commercial_img">
+      <div class="container class="full-bg-img"">
+        <div class="row">
+          <div class="col-md-10 offset-md-1 text-center pt-5 pb-5" >
+            <div class="top-button">{% page "commercial_img" type="img" %}</div>
+
+            <!--<h5>Commercial</h5>-->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="column-hero jarallax-column col-sm" style="background-image: url({% if page.content.industrial_img %}{% imgix_url page.content.industrial_img %}{% else %}{% imgix_url "/dist/img/iStock-92277191.jpg" %}{% endif %}?w=500&h=350&fit=crop&sat=-0&crop=bottom&blend=ff9800&bm=normal&balph=0);" data-srv-name="industrial_img">
+      <div class="container class="full-bg-img"">
+        <div class="row">
+          <div class="col-md-10 offset-md-1 text-center pt-5 pb-5" >
+            <div class="top-button">{% page "industrial_img" type="img" %}</div>
+
+            <!--<h5>Industrial</h5>-->
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- city section-->
+<!--</section>
+<section class="home-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10 offset-md-1 text-center">
+        <h5 class="mb-3">Find local concrete coatings & decorative concrete contractors in areas across the U.S.</h5>
+        <a class="btn btn-secondary btn-lg waves-effect waves-light wow fadeInUp smooth-scroll pb-3 pt-1 mb-5" data-offset="110" data-wow-delay="0.2s" href="#top-of-page">
+          <i class="fa fa-chevron-up"></i><br>
+          <span>Request information</span>
+        </a>
+        <div class="row mb-3 city-links">
+          {% include "includes/snippets/landingpage-cities.html" %}
+        </div>
+                <p class="mb-5">If your city is not listed, don't worry. We have contractors all over the nation. We're still working on building pages for them. Contact us using the form above and we'll refer a contractor to you in your area.</p>
+      </div>
+    </div>
+  </div>
+</section>-->
+{% endblock %}
