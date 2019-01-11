@@ -106,4 +106,4 @@ gulp.task('watch', function watchTask() {
   gulp.watch('src/fonts/**/*', ['fonts']);
 });
 
-gulp.task('default', ['sass', 'scripts', 'images', 'fonts', 'watch']);
+gulp.task('default', ['fonts', 'watch']);
