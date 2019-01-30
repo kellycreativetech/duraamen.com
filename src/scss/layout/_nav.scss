@@ -90,6 +90,9 @@
   .dropdown-menu .dropdown-item {
     padding-top:0;
     padding-bottom:0;
+    a.active{
+      color: #fff!important;
+    }
   }
 
   &.navbar-light .breadcrumb .nav-item .nav-link,
