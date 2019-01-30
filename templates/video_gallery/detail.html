@@ -51,14 +51,21 @@
           <a data-fancybox="videos" class="thumbnail" rel="video" href="https://www.youtube-nocookie.com/embed/{{ firstvid.youtube_id }}?rel=0" title="{{ firstvid.title }}">
             <i class="play-icon fa fa-play-circle fa-5" aria-hidden="true"></i>
             <img itemprop="thumbnail" src="{% imgix_url firstvid.image %}?w=730" alt="{{ firstvid.title }}">
-            <h3 class="mt-2 mb-4 text-center" itemprop="name">{{ firstvid.title }}</h3>
+            <h3 class="mt-2 mb-3 text-center" itemprop="name">{{ firstvid.title }}</h3>
           </a>
         </div>
         {% endfor %}
+        <!-- AddThis Button BEGIN -->
+        <!-- Go to www.addthis.com/dashboard to customize your tools -->
+        <div class="addthis_sharing_toolbox mb-4" style="margin: 0 auto; text-align:center;"></div>
+        <script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+        <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-520d221765704fe3" async="async"></script>
+        <!-- AddThis Button END -->
 
         <div class="text-center">
           <p><a href="/video-gallery" class="btn btn-secondary"><i class="play-icon fa fa-chevron-left" aria-hidden="true"></i> Back to Video Gallery</a></p>
         </div>
+
 
         {% page "content" type="wysiwyg" %}
 
