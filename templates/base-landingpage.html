@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{% if page.content.meta_title %}{{ page.content.meta_title|striptags }}{% elif page.content.title %}{{ page.content.title|striptags }} | {{ site.name }}{% else %}{{ site.name }}{% endif %}</title>
+    {% include "includes/base/_meta-head.html" %}
+    <!-- Font Awesome -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Roboto:400,400i,500" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="/dist/css/style.css" rel="stylesheet">
+</head>
+<body class="{{ page.path|slugify}} {% block bodyclass %}{%endblock %}">
+  <header>
+    {% block hero %}{% include "includes/base/hero.html" %}{% endblock %}
+  </header>
+
+  <main class="main-body z-depth-4" id="main">
+    {% block main %}
+    {% endblock %}
+
+    {% block belowmaincontent %}
+    {% endblock %}
+  </main>
+
+  {% block undermain %}
+  {% endblock %}
+
+  {% if editing %}
+  {% include "includes/base/_meta-tools.html" %}
+  {% endif %}
+
+  {% include "includes/base/footer.html" %}
+  {% include "includes/base/_scripts.html" %}
+  {% include "includes/cart.html" %}
+
+
+</body>
+</html>

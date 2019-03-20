@@ -27,7 +27,7 @@
                   {% endif %}
                     <h6 class="text-muted text-uppercase">{{ post.content.related.0 }}</h6>
                     <h2><a href="{{ post.get_absolute_url }}{% if editing %}/admin{% endif %}" class="post-link">{{ post.content.title|safe }}</a></h2>
-                    <p class="teaser">{{ post.content.content|truncatewords:40|striptags|safe }}</p>
+                    <p class="teaser">{{ post.content.content|truncatewords_html:36|striptags }}</p>
                     <p><span class="text-muted">By</span> <strong>Duraamen</strong>,
                       <span class="date text-muted">{% if post.published %}{{ post.published|date:"F jS, Y" }}{% else %}Not published yet{% endif %}</span>
                     </p>

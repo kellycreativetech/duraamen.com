@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block hero %}{% include "includes/base/hero-x-small.html" %}{% endblock %}
+
+{% block main %}
+<section class="home-section">
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 offset-md-1">
+          <h2>{% page "Subhead" type="text" %}</h2>
+
+          {% block content %}
+          {% page "content" type="wysiwyg" placeholder="Insert Content here" %}
+          {% endblock content %}
+
+          {% if page.path == "forms/locate-a-contractor" %}
+          {% include "includes/forms/locate-a-contractor.html" %}
+          {% endif %}
+
+          {% block map-wrap %}{% endblock %}
+          {% block belowcontent %}{% endblock %}
+
+        </div>
+
+        {% comment %}
+        <div class="col-md-4">
+          {% page "main_content_img" type="img" %}
+          {% if page.content.main_content_img or editing %}
+          <img
+            class="img-fluid"
+            src="{% if page.content.main_content_img %}{% imgix_url page.content.main_content_img %}{% elif editing %}https://placem.at/places{% endif %}?w=400"
+            data-srv-name="main_content_img"
+          />
+          {% endif %}
+
+          {% block belowsidebar %}{% endblock belowsidebar %}
+        </div>
+        {% endcomment %}
+    </div>
+</div>
+</section>
+{% endblock %}

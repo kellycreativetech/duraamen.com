@@ -41,21 +41,87 @@
     <div class="row">
         <div class="col-md-10 offset-md-1">
           {% for result in results.hits.hits %}
-         
-         
-              <h2><br><a href="/{{ result.obj.path }}?q={{ request.GET.q }}">{{ result.obj.content.title|safe }}</a></h2>
-              {% for h in result.highlight.searchable_text %}
-                  <p class="result">{{ h|safe }} &hellip;</p>
-              {% empty %}
-                  <p class="result">No results found.</p>
-              {% endfor %}
-                
+
+
+
+
+              {% if result.obj.template.url == "/templates/gallery/_detail.html" or result.obj.template.url == "/templates/base.html" %}
+              <!-- remove all legacy photo gallery items and product category pages from search results -->
+              {% else %}
+
+              <div class="row blog-list-post">
+                {% if result.obj.content.image or result.obj.content.masthead_img %}
+                <div class="col-md-4">
+                    <a class="blog-preview-img z-depth-1-half rounded" href="/{{ result.obj.path }}">
+                        <img class="img-fluid rounded" src="{% if result.obj.content.image %}{% imgix_url result.obj.content.image %}{% elif result.obj.content.masthead_img %}{% imgix_url result.obj.content.masthead_img %}{% endif %}?w=400&h=400&fit=crop">
+                    </a>
+                </div>
+                <div class="col-md-8">
+                {% else %}
+                <div class="col-md-12">
+                {% endif %}
+                    <h6 class="text-muted text-uppercase">
+                        {% if result.obj.template.name == "product.html" %}<a href="/products">Product</a>
+                        {% elif result.obj.template.name == "categories.html" %}<a href="/products/">Shop These Products</a>
+                        {% elif result.obj.template.name == "system.html" %}<a href="/flooring-systems">Flooring System</a>
+                        {% elif result.obj.template.name == "blog_post.html" %}<a href="/blog">Blog Post</a>
+                        {% elif result.obj.template.name == "detail.html" %}<a href="/video-gallery">Video Gallery Post</a>
+                        {% endif %}
+                    </h6>
+                    <h2><a class="post-link" href="/{{ result.obj.path }}?q={{ request.GET.q }}">{{ result.obj.content.title|safe }}</a></h2>
+
+                    {% for h in result.highlight.searchable_text %}
+                    <p class="result">{{ h|safe }} &hellip;</p>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}<!-- photo gallery filter -->
+
+
+
+          {% empty %}
+          <p class="result">No results found.</p>
+
           {% endfor %}
-          
+
           {% include "includes/snippets/pagination.html" %}
 
         </div>
     </div>
 </div>
 </section>
+
+<script>
+// remove duplicates
+
+var toggleScrollableButton = document.querySelectorAll('[data-toggle-scrollable]');
+
+toggleScrollableButton.forEach(function(e) {
+    function toggleScrollable(e){
+      var scrollableList = this.previousElementSibling;
+      var scrollableItems = scrollableList.querySelectorAll('.activity-card-item');
+      // adding 60 to the height of the box accounts for the button size.
+      var scrollableHeight = scrollableList.scrollHeight + 60;
+
+      console.log('height', scrollableHeight);
+
+      // add a height value based on the current height
+      scrollableList.style.height = scrollableHeight + "px";
+
+      // add class to add overflow: auto
+      scrollableList.classList.toggle('is-scrollable');
+
+      // Remove button, because there's no undo.
+      this.classList.add('hide');
+
+      // Inject more items. I'm just un-hiding them for the demo.
+      scrollableItems.forEach(function(e) {
+        e.classList.remove('hide');
+      });
+    }
+    e.addEventListener('click', toggleScrollable);
+});
+
+
+</script>
 {% endblock %}

@@ -92,13 +92,21 @@
         <div class="row">
 
         {% if page.path == "products" %}
-        {% children as products order_by="?" %}
-        {% elif path_split.0 == "p" %}
-        {% select_pages "category" path_split.1 varname="products" order_by="-published" %}
-        {% else %}
-        {% select_pages "category" path_split.0 varname="products" order_by="-published" %}
+            {% children as products order_by="?" %}
+        {% elif path_split.3 %}
+            {% select_pages "category" path_split.3 varname="products" order_by="-published" %}
+        {% elif path_split.2 %}
+            {% select_pages "category" path_split.2 varname="products" order_by="-published" %}
+        {% elif path_split.1 %}
+            {% select_pages "category" path_split.1 varname="products" order_by="-published" %}
+            
+        {% else %} <!-- this one is original -->
+            {% select_pages "category" path_split.0 varname="products" order_by="-published" %}
         {% endif %}
-
+        
+        {% comment %}These are no longer used. {% elif path_split.0 == "p" %}{% select_pages "category" path_split.1 varname="products" order_by="-published" %}{% endcomment %}
+        
+        
         {% autopaginate products 15 %}
         {% for product in products %}
         <div class="col-sm-6 col-md-6 col-lg-4 mb-4 category-item" itemscope itemtype="http://schema.org/Product">

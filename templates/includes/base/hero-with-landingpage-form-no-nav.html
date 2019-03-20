@@ -1,0 +1,41 @@
+<div class="top-button">{% page "masthead_img" type="img" %}</div>
+<div
+  class="hero view hm-black-strong-1 jarallax"
+
+  style="background-image: url({% if page.content.masthead_img %}{% imgix_url page.content.masthead_img %}{% else %}{% imgix_url "/dist/img/iStock-92277191.jpg" %}{% endif %}?w=1800&h=1000&fit=crop&sat=-0&crop=bottom&blend=000000&bm=normal&balph=10);"
+  data-srv-name="masthead_img">
+
+  <div class="nav-top">
+    <div class="container">
+      <div class="row">
+
+      </div>
+    </div>
+  </div>
+
+
+    <div class="full-bg-img">
+    </div>
+        <div class="container push-content">
+            <div class="row smooth-scroll">
+              <div class="col-md-12 text-center">
+                <h1 class="wow fadeInDown mb-5 mt-5" data-wow-delay="0.2s">{% page "title" %}</h1>
+              </div>
+                <div class="col-md-6 white-text text-left">
+                    <div class="wow fadeInDown" data-wow-delay="0.2s">
+                        {% page "hero-content" type="wysiwyg" %}
+                    </div>
+                </div>
+                <div class="col-md-6 white-text">
+                  <div class="card wow fadeInDown" data-wow-delay="0.4s">">
+                    <div class="card-body">
+                      <h3 class="text-center" style="color:#333;">{% page "form-cta" %}</h3>
+                    {% if request.get_full_path == "/for-homeowners" %}{% include "includes/forms/short-form-diy.html" %}{% else %}{% include "includes/forms/short-form.html" %}{% endif %}
+
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+
+</div>

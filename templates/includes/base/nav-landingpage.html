@@ -1,0 +1,106 @@
+<!-- Sidebar navigation -->
+<div id="slide-out" class="side-nav right-aligned">
+  <ul class="custom-scrollbar list-unstyled">
+    <div class="logo-wrapper waves-light waves-effect waves-light">
+      <a href="/"><img height="40" src="/dist/img/logo.svg" class="img-fluid flex-center" width="240" alt="Duraamen logo | concrete coatings & polished concrete products that are engineered to perform"></a>
+    </div>
+
+
+    <!--Search Form-->
+    <li>
+      <form class="search-form" role="search" action="/search/">
+        <div class="form-group waves-light">
+          <input name="q" class="form-control" type="text" placeholder="Search" aria-label="Search" value="{{ request.GET.query }}">
+        </div>
+      </form>
+    </li>
+    <!--/.Search Form-->
+
+    <!-- Side navigation links -->
+    <li>
+      {% menu "Navigation" trail_class="trail" current_class="active" %}
+      <ul class="collapsible collapsible-accordion">
+        <!--Your Account-->
+        <li id="menu-item-account" class="{{ item.classes|join:" " }}">
+          <a href="https://shop.duraamen.com/account">Your Account <i aria-hidden="true" class="fa fa-user"></i></a>
+        </li>
+        <!--/.Your Account-->
+        {% for item in tree %}
+        <li id="menu-item-{{ item.name|slugify }}" class="{{ item.classes|join:" " }}">
+          <a
+          class="{% if item.children %}collapsible-header{% endif %} waves-effect arrow-r {% if "trail" in item.classes %}active{% endif %}"
+          {% if not item.children %}href="{{ item.url }}"{% endif %} aria-expanded="{% if "trail" in item.classes %}true{% else %}false{% endif %}"
+          >{{ item.name|safe }} {% if item.children %}<i class="fa fa-angle-down rotate-icon"></i>{% endif %}</a>
+          {% if item.children %}
+          <div class="collapsible-body">
+            <ul>
+              <!--{% if item.url %}<li class="copied-link"><a href="{{ item.url }}">{{ item.name|safe }}</a></li>{% endif %}-->
+              {% for citem in item.children %}
+              <li class="{{ citem.classes|join:" " }}">
+                <a class="waves-effect {{ citem.classes|join:" " }}" href="{{ citem.url }}">{{ citem.name|safe }}</a>
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+          {% endif %}
+        </li>
+        {% endfor %}
+      </ul>
+    </li>
+    <!--/. Side navigation links -->
+
+    <!--Social-->
+    <li>
+      <ul class="social">
+        <li><a href="#" class="icons-sm fb-ic"><i class="fa fa-facebook"> </i></a></li>
+        <li><a href="#" class="icons-sm pin-ic"><i class="fa fa-pinterest"> </i></a></li>
+        <li><a href="#" class="icons-sm gplus-ic"><i class="fa fa-google-plus"> </i></a></li>
+        <li><a href="#" class="icons-sm tw-ic"><i class="fa fa-twitter"> </i></a></li>
+      </ul>
+    </li>
+    <!--/Social-->
+  </ul>
+</div>
+<!--/. Sidebar navigation -->
+
+
+
+<!--Navbar-->
+<nav class="navbar fixed-top navbar-expand-lg navbar-light scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/{% if editing %}admin{% endif %}">
+      <img src="/dist/img/logo.svg"  width="200" height="40" alt="Duraamen logo | concrete coatings & polished concrete products that are engineered to perform">
+    </a>
+    <button data-activates="slide-out" class="navbar-toggler button-collapse" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+
+
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <!--Links-->
+      {% menu "Navigation" trail_class="trail" current_class="active" %}
+      <ul class="navbar-nav mr-auto">
+        {% for item in tree %}
+        <li id="menu-item-{{ item.name|slugify }}" class="nav-item {{ item.classes|join:" " }} {{ item.name|slugify }} {% if item.children %}dropdown{% endif %}">
+          <a
+          class="nav-link {% if item.children %}dropdown-toggle{% endif %} {{ item.classes|join:" " }}"
+          href="{{ item.url }}"
+          {% if item.children %}data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"{% endif %}
+          >{{ item.name|safe }}</a>
+          {% if item.children %}
+          <ul class="dropdown-menu">
+            {% for citem in item.children %}
+            <li class="dropdown-item {{ citem.classes|join:" " }}">
+              <a class="nav-link {{ citem.classes|join:" " }}" href="{{ citem.url }}">{{ citem.name|safe }}</a></li>
+              {% endfor %}
+            </ul>
+            {% endif %}
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!--/Navbar-->

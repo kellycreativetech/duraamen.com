@@ -19,13 +19,33 @@
   </div>
   <large id="helper" class="form-text text-muted font-weight-bold ">Interested in* :</large>
   <div class="md-form form-check form-check-inline mb-0">
-    <input type="checkbox" id="id_diy" name="diy_products">
+    <input type="checkbox" id="id_diy" name="diy_products" value="Interest / Profession->DIY / Homeowner">
     <label class="checkbox" for="id_diy">DIY Products</label>
   </div>
   <div class="md-form form-check form-check-inline mb-0">
-    <input type="checkbox" id="id_installers" name="intallers">
+    <input type="checkbox" id="id_installers" name="installers" value="Interest / Profession->DIY / Homeowner">
     <label class="checkbox" for="id_installers">Hiring an Installer</label>
   </div>
+  
+  <!--The mc_id field is unnecessary because we're publishing everything
+to the same list. You can only use form-specific lists OR groups with
+the mailchimp API Zapier app.
+
+uncomment this if you want to use mutilple lists again.
+<input type="hidden" name="mc_id" value="bdd0a42dd0">
+
+Otherwise, uncomment the correct field from the options here, as I've
+done just below this commment. If you change the name of the group,
+the text needs to match exactly here.
+
+<input type="hidden" name="mc_group" value="Interest / Profession->Architect">
+<input type="hidden" name="mc_group" value="Interest / Profession->DIY / Homeowner">
+<input type="hidden" name="mc_group" value="Interest / Profession->Business Owner / Property Manager">
+<input type="hidden" name="mc_group" value="Interest / Profession->Conctractor / Installer">
+<input type="hidden" name="mc_group" value="Interest / Profession->Installers Edge Contractor Workshop">
+
+
+-->
   <div class="md-form">
     <input checked id="id_opt_in" name="mailchimp-opt-in" type="checkbox" value="YES"/>
     <label class="checkbox" for="id_opt_in">Receive product information &amp; special offers via email?</label>
