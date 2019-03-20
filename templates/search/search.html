@@ -91,3 +91,22 @@
 </div>
 </section>
 {% endblock %}
+
+
+{% block extra-scripts %}
+<script>
+
+var $resultLinks = $('.blog-list-post');
+var uniqueResults = [];
+
+
+$resultLinks.each(function(i,e){
+    var thisLink = $.trim($(e).find('.post-link').attr('href'));
+    console.log('thisLink', thisLink);
+    if(uniqueResults.indexOf(thisLink) == -1)
+        uniqueResults.push(thisLink);
+    else
+        $(e).remove();
+});
+</script>
+{% endblock %}
