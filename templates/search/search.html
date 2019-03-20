@@ -90,38 +90,4 @@
     </div>
 </div>
 </section>
-
-<script>
-// remove duplicates
-
-var toggleScrollableButton = document.querySelectorAll('[data-toggle-scrollable]');
-
-toggleScrollableButton.forEach(function(e) {
-    function toggleScrollable(e){
-      var scrollableList = this.previousElementSibling;
-      var scrollableItems = scrollableList.querySelectorAll('.activity-card-item');
-      // adding 60 to the height of the box accounts for the button size.
-      var scrollableHeight = scrollableList.scrollHeight + 60;
-
-      console.log('height', scrollableHeight);
-
-      // add a height value based on the current height
-      scrollableList.style.height = scrollableHeight + "px";
-
-      // add class to add overflow: auto
-      scrollableList.classList.toggle('is-scrollable');
-
-      // Remove button, because there's no undo.
-      this.classList.add('hide');
-
-      // Inject more items. I'm just un-hiding them for the demo.
-      scrollableItems.forEach(function(e) {
-        e.classList.remove('hide');
-      });
-    }
-    e.addEventListener('click', toggleScrollable);
-});
-
-
-</script>
 {% endblock %}
