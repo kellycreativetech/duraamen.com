@@ -1,8 +1,8 @@
 {% extends "blog/blog_base.html" %}
 
-{% block bodyclass %}product-pages {% endblock %}
+{% block bodyclass %}case-study-pages {% endblock %}
 
-{% block heroclass %}{% if page.content.masthead_img %}full-height-hero{% else %}x-small-hero{% endif %}{% endblock %}
+{% block heroclass %}{% if page.content.masthead_img %}show-copy-hero{% else %}x-small-hero{% endif %}{% endblock %}
 
 {% block undertitle %}
 {% if page.content.masthead_img %}
@@ -14,107 +14,23 @@
 {% endblock %}
 
 
-
-
-
 {% block main %}
 <section class="home-section">
   <div class="container" id="{{ page.content.slug }}" itemscope itemtype="http://schema.org/Product">
     <div class="row justify-content-center">
-      <div class="col-md-4">
-        <div class="text-center shop-button-wrappers">
-          {% page "image" type="img" %}
-          {% if not editing %}
-          <a class="product-image  d-block" data-fancybox href="{% imgix_url page.content.image %}?w=1400&h=1400">
-            {% endif %}
-            <img
-            class="{% if page.content.shopify_product_id %}img-fluid{% else %}img-fluid z-depth-1-half{% endif %}"
-            alt="{{ page.content.title|striptags }} {{ page.content.subtitle|striptags }}"
-            src="{% if page.content.image %}{% imgix_url page.content.image %}{% elif editing %}https://placem.at/places{% endif %}?w=600"
-            data-srv-name="image"
-            />
-            {% if not editing %}</a>{% endif %}
 
-          {% if editing %}<p><small>Shopify Product ID</small><br>{% page "shopify_product_id" placeholder="Enter a shopify Product ID here to enable the cart button." type="text" %}</p>{% else %}
-          <div class="mb-5"> <div id='product-component-ec1c4450888'></div></div>{% endif %}
-
-          {% page "imagetwo" type="img" %}
-          {% if editing or page.content.imagetwo %}
-          {% if not editing %}
-          <a class="product-image  d-block" data-fancybox href="{% imgix_url page.content.imagetwo %}?w=1400&h=1400">
-            {% endif %}
-            <img
-            class="img-fluid z-depth-1-half"
-            alt="{{ page.content.title|striptags }} {{ page.content.subtitle|striptags }}"
-            src="{% if page.content.imagetwo %}{% imgix_url page.content.imagetwo %}{% elif editing %}https://placem.at/places{% endif %}?w=600"
-            data-srv-name="imagetwo"
-            />
-            {% if not editing %}</a>{% endif %}
-            {% endif %}
-
-
-              {% if editing %}<p><small>Shopify Product ID #2</small><br>{% page "shopify_product_2" placeholder="Product #2 buy button goes here." type="text" %}</p>
-              {% else %}
-              <div class="mb-5"><div id='product-component-2'></div></div>{% endif %}
-
-              {% page "imagethree" type="img" %}
-              {% if editing or page.content.imagethree %}
-              {% if not editing %}
-              <a class="product-image  d-block" data-fancybox href="{% imgix_url page.content.imagethree %}?w=1400&h=1400">
-                {% endif %}
-                <img
-                class="img-fluid z-depth-1-half"
-                alt="{{ page.content.title|striptags }} {{ page.content.subtitle|striptags }}"
-                src="{% if page.content.imagethree %}{% imgix_url page.content.imagethree %}{% elif editing %}https://placem.at/places{% endif %}?w=600"
-                data-srv-name="imagethree"
-                />
-                {% if not editing %}</a>{% endif %}
-
-              {% endif %}
-
-
-              {% if editing %}
-              <p><small>Shopify Product ID #3</small><br>{% page "shopify_product_3" placeholder="Product #3 buy button goes here." type="text" %}</p>
-              {% else %}
-              <div class="mb-5"><div id='product-component-3'></div></div>
-              {% endif %}
-
-              {% page "imagefour" type="img" %}
-              {% if editing or page.content.imagefour %}
-              {% if not editing %}
-              <a class="product-image  d-block" data-fancybox href="{% imgix_url page.content.imagefour %}?w=1400&h=1400">
-                {% endif %}
-                <img
-                class="img-fluid z-depth-1-half"
-                alt="{{ page.content.title|striptags }} {{ page.content.subtitle|striptags }}"
-                src="{% if page.content.imagefour %}{% imgix_url page.content.imagefour %}{% elif editing %}https://placem.at/places{% endif %}?w=600"
-                data-srv-name="imagefour"
-                />
-                {% if not editing %}</a>{% endif %}
-                {% endif %}
-
-              {% if editing %}<p><small>Shopify Product ID #4</small><br>{% page "shopify_product_4" placeholder="Product #4 buy button goes here." type="text" %}</p>
-              {% else %}<div class="mb-5"><div id='product-component-4'></div></div>{% endif %}
-        </div>
-
-        {% if editing %}
-        <div class="mt-5 mb-5">
-          <h3>Admin tools</h3>
-          <p>{% page "category" type="select" multiple="true" %}</p>
-        </div>
-        {% endif %}
-      </div>
-      <div class="col-md-8">
+      <div class="col-md-9">
         {% new_page_button label="New Case Study" parent="case-studies" %}
         <div class="accordion" role="tablist" aria-multiselectable="true" id="projectAccordion">
+
           <!-- Accordion card -->
           <div class="card">
             <!-- Card header -->
             <div class="card-header" role="tab" id="advantages">
               <a data-toggle="collapse" data-parent="#productAccordion" href="#collapseFour" aria-expanded="true" aria-controls="collapseFour" >
-                <h5 class="mb-0">
+                <h2 class="mb-0">
                   Project Details<i class="fa fa-angle-down rotate-icon"></i>
-                </h5>
+                </h2>
               </a>
             </div>
             <!-- Card body -->
@@ -122,15 +38,15 @@
               <div class="card-body">
                 <div class="row">
                   <div class="col-md-4">
-                    <p><strong>Location:</strong></p>
-                    {% page "location" type="wysiwyg" placeholder="Location" %}
+                    <h4><strong>Client:</strong></h4>
+                    {% page "client" type="wysiwyg" placeholder="Client" %}
                   </div>
                   <div class="col-md-4">
-                    <p><strong>Installers:</strong></p>
-                    {% page "installers" type="wysiwyg" placeholder="Installers" %}
+                    <h4><strong>Installer:</strong></h4>
+                    {% page "installers" type="wysiwyg" placeholder="Installer" %}
                   </div>
                   <div class="col-md-4">
-                    <p><strong>Products Used:</strong></p>
+                    <h4><strong>Products Used:</strong></h4>
                     {% page "products_used" type="wysiwyg" placeholder="Products Used" %}
                   </div>
                 </div>
@@ -145,13 +61,51 @@
             <!-- Card header -->
             <div class="card-header" role="tab" id="headingOne">
               <a data-toggle="collapse" data-parent="#productAccordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                <h5 class="mb-0">
-                  Project Description<i class="fa fa-angle-down rotate-icon"></i>
-                </h5>
+                <h2 class="mb-0">
+                  The Challenge<i class="fa fa-angle-down rotate-icon"></i>
+                </h2>
               </a>
             </div>
             <!-- Card body -->
             <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
+              <div class="card-body">
+                {% page "challenge" type="wysiwyg" %}
+              </div>
+            </div>
+          </div>
+          <!-- Accordion card -->
+
+          <!-- Accordion card -->
+          <div class="card">
+            <!-- Card header -->
+            <div class="card-header" role="tab" id="headingTwo">
+              <a data-toggle="collapse" data-parent="#productAccordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                <h2 class="mb-0">
+                  The Outcome<i class="fa fa-angle-down rotate-icon"></i>
+                </h2>
+              </a>
+            </div>
+            <!-- Card body -->
+            <div id="collapseTwo" class="collapse show" role="tabpanel" aria-labelledby="headingTwo">
+              <div class="card-body">
+                {% page "outcome" type="wysiwyg" %}
+              </div>
+            </div>
+          </div>
+          <!-- Accordion card -->
+
+          <!-- Accordion card -->
+          <div class="card">
+            <!-- Card header -->
+            <div class="card-header" role="tab" id="headingThree">
+              <a data-toggle="collapse" data-parent="#productAccordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                <h2 class="mb-0">
+                  Overview<i class="fa fa-angle-down rotate-icon"></i>
+                </h2>
+              </a>
+            </div>
+            <!-- Card body -->
+            <div id="collapseThree" class="collapse show" role="tabpanel" aria-labelledby="headingThree">
               <div class="card-body">
                 {% page "content" type="wysiwyg" %}
               </div>
@@ -187,18 +141,164 @@
           </div>
           {% endif %}
           <!-- Accordion card -->
+        </div>
       </div>
-    </div>
-  </div>
-</section>
-{% endblock main %}
+
+      <div class="col-md-3">
+        {% page "image" type="img" %}
+        {% if not editing %}
+        <div class="z-depth-1-half pb-2 pr-2 pl-2 mb-0 mb-md-0">
+          <a class="product-image  d-block" data-fancybox href="{% imgix_url page.content.image %}?w=1400&h=1400">
+            {% endif %}
+            <img
+            class="img-fluid"
+            alt="{{ page.content.title|striptags }} {{ page.content.subtitle|striptags }}"
+            src="{% if page.content.image %}{% imgix_url page.content.image %}{% elif editing %}https://placem.at/places{% endif %}?w=600"
+            data-srv-name="image"
+            />
+            {% if not editing %}</a>{% endif %}
+
+            {% if editing %}<p><small>Shopify Product ID</small><br>{% page "shopify_product_id" placeholder="Enter a shopify Product ID here to enable the cart button." type="text" %}</p>{% else %}
+            <div class="text-center shop-button-wrappers">
+              <div id='product-component-ec1c4450888'></div>
+            </div>
+          </div>
+          {% endif %}
+
+          {% page "imagetwo" type="img" %}
+          {% if editing or page.content.imagetwo %}
+          {% if not editing %}
+          <div class="z-depth-1-half mt-3 pb-2 pr-2 pl-2 mb-0 mb-md-0">
+            <a class="product-image  d-block" data-fancybox href="{% imgix_url page.content.imagetwo %}?w=1400&h=1400">
+              {% endif %}
+              <img
+              class="img-fluid"
+              alt="{{ page.content.title|striptags }} {{ page.content.subtitle|striptags }}"
+              src="{% if page.content.imagetwo %}{% imgix_url page.content.imagetwo %}{% elif editing %}https://placem.at/places{% endif %}?w=600"
+              data-srv-name="imagetwo"
+              />
+              {% if not editing %}</a>{% endif %}
+              {% endif %}
+
+              {% if editing %}<p><small>Shopify Product ID #2</small><br>{% page "shopify_product_2" placeholder="Product #2 buy button goes here." type="text" %}</p>
+              {% else %}
+              <div class="text-center shop-button-wrappers">
+                <div id='product-component-2'></div>
+              </div>
+            </div>
+            {% endif %}
+
+            {% page "imagethree" type="img" %}
+            {% if editing or page.content.imagethree %}
+            {% if not editing %}
+            <div class="z-depth-1-half mt-3 pb-2 pr-2 pl-2 mb-0 mb-md-0">
+              <a class="product-image  d-block" data-fancybox href="{% imgix_url page.content.imagethree %}?w=1400&h=1400">
+                {% endif %}
+                <img
+                class="img-fluid"
+                alt="{{ page.content.title|striptags }} {{ page.content.subtitle|striptags }}"
+                src="{% if page.content.imagethree %}{% imgix_url page.content.imagethree %}{% elif editing %}https://placem.at/places{% endif %}?w=600"
+                data-srv-name="imagethree"
+                />
+                {% if not editing %}</a>{% endif %}
+                {% endif %}
+
+                {% if editing %}
+                <p><small>Shopify Product ID #3</small><br>{% page "shopify_product_3" placeholder="Product #3 buy button goes here." type="text" %}</p>
+                {% else %}
+                <div class="text-center shop-button-wrappers">
+                  <div id='product-component-3'></div>
+                </div>
+              </div>
+              {% endif %}
+
+              {% page "imagefour" type="img" %}
+              {% if editing or page.content.imagefour %}
+              {% if not editing %}
+              <div class="z-depth-1-half mt-3 pb-2 pr-2 pl-2 mb-0 mb-md-0">
+                <a class="product-image  d-block" data-fancybox href="{% imgix_url page.content.imagefour %}?w=1400&h=1400">
+                  {% endif %}
+                  <img
+                  class="img-fluid"
+                  alt="{{ page.content.title|striptags }} {{ page.content.subtitle|striptags }}"
+                  src="{% if page.content.imagefour %}{% imgix_url page.content.imagefour %}{% elif editing %}https://placem.at/places{% endif %}?w=600"
+                  data-srv-name="imagefour"
+                  />
+                  {% if not editing %}</a>{% endif %}
+                  {% endif %}
+
+                  {% if editing %}<p><small>Shopify Product ID #4</small><br>{% page "shopify_product_4" placeholder="Product #4 buy button goes here." type="text" %}</p>
+                  {% else %}
+                  <div class="text-center shop-button-wrappers">
+                    <div id='product-component-4'></div>
+                  </div>
+                </div>
+                {% endif %}
+
+                {% page "imagefive" type="img" %}
+                {% if editing or page.content.imagefive %}
+                {% if not editing %}
+                <div class="z-depth-1-half mt-3 pb-2 pr-2 pl-2 mb-0 mb-md-0">
+                  <a class="product-image  d-block" data-fancybox href="{% imgix_url page.content.imagefive %}?w=1400&h=1400">
+                    {% endif %}
+                    <img
+                    class="img-fluid"
+                    alt="{{ page.content.title|striptags }} {{ page.content.subtitle|striptags }}"
+                    src="{% if page.content.imagefive %}{% imgix_url page.content.imagefive %}{% elif editing %}https://placem.at/places{% endif %}?w=600"
+                    data-srv-name="imagefive"
+                    />
+                    {% if not editing %}</a>{% endif %}
+                    {% endif %}
+
+                    {% if editing %}<p><small>Shopify Product ID #5</small><br>{% page "shopify_product_5" placeholder="Product #5 buy button goes here." type="text" %}</p>
+                    {% else %}
+                    <div class="text-center shop-button-wrappers">
+                      <div id='product-component-5'></div>
+                    </div>
+                  </div>
+                  {% endif %}
+
+                  {% page "imagesix" type="img" %}
+                  {% if editing or page.content.imagesix %}
+                  {% if not editing %}
+                  <div class="z-depth-1-half mt-3 pb-2 pr-2 pl-2 mb-0 mb-md-0">
+                    <a class="product-image  d-block" data-fancybox href="{% imgix_url page.content.imagesix %}?w=1400&h=1400">
+                      {% endif %}
+                      <img
+                      class="img-fluid"
+                      alt="{{ page.content.title|striptags }} {{ page.content.subtitle|striptags }}"
+                      src="{% if page.content.imagesix %}{% imgix_url page.content.imagesix %}{% elif editing %}https://placem.at/places{% endif %}?w=600"
+                      data-srv-name="imagesix"
+                      />
+                      {% if not editing %}</a>{% endif %}
+                      {% endif %}
+
+                      {% if editing %}<p><small>Shopify Product ID #6</small><br>{% page "shopify_product_6" placeholder="Product #6 buy button goes here." type="text" %}</p>
+                      {% else %}
+                      <div class="text-center shop-button-wrappers">
+                        <div id='product-component-6'></div>
+                      </div>
+                    </div>
+                    {% endif %}
+
+                    {% if editing %}
+                    <div class="mt-5 mb-5">
+                      <h3>Admin tools</h3>
+                      <p>{% page "category" type="select" multiple="true" %}</p>
+                    </div>
+                    {% endif %}
+                  </div>
+
+                </div>
+              </section>
+              {% endblock main %}
 
 
-{% if not editing %}
-<!-- AddThis Button BEGIN -->
-<!-- Go to www.addthis.com/dashboard to customize your tools -->
-<div class="addthis_sharing_toolbox"></div>
-<script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
-<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-520d221765704fe3" async="async"></script>
-<!-- AddThis Button END -->
-{% endif %}
+              {% if not editing %}
+              <!-- AddThis Button BEGIN -->
+              <!-- Go to www.addthis.com/dashboard to customize your tools -->
+              <div class="addthis_sharing_toolbox"></div>
+              <script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+              <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-520d221765704fe3" async="async"></script>
+              <!-- AddThis Button END -->
+              {% endif %}

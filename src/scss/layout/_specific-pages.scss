@@ -56,3 +56,17 @@
 #livechat-compact-container {
   bottom: 55px!important;
 }
+
+// Case Studies
+
+body.case-study-pages {
+
+  .main-body select {
+    display: inline-block!important;
+  }
+
+  .main-body h3 {
+    font-size: 1.4em;
+    padding-left: 0;
+  }
+}

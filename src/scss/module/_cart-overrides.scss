@@ -63,6 +63,85 @@
   }
 }
 
+// Case Study pages
+
+@include media-breakpoint-up(md) {
+body.case-study-pages {
+
+  .shop-button-wrappers {
+    margin: 0 5px;
+  }
+
+  .shopify-buy__option-select__select {
+    width: 100%;
+    margin-bottom: 6px;
+    font-size: .8em;
+  }
+
+  .shopify-buy__option-select__label {
+    font-size: .85em;
+    margin-bottom: 3px;
+  }
+
+  .shopify-buy__product__actual-price  {
+    font-size: 16px;
+  }
+
+  .shopify-buy__btn {
+    margin: 6px 0;
+    padding: .6rem 1rem;
+    font-size: .85em;
+    white-space: nowrap;
+
+    &:before {
+      display: none;
+    }
+  }
+}
+}
+
+@include media-breakpoint-up(lg) {
+body.case-study-pages {
+
+  .shop-button-wrappers {
+    margin: 0 10px;
+  }
+
+  .shopify-buy__option-select__select {
+    width: 100%;
+    margin-bottom: 6px;
+    font-size: .9em;
+  }
+
+  .shopify-buy__option-select__label {
+    font-size: .9em;
+    margin-bottom: 3px;
+  }
+
+  .shopify-buy__product__actual-price  {
+    font-size: 16px;
+  }
+
+  .shopify-buy__btn {
+    margin: 6px 0;
+    padding: .6rem 2.13rem;
+    font-size: .9em;
+
+    &:before {
+      display: inline-block;
+      background-size: 1.6rem 1.6rem;
+      width: 1.6rem;
+      height: 1.6rem;
+      margin: -3px -28px -1px 0;
+    }
+  }
+}
+}
+
+
+
+
+
 
 // second product button
 // .second-shopify-product .shopify-buy__btn {
