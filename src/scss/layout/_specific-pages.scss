@@ -74,4 +74,10 @@ body.case-study-pages {
     color:$maroon;
   }
 
+  @include media-breakpoint-up(md) {
+    .product-image.d-block::after {
+      display: none;
+    }
+  }
+
 }

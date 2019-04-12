@@ -165,6 +165,49 @@
      });
 {% endif %}
 
+{% if page.content.shopify_product_5 %}
+    ShopifyBuy.UI.onReady(client, productOptions).then(function (ui) {
+      ui.createComponent('product', {
+        id: [{{ page.content.shopify_product_5 }}],
+        node: document.getElementById('product-component-5'),
+        moneyFormat: '%24%7B%7Bamount%7D%7D',
+        options: productOptions
+      });
+    });
+{% endif %}
+
+{% if page.content.shopify_product_6 %}
+    ShopifyBuy.UI.onReady(client, productOptions).then(function (ui) {
+      ui.createComponent('product', {
+        id: [{{ page.content.shopify_product_6 }}],
+        node: document.getElementById('product-component-6'),
+        moneyFormat: '%24%7B%7Bamount%7D%7D',
+        options: productOptions
+      });
+    });
+{% endif %}
+
+{% if page.content.shopify_product_7 %}
+    ShopifyBuy.UI.onReady(client, productOptions).then(function (ui) {
+      ui.createComponent('product', {
+        id: [{{ page.content.shopify_product_7 }}],
+        node: document.getElementById('product-component-7'),
+        moneyFormat: '%24%7B%7Bamount%7D%7D',
+        options: productOptions
+      });
+    });
+{% endif %}
+
+{% if page.content.shopify_product_8 %}
+    ShopifyBuy.UI.onReady(client, productOptions).then(function (ui) {
+      ui.createComponent('product', {
+        id: [{{ page.content.shopify_product_8 }}],
+        node: document.getElementById('product-component-8'),
+        moneyFormat: '%24%7B%7Bamount%7D%7D',
+        options: productOptions
+      });
+    });
+{% endif %}
 
   }
 })();

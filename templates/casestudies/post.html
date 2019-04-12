@@ -86,9 +86,9 @@
           <div class="card">
             <!-- Card body -->
             <div class="card-body">
-              <div class="mt-3 mb-3">
+              <div class="mt-3 mb-3 gallery">
                 {% page_list "gallery" %}
-                <a class="d-inline-block z-depth-1" data-fancybox="photos" href="{% imgix_url list_item.image %}?w=1400&h=1400">
+                <a class="d-inline-block z-depth-1 mb-1" data-fancybox="photos" href="{% imgix_url list_item.image %}?w=1400&h=1400">
                   {% list_item "image" type="image" %}
                   <img class="bordered side-product-photo" src="{% imgix_url list_item.image %}?w=150&h=150&fit=crop" itemprop="image">
                 </a>
@@ -254,24 +254,70 @@
                     </div>
                     {% endif %}
 
-                    {% if editing %}
-                    <div class="mt-5 mb-5">
-                      <h3>Admin tools</h3>
-                      <p>{% page "category" type="select" multiple="true" %}</p>
+                    {% page "imageseven" type="img" %}
+                    {% if editing or page.content.imageseven %}
+                    {% if not editing %}
+                    <div class="z-depth-1-half mt-3 pb-2 pr-2 pl-2 mb-0 mb-md-0">
+                      <a class="product-image  d-block" data-fancybox href="{% imgix_url page.content.imageseven %}?w=1400&h=1400">
+                        {% endif %}
+                        <img
+                        class="img-fluid"
+                        alt="{{ page.content.title|striptags }} {{ page.content.subtitle|striptags }}"
+                        src="{% if page.content.imageseven %}{% imgix_url page.content.imageseven %}{% elif editing %}https://placem.at/places{% endif %}?w=600"
+                        data-srv-name="imageseven"
+                        />
+                        {% if not editing %}</a>{% endif %}
+                        {% endif %}
+
+                        {% if editing %}<p><small>Shopify Product ID #7</small><br>{% page "shopify_product_7" placeholder="Product #7 buy button goes here." type="text" %}</p>
+                        {% else %}
+                        <div class="text-center shop-button-wrappers">
+                          <div id='product-component-7'></div>
+                        </div>
+                      </div>
+                      {% endif %}
+
+                      {% page "imageeight" type="img" %}
+                      {% if editing or page.content.imageeight %}
+                      {% if not editing %}
+                      <div class="z-depth-1-half mt-3 pb-2 pr-2 pl-2 mb-0 mb-md-0">
+                        <a class="product-image  d-block" data-fancybox href="{% imgix_url page.content.imageeight %}?w=1400&h=1400">
+                          {% endif %}
+                          <img
+                          class="img-fluid"
+                          alt="{{ page.content.title|striptags }} {{ page.content.subtitle|striptags }}"
+                          src="{% if page.content.imageeight %}{% imgix_url page.content.imageeight %}{% elif editing %}https://placem.at/places{% endif %}?w=600"
+                          data-srv-name="imageeight"
+                          />
+                          {% if not editing %}</a>{% endif %}
+                          {% endif %}
+
+                          {% if editing %}<p><small>Shopify Product ID #8</small><br>{% page "shopify_product_8" placeholder="Product #8 buy button goes here." type="text" %}</p>
+                          {% else %}
+                          <div class="text-center shop-button-wrappers">
+                            <div id='product-component-8'></div>
+                          </div>
+                        </div>
+                        {% endif %}
+
+                        {% if editing %}
+                        <div class="mt-5 mb-5">
+                          <h3>Admin tools</h3>
+                          <p>{% page "category" type="select" multiple="true" %}</p>
+                        </div>
+                        {% endif %}
+                      </div>
+
                     </div>
-                    {% endif %}
-                  </div>
-
-                </div>
-              </section>
-              {% endblock main %}
+                  </section>
+                  {% endblock main %}
 
 
-              {% if not editing %}
-              <!-- AddThis Button BEGIN -->
-              <!-- Go to www.addthis.com/dashboard to customize your tools -->
-              <div class="addthis_sharing_toolbox"></div>
-              <script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
-              <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-520d221765704fe3" async="async"></script>
-              <!-- AddThis Button END -->
-              {% endif %}
+                  {% if not editing %}
+                  <!-- AddThis Button BEGIN -->
+                  <!-- Go to www.addthis.com/dashboard to customize your tools -->
+                  <div class="addthis_sharing_toolbox"></div>
+                  <script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+                  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-520d221765704fe3" async="async"></script>
+                  <!-- AddThis Button END -->
+                  {% endif %}
