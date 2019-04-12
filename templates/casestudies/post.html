@@ -27,28 +27,24 @@
           <div class="card">
             <!-- Card header -->
             <div class="card-header" role="tab" id="advantages">
-              <a data-toggle="collapse" data-parent="#productAccordion" href="#collapseFour" aria-expanded="true" aria-controls="collapseFour" >
-                <h2 class="mb-0">
-                  Project Details<i class="fa fa-angle-down rotate-icon"></i>
-                </h2>
-              </a>
+              <h2 class="mb-0">
+                Project Details
+              </h2>
             </div>
             <!-- Card body -->
-            <div id="collapseFour" class="collapse show" role="tabpanel" aria-labelledby="advantages">
-              <div class="card-body">
-                <div class="row">
-                  <div class="col-md-4">
-                    <h4><strong>Client:</strong></h4>
-                    {% page "client" type="wysiwyg" placeholder="Client" %}
-                  </div>
-                  <div class="col-md-4">
-                    <h4><strong>Installer:</strong></h4>
-                    {% page "installers" type="wysiwyg" placeholder="Installer" %}
-                  </div>
-                  <div class="col-md-4">
-                    <h4><strong>Products Used:</strong></h4>
-                    {% page "products_used" type="wysiwyg" placeholder="Products Used" %}
-                  </div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-4">
+                  <h4><strong>Client:</strong></h4>
+                  {% page "client" type="wysiwyg" placeholder="Client" %}
+                </div>
+                <div class="col-md-4">
+                  <h4><strong>Installer:</strong></h4>
+                  {% page "installers" type="wysiwyg" placeholder="Installer" %}
+                </div>
+                <div class="col-md-4">
+                  <h4><strong>Products Used:</strong></h4>
+                  {% page "products_used" type="wysiwyg" placeholder="Products Used" %}
                 </div>
               </div>
             </div>
@@ -60,87 +56,64 @@
           <div class="card">
             <!-- Card header -->
             <div class="card-header" role="tab" id="headingOne">
-              <a data-toggle="collapse" data-parent="#productAccordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                <h2 class="mb-0">
-                  The Challenge<i class="fa fa-angle-down rotate-icon"></i>
-                </h2>
-              </a>
+              <h2 class="mb-0">
+                The Challenge
+              </h2>
             </div>
             <!-- Card body -->
-            <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
-              <div class="card-body">
-                {% page "challenge" type="wysiwyg" %}
-              </div>
+
+            <div class="card-body">
+              {% page "challenge" type="wysiwyg" %}
             </div>
           </div>
           <!-- Accordion card -->
 
-          <!-- Accordion card -->
+          <!-- card -->
           <div class="card">
             <!-- Card header -->
             <div class="card-header" role="tab" id="headingTwo">
-              <a data-toggle="collapse" data-parent="#productAccordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                <h2 class="mb-0">
-                  The Outcome<i class="fa fa-angle-down rotate-icon"></i>
-                </h2>
-              </a>
+              <h2 class="mb-0">The Outcome</h2>
             </div>
             <!-- Card body -->
-            <div id="collapseTwo" class="collapse show" role="tabpanel" aria-labelledby="headingTwo">
-              <div class="card-body">
-                {% page "outcome" type="wysiwyg" %}
+            <div class="card-body">
+              {% page "outcome" type="wysiwyg" %}
+            </div>
+          </div>
+          <!-- card -->
+
+          <!-- card -->
+          {% if page.content.gallery or editing %}
+          <div class="card">
+            <!-- Card body -->
+            <div class="card-body">
+              <div class="mt-3 mb-3">
+                {% page_list "gallery" %}
+                <a class="d-inline-block z-depth-1" data-fancybox="photos" href="{% imgix_url list_item.image %}?w=1400&h=1400">
+                  {% list_item "image" type="image" %}
+                  <img class="bordered side-product-photo" src="{% imgix_url list_item.image %}?w=150&h=150&fit=crop" itemprop="image">
+                </a>
+                {% end_list %}
               </div>
             </div>
           </div>
-          <!-- Accordion card -->
+          {% endif %}
+          <!-- card -->
 
           <!-- Accordion card -->
           <div class="card">
             <!-- Card header -->
             <div class="card-header" role="tab" id="headingThree">
-              <a data-toggle="collapse" data-parent="#productAccordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
-                <h2 class="mb-0">
-                  Overview<i class="fa fa-angle-down rotate-icon"></i>
-                </h2>
-              </a>
+              <h2 class="mb-0">
+                Overview
+              </h2>
             </div>
             <!-- Card body -->
-            <div id="collapseThree" class="collapse show" role="tabpanel" aria-labelledby="headingThree">
-              <div class="card-body">
-                {% page "content" type="wysiwyg" %}
-              </div>
+            <div class="card-body">
+              {% page "content" type="wysiwyg" %}
             </div>
           </div>
           <!-- Accordion card -->
 
-
-          <!-- Accordion card -->
-          {% if page.content.gallery or editing %}
-          <div class="card">
-            <!-- Card header -->
-            <div class="card-header" role="tab" id="applications">
-              <a data-toggle="collapse" data-parent="#productAccordion" href="#collapseFive" aria-expanded="true" aria-controls="collapseFive" >
-                <h5 class="mb-0">
-                  Project Gallery<i class="fa fa-angle-down rotate-icon"></i>
-                </h5>
-              </a>
-            </div>
-            <!-- Card body -->
-            <div id="collapseFive" class="collapse show" role="tabpanel" aria-labelledby="applications">
-              <div class="card-body">
-                <div class="mt-3 mb-3">
-                  {% page_list "gallery" %}
-                  <a class="d-inline-block z-depth-1" data-fancybox="photos" href="{% imgix_url list_item.image %}?w=1400&h=1400">
-                    {% list_item "image" type="image" %}
-                    <img class="bordered side-product-photo" src="{% imgix_url list_item.image %}?w=150&h=150&fit=crop" itemprop="image">
-                  </a>
-                  {% end_list %}
-                </div>
-              </div>
-            </div>
-          </div>
-          {% endif %}
-          <!-- Accordion card -->
         </div>
       </div>
 
