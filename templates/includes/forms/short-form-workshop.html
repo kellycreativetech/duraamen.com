@@ -1,0 +1,57 @@
+<form id="contact-form" data-glass-form-api action="/404/" method="POST">
+  {% csrf_token %}
+  <input name="to" type="hidden" value="bbbf6b9f-1dc5-4a06-862c-c4d7135b78f2,cca47383-89e1-4e69-89e1-205ff5301c12">
+  <input name="success_message" type="hidden" value="Thank you for your interest in Duraamen.com. We're received your message and we'll get back to you as soon as possible." />
+  <input type="hidden" name="redirect" value="/thank-you?fromurl={{ page.path }}" />
+  <input type="hidden" name="mc_id" value="bdd0a42dd0">
+  <input id="id_from_duraamen_url" name="from_duraamen_url" type="hidden">
+  <div class="md-form mb-2">
+    <label for="id_name" class="control-label required-field">Name*</label>
+    <input name="name" maxlength="2000" required type="text" class="charfield required" id="id_name" />
+  </div>
+  <div class="md-form mb-2">
+    <label for="id_e_mail" class="control-label required-field">E-mail*</label>
+    <input name="email" maxlength="2000" required type="email" class="emailfield required" id="id_e_mail" />
+  </div>
+  <div class="md-form">
+    <label for="id_phone" class="control-label required-field">Phone</label>
+    <input name="phone" maxlength="2000" type="text" class="charfield required" id="id_phone" />
+  </div>
+  <large id="helper" class="form-text text-muted font-weight-bold ">Interested in* :</large>
+  <div class="md-form form-check form-check-inline mb-0">
+    <input type="checkbox" id="id_diy" name="diy_products" value="Interest / Profession->DIY / Homeowner">
+    <label class="checkbox" for="id_diy">DIY Products</label>
+  </div>
+  <div class="md-form form-check form-check-inline mb-0">
+    <input type="checkbox" id="id_installers" name="installers" value="Interest / Profession->DIY / Homeowner">
+    <label class="checkbox" for="id_installers">Hiring an Installer</label>
+  </div>
+  
+  <!--The mc_id field is unnecessary because we're publishing everything
+to the same list. You can only use form-specific lists OR groups with
+the mailchimp API Zapier app.
+
+uncomment this if you want to use mutilple lists again.
+<input type="hidden" name="mc_id" value="bdd0a42dd0">
+
+Otherwise, uncomment the correct field from the options here, as I've
+done just below this commment. If you change the name of the group,
+the text needs to match exactly here.
+
+<input type="hidden" name="mc_group" value="Interest / Profession->Architect">
+<input type="hidden" name="mc_group" value="Interest / Profession->DIY / Homeowner">
+<input type="hidden" name="mc_group" value="Interest / Profession->Business Owner / Property Manager">
+<input type="hidden" name="mc_group" value="Interest / Profession->Conctractor / Installer">
+<input type="hidden" name="mc_group" value="Interest / Profession->Installers Edge Contractor Workshop">
+
+
+-->
+  <div class="md-form">
+    <input checked id="id_opt_in" name="mailchimp-opt-in" type="checkbox" value="YES"/>
+    <label class="checkbox" for="id_opt_in">Receive product information &amp; special offers via email?</label>
+  </div>
+  <div class="text-center mb-4">
+    <button type="submit" class="btn btn-secondary text-center"><!--<span class="fa fa-paper-plane fa-2x"></span>-->Request Info</button>
+  </div>
+  <large id="helper" class="form-text text-muted text-center mb-4"><span style="color:#000;">We’ll contact you within 24 hrs to learn about your project,<br> or call </span><span class="font-weight-bold font-size-xl text-nowrap" style="font-size: 1.3rem; color:#000;" >1-866-835-6595</span><span style="color:#000;"> to talk to someone now.</span></large>
+  </form>

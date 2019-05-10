@@ -1,0 +1,66 @@
+{% extends "base-simplified.html" %}
+
+{% block bodyclass %}landing-pages no-nav product-pages {% endblock %}
+
+{% block hero %}{% include "includes/base/hero-with-landing-page-form-workshop.html" %}{% endblock %}
+
+{% block main %}
+<section class="home-section">
+<div class="container">
+
+  <div class="row">
+      <div class="col-md-12">
+<h2>{% page "Subhead" type="text" %}</h2>
+          {% page "intro" type="wysiwyg" placeholder="Insert Content here" %}
+          <hr>
+        </div>
+        </div>
+    <div class="row">
+        <div class="col-md-8">
+
+          {% block content %}
+
+          {% page "content" type="wysiwyg" placeholder="Insert Content here" %}
+
+          {% endblock content %}
+
+          {% block map-wrap %}{% endblock %}
+          {% block belowcontent %}{% endblock %}
+
+
+          {% if editing %}
+          <div class="mt-5 mb-5">
+            <h3>Admin tools</h3>
+            <p><small>Shopify Product ID</small><br>{% page "shopify_product_id" placeholder="Enter a shopify Product ID here to enable the cart button." type="text" %}</p>
+          </div>
+          {% else %}
+          <!-- AddThis Button BEGIN -->
+          <!-- Go to www.addthis.com/dashboard to customize your tools -->
+          <br>
+          <div class="addthis_sharing_toolbox" style></div>
+          <script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+          <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-520d221765704fe3" async="async"></script>
+          <!-- AddThis Button END -->
+          {% endif %}
+
+        </div>
+
+        <div class="col-md-4">
+          {% if page.content.gallery or editing %}
+              <div class="mt-3 mb-3 gallery text-center">
+                {% page_list "gallery" %}
+                <a class="d-inline-block z-depth-1 mb-1" data-fancybox="photos" href="{% imgix_url list_item.image %}?w=1400&h=1400">
+                  {% list_item "image" type="image" %}
+                  <img class="bordered side-product-photo" src="{% imgix_url list_item.image %}?w=150&h=150&fit=crop" itemprop="image">
+                </a>
+                {% end_list %}
+              </div>
+          {% endif %}
+</div>
+
+    </div>
+</div>
+
+
+</section>
+{% endblock %}
