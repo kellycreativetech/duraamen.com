@@ -35,15 +35,15 @@
 .product-category-pages, .system-category-pages, .blog  {
   .row{
     &.justify-content-center{
-    margin-left: 15px;
+      margin-left: 15px;
     }
   }
   @include media-breakpoint-up(md) {
     .row{
-    &.justify-content-center{
-      margin-left: -15px;
+      &.justify-content-center{
+        margin-left: -15px;
+      }
     }
-  }
   }
 }
 
@@ -80,4 +80,34 @@ body.case-study-pages {
     }
   }
 
+}
+
+// Workshop
+.installersedge {
+  .hero {
+    h1,h2,h3,h4,h5,h6,p,li,blockquote {
+      color: #fff;
+      margin: 0 0 10px 0;
+    }
+
+    .card{
+      h1,h2,h3,h4,h5,h6,p,li,blockquote {
+        color: #000;
+        text-shadow: none;
+      }
+      h4,h5 {
+        margin-bottom: 6px;
+      }
+      h5{
+        font-size:1.2rem;
+      }
+      .shopify-buy__product {
+        margin-bottom: 30px;
+
+        h1 {
+          display: none;
+        }
+      }
+    }
+  }
 }
