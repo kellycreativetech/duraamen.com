@@ -88,9 +88,17 @@
             <div class="card-body">
               <div class="mt-3 mb-3 gallery">
                 {% page_list "gallery" %}
+                {% list_item "alt_tag" type="text" noprint="true" %}
                 <a class="d-inline-block z-depth-1 mb-1" data-fancybox="photos" href="{% imgix_url list_item.image %}?w=1400&h=1400">
                   {% list_item "image" type="image" %}
-                  <img class="bordered side-product-photo" src="{% imgix_url list_item.image %}?w=150&h=150&fit=crop" itemprop="image">
+                  <img class="bordered side-product-photo" src="{% imgix_url list_item.image %}?w=150&h=150&fit=crop" itemprop="image" 
+                    alt='
+                    {% if list_item.alt_tag %}
+                    {{ list_item.alt_tag }}
+                    {% else %}
+                    {{ page.content.title }} ex. {{ forloop.counter }}
+                    {% endif %}
+                    '/>
                 </a>
                 {% end_list %}
               </div>
