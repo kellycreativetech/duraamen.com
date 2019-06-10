@@ -139,10 +139,6 @@ body.case-study-pages {
 }
 
 
-
-
-
-
 // second product button
 // .second-shopify-product .shopify-buy__btn {
 //   background-color: $gray;
@@ -160,8 +156,8 @@ body.case-study-pages {
 // }
 
 
-h1.shopify-buy__product__title {
-  font-size: 18px;
+.shopify-buy__product__title {
+  font-size: 18px !important;
   color: #000!important;
   font-family: roboto slab,serif!important;
   text-shadow: none;
