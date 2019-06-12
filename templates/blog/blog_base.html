@@ -20,7 +20,7 @@
                 <div class="col-md-12 text-center">
                     <div class="wow fadeInDown" data-wow-delay="0.2s">
                         <h1 {% if page.content.masthead_img %}class="light-title"{% endif %}>{% page "title" type="text" %}</h1>
-                        <h4 {% if page.content.masthead_img %}class="light-sub-title"{% endif %}>{% page "subhead" type="text" %}</h4>
+                        <h2 {% if page.content.masthead_img %}class="light-sub-title"{% endif %}>{% page "subhead" type="text" %}</h2>
                     </div>
                     {% block undertitle %}{% endblock %}
                 </div>

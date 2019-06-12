@@ -39,6 +39,10 @@
     }
   }
 
+  h2 {
+    font-size: 1.5rem;
+  }
+
   h4 {
     font-weight: 700;
     line-height: 1.2;
@@ -75,6 +79,11 @@
   }
 
   .product-head {
+    margin-bottom: 50px;
+    margin-top: 130px;
+  }
+
+  .video-head {
     margin-bottom: 50px;
     margin-top: 130px;
   }
@@ -123,6 +132,11 @@
 
     .product-head {
       margin-bottom: 100px;
+    }
+
+    .video-head {
+      margin-bottom: 150px;
+      margin-top: 0;
     }
 
     h1 {
