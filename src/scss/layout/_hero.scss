@@ -71,7 +71,7 @@
   }
 
   &.full-height-hero {
-      min-height: 100vh;
+    min-height: 100vh;
 
     h1 {
       margin-bottom: 1em;
@@ -85,7 +85,7 @@
 
   .video-head {
     margin-bottom: 50px;
-    margin-top: 130px;
+    margin-top: 50px;
   }
 
   &.show-copy-hero {
@@ -95,7 +95,6 @@
       display: inline-block;
     }
   }
-
 
   &.smaller-hero {
     min-height: 400px;
@@ -125,18 +124,27 @@
     text-align: center;
   }
 
+    @include media-breakpoint-up(sm) {
+      &.smaller-hero {
+        min-height: 300px;
+      }
+    }
+
   @include media-breakpoint-up(md) {
     & {margin-top: 110px;}
     & {padding-bottom: 0;}
     & {@at-root .landing-pages {margin-top: 110px;}}
+
+    &.smaller-hero {
+      min-height: 400px;
+    }
 
     .product-head {
       margin-bottom: 100px;
     }
 
     .video-head {
-      margin-bottom: 150px;
-      margin-top: 0;
+      padding-bottom: 40px;
     }
 
     h1 {
@@ -150,7 +158,7 @@
     }
 
     &.x-small-hero,
-     .blog-pages &.x-small-hero {
+    .blog-pages &.x-small-hero {
       min-height: 400px;
       padding-top: 0px;//resets padding for full screen
       padding-bottom: 80px;
@@ -179,16 +187,21 @@
       }
     }
   }
+  @include media-breakpoint-up(lg) {
+    .video-head {
+      padding-bottom: 70px;
+    }
+  }
 }
 
 .at4-follow {
   &.slideInRight {
-	z-index: 200;
+    z-index: 200;
   }
 }
 
 .srv-icon-img-edit {
-    top: 80px!important;
-    right: 10px!important;
-    z-index: 200!important;
+  top: 80px!important;
+  right: 10px!important;
+  z-index: 200!important;
 }

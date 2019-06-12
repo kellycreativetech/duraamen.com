@@ -9,17 +9,17 @@
     view
     hm-black-strong-1
     jarallax
-    {% block heroclass %}x-small-hero{% endblock %}
+    {% block heroclass %}smaller-hero text-center{% endblock %}
     "
 
   data-srv-name="masthead_img"
   style="background-color: #f5f5f5">
     <div class="full-bg-img d-flex justify-content-start align-items-end">
       {% page "masthead_img" type="img" %}
-        <div class="container">
-            <div class="row smooth-scroll">
+        <div class="container flex-container">
+            <div class="row smooth-scroll justify-content-center">
                 <div class="col-md-12">
-                    <div class="product-head wow fadeInDown" data-wow-delay="0.2s">
+                    <div class="video-head wow fadeInDown" data-wow-delay="0.2s">
                         <h1>{% page "title" type="text" %}</h1>
                         <h4>{% page "subtitle" type="text" %}</h4>
                     </div>
@@ -42,7 +42,7 @@
         <div class="row video-gallery" itemscope itemtype="http://schema.org/VideoObject">
         {% children as "categories" %}
         {% for category in categories %}
-            <div class="col-md-4">
+            <div class="col-md-4 text-center">
                   <a class="thumbnail" href="{{ category.get_absolute_url }}" title="{{ category.content.name|default:"" }}"><img itemprop="image" class="bordered" alt="{{ category.content.name|striptags }}" src="{% imgix_url category.content.image %}?w=370&amp;h=205&amp;crop=entropy&amp;fit=crop" alt="{{ category.content.name|default:"" }} (thumbnail)"></a>
                   <h5 class="text-center mt-2 mb-4" itemprop="name"><a href="{{ category.get_absolute_url }}">{{ category.content.name }} | {{ category.content.videos|length }} videos</a></h5>
           </div>
