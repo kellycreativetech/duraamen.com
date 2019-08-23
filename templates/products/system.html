@@ -339,10 +339,18 @@
               <div class="card-body">
                 <div class="row">
                     {% page_list "photos" %}
-                    <div class="col-md-3">
+                    <div class="col-md-3 mb-4">
                         {% list_item "image" type="image" %}
+                        {% list_item "alt_tag" type="text" noprint="true" %}
                         <a data-fancybox="gallery" href="{% imgix_url list_item.image %}?w=1400&h=1400">
-                        <img class="z-depth-1-half img-fluid" src="{% imgix_url list_item.image.url %}?w=250&h=180&fit=crop">
+                        <img class="z-depth-1-half img-fluid" src="{% imgix_url list_item.image.url %}?w=250&h=180&fit=crop"
+                        alt='
+                        {% if list_item.alt_tag %}
+                        {{ list_item.alt_tag }}
+                        {% else %}
+                        {{ page.content.title }} ex. {{ forloop.counter }}
+                        {% endif %}
+                        '/>
                         </a>
                     </div>
                     {% end_list %}
@@ -389,7 +397,7 @@
       </div>
       {% endif %}
       <!-- Accordion card -->
-    
+
       <!-- AddThis Button BEGIN -->
       <!-- Go to www.addthis.com/dashboard to customize your tools -->
       <br>

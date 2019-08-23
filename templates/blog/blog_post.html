@@ -21,10 +21,18 @@
 <ul class="blog-list-imgs">
   {% page_list "gallery" %}
   {% list_item "image" type=img %}
+  {% list_item "alt_tag" type="text" noprint="true" %}
   <li>
     <div class="card card-cascade">
       <div class="view">
-        <img itemprop="image" class="img-fluid" src="{% imgix_url list_item.image %}?w=920&h=920" alt="">
+        <img itemprop="image" class="img-fluid" src="{% imgix_url list_item.image %}?w=920&h=920"
+        alt='
+        {% if list_item.alt_tag %}
+        {{ list_item.alt_tag }}
+        {% else %}
+        {{ page.content.title }} ex. {{ forloop.counter }}
+        {% endif %}
+        '/>
       </div>
     </div>
   </li>
