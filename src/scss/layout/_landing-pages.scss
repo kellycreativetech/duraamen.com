@@ -105,3 +105,131 @@
     color: #FFF;
   }
 }
+
+/*new-landingpage*/
+.landingpages-products {
+  nav {
+    background-color: rgba(255, 255, 255, 0.0)!important;
+    box-shadow: 0;
+    border-bottom: 1px solid #cecece;
+    position: relative;
+    font-size: 0.8rem;
+  }
+  .hero {
+    align-items: flex-start;
+    min-height: 622px;
+    padding-top: 20px;
+
+    .lp-product-subtitle, .lp-product-title {
+      font-family: 'Roboto', sans-serif;
+      color: #454545;
+      text-shadow: none;
+    }
+    .lp-product-title {
+      font-size: 24px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: .07em;
+    }
+    .lp-product-subtitle {
+      display: inline-block;
+      font-size: 44px;
+      font-weight: 500;
+      text-transform: none;
+      letter-spacing: 0;
+      line-height: 100%;
+      margin-top: 40px;
+    }
+  }
+  .main-body {
+    border-top-color: $brand-gold;
+    margin-top:-230px;
+  }
+  .hero-images-over {
+    flex: auto;
+    position: relative;
+    margin-left: -50%;
+    left: 50%;
+    background-color: none;
+    z-index: 25;
+    align-items: flex-end;
+  }
+  .hero-title-over {
+    position: relative;
+    z-index: 21;
+  }
+  section {
+    h2, h3, p, ul, ol {
+      font-size: 1rem!important;
+      font-family: 'Roboto', 'Helvetica', sans-serif;
+    }
+    h2 {
+      font-size: 2.125rem!important;
+      color: #454545!important;
+      text-shadow: none!important;
+      font-weight: 600!important;
+    }
+    h3 {
+      font-size: 1.5rem!important;
+      text-shadow: none!important;
+      font-weight: 500!important;
+    }
+  }
+}
+
+
+@include media-breakpoint-up(md) {
+  .landingpages-products {
+    nav {
+      background-color: rgba(255, 255, 255, 0.0)!important;
+      box-shadow: 0;
+      border-bottom: 1px solid #cecece;
+      position: relative;
+    }
+    .hero {
+      align-items: flex-start;
+      min-height: 622px;
+      padding-top: 20px;
+
+      .lp-product-subtitle, .lp-product-title {
+        font-family: 'Roboto', sans-serif;
+        color: #454545;
+        text-shadow: none;
+      }
+      .lp-product-title {
+        font-size: 24px;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: .07em;
+      }
+      .lp-product-subtitle {
+        display: inline-block;
+        font-size: 44px;
+        font-weight: 500;
+        text-transform: none;
+        letter-spacing: 0;
+        line-height: 100%;
+        margin-top: 40px;
+      }
+    }
+    .main-body {
+      border-top-color: $brand-gold;
+      margin-top:-120px;
+    }
+    .hero-images-over {
+      flex: auto;
+      position: absolute;
+      top: 0;
+      margin-left: -50%;
+      left: 50%;
+      height: 577px;
+      background-color: none;
+      z-index: 20;
+      align-items: flex-end;
+    }
+    .hero-title-over {
+      position: relative;
+      z-index: 21;
+    }
+  }
+}

@@ -1,0 +1,38 @@
+<nav class="nav-no-nav navbar fixed-top navbar-expand-lg navbar-light scrolling-navbar top-nav-collapse">
+    <div class="container">
+      <a class="navbar-brand" href="/"> <img alt="Duraamen logo | concrete coatings &amp; polished concrete products that are engineered to perform" height="40" src="/dist/img/logo.svg" width="200"> </a>
+
+          <div class="has-contact-links" style="float:right;">
+            <a class="contact-link" href="/contact" style="color:#454545; margin-right:20px;"><i class="fa fa-envelope-o" aria-hidden="true"></i><i class="fa fa-chevron-right" aria-hidden="true"></i> Request Info</a><a class="contact-link phone" href="tel:8668356595" style="color:#454545;"><i class="fa fa-mobile" aria-hidden="true"></i><span>+1 866.835.6595</span></a>
+          </div>
+    </div>
+  </nav>
+
+
+
+
+
+  <div class="hero view hm-black-strong-1 jarallax simple-hero" >
+    <div class="container" style="position: relative">
+
+
+      <div class="col-md-12 {% if not editing %}hero-title-over{% endif %}">
+        <div class="wow fadeInDown" data-wow-delay="0.2s">
+          {% page "Title" type="wysiwyg" %}
+        </div>
+      </div>
+
+      <div class="row {% if not editing %}hero-images-over{% endif %}">
+
+        <div class="col-md-6">
+          {% page "hero-content-left" type="wysiwyg" %}
+        </div>
+        <div class="col-md-6 hidden-sm-down">
+          {% page "hero-content-right" type="wysiwyg" %}
+        </div>
+
+      </div>
+
+
+    </div>
+  </div>
