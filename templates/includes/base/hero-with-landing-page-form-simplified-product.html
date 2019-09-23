@@ -1,0 +1,37 @@
+<nav class="nav-no-nav navbar fixed-top navbar-expand-lg navbar-light scrolling-navbar top-nav-collapse"> <div class="container"> <a class="navbar-brand" href="/"> <img alt="Duraamen logo | concrete coatings &amp; polished concrete products that are engineered to perform" height="40" src="/dist/img/logo.svg" width="200"> </a> </nav>
+
+  <div class="top-button">{% page "masthead_img" type="img" %}</div>
+
+  <div
+
+  class="hero view hm-black-strong-1 jarallax simple-hero"
+
+  style="background-image: url({% if page.content.masthead_img %}{% imgix_url page.content.masthead_img %}{% else %}{% imgix_url "/dist/img/iStock-92277191.jpg" %}{% endif %}?w=1800&h=1000&fit=crop&sat=-100&crop=bottom&blend=001529&bm=normal&balph=40);"
+  data-srv-name="masthead_img">
+
+  <div class="full-bg-img">
+  </div>
+  <div class="container push-content">
+
+    <div class="row smooth-scroll">
+      <div class="col-md-6 text-center">
+        <div class="wow fadeInDown text-left" data-wow-delay="0.2s">{% page "hero-content" type="wysiwyg" %}<br>
+        {% page "hero-caption" type="wysiwyg" %}
+      </div>
+        <!--<div class="col-md-12 white-text text-left">
+          <div class="wow fadeInDown" data-wow-delay="0.2s">
+            {% page "hero-content" type="wysiwyg" %}
+          </div>-->
+      </div>
+      <div class="col-md-6 white-text">
+        <div class="card wow fadeInDown" data-wow-delay="0.4s">">
+          <div class="card-body pt-0 pb-0 pl-5 pr-5">
+            <h3 class="text-center font-weight-bold pt-0 mt-0" style="color:#333; font-family: 'Roboto', sans-serif; text-shadow: none; letter-spacing: .1rem;">{% page "form-cta" %}</h3>
+            {% include "includes/forms/short-form-regionals.html" %}
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
