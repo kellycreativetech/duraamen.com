@@ -1,1 +1,4 @@
+{% if page.content.image %}{% imgix_url page.content.image %}?w=1200&h=630&fit=fill&fill-color=ffffff&mark={{ site.get_absolute_url|urlencode }}%2Fdist%2Fimg%2Flogo.png&markpad=10
+{% else %}
 https://motif.imgix.com/i?url={{ page.get_absolute_url|urlencode }}&image_url={% if page.content.masthead_img %}{% imgix_url page.content.masthead_img %}{% else %}{{site.get_absolute_url|urlencode}}%2Fdist%2Fimg%2FiStock-92277191.jpg{% endif %}&color=eeeeee&logo_url={{ site.get_absolute_url|urlencode }}%2Fdist%2Fimg%2Flogo.png&logo_alignment=bottom%2Cright&text_alignment=top%2Cleft&logo_padding=20&font_family=Avenir%20Next%20Demi%2CBold&text_color=8c2b00
+{% endif %}
