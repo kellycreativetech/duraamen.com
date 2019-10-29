@@ -99,17 +99,19 @@
             {% select_pages "category" path_split.2 varname="products" order_by="-published" %}
         {% elif path_split.1 %}
             {% select_pages "category" path_split.1 varname="products" order_by="-published" %}
-            
+
         {% else %} <!-- this one is original -->
             {% select_pages "category" path_split.0 varname="products" order_by="-published" %}
         {% endif %}
-        
-        {% comment %}These are no longer used. {% elif path_split.0 == "p" %}{% select_pages "category" path_split.1 varname="products" order_by="-published" %}{% endcomment %}
-        
-        
+
         {% autopaginate products 15 %}
         {% for product in products %}
-        <div class="col-sm-6 col-md-6 col-lg-4 mb-4 category-item" itemscope itemtype="http://schema.org/Product">
+        <div
+          class="col-sm-6 col-md-6 col-lg-4 mb-4 category-item"
+          itemscope
+          itemtype="http://schema.org/Product"
+          {% if product.content.shopify_product_id %}data-shopify-product-id="{{ product.content.shopify_product_id}}"{% endif %}
+        >
           {% if product.content.image %}
             <a href="{{ product.get_absolute_url }}{% if editing %}/admin{% endif %}" class="d-block z-depth-1 hm-zoom waves-light waves-effect waves-light">
               <img alt="{{ product.content.title|striptags }}" src="{% imgix_url product.content.image %}?w=400&h=400&fit=crop" itemprop="image">
