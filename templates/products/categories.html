@@ -117,8 +117,8 @@
               <img alt="{{ product.content.title|striptags }}" src="{% imgix_url product.content.image %}?w=400&h=400&fit=crop" itemprop="image">
             </a>
           {% endif %}
-
-          <h5><a href="{{ product.get_absolute_url }}{% if editing %}/admin{% endif %}" itemprop="name">{{ product.content.title|safe }}</a> <br><small>{{ product.content.subtitle|safe }}</small></h5>
+          <span itemprop="name" content="{{ product.content.title|striptags }}"/>
+          <h5><a href="{{ product.get_absolute_url }}{% if editing %}/admin{% endif %}">{{ product.content.title|safe }}</a> <br><small>{{ product.content.subtitle|safe }}</small></h5>
           <p class="small">{{ product.content.content|striptags|safe|truncatewords:12 }}</p>
         </div>
         {% endfor %}

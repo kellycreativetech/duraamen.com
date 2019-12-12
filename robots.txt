@@ -14,7 +14,7 @@ Disallow:/p/$
 Disallow:/p$
 Disallow:/blog/signin-4$
 Disallow:/p/epoxy-concrete-crack-repair$
-Disallow:/products/terrazzi-concrete-resurfacing$
+Disallow:/p
 
 #Old Landingpages
 
@@ -41,6 +41,7 @@ Disallow:/photo-gallery/stained-concrete$
 # Allow These Pages
 Allow:/blog/wp-content/uploads/
 Allow:/blog/2010/03/04/decorative-concrete-contractors-develop-skills
+Allow:/products/terrazzi-concrete-resurfacing
 
 Sitemap: https://www.duraamen.com/siteapi/duraamen/content.xml
 Sitemap: https://www.duraamen.com/sitemap-video.xml
