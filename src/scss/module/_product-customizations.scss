@@ -115,13 +115,26 @@
 .category-item {
   display: flex !important;
   flex-direction: column;
-  border-right: 1px solid #ddd;
-  border-bottom: 1px solid #ddd;
   padding-bottom: 20px;
   margin: 0 !important;
+  border-bottom: 1px solid #ddd;
 
-  &:nth-child(3n+3) {
-    border-right: 0 none;
+  @include media-breakpoint-up(sm) {
+    border-right: 1px solid #ddd;
+
+    &:nth-child(2n+2) {
+      border-right: 0 none;
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+    &:nth-child(2n+2) {
+      border-right: 1px solid #ddd;
+    }
+
+    &:nth-child(3n+3) {
+      border-right: 0 none;
+    }
   }
 
   .shopify-bits {

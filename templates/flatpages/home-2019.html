@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block bodyclass %}home-page {% endblock %}
+
+{% block hero %}{% include "includes/base/hero.html" %}{% endblock %}
+
+
+{% block main %}
+<section class="gray-bg home-section">
+  <div class="container">
+    <div class="row justify-content-md-center">
+      <div class="col-lg-9 text-center">
+        <h2>{% page "title" %}</h2>
+        {% page "content" type="wysiwyg" %}
+        {% include "includes/snippets/section-icons.html" %}
+      </div>
+    </div>
+  </div>
+</section>
+<section class="home-section">
+  <div class="container">
+    <div class="row justify-content-md-center">
+      <div class="col-lg-9">
+        {% include "includes/sections/blog-latest.html" %}
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+{% block belowmaincontent %}
+{% include "includes/forms/subscribe-form.html" %}
+{% endblock %}
