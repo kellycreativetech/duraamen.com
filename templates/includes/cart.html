@@ -213,23 +213,23 @@
 {% endif %}
 
   // a smarter way to do this...
-  //
-  // var productIndexItems = document.querySelectorAll('[data-shopify-product-id]');
-  //
-  // if (productIndexItems.length > 0) {
-  //   productIndexItems.forEach(function(e) {
-  //     var productId = e.dataset.shopifyProductId;
-  //
-  //     ShopifyBuy.UI.onReady(client, productOptions).then(function (ui) {
-  //       ui.createComponent('product', {
-  //         id: [productId],
-  //         node: e,
-  //         moneyFormat: '%24%7B%7Bamount%7D%7D',
-  //         options: productOptions
-  //       });
-  //     });
-  //   });
-  // }
+
+  var productIndexItems = document.querySelectorAll('[data-shopify-product-id]');
+
+  if (productIndexItems.length > 0) {
+    productIndexItems.forEach(function(e) {
+      var productId = e.dataset.shopifyProductId;
+
+      ShopifyBuy.UI.onReady(client, productOptions).then(function (ui) {
+        ui.createComponent('product', {
+          id: [productId],
+          node: e,
+          moneyFormat: '%24%7B%7Bamount%7D%7D',
+          options: productOptions
+        });
+      });
+    });
+  }
 
 
   }

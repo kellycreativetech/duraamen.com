@@ -57,7 +57,7 @@
         {% menu "Navigation" begin_at="ecf1480f-b683-4e22-86b0-e603591e2fb1" trail_class="trail" current_class="current" %}
         <ul class="product-nav-sidebar">
           {% for item in tree %}
-      <li class="{{ item.classes|join:" " }}">
+          <li class="{{ item.classes|join:" " }}">
           <a href="{{ item.url }}">{{ item.name }}</a>
               {% if item.children %}
               <ul>
@@ -89,7 +89,7 @@
 
         {% block content %}
         {% include "includes/base/_third-tier-mobile-nav.html" %}
-        <div class="row">
+        <div class="row category-row">
 
         {% if page.path == "products" %}
             {% children as products order_by="?" %}
@@ -110,21 +110,29 @@
           class="col-sm-6 col-md-6 col-lg-4 mb-4 category-item"
           itemscope
           itemtype="http://schema.org/Product"
-          {% if product.content.shopify_product_id %}data-shopify-product-id="{{ product.content.shopify_product_id}}"{% endif %}
         >
           {% if product.content.image %}
-            <a href="{{ product.get_absolute_url }}{% if editing %}/admin{% endif %}" class="d-block z-depth-1 hm-zoom waves-light waves-effect waves-light">
+            <a href="{{ product.get_absolute_url }}{% if editing %}/admin{% endif %}" class="d-block hm-zoom waves-light waves-effect waves-light">
               <img alt="{{ product.content.title|striptags }}" src="{% imgix_url product.content.image %}?w=400&h=400&fit=crop" itemprop="image">
             </a>
           {% endif %}
-          <span itemprop="name" content="{{ product.content.title|striptags }}"/>
+          <span itemprop="name" content="{{ product.content.title|striptags }}"></span>
           <h5><a href="{{ product.get_absolute_url }}{% if editing %}/admin{% endif %}">{{ product.content.title|safe }}</a> <br><small>{{ product.content.subtitle|safe }}</small></h5>
           <p class="small">{{ product.content.content|striptags|safe|truncatewords:12 }}</p>
+
+          {% if product.content.shopify_product_id %}
+          <div class="shopify-bits" data-shopify-product-id="{{ product.content.shopify_product_id}}"></div>
+          {% else %}
+          <div class="shopify-bits">
+            <p class="not-available-online">Not available online</p>
+            <a href="/contact" class="shopify-buy__btn grey">Order by Phone or Email</a>
+            </div>
+          {% endif %}
+          <p class="details-link"><a href="{{ product.get_absolute_url }}{% if editing %}/admin{% endif %}">View Details</a></p>
         </div>
         {% endfor %}
-
-        {% include "includes/snippets/pagination.html" %}
         </div>
+        {% include "includes/snippets/pagination.html" %}
         {% endblock content %}
       </div>
     </div>

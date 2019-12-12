@@ -100,6 +100,11 @@ body:not(.product-pages) .main-body {
   @import "vendor/mdb/pro/material-select";
 }
 
+body.product-category-pages .main-body select {
+  display: block !important;
+  font-size: 14px;
+}
+
 @import "vendor/mdb/pro/switch";
 @import "vendor/mdb/pro/file-input";
 @import "vendor/mdb/pro/range";
