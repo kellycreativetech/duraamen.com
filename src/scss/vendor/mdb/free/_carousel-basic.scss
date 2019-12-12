@@ -1,15 +1,17 @@
 // CAROUSELS BASIC
 .carousel {
+  width: 100%;
+
   .carousel-control-prev-icon,
   .carousel-control-next-icon {
     width: 36px;
     height: 36px;
   }
   .carousel-control-prev-icon {
-    background-image: url(#{$image-path}/svg/arrow_left.svg);
+    background-image: url(#{$image-path}svg/arrow_left.svg);
   }
   .carousel-control-next-icon {
-    background-image: url(#{$image-path}/svg/arrow_right.svg);
+    background-image: url(#{$image-path}svg/arrow_right.svg);
   }
   .carousel-indicators {
     li {
@@ -53,5 +55,14 @@
     @supports (transform-style: preserve-3d) {
       transform: translate3d(0, 0, 0);
     }
+  }
+}
+
+.btn.btn-has-icon {
+  display: inline-flex;
+  padding: 12px 32px 12px 22px;
+
+  svg {
+    margin-right: 8px;
   }
 }

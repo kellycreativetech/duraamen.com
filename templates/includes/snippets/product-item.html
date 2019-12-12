@@ -1,0 +1,31 @@
+<div class="col-md-3 featured-product--item text-center price-only">
+  {% if "new" in item.content.category %}
+  <span class="new-flag">NEW!</span>
+  {% endif %}
+  <a
+    class="blog-preview-img hm-zoom waves-light"
+    href="{{ item.get_absolute_url }}{% if editing %}/admin{% endif %}">
+    <img
+      class="img-fluid"
+      src="{% if item.content.image %}{% imgix_url item.content.image %}{% else %}{% imgix_url '/dist/img/iStock-92277191.jpg' %}{% endif %}?w=400&h=400&fit=crop"
+      alt="{{ item.content.title }}">
+  </a>
+    <p>
+      <a class="text-color" href="{{ item.get_absolute_url }}{% if editing %}/admin{% endif %}">
+        {{ item.content.title|safe }}
+      </a>
+    </p>
+
+    <div class="actions-wrap">
+
+      {% if item.content.shopify_product_id %}
+      <div class="shopify-bits" data-shopify-product-id="{{ item.content.shopify_product_id}}"></div>
+      {% endif %}
+
+      <a
+        href="{{ item.get_absolute_url }}{% if editing %}/admin{% endif %}"
+        class="btn waves-effect waves-light btn-secondary btn-md btn-block btn-dark-text">
+        View Options
+      </a>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+<div id="carouselHome" class="carousel slide carousel-fade carousel-home" data-ride="carousel">
+  <div class="carousel-inner">
+
+    {% page_list "masthead" %}
+    {% list_item "gallery_img" type="img" %}
+    <div class="carousel-item {% if forloop.first %}active{% endif %}">
+      <div
+        class="hero x-small-hero view hm-black-strong-1"
+        style="background-image: url({% imgix_url list_item.gallery_img %}?w=1800&h=1000&fit=crop&sat=-80&crop=bottom&blend=000000&bm=normal&balph=50);">
+
+        <div class="full-bg-img">
+          <div class="container wider-container flex-center">
+            <div class="text-center">
+            <h1 class="white-text">{% list_item "title" type="text" %}</h1>
+            <h2 class="orange-text">{% list_item "subtitle" type="text" %}</h2>
+            {% list_item "caption" type="wysiwyg" %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% end_list %}
+  </div>
+  <a class="carousel-control-prev" href="#carouselHome" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselHome" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>

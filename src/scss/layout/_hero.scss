@@ -41,6 +41,7 @@
 
   h2 {
     font-size: 1.5rem;
+    font-family: $font-family-sans-serif;
   }
 
   h4 {
@@ -101,7 +102,7 @@
   }
 
   &.x-small-hero {
-    min-height: 340px;
+    min-height: 300px;
     text-align: center;
     padding-top: 110px;//keeps title from going under nav on mobile
     padding-bottom: 40px;
@@ -148,8 +149,12 @@
     }
 
     h1 {
-      font-size: 3.5rem;
+      font-size: 3rem;
       margin-bottom: 0;
+    }
+
+    h2 {
+      font-size: 1.5rem;
     }
 
     h4 {
@@ -159,7 +164,7 @@
 
     &.x-small-hero,
     .blog-pages &.x-small-hero {
-      min-height: 400px;
+      min-height: 300px;
       padding-top: 0px;//resets padding for full screen
       padding-bottom: 80px;
     }
@@ -204,4 +209,21 @@
   top: 80px!important;
   right: 10px!important;
   z-index: 200!important;
+}
+
+.wider-container {
+  max-width: 1400px
+}
+
+.carousel-home {
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    transform: translateY(20px);
+  }
+
+  .srv-icon-label {
+    position: relative;
+    z-index: 1009;
+  }
+
 }

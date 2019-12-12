@@ -2,26 +2,25 @@
 
 {% block bodyclass %}home-page {% endblock %}
 
-{% block hero %}{% include "includes/base/hero.html" %}{% endblock %}
-
+{% block hero %}{% include "includes/base/hero-small-carousel.html" %}{% endblock %}
 
 {% block main %}
-<section class="gray-bg home-section">
+<section class="home-section">
   <div class="container">
+    {% include "includes/sections/featured-products-tabs.html" %}
+
+    <h3 class="home-section-head">Complete Epoxy Floor Kits</h3>
+    <div class="row">
+      {% select_pages "category" "complete-epoxy-floor-kits" %}
+      {% for item in pages|slice:"4" %}
+      {% include "includes/snippets/product-item.html" %}
+      {% endfor %}
+    </div>
+
     <div class="row justify-content-md-center">
       <div class="col-lg-9 text-center">
         <h2>{% page "title" %}</h2>
-        {% page "content" type="wysiwyg" %}
         {% include "includes/snippets/section-icons.html" %}
-      </div>
-    </div>
-  </div>
-</section>
-<section class="home-section">
-  <div class="container">
-    <div class="row justify-content-md-center">
-      <div class="col-lg-9">
-        {% include "includes/sections/blog-latest.html" %}
       </div>
     </div>
   </div>
