@@ -1,0 +1,12 @@
+<div class="col-md-3 align-items-stretch d-flex">
+  <a class="blog-preview-img hm-zoom waves-light" href="{{ item.get_absolute_url }}{% if editing %}/admin{% endif %}">
+    <img class="img-fluid" src="
+    {% if item.content.image %}{% imgix_url item.content.image %}{% else %}{% imgix_url "/dist/img/iStock-92277191.jpg" %}{% endif %}?w=400&h=400&fit=crop"
+    alt="{{ item.content.title }}">
+  </a>
+    <h5 class="card-title"><a href="{{ item.get_absolute_url }}{% if editing %}/admin{% endif %}">{{ item.content.title|safe }}</a></h5>
+    <p class="card-text d-none d-md-block">{{ item.content.content|striptags|truncatewords:20|safe }}</p>
+      <a href="{{ item.get_absolute_url }}{% if editing %}/admin{% endif %}" class="btn waves-effect waves-light btn-secondary">
+        View Options
+      </a>
+</div>

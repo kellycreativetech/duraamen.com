@@ -146,6 +146,9 @@ body.product-category-pages .main-body select {
 @import "base/utilities";
 @import "base/typography";
 
+@import "slick.scss";
+@import "slick-theme.scss";
+
 @import "layout/main-layout";
 @import "layout/nav";
 @import "layout/hero";

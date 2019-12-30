@@ -20,7 +20,8 @@ var gulp = require('gulp'),
 var sassPaths = [
   "src/sass",
   "node_modules/@fancyapps/fancybox/dist",
-  "node_modules/bootstrap/scss"
+  "node_modules/bootstrap/scss",
+  "node_modules/slick-carousel/slick",
 ]
 
 // all of these will be concatenated.
@@ -37,6 +38,7 @@ var scriptPaths = [
   "node_modules/popper.js/dist/umd/popper.min.js",
   "node_modules/bootstrap/dist/js/bootstrap.min.js",
   "node_modules/@fancyapps/fancybox/dist/jquery.fancybox.js",
+  "node_modules/slick-carousel/slick/slick.js",
   "src/js/mdb.js",
   "src/js/scripts.js"
 ]

@@ -1,0 +1,14 @@
+<section class="categories-carousel">
+  {% page_list "category" %}
+  {% list_item "img" type="img" %}
+  {% list_item "title" type="text" noprint="true" %}
+  {% list_item "link" type="text" noprint="true" %}
+    <div class="categories-carousel--item">
+      <a class="categories-carousel--link" href="{{ list_item.title }}">
+        <img class="categories-carousel--img"src="{% imgix_url list_item.img %}?w=400&h=400&fit=fill&fill=solid&fill-color=FFFFFF" />
+        <span class="categories-carousel--title">{{ list_item.title }}</span>
+      </a>
+    </div>
+  {% end_list %}
+
+</section>

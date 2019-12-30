@@ -1,40 +1,68 @@
-@ -1,39 +1,68 @@
+<html>
+<head>
+    <style type="text/css">
+        @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200italic);
+        html, body {
+            height: 100%;
+        }
+        body {
+            margin: 0;
+            font-family: 'Source Sans Pro', 'sans-serif';
+            background: #f8f8f8;
+            font-weight: 200;
+        }
+        a {
+            color: #0d90bb;
+            text-decoration: underline;
+        }
+        p {
+            font-size: 1em;
+        }
+        h1 {
+            font-size: 8em;
+        }
+        .flex-container {
+            height: 100%;
+            padding: 0;
+            margin: 0;
+            display: -webkit-box;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f7f9ff;
+        }
+        .row {
+            width: auto;
+            border-radius: 2px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+            background-color: #fff;
 
-
-FIRST TERMINAL WINDOW
-
-cd ~/Sites/duraamen.com && source ~/glass-sites/bin/activate && glass watch
-
-
-
-
-SECOND TERMINAL WINDOW
-
-cd ~/Sites/duraamen.com && source ~/glass-sites/bin/activate && gulp
-
-
-
-SHOW AND HIDE FILES
-showFiles
-hideFiles
-
-______
-
-To install all of the NPM dependencies:
-cd ~/Sites/duraamen.com && npm i
-
-take note of any errors.
-
-
-Install python virtual environment and glass watch
-
-1. Install Xcode tools
-2. Install Home Brew
-3. Install the latest python version [ $ brew install python ]
-4. Cd to home directory if not there [ $ cd ~ ]
-5. install a virtual environment named glass-sites [ $ pyvenv glass-sites]
-6. $ source glass-sites/bin/activate
-7. $ cd ~/Sites/your-website-folder-name
-8. Check to see if glass-api is installed and cd into it [ $ cd ~/Sites/glass-api/ ]
-9. $ pip install -r requirements.txt
-10. (glass-sites) iMac:duraamen.com chrisprice$ glass watch
+        }
+        .flex-item {
+            padding: 5px;
+            width: 300px;
+            margin: 10px;
+            line-height: 20px;
+            color: #0d90bb;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="flex-container">
+    <div class="row">
+        <div class="flex-item"><h1>404</h1></div>
+        <div class="flex-item">
+            
+            <p>The page you're looking for can't be found.</p>
+            <p><a href="https://www.duraamen.com">Go To Homepage</a></p>
+            
+            <p>If you think this is an error, please contact <a href="mailto:support@servee.com">Support</a></p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

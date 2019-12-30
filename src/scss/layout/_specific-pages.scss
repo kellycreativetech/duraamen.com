@@ -111,3 +111,83 @@ body.case-study-pages {
     }
   }
 }
+
+.categories-carousel {
+  &--item {
+    position: relative;
+    padding: 10px;
+    overflow: hidden;
+  }
+
+  &--link {
+    display: block;
+  }
+
+  &--title {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    margin-right: 40px;
+    margin-left: 40px;
+    padding-right: 10px;
+    padding-left: 10px;
+    border-right: 4px solid $secondary-color;
+    border-left: 4px solid $secondary-color;
+    display: block;
+    width: calc(100% - 80px);
+
+    @include media-breakpoint-up(md) {
+      width: calc(100% - 40px);
+      margin-right: 20px;
+      margin-left: 20px;
+    }
+  }
+}
+
+.slick-prev, .slick-next {
+  width: 36px;
+  height: 36px;
+  color: #fff;
+
+  &:hover {
+    color: #fff;
+  }
+
+  &.slick-disabled,
+  &.slick-disabled:hover {
+    color: #eee;
+    cursor: default;
+  }
+
+}
+
+.slick-prev {
+  left: 10px;
+}
+
+.slick-next {
+  right: 10px;
+}
+
+
+
+@include media-breakpoint-up(md) {
+.slick-prev, .slick-next {
+  color: #454545;
+
+  &:hover {
+    color: $primary-color;
+  }
+}
+.slick-prev {
+  left: -40px;
+}
+
+.slick-next {
+  right: -40px;
+}
+}

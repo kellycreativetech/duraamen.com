@@ -16,14 +16,33 @@
       {% include "includes/snippets/product-item.html" %}
       {% endfor %}
     </div>
-
-    <div class="row justify-content-md-center">
-      <div class="col-lg-9 text-center">
-        <h2>{% page "title" %}</h2>
-        {% include "includes/snippets/section-icons.html" %}
-      </div>
-    </div>
   </div>
+</section>
+<section class="home-section orange">
+  <div class="container">
+      {% include "includes/snippets/section-icons-2019.html" %}
+  </div>
+</section>
+
+<section class="home-section">
+  <div class="container">
+    <h2>Product Categories</h2>
+    <section class="categories-carousel">
+      {% page_list "category_carousel" %}
+      {% list_item "category_image" type="img" noprint="true" %}
+      {% list_item "title" type="text" noprint="true" %}
+      {% list_item "link" type="text" noprint="true" %}
+      <div class="categories-carousel--item">
+        <a class="categories-carousel--link hm-zoom waves-light waves-effect waves-light" href="{{ list_item.link }}{% if editing %}/admin{% endif %}">
+          <img class="categories-carousel--img" src="{% imgix_url list_item.category_image %}?w=700&h=700&fit=fill&fill=solid&fill-color=FFFFFF" />
+          <span class="categories-carousel--title">{{ list_item.title }}</span>
+        </a>
+      </div>
+      {% end_list %}
+
+    </section>
+
+    </div>
 </section>
 {% endblock %}
 

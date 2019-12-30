@@ -91,3 +91,33 @@
     }
   }
 }
+
+
+.home-section-icons {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  font-weight: bold;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  li a {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: $dark-gray;
+    padding-right: 20px;
+    padding-left: 20px;
+    margin-bottom: 10px;
+  }
+
+  svg {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 10px;
+  }
+}
