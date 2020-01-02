@@ -36,6 +36,7 @@
       "product": {
         "iframe": false,
         "variantId": "all",
+        "line-item-property": "all",
         "width": "240px",
         "contents": {
           "img": false,
@@ -45,13 +46,15 @@
           "price": true,
           "description": false,
           "buttonWithQuantity": false,
-          "quantity": false
+          "quantity": false,
+          "line-item-property": true,
+          "note": true
         },
         "text": {
           "button": "Add to Cart"
         },
         "templates": {
-          title: '<h2 class="{% templatetag openvariable %}data.classes.product.title{% templatetag closevariable %}" data-element="product.title">{% templatetag openvariable %}data.title{% templatetag closevariable %}</h2>',
+          title: '<h2 class="{% templatetag openvariable %}data.classes.product.title{% templatetag closevariable %}" data-element="product.title">{% templatetag openvariable %}data.title{% templatetag closevariable %}</h2>'
         }
       },
       "cart": {
@@ -112,6 +115,9 @@
         moneyFormat: '%24%7B%7Bamount%7D%7D',
         options: productOptions
       });
+
+
+
       {% else %}
       ui.createCart({
           moneyFormat: '%24%7B%7Bamount%7D%7D',

@@ -191,3 +191,42 @@ body.case-study-pages {
   right: -40px;
 }
 }
+
+
+.subscribe-field-wrap {
+  text-align: center;
+
+  input {
+    width: 100%;
+    background: rgba(255,255,255,0.8);
+    border: 1px solid rgba(255,255,255,0.8);
+    border-radius: 2px;
+
+    &:hover,
+    &:focus {
+      border-color: #FFF;
+    }
+
+    &:focus {
+      background: #fff;
+    }
+  }
+
+  @include media-breakpoint-up(md) {
+    display: flex;
+
+    input,
+    button {
+      margin: 0;
+    }
+
+    input {
+      flex: 1 1 100%;
+      margin-right: 10px;
+    }
+
+    button {
+      flex: 0 0 auto;
+    }
+  }
+}

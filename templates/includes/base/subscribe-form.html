@@ -1,6 +1,6 @@
-<section class="subscribe-form gold-bg home-section">
+<section class="subscribe-form primary-bg white-text home-section">
   <div class="container">
-    <h2 class="text-center mb-5 mt-4">Receive Specials Offers & News from Duraamen.</h2>
+    <h2 class="text-center mb-5 mt-4">Sign up for Specials Offers, Discounts, & How-to information.<sup>*</sup></h2>
     <div class="row justify-content-md-center">
       <div class="col-lg-4">
         <form data-glass-form-api  action="/404/">
@@ -9,14 +9,12 @@
           <input type="hidden" name="mc_id" value="4f09927312">
           <input type="hidden" name="mailchimp-opt-in" value="YES"/>
           {% csrf_token %}
-          <div class="md-form">
+          <div class="subscribe-field-wrap">
             <input type="email" id="defaultForm-email" name="email" class="form-control validate" required>
-            <label for="defaultForm-email">Your email</label>
-          </div>
-          <div class="text-center">
-            <button class="btn btn-primary">Submit</button>
+            <button class="btn btn-secondary">Submit</button>
           </div>
         </form>
+        <p class="small">*Duraamen values your privacy. We will NOT share your information with a third party. View our <a href="/privacy-policy">Privacy Policy.</a></p>
       </div>
       </div>
     </div>

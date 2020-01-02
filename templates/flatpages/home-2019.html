@@ -6,17 +6,20 @@
 
 {% block main %}
 <section class="home-section">
-  <div class="container">
     {% include "includes/sections/featured-products-tabs.html" %}
-
+  <div class="container">
     <h3 class="home-section-head">Complete Epoxy Floor Kits</h3>
+  </div>
     <div class="row">
       {% select_pages "category" "complete-epoxy-floor-kits" %}
-      {% for item in pages|slice:"4" %}
-      {% include "includes/snippets/product-item.html" %}
-      {% endfor %}
+      <div class="featured-product--row-wrap">
+        <div class="row featured-product--row">
+        {% for item in pages|slice:"4" %}
+        {% include "includes/snippets/product-item.html" %}
+        {% endfor %}
+        </div>
+      </div>
     </div>
-  </div>
 </section>
 <section class="home-section orange">
   <div class="container">

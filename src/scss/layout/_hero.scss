@@ -102,10 +102,14 @@
   }
 
   &.x-small-hero {
-    min-height: 300px;
+    min-height: 70vh;
     text-align: center;
-    padding-top: 110px;//keeps title from going under nav on mobile
+    margin-top: 100px;//keeps title from going under nav on mobile
     padding-bottom: 40px;
+
+    @include media-breakpoint-up(sm) {
+      min-height: 300px;
+    }
   }
 
   @at-root .product-pages &.x-small-hero,
