@@ -176,21 +176,22 @@ body.case-study-pages {
 
 
 @include media-breakpoint-up(md) {
-.slick-prev, .slick-next {
-  color: #454545;
+  .slick-prev, .slick-next {
+    color: #454545;
 
-  &:hover {
-    color: $primary-color;
+    &:hover {
+      color: $primary-color;
+    }
+  }
+  .slick-prev {
+    left: -40px;
+  }
+
+  .slick-next {
+    right: -40px;
   }
 }
-.slick-prev {
-  left: -40px;
-}
 
-.slick-next {
-  right: -40px;
-}
-}
 
 
 .subscribe-field-wrap {
@@ -227,6 +228,41 @@ body.case-study-pages {
 
     button {
       flex: 0 0 auto;
+    }
+  }
+}
+
+.kit-products {
+
+  .table {
+    display: table;   /* Allow the centering to work */
+    text-align: center;
+    margin: 0 auto!important;
+
+    ul#horizontal-list {
+      min-width: 700px;
+      list-style: none;
+      padding-top: 20px;
+
+      li.video-thumb {
+        display: inline-block;
+        padding: 0;
+        float: none;
+        margin: 0 10px;
+
+        a{
+          display: block;
+          text-align: center;
+          padding: 0;
+          text-decoration: none;
+          margin: 0;
+
+          img{
+            max-width: 190px;
+            margin: 0;
+          }
+        }
+      }
     }
   }
 }
