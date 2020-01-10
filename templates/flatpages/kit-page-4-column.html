@@ -14,20 +14,20 @@
       <div class="col-8 col-md-3 featured-product--item text-center">
         {% page "image" type="img" %}
         {% if not editing %}
-          <a class="product-image  d-block" data-fancybox href="{% imgix_url page.content.image %}?w=1400&h=1400">
-            {% endif %}
-            <img
-            class="img-fluid"
-            alt="{{ page.content.title|striptags }} {{ page.content.subtitle|striptags }}"
-            src="{% if page.content.image %}{% imgix_url page.content.image %}{% elif editing %}https://placem.at/places{% endif %}?w=600"
-            data-srv-name="image"
-            />
-            {% if not editing %}</a>{% endif %}
+        <a class="product-image  d-block" data-fancybox href="{% imgix_url page.content.image %}?w=1400&h=1400">
+          {% endif %}
+          <img
+          class="img-fluid"
+          alt="{{ page.content.title|striptags }} {{ page.content.subtitle|striptags }}"
+          src="{% if page.content.image %}{% imgix_url page.content.image %}{% elif editing %}https://placem.at/places{% endif %}?w=600"
+          data-srv-name="image"
+          />
+          {% if not editing %}</a>{% endif %}
 
-            {% if editing %}<p><small>Shopify Product ID</small><br>{% page "shopify_product_id" placeholder="Enter a shopify Product ID here to enable the cart button." type="text" %}</p>{% else %}
-            <div class="text-center shop-button-wrappers">
-              <div id='product-component-ec1c4450888'></div>
-            </div>
+          {% if editing %}<p><small>Shopify Product ID</small><br>{% page "shopify_product_id" placeholder="Enter a shopify Product ID here to enable the cart button." type="text" %}</p>{% else %}
+          <div class="text-center shop-button-wrappers">
+            <div id='product-component-ec1c4450888'></div>
+          </div>
           {% endif %}
         </div>
 
@@ -35,22 +35,22 @@
           {% page "imagetwo" type="img" %}
           {% if editing or page.content.imagetwo %}
           {% if not editing %}
-            <a class="product-image  d-block" data-fancybox href="{% imgix_url page.content.imagetwo %}?w=1400&h=1400">
-              {% endif %}
-              <img
-              class="img-fluid"
-              alt="{{ page.content.title|striptags }} {{ page.content.subtitle|striptags }}"
-              src="{% if page.content.imagetwo %}{% imgix_url page.content.imagetwo %}{% elif editing %}https://placem.at/places{% endif %}?w=600"
-              data-srv-name="imagetwo"
-              />
-              {% if not editing %}</a>{% endif %}
-              {% endif %}
+          <a class="product-image  d-block" data-fancybox href="{% imgix_url page.content.imagetwo %}?w=1400&h=1400">
+            {% endif %}
+            <img
+            class="img-fluid"
+            alt="{{ page.content.title|striptags }} {{ page.content.subtitle|striptags }}"
+            src="{% if page.content.imagetwo %}{% imgix_url page.content.imagetwo %}{% elif editing %}https://placem.at/places{% endif %}?w=600"
+            data-srv-name="imagetwo"
+            />
+            {% if not editing %}</a>{% endif %}
+            {% endif %}
 
-              {% if editing %}<p><small>Shopify Product ID #2</small><br>{% page "shopify_product_2" placeholder="Product #2 buy button goes here." type="text" %}</p>
-              {% else %}
-              <div class="text-center shop-button-wrappers">
-                <div id='product-component-2'></div>
-              </div>
+            {% if editing %}<p><small>Shopify Product ID #2</small><br>{% page "shopify_product_2" placeholder="Product #2 buy button goes here." type="text" %}</p>
+            {% else %}
+            <div class="text-center shop-button-wrappers">
+              <div id='product-component-2'></div>
+            </div>
             {% endif %}
           </div>
 
@@ -114,22 +114,19 @@
             <div class="row">
 
               <!-- column 1 -->
-              <div class="col-md-6">
+              <div class="col-md-6" style="border-right: 1px solid rgb(221, 221, 221);">
                 {% new_page_button label="New Product" parent="products" %}
                 <!--Accordion wrapper-->
                 <div class="accordion" role="tablist" aria-multiselectable="true" id="projectAccordion">
-                  <!-- Accordion card -->
 
-                  <div class="card">
+                  <!-- Accordion card -->
+                  <div class="card" style="border:none">
                     <!-- Card header -->
                     <div class="card-header" role="tab" id="headingOne">
-                      <a data-toggle="collapse" data-parent="#productAccordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                        <h5 class="mb-0">
-                          Description<i class="fa fa-angle-down rotate-icon"></i>
-                        </h5>
-                      </a>
+                      <h5 class="mb-0">
+                        Description
+                      </h5>
                     </div>
-
                     <!-- Card body -->
                     <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
                       <div class="card-body">
@@ -154,17 +151,15 @@
                     </div>
                   </div>
                   <!-- Accordion card -->
-
+                  <hr>
                   <!-- Accordion card -->
                   {% if page.content.advantages or editing %}
                   <div class="card">
                     <!-- Card header -->
                     <div class="card-header" role="tab" id="advantages">
-                      <a data-toggle="collapse" data-parent="#productAccordion" href="#collapseFour" aria-expanded="true" aria-controls="collapseFour" >
-                        <h5 class="mb-0">
-                          Options<i class="fa fa-angle-down rotate-icon"></i>
-                        </h5>
-                      </a>
+                      <h5 class="mb-0">
+                        Options
+                      </h5>
                     </div>
                     <!-- Card body -->
                     <div id="collapseFour" class="collapse show" role="tabpanel" aria-labelledby="advantages">
@@ -185,15 +180,12 @@
                 <div class="accordion" role="tablist" aria-multiselectable="true" id="projectAccordion">
 
                   <!-- Accordion card -->
-                  {% if page.content.suggested_applications or page.content.application_photos or editing %}
+                  {% if page.content.details or editing %}
                   <div class="card">
                     <!-- Card header -->
                     <div class="card-header" role="tab" id="applications">
-                      <a data-toggle="collapse" data-parent="#productAccordion" href="#collapseFive" aria-expanded="true" aria-controls="collapseFive" >
-                        <h5 class="mb-0">
-                          Details<i class="fa fa-angle-down rotate-icon"></i>
-                        </h5>
-                      </a>
+                      <h5>  Details
+                      </h5>
                     </div>
                     <!-- Card body -->
                     <div id="collapseFive" class="collapse show" role="tabpanel" aria-labelledby="applications">
@@ -204,7 +196,9 @@
                   </div>
                   {% endif %}
                   <!-- Accordion card -->
-
+                  {% if page.content.colors or editing %}
+                  <hr>
+                  {% endif %}
                   <!-- Accordion card -->
                   {% if page.content.colors or editing %}
                   <div class="card">
