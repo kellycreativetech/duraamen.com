@@ -10,10 +10,10 @@
   <div class="container">
     <div class="row">
 
-      <div class="col-md-3">
+
+      <div class="col-8 col-md-3 featured-product--item text-center">
         {% page "image" type="img" %}
         {% if not editing %}
-        <div class="z-depth-1-half pb-2 pr-2 pl-2 mb-0 mb-md-0">
           <a class="product-image  d-block" data-fancybox href="{% imgix_url page.content.image %}?w=1400&h=1400">
             {% endif %}
             <img
@@ -28,15 +28,13 @@
             <div class="text-center shop-button-wrappers">
               <div id='product-component-ec1c4450888'></div>
             </div>
-          </div>
           {% endif %}
         </div>
 
-        <div class="col-md-3">
+        <div class="col-8 col-md-3 featured-product--item text-center">
           {% page "imagetwo" type="img" %}
           {% if editing or page.content.imagetwo %}
           {% if not editing %}
-          <div class="z-depth-1-half mt-3 pb-2 pr-2 pl-2 mb-0 mb-md-0">
             <a class="product-image  d-block" data-fancybox href="{% imgix_url page.content.imagetwo %}?w=1400&h=1400">
               {% endif %}
               <img
@@ -53,15 +51,14 @@
               <div class="text-center shop-button-wrappers">
                 <div id='product-component-2'></div>
               </div>
-            </div>
             {% endif %}
           </div>
 
-          <div class="col-md-3">
+          <div class="col-8 col-md-3 featured-product--item text-center">
             {% page "imagethree" type="img" %}
             {% if editing or page.content.imagethree %}
             {% if not editing %}
-            <div class="z-depth-1-half mt-3 pb-2 pr-2 pl-2 mb-0 mb-md-0">
+            <div>
               <a class="product-image  d-block" data-fancybox href="{% imgix_url page.content.imagethree %}?w=1400&h=1400">
                 {% endif %}
                 <img
@@ -83,11 +80,11 @@
               {% endif %}
             </div>
 
-            <div class="col-md-3">
+            <div class="col-8 col-md-3 featured-product--item text-center">
               {% page "imagefour" type="img" %}
               {% if editing or page.content.imagefour %}
               {% if not editing %}
-              <div class="z-depth-1-half mt-3 pb-2 pr-2 pl-2 mb-0 mb-md-0">
+              <div>
                 <a class="product-image  d-block" data-fancybox href="{% imgix_url page.content.imagefour %}?w=1400&h=1400">
                   {% endif %}
                   <img
@@ -165,7 +162,7 @@
                     <div class="card-header" role="tab" id="advantages">
                       <a data-toggle="collapse" data-parent="#productAccordion" href="#collapseFour" aria-expanded="true" aria-controls="collapseFour" >
                         <h5 class="mb-0">
-                          Features<i class="fa fa-angle-down rotate-icon"></i>
+                          Options<i class="fa fa-angle-down rotate-icon"></i>
                         </h5>
                       </a>
                     </div>
@@ -178,6 +175,14 @@
                   </div>
                   {% endif %}
                   <!-- Accordion card -->
+
+                </div>
+              </div>
+
+              <!-- column 2 -->
+              <div class="col-md-6">
+                <!--Accordion wrapper-->
+                <div class="accordion" role="tablist" aria-multiselectable="true" id="projectAccordion">
 
                   <!-- Accordion card -->
                   {% if page.content.suggested_applications or page.content.application_photos or editing %}
@@ -199,13 +204,6 @@
                   </div>
                   {% endif %}
                   <!-- Accordion card -->
-                </div>
-              </div>
-
-              <!-- column 2 -->
-              <div class="col-md-6">
-                <!--Accordion wrapper-->
-                <div class="accordion" role="tablist" aria-multiselectable="true" id="projectAccordion">
 
                   <!-- Accordion card -->
                   {% if page.content.colors or editing %}
@@ -236,37 +234,6 @@
                   {% endif %}
                   <!-- Accordion card -->
 
-                  <!-- Accordion card -->
-                  {% if page.content.downloads or editing %}
-                  <div class="card">
-                    <!-- Card header -->
-                    <div class="card-header" role="tab" id="downloads">
-                      <a data-toggle="collapse" data-parent="#productAccordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                        <h5 class="mb-0">
-                          Downloads<i class="fa fa-angle-down rotate-icon"></i>
-                        </h5>
-                      </a>
-                    </div>
-                    <!-- Card body -->
-                    <div id="collapseTwo" class="collapse show" role="tabpanel" aria-labelledby="downloads">
-                      <div class="card-body">
-                        <ul class="pdfs">
-                          {% page_list "downloads" %}
-                          {% list_item "download" type="file" %}
-                          <li><a href="{{ list_item.download.url }}">
-                            {% if list_item.download.url|default:""|slice:"-3:" == "pdf" %}
-                            <img src="/dist/img/svg/pdf.svg" alt="PDF icon">
-                            {% elif list_item.download.url|default:""|slice:"-3:" == "doc" or list_item.download.url|default:""|slice:"-4:" == "docx" %}
-                            <img src="/dist/img/svg/word.svg" alt="Word document icon">
-                            {% endif %}
-                            {% list_item "name" type="text" %}</a>
-                          </li>
-                          {% end_list %}
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                  {% endif %}
 
                 </div>
               </div>
@@ -293,26 +260,26 @@
 
             <div class="row">
               <div class="col-md-12">
-                  <div class="table">
-                    <ul id="horizontal-list" class="thumbnails video-gallery d-none d-md-block" itemscope itemtype="http://schema.org/VideoObject">
-                      {% page_list "videos" %}
-                      {% list_item "youtube_id" type="text" noprint="true" %}
-                      {% list_item "image" type="img" noprint="true" %}
-                      {% list_item "title" type="text" noprint="true" %}
-                      {% list_item "length" type="text" noprint="true" %}
+                <div class="table">
+                  <ul id="horizontal-list" class="thumbnails video-gallery d-none d-md-block" itemscope itemtype="http://schema.org/VideoObject">
+                    {% page_list "videos" %}
+                    {% list_item "youtube_id" type="text" noprint="true" %}
+                    {% list_item "image" type="img" noprint="true" %}
+                    {% list_item "title" type="text" noprint="true" %}
+                    {% list_item "length" type="text" noprint="true" %}
 
-                      {% if forloop.counter != 1 %}
-                      <li itemprop="video" class="video-thumb">
-                        <a data-fancybox="videos" class="thumbnail" rel="video" href="https://www.youtube-nocookie.com/embed/{{ list_item.youtube_id }}?rel=0" title="{{ list_item.title|default:"" }}">
-                          <i class="play-icon fa fa-play-circle fa-3" aria-hidden="true"></i>
-                          <img itemprop="thumbnail" class="bordered" src="{% imgix_url list_item.image %}?w=370&amp;h=205&amp;crop=fit" alt="{{ list_item.title|default:"" }}">
-                          <h5 class="text-center mt-2 mb-4" itemprop="name">{{ list_item.title }}</h5>
-                        </a>
-                      </li>
-                      {% endif %}
-                      {% end_list %}
-                    </ul>
-                  </div>
+                    {% if forloop.counter != 1 %}
+                    <li itemprop="video" class="video-thumb">
+                      <a data-fancybox="videos" class="thumbnail" rel="video" href="https://www.youtube-nocookie.com/embed/{{ list_item.youtube_id }}?rel=0" title="{{ list_item.title|default:"" }}">
+                        <i class="play-icon fa fa-play-circle fa-3" aria-hidden="true"></i>
+                        <img itemprop="thumbnail" class="bordered" src="{% imgix_url list_item.image %}?w=370&amp;h=205&amp;crop=fit" alt="{{ list_item.title|default:"" }}">
+                        <h5 class="text-center mt-2 mb-4" itemprop="name">{{ list_item.title }}</h5>
+                      </a>
+                    </li>
+                    {% endif %}
+                    {% end_list %}
+                  </ul>
+                </div>
               </div>
 
             </div>
