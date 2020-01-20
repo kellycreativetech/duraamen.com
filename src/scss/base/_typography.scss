@@ -133,3 +133,24 @@ li {
   text-decoration: line-through!important;
   margin-left: 10px;
 }
+
+
+// special
+
+.free-shipping {
+  font-size: 42px;
+  font-family: 'Roboto', Arial, sans-serif;
+  color: $maroon;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.free-shipping::before {
+    content: url("/uploads/delivery-truck-icon-01.svg"); // ::before and ::after both require content
+    display: block;
+    width: 65px;
+    float:left;
+    vertical-align: baseline;
+    height: 37px;
+    margin: 5px 5px 0px 0px;
+}

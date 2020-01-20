@@ -265,4 +265,39 @@ body.case-study-pages {
       }
     }
   }
+
+  .featured-product--item .callout-1 {
+    color:#6c2a1f;
+    font-family: "Roboto",sans-serif;
+    font-weight: 500;
+  }
+  .featured-product--item .callout-3 {
+    padding: 4px;
+    color: #fff;
+  }
+  .border-bottom {
+    padding-bottom: 24px;
+
+    .featured-product--item {
+      padding-bottom: 26px;
+
+      .shopify-buy__btn::before {
+        background-size: 28px 28px;
+        width: 28px;
+        height: 28px;
+        margin: 0 -25px -10px 0;
+      }
+    }
+  }
+  section {
+    padding-top: 50px!important;
+    padding-bottom: 0!important;
+
+    .no-border {
+      border: 0!important;
+    }
+  }
+  .hero {
+    min-height: 440px;
+  }
 }

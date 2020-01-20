@@ -8,12 +8,12 @@
 <section class="home-section">
     {% include "includes/sections/featured-products-tabs.html" %}
   <div class="container">
-    <h3 class="home-section-head">Complete Epoxy Floor Kits</h3>
+    <h3 class="home-section-head" style="border-bottom: 0px; padding-bottom: 0px; margin-bottom: 25px;">Complete Epoxy Floor Kits</h3>
   </div>
     <div class="row">
-      {% select_pages "category" "complete-epoxy-floor-kits" %}
-      <div class="featured-product--row-wrap">
-        <div class="row featured-product--row">
+      {% select_pages "category" "complete-floor-kits" %}
+      <div class="featured-product--row-wrap container">
+        <div class="row featured-product--row" style="border-bottom: 0px;">
         {% for item in pages|slice:"4" %}
         {% include "includes/snippets/product-item.html" %}
         {% endfor %}
