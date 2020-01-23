@@ -146,6 +146,22 @@ hr {
     }
   }
 
+
+  @include media-breakpoint-down(md) {
+    &--item {
+      max-width: none;
+
+      &.item-col-2 {
+        border-right: 0 none;
+      }
+
+      &.item-col-3, &.item-col-4 {
+        border-top: 1px solid #ddd;
+        padding-top: 24px;
+      }
+    }
+  }
+
   @include media-breakpoint-down(sm) {
     &--row-wrap {
       max-width: none;
@@ -175,6 +191,7 @@ hr {
       &:last-child {
         border-right: 0 none;
       }
+
     }
   }
 }

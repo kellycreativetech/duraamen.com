@@ -12,100 +12,63 @@
     <div class="row border-bottom">
 
 
-      <div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-3 featured-product--item item-col-1 text-center">
-
+      <!-- column 1 -->
+      <div class=" col-8 col-md-6 featured-product--item text-center">
         <div class="text-left">
           <h3 class="callout-1 m-0">{% page "product-variant-0" type="text" %}</h3>
           <p class="callout-2 m-0"><strong>{% page "product-name" type="text" %}</strong></p>
           <p class="callout-3 m-0 primary-color">{% page "product-sq-ft-0" type="text" %}</p>
         </div>
-        {% page "image" type="img" %}
-        <img
-        class="img-fluid"
-        alt="{{ page.content.title|striptags }} {{ page.content.subtitle|striptags }}"
-        src="{% if page.content.image %}{% imgix_url page.content.image %}{% elif editing %}https://placem.at/places{% endif %}?w=600"
-        data-srv-name="image"
-        />
-
-        {% if editing %}<p><small>Shopify Product ID</small><br>{% page "shopify_product_id" placeholder="Enter a shopify Product ID here to enable the cart button." type="text" %}</p>{% else %}
-        <div class="text-center shop-button-wrappers">
-          <div id='product-component-ec1c4450888'></div>
+        <div class="row m-0 p-0 pt-3">
+          <div class=" col-12 col-md-6 featured-product--item text-center p-0 m-0 border-0">
+            {% page "image" type="img" %}
+            <img
+            class="img-fluid"
+            alt="{{ page.content.title|striptags }} {{ page.content.subtitle|striptags }}"
+            src="{% if page.content.image %}{% imgix_url page.content.image %}{% elif editing %}https://placem.at/places{% endif %}?w=600"
+            data-srv-name="image"
+            />
+          </div>
+          <div class=" col-12 col-md-6 featured-product--item text-center p-0 m-0">
+            {% if editing %}<p><small>Shopify Product ID</small><br>{% page "shopify_product_id" placeholder="Enter a shopify Product ID here to enable the cart button." type="text" %}</p>{% else %}
+            <div class="text-center shop-button-wrappers">
+              <div id='product-component-ec1c4450888'></div>
+            </div>
+            {% endif %}
+          </div>
         </div>
-        {% endif %}
       </div>
 
-      <div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-3 featured-product--item item-col-2 text-center">
+      <!-- column 2 -->
+      <div class="col-8 col-md-6 featured-product--item text-center">
         <div class="text-left">
           <h3 class="callout-1 m-0">{% page "product-variant-1" type="text" %}</h3>
           <p class="callout-2 m-0"><strong>{% page "product-name" type="text" %}</strong></p>
           <p class="callout-3 m-0 primary-color">{% page "product-sq-ft-1" type="text" %}</p>
         </div>
-        {% page "imagetwo" type="img" %}
-        {% if editing or page.content.imagetwo %}
-        <img
-        class="img-fluid"
-        alt="{{ page.content.title|striptags }} {{ page.content.subtitle|striptags }}"
-        src="{% if page.content.imagetwo %}{% imgix_url page.content.imagetwo %}{% elif editing %}https://placem.at/places{% endif %}?w=600"
-        data-srv-name="imagetwo"
-        />
-        {% endif %}
-
-        {% if editing %}<p><small>Shopify Product ID #2</small><br>{% page "shopify_product_2" placeholder="Product #2 buy button goes here." type="text" %}</p>
-        {% else %}
-        <div class="text-center shop-button-wrappers">
-          <div id='product-component-2'></div>
+        <div class="row m-0 p-0 pt-3">
+          <div class=" col-12 col-md-6 featured-product--item text-center p-0 m-0 border-0">
+            {% page "imagetwo" type="img" %}
+            {% if editing or page.content.imagetwo %}
+            <img
+            class="img-fluid"
+            alt="{{ page.content.title|striptags }} {{ page.content.subtitle|striptags }}"
+            src="{% if page.content.imagetwo %}{% imgix_url page.content.imagetwo %}{% elif editing %}https://placem.at/places{% endif %}?w=600"
+            data-srv-name="imagetwo"
+            />
+            {% endif %}
+          </div>
+          <div class=" col-12 col-md-6 featured-product--item text-center p-0 m-0">
+            {% if editing %}<p><small>Shopify Product ID #2</small><br>{% page "shopify_product_2" placeholder="Product #2 buy button goes here." type="text" %}</p>
+            {% else %}
+            <div class="text-center shop-button-wrappers">
+              <div id='product-component-2'></div>
+            </div>
+            {% endif %}
+          </div>
         </div>
-        {% endif %}
       </div>
 
-      <div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-3 featured-product--item item-col-3 text-center">
-        <div class="text-left">
-          <h3 class="callout-1 m-0">{% page "product-variant-2" type="text" %}</h3>
-          <p class="callout-2 m-0"><strong>{% page "product-name" type="text" %}</strong></p>
-          <p class="callout-3 m-0 primary-color">{% page "product-sq-ft-2" type="text" %}</p>
-        </div>
-        {% page "imagethree" type="img" %}
-        {% if editing or page.content.imagethree %}
-        <img
-        class="img-fluid"
-        alt="{{ page.content.title|striptags }} {{ page.content.subtitle|striptags }}"
-        src="{% if page.content.imagethree %}{% imgix_url page.content.imagethree %}{% elif editing %}https://placem.at/places{% endif %}?w=600"
-        data-srv-name="imagethree"
-        />
-        {% endif %}
-
-        {% if editing %}
-        <p><small>Shopify Product ID #3</small><br>{% page "shopify_product_3" placeholder="Product #3 buy button goes here." type="text" %}</p>
-        {% else %}
-        <div class="text-center shop-button-wrappers">
-          <div id='product-component-3'></div>
-        </div>
-        {% endif %}
-      </div>
-
-      <div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-3 featured-product--item item-col-4 text-center">
-        <div class="text-left">
-          <h3 class="callout-1 m-0">{% page "product-variant-3" type="text" %}</h3>
-          <p class="callout-2 m-0"><strong>{% page "product-name" type="text" %}</strong></p>
-          <p class="callout-3 m-0 primary-color">{% page "product-sq-ft-3" type="text" %}</p>
-        </div>
-        {% page "imagefour" type="img" %}
-        {% if editing or page.content.imagefour %}
-        <img
-        class="img-fluid"
-        alt="{{ page.content.title|striptags }} {{ page.content.subtitle|striptags }}"
-        src="{% if page.content.imagefour %}{% imgix_url page.content.imagefour %}{% elif editing %}https://placem.at/places{% endif %}?w=600"
-        data-srv-name="imagefour"
-        />
-        {% endif %}
-
-        {% if editing %}<p><small>Shopify Product ID #4</small><br>{% page "shopify_product_4" placeholder="Product #4 buy button goes here." type="text" %}</p>
-        {% else %}
-        <div class="text-center shop-button-wrappers">
-          <div id='product-component-4'></div>
-        </div>
-        {% endif %}
-      </div>
     </div>
   </div>
 </section>
@@ -183,7 +146,7 @@
 
           <!-- Accordion card -->
           {% if page.content.details or editing %}
-          <div class="card no-border">
+          <div class="card" style="border-bottom:0 none; {% if page.content.downloads or editing %}border-bottom: 1px solid rgb(222, 226, 230);{% endif %}">
             <!-- Card header -->
             <div class="card-header" role="tab" id="applications">
               <h5>  Details
@@ -198,12 +161,43 @@
           </div>
           {% endif %}
           <!-- Accordion card -->
-          {% if page.content.colors or editing %}
-          <hr>
+
+          <!-- Accordion card -->
+          {% if page.content.downloads or editing %}
+          <div class="card" style="border-bottom:0 none; {% if page.content.colors or editing %}border-bottom: 1px solid rgb(222, 226, 230);{% endif %}">
+            <!-- Card header -->
+            <div class="card-header" role="tab" id="downloads">
+              <a data-toggle="collapse" data-parent="#productAccordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                <h5 class="mb-0">
+                  Downloads<i class="fa fa-angle-down rotate-icon"></i>
+                </h5>
+              </a>
+            </div>
+            <!-- Card body -->
+            <div id="collapseTwo" class="collapse show" role="tabpanel" aria-labelledby="downloads">
+              <div class="card-body">
+                <ul class="pdfs">
+                  {% page_list "downloads" %}
+                  {% list_item "download" type="file" %}
+                  <li><a href="{{ list_item.download.url }}">
+                    {% if list_item.download.url|default:""|slice:"-3:" == "pdf" %}
+                    <img src="/dist/img/svg/pdf.svg" alt="PDF icon">
+                    {% elif list_item.download.url|default:""|slice:"-3:" == "doc" or list_item.download.url|default:""|slice:"-4:" == "docx" %}
+                    <img src="/dist/img/svg/word.svg" alt="Word document icon">
+                    {% endif %}
+                    {% list_item "name" type="text" %}</a>
+                  </li>
+                  {% end_list %}
+                </ul>
+              </div>
+            </div>
+          </div>
           {% endif %}
           <!-- Accordion card -->
+
+          <!-- Accordion card -->
           {% if page.content.colors or editing %}
-          <div class="card">
+          <div class="card no-border">
             <!-- Card header -->
             <div class="card-header" role="tab" id="colors">
               <a data-toggle="collapse" data-parent="#productAccordion" href="#collapseNine" aria-expanded="true" aria-controls="collapseNine">

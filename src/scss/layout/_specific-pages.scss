@@ -297,7 +297,18 @@ body.case-study-pages {
       border: 0!important;
     }
   }
-  .hero {
+  .simple-hero {
     min-height: 440px;
+
+    h1 {
+      margin-top: 1.5rem;
+
+    }
+  }
+  @include media-breakpoint-down(md) {
+    .simple-hero {
+      padding-bottom: 24px;
+      margin-top: 100px;
+    }
   }
 }
