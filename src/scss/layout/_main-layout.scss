@@ -34,6 +34,10 @@ body {
 
 .home-section {
   padding: 2em 0;
+
+  ul > li > p {
+    margin-bottom: 0px;
+  }
 }
 
 .landingpage-section {
@@ -72,6 +76,13 @@ hr {
   .hidden-sm-down {
     display:none;
   }
+
+  .home-section {
+    ul > li > p {
+      font-size: 75%;
+    }
+  }
+
 }
 
 /* videos responsive */

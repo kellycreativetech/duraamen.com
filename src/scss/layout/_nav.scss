@@ -62,7 +62,7 @@
   }
 
   @include media-breakpoint-up(md) {
-     font-size: .8rem;
+    font-size: .8rem;
   }
 }
 
@@ -74,7 +74,7 @@
 
 
 .navbar {
-  background-color: rgba(255, 255, 255, .95);
+  background-color: rgba(255, 255, 255, 1.0);
 
   &,
   &.top-nav-collapse,
@@ -93,7 +93,13 @@
     a.active{
       color: #fff!important;
     }
+    .new-flag {
+      color: $secondary-color!important;
+      font-style: italic!important;
+      font-weight: bold!important;
+    }
   }
+
 
   &.navbar-light .breadcrumb .nav-item .nav-link,
   &.navbar-light .navbar-nav .nav-item .nav-link {
@@ -151,23 +157,23 @@
 
   #menu-item-shop-products {
 
-      .dropdown-toggle {
-        padding-left: 16px;
+    .dropdown-toggle {
+      padding-left: 16px;
 
-        &::before {
-          display: inline-block;
-          content: "";
-          background-image: svg-url('<svg xmlns="http://www.w3.org/2000/svg" data-element="toggle.icon" viewBox="0 0 25 25" enable-background="new 0 0 25 25"><g><path fill="' + $dark-gray + '" d="M24.6 3.6c-.3-.4-.8-.6-1.3-.6h-18.4l-.1-.5c-.3-1.5-1.7-1.5-2.5-1.5h-1.3c-.6 0-1 .4-1 1s.4 1 1 1h1.8l3 13.6c.2 1.2 1.3 2.4 2.5 2.4h12.7c.6 0 1-.4 1-1s-.4-1-1-1h-12.7c-.2 0-.5-.4-.6-.8l-.2-1.2h12.6c1.3 0 2.3-1.4 2.5-2.4l2.4-7.4v-.2c.1-.5-.1-1-.4-1.4zm-4 8.5v.2c-.1.3-.4.8-.5.8h-13l-1.8-8.1h17.6l-2.3 7.1z"></path><circle fill="' + $dark-gray + '" cx="9" cy="22" r="2"></circle><circle fill="' + $dark-gray + '" cx="19" cy="22" r="2"></circle></g></svg>');
-          background-size: 20px 20px;
-          width: 20px;
-          height: 20px;
-          display: inline-block;
-          vertical-align: baseline;
-          margin: 0 5px -4px -8px;
-        }
+      &::before {
+        display: inline-block;
+        content: "";
+        background-image: svg-url('<svg xmlns="http://www.w3.org/2000/svg" data-element="toggle.icon" viewBox="0 0 25 25" enable-background="new 0 0 25 25"><g><path fill="' + $dark-gray + '" d="M24.6 3.6c-.3-.4-.8-.6-1.3-.6h-18.4l-.1-.5c-.3-1.5-1.7-1.5-2.5-1.5h-1.3c-.6 0-1 .4-1 1s.4 1 1 1h1.8l3 13.6c.2 1.2 1.3 2.4 2.5 2.4h12.7c.6 0 1-.4 1-1s-.4-1-1-1h-12.7c-.2 0-.5-.4-.6-.8l-.2-1.2h12.6c1.3 0 2.3-1.4 2.5-2.4l2.4-7.4v-.2c.1-.5-.1-1-.4-1.4zm-4 8.5v.2c-.1.3-.4.8-.5.8h-13l-1.8-8.1h17.6l-2.3 7.1z"></path><circle fill="' + $dark-gray + '" cx="9" cy="22" r="2"></circle><circle fill="' + $dark-gray + '" cx="19" cy="22" r="2"></circle></g></svg>');
+        background-size: 20px 20px;
+        width: 20px;
+        height: 20px;
+        display: inline-block;
+        vertical-align: baseline;
+        margin: 0 5px -4px -8px;
       }
     }
   }
+}
 
 
 .hide-for-mobile {
@@ -199,6 +205,11 @@
   a {
     &:hover {
       text-decoration: none;
+    }
+    .new-flag {
+      color: $secondary-color!important;
+      font-style: italic!important;
+      font-weight: bold!important
     }
   }
 
@@ -252,6 +263,12 @@
     &:focus {
       text-decoration: none;
     }
+    .new-flag {
+      color: $secondary-color!important;
+      font-style: italic!important;
+      font-weight: bold!important
+    }
+
   }
 
   a:hover::before, a:focus::before {
@@ -280,11 +297,11 @@
     font-weight: bold;
   }
   li.current > a:before {
-  font-family: $icon-font-family;
-  font-weight: bold;
-  content: '\f054';
-  margin:0 5px 0 -15px;
-  color: $brand-gold;
+    font-family: $icon-font-family;
+    font-weight: bold;
+    content: '\f054';
+    margin:0 5px 0 -15px;
+    color: $brand-gold;
   }
 
   > li.trail,

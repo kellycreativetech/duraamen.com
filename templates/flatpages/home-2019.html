@@ -8,7 +8,10 @@
 <section class="home-section">
     {% include "includes/sections/featured-products-tabs.html" %}
   <div class="container">
-    <h3 class="home-section-head" style="border-bottom: 0px; padding-bottom: 0px; margin-bottom: 25px;">Complete Epoxy Floor Kits</h3>
+    <div class="row">
+    <div class="col-9"><h3 class="home-section-head" style="border-bottom: 0px; padding-bottom: 0px; margin-bottom: 25px;">Complete Epoxy Floor Kits</h3></div>
+    <div class="col-3 text-right"><p><a href="/complete-floor-kits">view all</a></div>
+      </div>
   </div>
     <div class="row">
       {% select_pages "category" "complete-floor-kits" %}
@@ -37,7 +40,7 @@
       {% list_item "link" type="text" noprint="true" %}
       <div class="categories-carousel--item">
         <a class="categories-carousel--link hm-zoom waves-light waves-effect waves-light" href="{{ list_item.link }}{% if editing %}/admin{% endif %}">
-          <img class="categories-carousel--img" src="{% imgix_url list_item.category_image %}?w=700&h=700&fit=fill&fill=solid&fill-color=FFFFFF" />
+          <img class="categories-carousel--img" src="{% imgix_url list_item.category_image %}?w=700&h=700&fit=fill&fill=solid&fill-color=FFFFFF&blend=000000&bm=normal&balph=40" />
           <span class="categories-carousel--title">{{ list_item.title }}</span>
         </a>
       </div>

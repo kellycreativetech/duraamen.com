@@ -57,12 +57,12 @@
         {% menu "Navigation" begin_at="ecf1480f-b683-4e22-86b0-e603591e2fb1" trail_class="trail" current_class="current" %}
         <div class="hide-for-mobile" style="border-bottom:1px solid rgb(221, 221, 221); width: 80%; margin-right:20%;">
           <h3>Categories</h3>
-    
+
         </div>
         <ul class="product-nav-sidebar">
           {% for item in tree %}
           <li class="{{ item.classes|join:" " }}">
-          <a href="{{ item.url }}">{{ item.name }}</a>
+          <a href="{{ item.url }}">{{ item.name|safe }}</a>
               {% if item.children %}
               <ul>
                   {% for citem in item.children %}
