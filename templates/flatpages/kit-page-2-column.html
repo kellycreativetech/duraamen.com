@@ -73,6 +73,77 @@
   </div>
 </section>
 
+
+<!-- Optional Products Section -->
+{% if editing or page.content.shopify_product_5 %}
+<section class="landingpage-section" style="padding-top:100px;">
+  <div class="container">
+    <div class="row border-bottom">
+      <!-- column 1 -->
+      <div class="{% if editing or page.content.shopify_product_6 %} col-8 col-md-12 col-lg-2 {% else %}col-8 col-md-6{% endif %} featured-product--item item-col-2">
+        <div class="row mb-2">
+          <h3>{% page "optional-title" type="text" %}</h3>
+        </div>
+        <div class="row mb-5">
+          {% page "optional-products" type="wysiwyg" %}
+        </div>
+      </div>
+
+      <!-- column 2 -->
+      <div class="{% if editing or page.content.shopify_product_6 %} col-8 col-md-6 col-lg-5 {% else %}col-8 col-md-6 {% endif %} featured-product--item text-center" style="min-height: 100px;">
+        <div class="row m-0 p-0 pt-3">
+          <div class=" col-12 col-md-4 featured-product--item text-center p-0 m-0 border-0">
+            {% page "imagefive" type="img" %}
+            {% if editing or page.content.imagefive %}
+            <img
+            class="img-fluid"
+            alt="{{ page.content.title|striptags }} {{ page.content.subtitle|striptags }}"
+            src="{% if page.content.imagefive %}{% imgix_url page.content.imagefive %}{% elif editing %}https://placem.at/places{% endif %}?w=600"
+            data-srv-name="imagefive"
+            />
+            {% endif %}
+          </div>
+          <div class=" col-12 col-md-8 featured-product--item text-center p-0 m-0">
+            {% if editing %}<p><small>Shopify Product ID #5</small><br>{% page "shopify_product_5" placeholder="Enter a shopify Product ID here to enable the cart button." type="text" %}</p>{% else %}
+            <div class="text-center shop-button-wrappers">
+              <div id='product-component-5'></div>
+            </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      <!-- column 3 -->
+      {% if editing or page.content.shopify_product_6 %}
+      <div class="col-8 col-md-6 col-lg-5 featured-product--item text-center" style="min-height: 100px;" >
+        <div class="row m-0 p-0 pt-3">
+          <div class=" col-12 col-md-4 featured-product--item text-center p-0 m-0 border-0">
+            {% page "imagesix" type="img" %}
+            {% if editing or page.content.imagesix %}
+            <img
+            class="img-fluid"
+            alt="{{ page.content.title|striptags }} {{ page.content.subtitle|striptags }}"
+            src="{% if page.content.imagesix %}{% imgix_url page.content.imagesix %}{% elif editing %}https://placem.at/places{% endif %}?w=600"
+            data-srv-name="imagesix"
+            />
+            {% endif %}
+          </div>
+          <div class=" col-12 col-md-8 featured-product--item text-center p-0 m-0">
+            {% if editing %}<p><small>Shopify Product ID #6</small><br>{% page "shopify_product_6" placeholder="Enter a shopify Product ID here to enable the cart button." type="text" %}</p>
+            {% else %}
+            <div class="text-center shop-button-wrappers">
+              <div id='product-component-6'></div>
+            </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+
 <!-- information-description section -->
 <section class="landingpage-section" style="padding-top:100px;">
   <div class="container">
@@ -231,7 +302,10 @@
     </div>
   </div>
 </section>
+
+
 <!-- video section -->
+{% if editing or page.content.videos %}
 <section>
   <div class="container">
     <div class="row justify-content-center">
@@ -277,6 +351,7 @@
   </div>
 
 </section>
+{% endif %}
 
 {% if editing %}
 <section class="landingpage-section" style="padding-top:100px;">
