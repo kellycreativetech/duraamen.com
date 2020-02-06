@@ -40,7 +40,7 @@
       {% list_item "link" type="text" noprint="true" %}
       <div class="categories-carousel--item">
         <a class="categories-carousel--link hm-zoom waves-light waves-effect waves-light" href="{{ list_item.link }}{% if editing %}/admin{% endif %}">
-          <img class="categories-carousel--img" src="{% imgix_url list_item.category_image %}?w=700&h=700&fit=fill&fill=solid&fill-color=FFFFFF&blend=000000&bm=normal&balph=40" />
+          <img class="categories-carousel--img" src="{% imgix_url list_item.category_image %}?w=700&h=700&fit=fill&fill=solid&fill-color=FFFFFF&blend=000000&bm=normal&balph=40" alt="{{ list_item.title }}" />
           <span class="categories-carousel--title">{{ list_item.title }}</span>
         </a>
       </div>

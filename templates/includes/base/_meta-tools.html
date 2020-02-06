@@ -68,7 +68,7 @@
       <div class="fake-facebook">
         {% page "meta_override" type="img" %}
         <img
-          class="meta-img-override"
+          class="meta-img-override" alt="Duraamen Engineered Products"
           src="{% if page.content.meta_override %}{% imgix_url page.content.meta_override %}?w=1200&h=630&fit=crop{% else %}{% include "includes/base/_meta-img.html" %}{% endif %}"
           data-srv-name="meta_override"
         />
