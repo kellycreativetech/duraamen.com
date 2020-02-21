@@ -38,6 +38,12 @@ body {
   ul > li > p {
     margin-bottom: 0px;
   }
+
+  @include media-breakpoint-down(md) {
+    &--product-categories {
+      display: none;
+    }
+  }
 }
 
 .landingpage-section {
@@ -99,6 +105,8 @@ hr {
     width:100%;
     position:absolute;
 }
+
+/* featured products */
 
 .featured-product {
   &--row-wrap {
@@ -176,8 +184,13 @@ hr {
   @include media-breakpoint-down(sm) {
     &--row-wrap {
       max-width: none;
+      padding-bottom: 40px;
+      border-top: 1px solid #ddd;
+      border-bottom: 4px solid $gray-900;
+
     }
   }
+
 
   @include media-breakpoint-up(md) {
     &--row-wrap {
