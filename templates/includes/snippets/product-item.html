@@ -2,6 +2,9 @@
   {% if "new" in item.content.category %}
   <span class="new-flag">NEW!</span>
   {% endif %}
+  {% if "ships-free" in item.content.category %}
+  <div class="free-ship-flag"></div>
+  {% endif %}
   <a
     class="blog-preview-img hm-zoom waves-light"
     href="{{ item.get_absolute_url }}{% if editing %}/admin{% endif %}">

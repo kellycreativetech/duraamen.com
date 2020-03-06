@@ -139,6 +139,17 @@ hr {
       font-weight: bold;
     }
 
+    .free-ship-flag {
+      position: absolute;
+      top: 0;
+      left: 0px;
+      z-index: 2;
+      background: url('/uploads/ships-free-flag.svg');
+      background-repeat: no-repeat;
+      width: 40%;
+      height: 40%;
+    }
+
     .btn {
       display: block;
       margin-right: 20px;

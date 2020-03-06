@@ -115,6 +115,15 @@
           itemscope
           itemtype="http://schema.org/Product"
         >
+
+        {% if "new" in product.content.category %}
+        <span class="new-flag">NEW!</span>
+        {% endif %}
+
+        {% if "ships-free" in product.content.category %}
+        <div class="free-ship-flag"></div>
+        {% endif %}
+
           {% if product.content.image %}
             <a href="{{ product.get_absolute_url }}{% if editing %}/admin{% endif %}" class="d-block hm-zoom waves-light waves-effect waves-light">
               <img alt="{{ product.content.title|striptags }}" src="{% imgix_url product.content.image %}?w=400&h=400&fit=crop" itemprop="image">

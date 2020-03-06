@@ -50,6 +50,27 @@
 //Product & System Category Pages Adjustments
 .product-category-pages {
   .category-item {
+    .new-flag {
+      color: $secondary-color;
+      font-style: italic;
+      font-size: 22px;
+      position: absolute;
+      top: 0;
+      right: 30px;
+      z-index: 2;
+      font-weight: bold;
+    }
+    .free-ship-flag {
+      position: absolute;
+      top: 0;
+      left: 0px;
+      z-index: 2;
+      background: url('/uploads/ships-free-flag.svg');
+      background-repeat: no-repeat;
+      width: 40%;
+      height: 40%;
+    }
+
     h5{
       margin-top: 8px;
       font-family: $font-family-sans-serif;

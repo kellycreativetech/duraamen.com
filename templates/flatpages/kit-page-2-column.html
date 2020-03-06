@@ -21,6 +21,12 @@
         </div>
         <div class="row m-0 p-0 pt-3">
           <div class=" col-12 col-md-6 featured-product--item text-center p-0 m-0 border-0">
+            {% if "new" in page.content.category %}
+            <span class="new-flag">NEW!</span>
+            {% endif %}
+            {% if "ships-free" in page.content.category %}
+            <div class="free-ship-flag"></div>
+            {% endif %}
             {% page "image" type="img" %}
             <img
             class="img-fluid"
@@ -41,6 +47,12 @@
 
       <!-- column 2 -->
       <div class="col-8 col-md-6 featured-product--item text-center">
+        {% if "new" in item.content.category %}
+        <span class="new-flag">NEW!</span>
+        {% endif %}
+        {% if "ships-free" in item.content.category %}
+        <div class="free-ship-flag"></div>
+        {% endif %}
         <div class="text-left">
           <h3 class="callout-1 m-0">{% page "product-variant-1" type="text" %}</h3>
           <p class="callout-2 m-0"><strong>{% page "product-name" type="text" %}</strong></p>
@@ -48,6 +60,13 @@
         </div>
         <div class="row m-0 p-0 pt-3">
           <div class=" col-12 col-md-6 featured-product--item text-center p-0 m-0 border-0">
+            {% if "new" in page.content.category %}
+            <span class="new-flag">NEW!</span>
+            {% endif %}
+            {% if "ships-free" in page.content.category %}
+            <div class="free-ship-flag"></div>
+            {% endif %}
+
             {% page "imagetwo" type="img" %}
             {% if editing or page.content.imagetwo %}
             <img

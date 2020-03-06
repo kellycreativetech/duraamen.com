@@ -19,6 +19,15 @@
           <p class="callout-2 m-0"><strong>{% page "product-name" type="text" %}</strong></p>
           <p class="callout-3 m-0 primary-color">{% page "product-sq-ft-0" type="text" %}</p>
         </div>
+
+        <div class=" col-12 p-0 mt-1 mb-0 ml-0 mr-0 border-0">
+        {% if "new" in page.content.category %}
+        <span class="new-flag">NEW!</span>
+        {% endif %}
+        {% if "ships-free" in page.content.category %}
+        <div class="free-ship-flag"></div>
+        {% endif %}
+
         {% page "image" type="img" %}
         <img
         class="img-fluid"
@@ -32,6 +41,7 @@
           <div id='product-component-ec1c4450888'></div>
         </div>
         {% endif %}
+        </div>
       </div>
 
       <div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-3 featured-product--item item-col-2 text-center">
@@ -40,6 +50,15 @@
           <p class="callout-2 m-0"><strong>{% page "product-name" type="text" %}</strong></p>
           <p class="callout-3 m-0 primary-color">{% page "product-sq-ft-1" type="text" %}</p>
         </div>
+
+        <div class=" col-12 p-0 mt-1 mb-0 ml-0 mr-0 border-0">
+        {% if "new" in page.content.category %}
+        <span class="new-flag">NEW!</span>
+        {% endif %}
+        {% if "ships-free" in page.content.category %}
+        <div class="free-ship-flag"></div>
+        {% endif %}
+
         {% page "imagetwo" type="img" %}
         {% if editing or page.content.imagetwo %}
         <img
@@ -56,6 +75,7 @@
           <div id='product-component-2'></div>
         </div>
         {% endif %}
+        </div>
       </div>
 
       <div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-3 featured-product--item item-col-3 text-center">
@@ -64,6 +84,15 @@
           <p class="callout-2 m-0"><strong>{% page "product-name" type="text" %}</strong></p>
           <p class="callout-3 m-0 primary-color">{% page "product-sq-ft-2" type="text" %}</p>
         </div>
+
+        <div class=" col-12 p-0 mt-1 mb-0 ml-0 mr-0 border-0">
+        {% if "new" in page.content.category %}
+        <span class="new-flag">NEW!</span>
+        {% endif %}
+        {% if "ships-free" in page.content.category %}
+        <div class="free-ship-flag"></div>
+        {% endif %}
+
         {% page "imagethree" type="img" %}
         {% if editing or page.content.imagethree %}
         <img
@@ -81,6 +110,7 @@
           <div id='product-component-3'></div>
         </div>
         {% endif %}
+        </div>
       </div>
 
       <div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-3 featured-product--item item-col-4 text-center">
@@ -89,6 +119,15 @@
           <p class="callout-2 m-0"><strong>{% page "product-name" type="text" %}</strong></p>
           <p class="callout-3 m-0 primary-color">{% page "product-sq-ft-3" type="text" %}</p>
         </div>
+
+        <div class=" col-12 p-0 mt-1 mb-0 ml-0 mr-0 border-0">
+        {% if "new" in page.content.category %}
+        <span class="new-flag">NEW!</span>
+        {% endif %}
+        {% if "ships-free" in page.content.category %}
+        <div class="free-ship-flag"></div>
+        {% endif %}
+
         {% page "imagefour" type="img" %}
         {% if editing or page.content.imagefour %}
         <img
@@ -105,6 +144,7 @@
           <div id='product-component-4'></div>
         </div>
         {% endif %}
+        </div>
       </div>
     </div>
   </div>
