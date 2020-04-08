@@ -1,0 +1,52 @@
+//CSS for display ads across all pages
+
+.mobileAd /* 320x100 */ {
+  display: block;
+  width:320px;
+  height:100px;
+  margin: 0 auto;
+  padding: 0;
+  border: 0;
+  background-color:none;
+}
+.lgLeaderboardWrap,.bannerWrap {
+  display: none;
+}
+
+
+@include media-breakpoint-up(md) {
+  .mobileAdWrap {
+    display: none;
+  }
+  .bannerWrap {
+    display: block;
+  }
+  .banner /* 468x60 */ {
+    display: block;
+    width:468px;
+    height:60px;
+    margin: 0 auto;
+    padding: 0;
+    border: 0;
+    background-color:none;
+  }
+}
+
+
+@include media-breakpoint-up(lg) {
+  .bannerWrap {
+    display: none;
+  }
+  .lgLeaderboardWrap {
+    display: block;
+  }
+  .lgLeaderboard /* 970x90 */{
+    display: block;
+    width:970px;
+    height:90px;
+    margin: 0 auto;
+    padding: 0;
+    border: 0;
+    background-color:none;
+  }
+}
