@@ -19,6 +19,32 @@
   <div class="container" id="{{ page.content.slug }}" itemscope itemtype="http://schema.org/Product">
     <div class="row justify-content-center">
 
+      <!-- Display Ads -->
+          {% if page.content.LgLeaderboard or editing %}
+          <div class="col-12 mb-4 lgLeaderboardWrap" {% if editing %}style="display: block; padding-bottom:100px"{% endif %}>
+            <div class="lgLeaderboard" {% if editing %}style="display: block; border:1px solid #ccc; height:90px; width:970px; background-color:rgba(252, 252, 252, 1.0); margin:0 auto;"{% endif %}>
+              {% page "LgLeaderboard" type="wysiwyg" %}
+            </div>
+          </div>
+          {% endif %}
+
+          {% if page.content.Banner or editing %}
+          <div class="col-12 mb-4 bannerWrap" {% if editing %}style="display: block; padding-bottom:100px"{% endif %}>
+            <div class="banner" {% if editing %}style="display:block; border:1px solid #ccc; height:60px; width:468px; background-color:rgba(252, 252, 252, 1.0); margin:0 auto;"{% endif %}>
+              {% page "Banner" type="wysiwyg" %}
+            </div>
+          </div>
+          {% endif %}
+
+          {% if page.content.MobileAd or editing %}
+          <div class="col-12 mb-4 mobileAdWrap" {% if editing %}style="display: block; padding-bottom:100px"{% endif %}>
+            <div class="mobileAd" {% if editing %}style="display:block; border:1px solid #ccc; height:100px; width:320px; background-color:rgba(252, 252, 252, 1.0); margin:0 auto;"{% endif %}>
+              {% page "MobileAd" type="wysiwyg" %}
+            </div>
+          </div>
+          {% endif %}
+      <!-- End Display Ads -->
+
       <div class="col-md-9">
         {% new_page_button label="New Case Study" parent="case-studies" %}
         <div class="accordion" role="tablist" aria-multiselectable="true" id="projectAccordion">
@@ -91,7 +117,7 @@
                 {% list_item "alt_tag" type="text" noprint="true" %}
                 <a class="d-inline-block z-depth-1 mb-1" data-fancybox="photos" href="{% imgix_url list_item.image %}?w=1400&h=1400">
                   {% list_item "image" type="image" %}
-                  <img class="bordered side-product-photo" src="{% imgix_url list_item.image %}?w=150&h=150&fit=crop" itemprop="image" 
+                  <img class="bordered side-product-photo" src="{% imgix_url list_item.image %}?w=150&h=150&fit=crop" itemprop="image"
                     alt='
                     {% if list_item.alt_tag %}
                     {{ list_item.alt_tag }}
