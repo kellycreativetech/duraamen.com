@@ -4,17 +4,7 @@
 <div
   class="hero x-small-hero view hm-black-strong-1"
   style="background-image: url({% imgix_url page.content.masthead_img %}?w=1800&h=1000&fit=crop&sat=-80&crop=bottom&blend=000000&bm=normal&balph=50);">
-
-    <div class="full-bg-img">
-        <div class="container flex-center">
-          <div class="row smooth-scroll justify-content-md-center">
-                <div class="col-md-12 text-center">
-                    <div class="wow fadeInDown" data-wow-delay="0.2s">
-                        <h1 {% if page.content.masthead_img %}class="light-title"{% endif %}>{% page "title" type="text" %}</h1>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
+<div class="container">
+  <h1 {% if page.content.masthead_img %}class="light-title"{% endif %}>{% page "title" type="text" %}</h1>
+</div>
 </div>

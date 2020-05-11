@@ -12,19 +12,15 @@
 
   data-srv-name="masthead_img"
   style="background-color: #f5f5f5;">
-    <div class="full-bg-img d-flex justify-content-start align-items-end">
-      {% page "masthead_img" type="img" %}
-        <div class="container">
-            <div class="row smooth-scroll">
-                <div class="col-md-12">
-                    <div class="product-head wow fadeInDown" data-wow-delay="0.2s">
-                        <h1>{% page "title" type="text" %}</h1>
-                    </div>
-                    {% block undertitle %}{% endblock %}
-                </div>
-            </div>
+
+  {% page "masthead_img" type="img" %}
+    <div class="container">
+        <div class="product-head">
+            <h1>{% page "title" type="text" %}</h1>
         </div>
+        {% block undertitle %}{% endblock %}
     </div>
+
 </div>
 {% endblock %}
 

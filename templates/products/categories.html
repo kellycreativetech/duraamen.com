@@ -27,20 +27,14 @@
   {% imgix_url "/dist/img/iStock-92277191.jpg" %}
   {% endcomment %}
 
-      <div class="full-bg-img d-flex justify-content-start align-items-end">
-        <div class="container">
-          {% page "masthead_img" type="img" %}
-            <div class="row smooth-scroll">
-                <div class="col-md-12">
-                    <div class="product-head wow fadeInDown" data-wow-delay="0.2s">
-                        <h1>{% page "name" type="text" %}</h1>
-                        <h4>{% page "subtitle" type="text" %}</h4>
-                    </div>
-                    {% block undertitle %}{% endblock %}
-                </div>
-            </div>
-        </div>
+  <div class="container">
+    {% page "masthead_img" type="img" %}
+    <div class="product-head">
+        <h1>{% page "name" type="text" %}</h1>
+        <h4>{% page "subtitle" type="text" %}</h4>
     </div>
+    {% block undertitle %}{% endblock %}
+  </div>
 </div>
 {% endblock %}
 

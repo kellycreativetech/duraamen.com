@@ -1,11 +1,8 @@
 .video-pages  {
-  .row{
+  .row {
     &.justify-content-center{
       margin-left: 0px!important;
     }
-  }
-  .hero {
-    padding-bottom: 20px!important;
   }
 
   @include media-breakpoint-up(md) {
@@ -13,9 +10,6 @@
       &.justify-content-center{
         margin-left: 0px!important;
       }
-    }
-    .hero {
-      padding-bottom: 100px!important;
     }
   }
 }

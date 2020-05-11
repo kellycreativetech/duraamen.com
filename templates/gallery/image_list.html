@@ -15,15 +15,11 @@
     <div class="full-bg-img d-flex justify-content-start align-items-end">
       {% page "masthead_img" type="img" %}
         <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="product-head wow fadeInDown" data-wow-delay="0.2s">
-                        <h1><span class="subcat-page-title">{% page "title" type="text" %}</span></h1>
-                        <h5><a href="/photo-gallery{% if editing %}/admin{% endif %}" ><i class="fa fa-chevron-left"></i> Photo Gallery</a></h5>
-                    </div>
-                    {% block undertitle %}{% endblock %}
-                </div>
-            </div>
+          <div class="product-head">
+              <h1><span class="subcat-page-title">{% page "title" type="text" %}</span></h1>
+              <h5><a href="/photo-gallery{% if editing %}/admin{% endif %}" ><i class="fa fa-chevron-left"></i> Photo Gallery</a></h5>
+          </div>
+          {% block undertitle %}{% endblock %}
         </div>
     </div>
 </div>

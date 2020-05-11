@@ -8,7 +8,6 @@
         class="hero x-small-hero view hm-black-strong-1"
         style="background-image: url({% imgix_url list_item.gallery_img %}?w=1440&h=400&fit=crop&sat=-80&blend=000000&bm=normal&balph=50);">
 
-        <div class="full-bg-img">
           <div class="container wider-container flex-center">
             <div class="text-center">
             <h1 class="white-text">{% list_item "title" type="text" %}</h1>
@@ -16,11 +15,12 @@
             {% list_item "caption" type="wysiwyg" %}
             </div>
           </div>
-        </div>
       </div>
     </div>
     {% end_list %}
   </div>
+
+  {% if page.content.masthead|length > 1 %}
   <a class="carousel-control-prev" href="#carouselHome" role="button" data-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="sr-only">Previous</span>
@@ -29,4 +29,5 @@
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="sr-only">Next</span>
   </a>
+  {% endif %}
 </div>

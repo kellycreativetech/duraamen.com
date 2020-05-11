@@ -79,14 +79,8 @@
     }
   }
 
-  .product-head {
-    margin-bottom: 50px;
-    margin-top: 130px;
-  }
-
   .video-head {
-    margin-bottom: 50px;
-    margin-top: 50px;
+    max-width: 700px;
   }
 
   &.show-copy-hero {
@@ -102,38 +96,30 @@
   }
 
   &.x-small-hero {
-    min-height: 70vh;
-    text-align: center;
-    margin-top: 100px;//keeps title from going under nav on mobile
-    padding-bottom: 40px;
-
-    @include media-breakpoint-up(sm) {
-      min-height: 300px;
-    }
-  }
-
-  @at-root .product-pages &.x-small-hero,
-  .product-category-pages &.x-small-hero {
-    min-height: 310px;
-    text-align: center;
+    min-height: 0;
+    text-align: left;
+    padding-top: 120px;//keeps title from going under nav on mobile
+    margin-top: 0;
+    padding-bottom: 20px;
+    align-items: flex-start;
+    border-bottom: 1px solid #ddd;
 
     h4 {
       font-size: 1.25rem;
+      margin-bottom: 0;
+    }
+
+    @include media-breakpoint-up(md) {
+      padding-top: 130px;
+      padding-bottom: 20px;
     }
   }
 
-  @at-root .blog-pages &.x-small-hero {
-    min-height: 20vh;
-    padding-bottom: 0;
-    margin-top: 50px;
-    text-align: center;
-  }
-
-    @include media-breakpoint-up(sm) {
-      &.smaller-hero {
-        min-height: 300px;
-      }
+  @include media-breakpoint-up(sm) {
+    &.smaller-hero {
+      min-height: 300px;
     }
+  }
 
   @include media-breakpoint-up(md) {
     & {margin-top: 110px;}
@@ -142,14 +128,6 @@
 
     &.smaller-hero {
       min-height: 400px;
-    }
-
-    .product-head {
-      margin-bottom: 100px;
-    }
-
-    .video-head {
-      padding-bottom: 40px;
     }
 
     h1 {
@@ -166,24 +144,6 @@
       margin-bottom: 3rem;
     }
 
-    &.x-small-hero,
-    .blog-pages &.x-small-hero {
-      min-height: 300px;
-      padding-top: 0px;//resets padding for full screen
-      padding-bottom: 80px;
-    }
-    @at-root .product-pages &.x-small-hero,
-    .product-category-pages &.x-small-hero,
-    .system-pages &.x-small-hero {
-      min-height: 260px;
-      text-align: left;
-    }
-
-    @at-root .video-pages &.x-small-hero,
-    .gallery-pages &.x-small-hero {
-      min-height: 230px;
-    }
-
     .push-content {
       margin-bottom: 120px;
     }
@@ -194,11 +154,6 @@
       a.btn.btn-lg {
         display: none;
       }
-    }
-  }
-  @include media-breakpoint-up(lg) {
-    .video-head {
-      padding-bottom: 70px;
     }
   }
 }
@@ -220,6 +175,11 @@
 }
 
 .carousel-home {
+
+  .hero.x-small-hero {
+    min-height: 50vh;
+    align-items: center;
+  }
   .carousel-control-prev-icon,
   .carousel-control-next-icon {
     transform: translateY(20px);
