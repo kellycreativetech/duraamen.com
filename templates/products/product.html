@@ -8,25 +8,20 @@
 class="hero
 view
 hm-black-strong-1
-jarallax
 {% block heroclass %}x-small-hero{% endblock %}
 "
 
 data-srv-name="masthead_img"
 style="background-color: #f5f5f5;">
-<div class="full-bg-img d-flex justify-content-start align-items-end">
+<div class="container">
   {% page "masthead_img" type="img" %}
   <div class="container">
-    <div class="row smooth-scroll">
-      <div class="col-md-12">
-        <div class="product-head wow fadeInDown" data-wow-delay="0.2s">
+        <div class="product-head">
           <h1>{% page "title" type="text" %}</h1>
           <h4>{% page "subtitle" type="text" %}</h4>
         </div>
         {% block undertitle %}{% endblock %}
       </div>
-    </div>
-  </div>
 </div>
 </div>
 {% endblock %}

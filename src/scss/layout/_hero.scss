@@ -18,22 +18,12 @@
 
   h1 {
     font-size: 2.2rem;
-    font-weight: 700;
     line-height: 1.2;
     margin-bottom: .5rem;
     color: $maroon;
+    font-family: $font-family-sans-serif;
+    font-weight: 500;
 
-    @at-root .product-pages &,
-    .product-category-pages &,
-    .system-pages & {
-      color: $maroon;
-      font-family: $font-family-sans-serif;
-      font-weight: 500;
-    }
-    @at-root .video-pages &,
-    .gallery-pages & {
-      color: $maroon;
-    }
     @at-root .blog & {
       text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.5);
     }
@@ -45,20 +35,10 @@
   }
 
   h4 {
-    font-weight: 700;
     line-height: 1.2;
     color: $dark-gray;
-
-    @at-root .product-pages &,
-    .system-pages &,
-    .product-category-pages & {
-      color: $dark-gray;
-      font-family: $font-family-sans-serif;
-      font-weight: 100;
-    }
-    @at-root .video-pages & {
-      color: $dark-gray;
-    }
+    font-family: $font-family-sans-serif;
+    font-weight: 100;
   }
 
   .light-title {
