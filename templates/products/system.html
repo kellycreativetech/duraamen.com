@@ -50,7 +50,23 @@
 
         <div class="text-center mt-3">
           {% chunk "under-product-image" %}
+
+          {% if editing %}
+          <p><small>Kit Page URL</small><br>{% page "shop_now_url" placeholder="Enter an ecommerce page URL" type="text" %}</p>
+
+          <p><small>Button Text</small><br>{% page "button_text" placeholder="Enter the button's text" type="text" %}</p>
+
+          {% endif %}
+
+
+          {% if page.content.shop_now_url %}
+          <a class="btn btn-secondary btn-lg btn-block" href="{{ page.content.shop_now_url }}" itemprop="potentialAction">{{ page.content.button_text }} <i class="fa fa-chevron-right"></i></a>
+
+          {% else %}
+
           <a class="btn btn-primary btn-lg btn-block" href="/forms/order-now?product={{ page.path|slugify }}" itemprop="potentialAction">How to Order <i class="fa fa-chevron-right"></i></a>
+          {% endif %}
+
           <div class="d-none d-md-block">
             {% chunk "under-product-button" %}
             {% include "includes/snippets/section-icons.html" %}
