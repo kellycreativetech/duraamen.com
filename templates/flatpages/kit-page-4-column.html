@@ -361,7 +361,7 @@
                   {% page_list "colors" %}
                   <li class="thumbnail">
                     {% list_item "image" type="image" %}
-                    <img src="{% imgix_url list_item.image.url %}?w=136&h=136&fit=crop">
+                    <img src="{% imgix_url list_item.image.url %}?w=136&h=136&fit=crop" alt="{{ list_item.name }} color chip">
                     <p class="caption" itemprop="color">{% list_item "name" type="text" %}</p>
                   </li>
                   {% end_list %}
