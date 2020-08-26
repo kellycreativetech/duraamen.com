@@ -57,6 +57,21 @@
   bottom: 55px!important;
 }
 
+//responsive information tables
+
+.responsiveInfo {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd!important;
+  th, td {
+    padding: 8px;
+  }
+  tr:nth-child(even){
+    background-color: #f2f2f2!important;
+  }
+}
+
 // Case Studies
 
 body.case-study-pages {
