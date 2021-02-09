@@ -1,3 +1,4 @@
+{% comment %}
 <!--[if lte IE 8]>
 <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
 <![endif]-->
@@ -8,9 +9,9 @@
 	formId: "ae38a2f5-7582-4c63-912d-4dc562d31472"
 });
 </script>
+{% endcomment %}
 
 <!-- original form code -->
-{% comment %}
 <form id="contact-form" data-glass-form-api action="/404/" method="POST">
   {% csrf_token %}
   <input name="to" type="hidden" value="bbbf6b9f-1dc5-4a06-862c-c4d7135b78f2,cca47383-89e1-4e69-89e1-205ff5301c12">
@@ -68,4 +69,3 @@ the text needs to match exactly here.
 
 
 <input type="checkbox" value="262144" name="group[10517][262144]" id="mce-group[10517]-10517-0" style="display:none;" checked>
-{% endcomment %}
