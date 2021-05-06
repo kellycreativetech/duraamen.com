@@ -13,7 +13,7 @@
   style="background-image: url({% imgix_url page.content.masthead_img %}?w=1800&h=1000&fit=crop&crop=entropy&sat=-30&crop=bottom&blend=000000&bm=normal&balph=40);">
   <!--This is the if statment for the hero image if needed
   {% if page.content.masthead_img %}{% imgix_url page.content.masthead_img %}{% else %}{% imgix_url "/dist/img/iStock-92277191.jpg" %}{% endif %}  -->
-    <div class="full-bg-img">
+    {% if page.content.masthead_img %}<div class="full-bg-img">{% endif %}
       {% page "masthead_img" type="img" %}
         <div class="container flex-center">
             <div class="row smooth-scroll justify-content-md-center">
@@ -26,7 +26,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    {% if page.content.masthead_img %}</div>{% endif %}
 </div>
 {% endblock %}
 
