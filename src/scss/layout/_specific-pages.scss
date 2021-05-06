@@ -57,6 +57,21 @@
   bottom: 55px!important;
 }
 
+//responsive information tables
+
+.responsiveInfo {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd!important;
+  th, td {
+    padding: 8px;
+  }
+  tr:nth-child(even){
+    background-color: #f2f2f2!important;
+  }
+}
+
 // Case Studies
 
 body.case-study-pages {
@@ -91,6 +106,15 @@ body.case-study-pages {
     }
 
     .card{
+      .shopify-buy__product__compare-price {
+        color: #000;
+      }
+      .shopify-buy__product__title {
+        display:none;
+      }
+      .shopify-buy__option-select__label {
+          display: none;
+      }
       h1,h2,h3,h4,h5,h6,p,li,blockquote {
         color: #000;
         text-shadow: none;
